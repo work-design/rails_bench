@@ -1,0 +1,5 @@
+<div class="ui bottom attached segment">
+  <%= form_with model: @team_member, url: my_team_members_path(@team), local: true do |f| %>
+    <%= render partial: 'form', locals: { f: f } %>
+  <% end %>
+</div>

@@ -1,0 +1,33 @@
+<h2 class="ui center aligned icon header">
+  <%= @task.title %>
+</h2>
+  <% if @task.project %>
+  
+    <div class="ui top attached tabular menu">
+    <%= link_to '任务列表', tasks_my_project_path(@task.project_id), class: active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index') %>
+    <div class="right menu">
+      <div class="item">
+        <div class="ui transparent icon input">
+          <input type="text" placeholder="Search tasks">
+          <i class="search link icon"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% unless @task.root? %>
+
+<div class="ui attached segment">
+
+  <div class="ui top attached breadcrumb">
+    <% @task.ancestors.each do |ancestor| %>
+      <%= link_to ancestor.title, my_task_path(ancestor.id), class: 'section' %>
+      <div class="divider">/</div>
+      <div class="active section"><%= @task.title %></div>
+    <% end %>
+  </div>
+
+</div>
+
+<% end %>

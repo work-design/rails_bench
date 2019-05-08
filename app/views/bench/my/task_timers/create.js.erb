@@ -1,0 +1,3 @@
+$('#play_task_<%= @task.id %>').replaceWith('<%= j(render 'pause') %>');
+
+$('#task_<%= @task.id %> > .content').prepend('<i class="green hourglass start icon"></i>');

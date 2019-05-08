@@ -1,0 +1,5 @@
+$('#item_add').html('<%= j(render 'new') %>');
+
+function removeForm() {
+  $('#item_add').html('<%= j(render 'add_link') %>');
+}

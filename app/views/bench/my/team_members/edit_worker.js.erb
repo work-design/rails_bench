@@ -1,0 +1,15 @@
+$('#modal').replaceWith('<%= j(render 'edit_worker') %>');
+$('#modal').modal('setting', {autofocus: false}).modal('show');
+
+
+$('#team_member_worker_id').dropdown({
+  apiSettings: {
+    url: '<%= workers_my_team_member_path(@team_member.team_id, @team_member.id) %>' + '?q={query}',
+    cache: false
+  },
+  fields: {
+    name: 'user_name',
+    value: 'id'
+  },
+  minCharacters: 3
+});

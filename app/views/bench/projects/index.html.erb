@@ -1,0 +1,13 @@
+<div class="ui segment top attached">
+</div>
+
+<div class="ui segment bottom attached items">
+  <% @projects.each do |project| %>
+    <%= render partial: 'project', locals: { project: project } %>
+  <% end %>
+</div>
+
+<%= paginate @projects %>
+
+
+

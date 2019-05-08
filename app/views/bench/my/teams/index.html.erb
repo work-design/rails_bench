@@ -1,0 +1,54 @@
+<div class="ui top attached borderless menu">
+  <div class="header item">My Teams</div>
+  <div class="right menu">
+    <div class="item">
+      <%= link_to 'New My Team', new_my_team_path, class: 'ui teal button' %>
+    </div>
+  </div>
+</div>
+
+<div class="ui top attached segment">
+  <%= render 'search_form' %>
+</div>
+
+<table class="ui bottom attached table">
+  <thead>
+    <tr>
+      <th><%= Team.human_attribute_name(:id) %></th>
+      <th><%= Team.human_attribute_name(:name) %></th>
+      <th><%= Team.human_attribute_name(:description) %></th>
+      <th><%= Team.human_attribute_name(:members) %></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @teams.each do |team| %>
+    <tr>
+      <td><%= team.id %></td>
+      <td><%= team.name %></td>
+      <td><%= team.description %></td>
+      <td>
+        <% team.team_members.each do |member| %>
+          <%= image_tag member.worker.user_avatar, class: 'ui avatar image' %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to my_team_members_path(team), data: { tooltip: 'members' }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-user"></i>
+        <% end %>
+        <%= link_to my_team_path(team), data: { tooltip: t('.show') }, class: 'ui mini circular icon button' do %>
+          <i class="location arrow icon"></i>
+        <% end %>
+        <%= link_to edit_my_team_path(team), data: { tooltip: t('.edit') }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to my_team_path(team), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @teams %>

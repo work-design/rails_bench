@@ -1,0 +1,20 @@
+<dl>
+  <dt></dt>
+  <dd>
+    <%= link_to '默认', filter_params(except: :state), class: active_helper(state: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to '未完成', filter_params(state: 'init'), class: active_helper(state: 'init', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to '进行中', filter_params(state: 'doing'), class: active_helper(state: 'doing', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to '已完成', filter_params(state: 'done'), class: active_helper(state: 'done', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+  </dd>
+</dl>
+<dl>
+  <dt></dt>
+  <dd>
+    <%= link_to 'All', filter_params(except: :worker_id), class: active_helper(worker_id: '', active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+    <%= link_to current_worker.duty.name, filter_params(worker_id: current_worker.id), class: active_helper(worker_id: current_worker.id, active_class: 'ui basic blue button', item_class: 'ui basic white button') %>
+  </dd>
+</dl>
+
+
+
+

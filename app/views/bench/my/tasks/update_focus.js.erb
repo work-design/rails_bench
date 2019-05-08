@@ -1,0 +1,4 @@
+$('#modal').modal('hide');
+
+$('#task_<%= @task.id %>').replaceWith('<%= j(render partial: '_index/today_item', locals: { task: @task }) %>');
+document.querySelector('#task_<%= @task.id %>').style.backgroundColor = '#f4f4f4';

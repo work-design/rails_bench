@@ -1,0 +1,26 @@
+<%= render layout: 'show_layout' do %>
+
+  <div id="detail_note">
+    <% if @task.note %>
+      <%= render partial: 'rails_detail_my/notes/show', locals: { note: @task.note } %>
+    <% else %>
+      <%= link_to '添加描述', edit_detail_note_path('Task', @task.id), remote: true %>
+    <% end %>
+  </div>
+
+  <table class="ui very basic table">
+    <thead>
+    <tr>
+      <th class="" colspan="4">
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <%= render '_show/pipeline' %>
+      <%= render '_show/worker_id' %>
+      <%= render '_show/estimated_time' %>
+      <%= render '_show/project_id' %>
+    </tbody>
+  </table>
+
+<% end %>

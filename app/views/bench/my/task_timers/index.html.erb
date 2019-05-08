@@ -1,0 +1,18 @@
+<%= render layout: 'bench/my/tasks/show_layout' do %>
+  <ul class="ui items">
+    <% @task_timers.each do |task_timer| %>
+      <li>
+    <span>
+      <%= task_timer.created_at.to_s(:datetime) %> ..
+      <% if task_timer.finish_at.to_date == task_timer.created_at.to_date %>
+        <%= task_timer.finish_at.to_s(:time) %>
+      <% else %>
+        <%= task_timer.finish_at.to_s(:datetime) %>
+      <% end %>
+      执行了
+      <%= distance_of_time_in_words(task_timer.created_at, task_timer.finish_at, locale: I18n.locale) %></span>
+      </li>
+    <% end %>
+    <li><%= @task.created_at %> 创建了任务</li>
+  </ul>
+<% end %>

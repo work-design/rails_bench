@@ -1,0 +1,17 @@
+<div class="ui modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Edit Employee
+  </div>
+
+  <%= form_tag user_admin_worker_path, method: :patch, class: 'ui form' do %>
+    <div class="inline fields">
+      <div class="field">
+        <%= text_field_tag :login, nil, placeholder: 'email or mobile' %>
+      </div>
+      <div class="field">
+        <%= submit_tag 'submit', class: 'ui red button' %>
+      </div>
+    </div>
+  <% end %>
+</div>

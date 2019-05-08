@@ -1,0 +1,16 @@
+<div class="item">
+  <div class="ui avatar image">
+    <i class="grey content icon"></i>
+  </div>
+
+  <div class="content">
+    <%= link_to project.name, tasks_my_project_path(project) %>
+    <%= link_to edit_my_project_path(project) do %>
+      <i class="right floated edit icon"></i>
+    <% end %>
+    <%= link_to my_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="right floated remove icon"></i>
+    <% end %>
+    <span class="grey text"><%= project.description %></span>
+  </div>
+</div>

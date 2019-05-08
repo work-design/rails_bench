@@ -1,0 +1,7 @@
+$('#modal').modal('hide');
+
+<% if params[:item] && params[:item] != 'title' %>
+  $('#task_<%= params[:item] %>').replaceWith('<%= j(render "_show/#{params[:item]}") %>');
+<% else %>
+  $('#task_<%= @task.id %>').replaceWith('<%= j(render partial: '_index/item', locals: { task: @task }) %>');
+<% end %>

@@ -1,0 +1,5 @@
+<% if params[:item] %>
+  $('#task_template_<%= params[:item] %>').html('<%= j(render "show_#{params[:item]}") %>');
+<% else %>
+  $('#task_template_<%= @task_template.id %>').html('<%= j(render partial: 'item', locals: { task_template: @task_template }) %>');
+<% end %>

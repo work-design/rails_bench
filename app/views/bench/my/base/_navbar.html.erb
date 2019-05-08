@@ -1,0 +1,24 @@
+<header class="ui borderless menu">
+  <div class="ui container">
+
+    <%= link_to 'One Work', root_path, class: 'item header' %>
+    <%= link_to '我的项目', my_projects_path, class: active_helper(controllers: ['my/projects']) %>
+    <%= link_to '今天', my_tasks_path, class: active_helper(controllers: ['tasks']) %>
+    <div class="right menu">
+      <%= link_to current_user.name || 'name', my_root_path, class: active_helper(controllers: ['profiles']) %>
+
+      <%= render 'worker_form' %>
+
+      <div class="ui dropdown item" id="navbar_dropdown">
+        <%= image_tag current_user.avatar_url, class: 'ui avatar image' %>
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <%= link_to 'Profile', '/my/profile', class: 'item' %>
+          <%= link_to 'Admin', '/admin', class: 'item' %>
+          <%= link_to '退出', logout_path, data: { confirm: '确认退出' }, class: 'item' %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</header>

@@ -1,0 +1,36 @@
+<% if @task.pipeline %>
+<tr id="task_edit_pipeline">
+  <td>
+    <%= @task.pipeline.name %>
+  </td>
+  <td>
+    <div class="ui mini ordered steps">
+    <% @task.pipeline.pipeline_members.includes(:duty, :worker).each do |member| %>
+      <div class="<%= active_assert(member.worker_id == @task.worker_id, expected: 'active step', unexpected: 'step') %>">
+        <div class="content">
+          <div class="title"><%= member.duty.name %></div>
+          <div class="description"><%= member.worker.user_name %></div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </td>
+  <td>
+    <%= link_to edit_my_task_path(@task, item: 'pipeline'), remote: true do %>
+      <i class="grey edit icon"></i>
+    <% end %>
+  </td>
+</tr>
+
+<% elsif @task.project %>
+  <td colspan="3">
+    <%= default_form_with model: @task, url: my_task_path, method: :patch, on: { wrapper_all: false, offset: false } do |f| %>
+      <%= hidden_field_tag :item, 'pipeline' %>
+      <div class="inline fields">
+        <%= f.collection_select :pipeline_id, @task.project.pipelines, :id, :name, on: { wrapper_all: false } %>
+        <%= f.submit %>
+      </div>
+    <% end %>
+  </td>
+<% end %>
+

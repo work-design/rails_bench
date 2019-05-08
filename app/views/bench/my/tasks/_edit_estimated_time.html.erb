@@ -1,0 +1,17 @@
+<tr id="task_edit_estimated_time">
+  <td>
+    预估时间：
+    <%= form_tag my_task_path(@task), method: :patch, remote: true, id: 'edit_estimated_time' %>
+    <%= hidden_field_tag :item, 'estimated_time', form: 'edit_estimated_time' %>
+  </td>
+  <td><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></td>
+  <td>
+    <%= submit_tag 'save', class: 'ui mini button', form: 'edit_estimated_time' %>
+    <a class="ui grey mini button" onclick="removeForm()">取消</a>
+  </td>
+</tr>
+
+
+
+
+

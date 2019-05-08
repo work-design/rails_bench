@@ -1,0 +1,36 @@
+<%= render partial: 'bench/my/projects/top_bar', locals: { project: @project } %>
+
+<table class="ui very basic table">
+  <thead>
+    <tr>
+      <th><%= ProjectFund.human_attribute_name(:price) %></th>
+      <th><%= ProjectFund.human_attribute_name(:user) %></th>
+      <th>
+        <%= link_to 'New Project Fund', new_my_project_fund_path(@project), class: 'ui right floated mini blue button' %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @project_funds.each do |project_fund| %>
+      <tr>
+        <td><%= project_fund.price %></td>
+        <td>
+          <% if project_fund.visible %>
+            <%= link_to project_fund.user.name, user_path(project_fund.user_id) %>
+          <% else %>
+            <%= project_fund.user.name %>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_my_project_fund_path(@project, project_fund), data: { tooltip: t('.edit') }, class: 'ui pink mini icon button' do %>
+            <i class="pencil alternate icon"></i>
+          <% end %>
+          <%= link_to my_project_fund_path(@project, project_fund), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui red mini icon button' do %>
+            <i class="times icon"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

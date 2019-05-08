@@ -1,0 +1,10 @@
+<% if params[:item] == 'title' %>
+  $('#task_template_<%= @task_template.id %>').html('<%= j(render "edit_#{params[:item]}") %>');
+<% else %>
+  $('#task_<%= params[:item] %>').html('<%= j(render "edit_#{params[:item]}") %>');
+<% end %>
+
+function removeForm() {
+  $('#task_template_<%= @task_template.id %>').replaceWith('<%= j(render partial: 'index_item', locals: { task_template: @task_template }) %>');
+}
+

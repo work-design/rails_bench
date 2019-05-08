@@ -1,0 +1,10 @@
+<div class="item">
+  <a class="title">
+    <i class="share alternate square icon"></i>
+    <span>应用管理</span>
+  </a>
+  <div class="menu content">
+    <%= link_to '职位管理', admin_duties_path, class: active_helper(controllers: ['duties']) %>
+    <%= link_to '职员管理', admin_workers_path, class: active_helper(controllers: ['workers']) %>
+  </div>
+</div>

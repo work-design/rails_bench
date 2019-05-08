@@ -1,0 +1,32 @@
+<% content_for :nav do %>
+  <%= render 'navs' %>
+<% end %>
+
+<div class="ui basic horizontal segments">
+  <h3 class="ui basic segment header">
+    <% if params[:state] %>
+      <%= Task.enum_i18n(:state, params[:state]) %>
+    <% end %>
+  </h3>
+  <div class="ui basic right aligned segment">
+    <%= search_form_with scope: nil do |f| %>
+      <%= f.check_box :present_worker, checked: session[:present_worker], label: 'Present worker', onChange: "this.form.cleanSubmit()" %>
+    <% end %>
+  </div>
+</div>
+
+
+<div class="ui divided items" id="task_lists">
+  <% @tasks.each do |task| %>
+    <%= render partial: '_index/item', locals: { task: task } %>
+  <% end %>
+  <div class="item" id="item_add">
+    <% if 'done' != params[:state] %>
+      <%= link_to new_my_task_path, remote: true do %>
+        <i class="grey plus icon"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= paginate @tasks %>

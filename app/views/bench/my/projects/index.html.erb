@@ -1,0 +1,26 @@
+<div class="ui basic segment">
+
+  <h3 class="ui header">
+    我创建的
+    <%= link_to '新建项目', new_my_project_path, class: 'ui right floated mini blue button' %>
+  </h3>
+
+  <div class="ui divided items">
+    <% @projects.each do |project| %>
+      <%= render partial: 'project', locals: { project: project } %>
+    <% end %>
+  </div>
+
+  <h3 class="ui header">
+    我加入的
+    <%= link_to '项目列表', projects_path %>
+  </h3>
+  <div class="ui divided items">
+    <% current_worker && current_worker.projects.each do |project| %>
+      <%= render partial: 'project', locals: { project: project } %>
+    <% end %>
+  </div>
+
+  <%= paginate @projects %>
+
+</div>

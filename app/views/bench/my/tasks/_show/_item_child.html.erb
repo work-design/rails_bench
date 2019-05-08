@@ -1,0 +1,16 @@
+<div class="item" data-id="<%= task.id %>" id="task_<%= task.id %>">
+  <div class="ui left attached rail" style="display: none; width: 100px;">
+    <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
+  </div>
+
+  <div class="ui avatar image">
+    <i class="grey content icon"></i>
+  </div>
+
+  <div class="content">
+    <% if task.task_timer %>
+      <i class="green hourglass start icon"></i>
+    <% end %>
+    <%= link_to task.title, my_task_path(task) %>
+  </div>
+</div>

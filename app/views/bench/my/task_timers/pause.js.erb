@@ -1,0 +1,3 @@
+$('#pause_task_<%= @task.id %>').replaceWith('<%= j(render 'ready') %>');
+
+$('#task_<%= @task.id %> > .content .hourglass.icon').remove();

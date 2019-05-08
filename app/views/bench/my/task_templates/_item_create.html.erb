@@ -1,0 +1,8 @@
+<div class="item" data-id="<%= @task_template.id %>">
+  <%= render partial: 'item', locals: { task_template: @task_template } %>
+</div>
+<div class="item" id="item_add">
+  <%= link_to new_my_task_template_path(tasking_type: @task_template.tasking_type, tasking_id: @task_template.tasking_id), remote: true do %>
+    <i class="grey plus icon"></i>
+  <% end %>
+</div>

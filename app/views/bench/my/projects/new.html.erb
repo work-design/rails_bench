@@ -1,0 +1,15 @@
+<div class="ui segment breadcrumb">
+  <%= link_to '返回', my_projects_path, class: 'section' %>
+  <div class="divider"> / </div>
+  <div class="active section">编辑</div>
+</div>
+
+<div class="ui segment">
+  <%= form_with model: [:my, @project], html: { 'data-project_id': @project.id } do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+

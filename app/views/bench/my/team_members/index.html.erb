@@ -1,0 +1,35 @@
+<table class="ui very basic table">
+  <thead>
+    <tr>
+      <th>职位</th>
+      <th>Worker</th>
+      <th>加入时间</th>
+      <th>
+        <%= link_to 'New Project Member', new_my_team_member_path(@team), class: 'ui mini blue right floated button' %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @team_members.each do |team_member| %>
+    <tr>
+      <td><%= team_member.duty.name %></td>
+      <td>
+        <% if team_member.worker_id.present? %>
+          <%= link_to team_member.worker.user_name %>
+        <% else %>
+          <%= link_to '邀请worker', worker_my_team_member_path(@team, team_member), remote: true, class: 'ui blue label' %>
+        <% end %>
+      </td>
+      <td><%= team_member.created_at.to_s(:db2) %></td>
+      <td>
+        <%= link_to '编辑', edit_my_team_member_path(@team, team_member), class: 'ui pink label' %>
+        <%= link_to '删除', my_team_member_path(@team, team_member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @team_members %>
+

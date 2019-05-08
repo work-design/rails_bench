@@ -1,0 +1,17 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Schedule
+  </div>
+
+  <div class="content">
+    <%= default_form_with model: @task, url: my_task_path(@task), method: 'patch', on: { wrapper_id: true } do |f| %>
+      <div class="inline fields">
+        <label class="six wide field"></label>
+        <%= link_to 'today', focus_my_task_path(@task, focus: 'today'), method: :patch, remote: true, class: 'ui mini green button' %>
+      </div>
+      <%= render partial: 'the_booking/time/form', locals: { f: f } %>
+    <% end %>
+  </div>
+
+</div>

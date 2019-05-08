@@ -1,0 +1,16 @@
+<tr id="task_edit_project_id">
+  <td>
+    所属项目：
+    <%= form_tag project_id_my_task_url(@task), method: :patch, remote: true, id: 'edit_project_id' %>
+    <%= hidden_field_tag :item, 'project_id', form: 'edit_project_id' %>
+  </td>
+  <td>
+    <%= select_tag 'task[project_id]', options_from_collection_for_select(current_user.projects, :id, :name, @task.project_id), include_blank: true, form: 'edit_project_id' %>
+  </td>
+  <td>
+    <%= submit_tag 'save', class: 'ui mini button', form: 'edit_project_id' %>
+    <a class="ui grey mini button" onclick="removeForm()">取消</a>
+  </td>
+</tr>
+
+

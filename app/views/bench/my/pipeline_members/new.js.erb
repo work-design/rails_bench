@@ -1,0 +1,14 @@
+$('#modal').replaceWith('<%= j(render 'new') %>');
+$('#modal').modal('setting', { autofocus: false }).modal('show');
+
+$('#pipeline_member_duty_id').dropdown({
+  onChange: function (value, text, $selectedItem) {
+    var search_url = new URL(this.dataset['url']);
+    search_url.searchParams.set('duty_id', value)
+    search_url.searchParams.set('piping_type', '<%= params[:piping_type] %>')
+    search_url.searchParams.set('piping_id', '<%= params[:piping_id] %>')
+
+    fetch_xhr_script(search_url);
+  }
+});
+$('#pipeline_member_worker_id').dropdown();

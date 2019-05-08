@@ -1,0 +1,22 @@
+<div class="ui center avatar image" id="play_task_<%= @task.id %>">
+  <% if @task.task_timer %>
+    <%= link_to pause_my_task_task_timer_path(@task, @task.task_timer), method: 'patch', remote: true do %>
+      <i class="grey pause icon"></i>
+    <% end %>
+  <% else %>
+    <%= link_to my_task_task_timers_path(@task), method: 'post', remote: true do %>
+      <i class="grey play icon"></i>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="content">
+
+<%= form_with model: [:my, @task], remote: true, html: { class: 'ui form' } do |f| %>
+  <div class="ui small action input">
+    <%= f.text_field :title %>
+    <%= f.submit '保存', class: 'ui green button' %>
+    <a class="ui grey button" onclick="removeForm()">取消</a>
+  </div>
+<% end %>
+</div>
