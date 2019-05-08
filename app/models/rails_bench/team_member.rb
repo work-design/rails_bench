@@ -3,7 +3,7 @@ module RailsBench::TeamMember
   included do
     belongs_to :team
     belongs_to :job_title
-    belongs_to :worker, optional: true
+    belongs_to :member, optional: true
   end
   
 end

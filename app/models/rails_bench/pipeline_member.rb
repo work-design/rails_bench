@@ -7,10 +7,10 @@ module RailsBench::PipelineMember
     acts_as_list scope: [:pipeline_id]
 
     belongs_to :pipeline
-    belongs_to :duty
-    belongs_to :worker
+    belongs_to :job_title
+    belongs_to :member_id
   
-    validates :worker_id, uniqueness: { scope: [:pipeline_id, :duty_id] }
+    validates :member_id, uniqueness: { scope: [:pipeline_id, :duty_id] }
   end
   
 
