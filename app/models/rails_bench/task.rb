@@ -1,6 +1,4 @@
 module RailsBench::Task
-  include RailsDetail::ContentModel
-  include RailsBooking::Plan
   extend ActiveSupport::Concern
   included do
     acts_as_list scope: [:user_id, :parent_id]
