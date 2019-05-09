@@ -9,6 +9,7 @@
       <th><%= Pipeline.human_attribute_name(:name) %></th>
       <th><%= Pipeline.human_attribute_name(:description) %></th>
       <th><%= Pipeline.human_attribute_name(:piping_type) %></th>
+      <th><%= Pipeline.human_attribute_name(:pipeline_members) %></th>
       <th>
         <%= link_to new_admin_pipeline_path, remote: true, class: 'ui mini green button' do %>
           <i class="fas fa-plus"></i><% t('.new') %>
@@ -24,6 +25,22 @@
       <td><%= pipeline.description %></td>
       <td><%= pipeline.piping_type_i18n %></td>
       <td>
+        <div class="ui mini pad steps">
+          <% pipeline.pipeline_members.each do |pipeline_member| %>
+            <div class="step">
+              <%= image_tag pipeline_member.member.user.avatar, class: 'ui avatar image' %>
+              <div class="content">
+                <span><%= pipeline_member.job_title.name %></span>
+                <span><%= pipeline_member.member.name %></span>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </td>
+      <td>
+        <%= link_to new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui mini circular icon button' do %>
+          <span>成员管理</span>
+        <% end %>
         <%= link_to admin_pipeline_path(pipeline), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-eye"></i>
         <% end %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :projects do
       match :github, on: :member, via: [:get, :post]
     end
-    resources :workers do
+    resources :members do
       get :search, on: :collection
     end
   end
@@ -23,16 +23,16 @@ Rails.application.routes.draw do
       resources :task_timers do
         patch :pause, on: :member
       end
-      resources :task_workers
+      resources :task_members
       resources :pictures
       resources :links
     end
     resources :teams do
       resources :team_members, path: 'members', as: 'members' do
         get :search, on: :collection
-        get :workers, on: :member
-        get 'worker' => :edit_worker, on: :member
-        patch 'worker' => :update_worker, on: :member
+        get :members, on: :member
+        get 'member' => :edit_member, on: :member
+        patch 'member' => :update_member, on: :member
       end
     end
     resources :projects do
@@ -41,26 +41,26 @@ Rails.application.routes.draw do
       get :github_hook, on: :member
       resources :project_members, path: 'members', as: 'members' do
         get :search, on: :collection
-        get :workers, on: :member
-        get 'worker' => :edit_worker, on: :member
-        patch 'worker' => :update_worker, on: :member
+        get :members, on: :member
+        get 'member' => :edit_member, on: :member
+        patch 'member' => :update_member, on: :member
       end
       resources :project_funds, path: 'funds', as: 'funds' do
 
       end
     end
-    resources :pipelines do
-      get :workers, on: :member
-      resources :pipeline_members, path: 'members', as: 'members' do
-        get 'worker' => :edit_worker, on: :member
-        patch 'worker' => :update_worker, on: :member
-      end
-    end
+    resources :pipelines
   end
 
   scope :admin, module: 'bench/admin', as: 'admin' do
-    resources :pipelines
-    resources :workers do
+    resources :pipelines do
+      get :members, on: :member
+      resources :pipeline_members, path: 'members', as: 'members' do
+        get 'member' => :edit_member, on: :member
+        patch 'member' => :update_member, on: :member
+      end
+    end
+    resources :members do
       get :search, on: :collection
     end
   end

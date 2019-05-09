@@ -1,5 +1,0 @@
-<%= form_with model: [:my, @pipeline_member] do |f| %>
-  <%= f.collection_select :duty_id, @duties, :id, :name, { include_blank: true }, { data: { url: workers_my_pipeline_url(@pipeline_member.pipeline_id) } } %>
-  <%= f.select :worker_id, options_for_select([]) %>
-  <%= f.submit %>
-<% end %>

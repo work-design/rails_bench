@@ -1,0 +1,3 @@
+<% form_object = default_form_object(@pipeline_member) %>
+
+$('#pipeline_member_member_id').html('<%= j(render partial: 'members_options', locals: { f: form_object }) %>');

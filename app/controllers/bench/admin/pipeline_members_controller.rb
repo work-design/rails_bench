@@ -1,7 +1,7 @@
-class Bench::My::PipelineMembersController < Bench::My::BaseController
+class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   before_action :set_pipeline
   before_action :set_pipeline_member, only: [:show, :edit, :update, :destroy]
-  before_action :set_piping, only: [:new]
+  #before_action :set_piping, only: [:new]
 
   def index
     @pipeline_members = PipelineMember.all
@@ -9,11 +9,12 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
 
   def new
     @pipeline_member = @pipeline.pipeline_members.build
-    if @piping.is_a?(Project)
-      @duties = @piping.duties
-    else
-      @duties = Duty.all
-    end
+    @job_titles = JobTitle.default_where(default_params)
+    # if @piping.is_a?(Project)
+    #   @job_titles = @piping.duties
+    # else
+    #   @job_titles = JobTitle.default_where(default_params)
+    # end
   end
 
   def create
@@ -21,7 +22,7 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
 
     respond_to do |format|
       if @pipeline_member.save
-        format.html { redirect_to my_pipelines_url(piping_type: @pipeline.piping_type, piping_id: @pipeline.piping_id) }
+        format.html { redirect_to admin_pipelines_url(piping_type: @pipeline.piping_type, piping_id: @pipeline.piping_id) }
         format.json { render :show, status: :created, location: @pipeline_member }
       else
         format.html { render :new }
@@ -51,7 +52,7 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
   def destroy
     @pipeline_member.destroy
     respond_to do |format|
-      format.html { redirect_to my_pipeline_members_url }
+      format.html { redirect_to admin_pipeline_members_url }
       format.json { head :no_content }
     end
   end
@@ -71,9 +72,9 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
 
   def pipeline_member_params
     params.fetch(:pipeline_member, {}).permit(
-      :duty_id,
+      :job_title_id,
       :position,
-      :worker_id
+      :member_id
     )
   end
 end

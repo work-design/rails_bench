@@ -32,6 +32,29 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
   def show
   end
 
+  def members
+    # if @pipeline.piping_type == 'FacilitateProvider'
+    #   @members = @pipeline.piping.provider.members.where(duty_id: params[:duty_id])
+    # elsif @pipeline.piping_type == 'Project'
+    #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
+    # end
+    q_params = {
+      'member_departments.job_title_id': params[:job_title_id]
+    }
+    q_params.merge! default_params
+    @members = Member.default_where(q_params)
+    if @members
+      @results = @members.map { |x| { value: x.id, text: x.name, name: x.name } }
+    end
+  
+    @pipeline_member = PipelineMember.new
+  
+    respond_to do |format|
+      format.js
+      format.json { render json: { values: @results } }
+    end
+  end
+
   def edit
   end
 
