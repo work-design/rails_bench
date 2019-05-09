@@ -1,0 +1,5 @@
+zh:
+  activerecord:
+    attributes:
+      pipeline:
+        piping_type: 流水线类型

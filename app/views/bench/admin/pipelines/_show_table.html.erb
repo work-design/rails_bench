@@ -1,0 +1,24 @@
+<table class="ui very basic large table">
+  <thead>
+    <tr>
+      <th class="six wide">
+        <%= link_to t('.edit'), edit_admin_pipeline_path(@pipeline), class: 'ui mini blue right floated button', remote: true %>
+      </th>
+      <th class="ten wide"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="right aligned"><%= Pipeline.human_attribute_name(:name) %></td>
+      <td><%= @pipeline.name %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Pipeline.human_attribute_name(:description) %></td>
+      <td><%= @pipeline.description %></td>
+    </tr>
+    <tr>
+      <td class="right aligned"><%= Pipeline.human_attribute_name(:piping_type) %></td>
+      <td><%= @pipeline.piping_type %></td>
+    </tr>
+  </tbody>
+</table>

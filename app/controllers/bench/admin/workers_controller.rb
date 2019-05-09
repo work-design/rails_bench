@@ -25,7 +25,7 @@ class Bench::Admin::WorkersController < Bench::Admin::BaseController
 
     respond_to do |format|
       if @worker.save
-        format.html { redirect_to admin_workers_url, notice: 'Worker was successfully created.' }
+        format.html { redirect_to admin_workers_url }
         format.js
       else
         format.html { redirect_to admin_workers_url, error: @worker.errors }
@@ -44,7 +44,7 @@ class Bench::Admin::WorkersController < Bench::Admin::BaseController
     @worker.assign_attributes(worker_params)
     respond_to do |format|
       if @worker.save
-        format.html { redirect_to admin_workers_url, notice: 'Worker was successfully updated.' }
+        format.html { redirect_to admin_workers_url }
         format.js
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class Bench::Admin::WorkersController < Bench::Admin::BaseController
 
     respond_to do |format|
       if @worker.update(user_id: user&.id)
-        format.html { redirect_to admin_workers_url, notice: 'Worker was successfully updated.' }
+        format.html { redirect_to admin_workers_url }
         format.js
       else
         format.html { render :edit }
@@ -78,7 +78,7 @@ class Bench::Admin::WorkersController < Bench::Admin::BaseController
   def destroy
     @worker.destroy
     respond_to do |format|
-      format.html { redirect_to admin_workers_url, notice: 'Worker was successfully destroyed.' }
+      format.html { redirect_to admin_workers_url }
       format.json { head :no_content }
     end
   end

@@ -1,7 +1,4 @@
-class Bench::Admin::BaseController < AdminController
+class Bench::Admin::BaseController < RailsBench.config.admin_controller.constantize
 
-  def rails_role_user
-    current_user
-  end
 
 end

@@ -1,3 +1,4 @@
+require 'rails_com'
 module RailsBench
   class Engine < ::Rails::Engine
     

@@ -21,7 +21,7 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
 
     respond_to do |format|
       if @pipeline_member.save
-        format.html { redirect_to my_pipelines_url(piping_type: @pipeline.piping_type, piping_id: @pipeline.piping_id), notice: 'Pipeline member was successfully created.' }
+        format.html { redirect_to my_pipelines_url(piping_type: @pipeline.piping_type, piping_id: @pipeline.piping_id) }
         format.json { render :show, status: :created, location: @pipeline_member }
       else
         format.html { render :new }
@@ -39,7 +39,7 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
   def update
     respond_to do |format|
       if @pipeline_member.update(pipeline_member_params)
-        format.html { redirect_to @pipeline_member, notice: 'Pipeline member was successfully updated.' }
+        format.html { redirect_to @pipeline_member }
         format.json { render :show, status: :ok, location: @pipeline_member }
       else
         format.html { render :edit }
@@ -51,7 +51,7 @@ class Bench::My::PipelineMembersController < Bench::My::BaseController
   def destroy
     @pipeline_member.destroy
     respond_to do |format|
-      format.html { redirect_to my_pipeline_members_url, notice: 'Pipeline member was successfully destroyed.' }
+      format.html { redirect_to my_pipeline_members_url }
       format.json { head :no_content }
     end
   end

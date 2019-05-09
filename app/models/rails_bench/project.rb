@@ -10,6 +10,8 @@ module RailsBench::Project
     has_many :project_funds, dependent: :nullify
   
     validates :name, presence: true
+    
+    has_one_attached :logo
   end
   
   def logo_url

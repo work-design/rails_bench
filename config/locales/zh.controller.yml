@@ -1,0 +1,6 @@
+zh:
+  bench:
+    admin:
+      pipelines:
+        index:
+          title: 流水线设置
