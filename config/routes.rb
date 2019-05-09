@@ -59,7 +59,6 @@ Rails.application.routes.draw do
   end
 
   scope :admin, module: 'bench/admin', as: 'admin' do
-    resources :duties
     resources :workers do
       get :search, on: :collection
     end
