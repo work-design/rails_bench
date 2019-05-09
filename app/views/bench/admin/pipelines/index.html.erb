@@ -28,10 +28,12 @@
         <div class="ui mini steps">
           <% pipeline.pipeline_members.each do |pipeline_member| %>
             <div class="step">
+              <% if pipeline_member.member %>
               <%= image_tag pipeline_member.member.user.avatar, class: 'ui avatar image' %>
+              <% end %>
               <div class="content">
                 <span><%= pipeline_member.job_title.name %></span>
-                <span><%= pipeline_member.member.name %></span>
+                <span><%= pipeline_member.member&.name %></span>
               </div>
             </div>
           <% end %>

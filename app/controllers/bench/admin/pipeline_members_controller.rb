@@ -72,6 +72,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def pipeline_member_params
     params.fetch(:pipeline_member, {}).permit(
+      :name,
       :job_title_id,
       :position,
       :member_id

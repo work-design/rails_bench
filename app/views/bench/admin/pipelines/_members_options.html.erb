@@ -1,1 +1,1 @@
-<%= f.select :member_id, options_from_collection_for_select(@members, 'id', 'name') %>
+<%= f.collection_select :member_id, @members, 'id', 'name', include_blank: true %>
