@@ -25,7 +25,7 @@
       <td><%= pipeline.description %></td>
       <td><%= pipeline.piping_type_i18n %></td>
       <td>
-        <div class="ui mini pad steps">
+        <div class="ui mini steps">
           <% pipeline.pipeline_members.each do |pipeline_member| %>
             <div class="step">
               <%= image_tag pipeline_member.member.user.avatar, class: 'ui avatar image' %>
