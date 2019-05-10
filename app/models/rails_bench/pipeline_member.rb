@@ -1,7 +1,7 @@
 module RailsBench::PipelineMember
   extend ActiveSupport::Concern
   included do
-    attribute :position, :integer, default: 1
+    attribute :position, :integer
 
     acts_as_list scope: [:pipeline_id]
 
