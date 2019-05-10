@@ -11,8 +11,15 @@ module RailsBench::PipelineMember
   
     validates :member_id, uniqueness: { scope: [:pipeline_id, :job_title_id] }
   end
-  
 
+
+  def next_member
+    self.lower_item
+  end
+
+  def prev_member
+    self.higher_item
+  end
 
 
 end

@@ -2,7 +2,7 @@ module RailsBench::Pipeline
   extend ActiveSupport::Concern
   included do
     belongs_to :piping, polymorphic: true, optional: true
-    has_many :pipeline_members, dependent: :destroy
+    has_many :pipeline_members, ->{ order(position: :asc) }, dependent: :destroy
     has_many :members, through: :pipeline_members
   end
   
