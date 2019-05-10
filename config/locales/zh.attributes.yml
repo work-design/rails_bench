@@ -3,3 +3,4 @@ zh:
     attributes:
       pipeline:
         piping_type: 流水线类型
+        pipeline_members: 流水线设置
