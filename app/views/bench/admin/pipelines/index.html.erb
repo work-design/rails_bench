@@ -36,7 +36,7 @@
                 <div class="title"><%= pipeline_member.job_title.name %></div>
                 <div class="description">
                   <% if pipeline_member.member %>
-                    <%= image_tag pipeline_member.member.user.avatar, class: 'ui avatar image' %>
+                    <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
                   <% end %>
                   <%= pipeline_member.member&.name %>
                 </div>
