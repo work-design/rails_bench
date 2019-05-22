@@ -1,3 +1,4 @@
+<% if rails_role_user.any_role?('bench/admin') %>
 <div class="item">
   <a class="title">
     <i class="share alternate square icon"></i>
@@ -8,3 +9,4 @@
     <%= link_to '职员管理', admin_workers_path, class: active_helper(controllers: ['workers']) %>
   </div>
 </div>
+<% end %>
