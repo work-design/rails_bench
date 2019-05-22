@@ -60,9 +60,6 @@ Rails.application.routes.draw do
         patch 'member' => :update_member, on: :member
       end
     end
-    resources :members do
-      get :search, on: :collection
-    end
   end
 
 end
