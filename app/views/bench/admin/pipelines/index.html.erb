@@ -35,8 +35,15 @@
                 <div class="description">
                   <% if pipeline_member.member %>
                     <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
+                    <%= pipeline_member.member.name %>
+                  <% else %>
+                    <%= link_to edit_admin_pipeline_member_path(pipeline, pipeline_member), remote: true do %>
+                      <i class="fas fa-pencil-alt"></i>
+                    <% end %>
                   <% end %>
-                  <%= pipeline_member.member&.name %>
+                  <%= link_to admin_pipeline_member_path(pipeline, pipeline_member), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true do %>
+                    <i class="fas fa-times"></i>
+                  <% end %>
                 </div>
               </div>
             </div>

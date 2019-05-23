@@ -10,6 +10,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   def new
     @pipeline_member = @pipeline.pipeline_members.build
     @job_titles = JobTitle.default_where(default_params)
+    @members = Member.none
     # if @piping.is_a?(Project)
     #   @job_titles = @piping.duties
     # else
@@ -35,15 +36,19 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   end
 
   def edit
+    @job_titles = JobTitle.default_where(default_params)
+    @members = @pipeline_member.job_title.members
   end
 
   def update
     respond_to do |format|
       if @pipeline_member.update(pipeline_member_params)
         format.html { redirect_to @pipeline_member }
+        format.js
         format.json { render :show, status: :ok, location: @pipeline_member }
       else
         format.html { render :edit }
+        format.js
         format.json { render json: @pipeline_member.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +57,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   def destroy
     @pipeline_member.destroy
     respond_to do |format|
-      format.html { redirect_to admin_pipeline_members_url }
+      format.js
       format.json { head :no_content }
     end
   end
@@ -67,7 +72,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   end
 
   def set_pipeline_member
-    @pipeline_member = PipelineMember.find(params[:id])
+    @pipeline_member = @pipeline.pipeline_members.find(params[:id])
   end
 
   def pipeline_member_params
