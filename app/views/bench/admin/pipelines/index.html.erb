@@ -5,13 +5,12 @@
 <table class="ui bottom attached selectable table">
   <thead>
     <tr>
-      <th class="one wide"><%= Pipeline.human_attribute_name(:id) %></th>
       <th class="three wide">
         <p><%= Pipeline.human_attribute_name(:name) %></p>
         <p class="ui grey text"><%= Pipeline.human_attribute_name(:description) %></p>
       </th>
       <th class="two wide"><%= Pipeline.human_attribute_name(:piping_type) %></th>
-      <th class="eight wide"><%= Pipeline.human_attribute_name(:pipeline_members) %></th>
+      <th class="nine wide"><%= Pipeline.human_attribute_name(:pipeline_members) %></th>
       <th class="two wide">
         <%= link_to new_admin_pipeline_path, remote: true, class: 'ui mini green button' do %>
           <i class="fas fa-plus"></i><% t('.new') %>
@@ -22,7 +21,6 @@
   <tbody>
   <% @pipelines.each do |pipeline| %>
     <tr>
-      <td><%= pipeline.id %></td>
       <td>
         <p><%= pipeline.name %></p>
         <p class="ui grey text"><%= pipeline.description %></p>
