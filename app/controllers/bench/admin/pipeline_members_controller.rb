@@ -41,8 +41,9 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   end
 
   def update
+    @pipeline_member.assign_attributes(pipeline_member_params)
     respond_to do |format|
-      if @pipeline_member.update(pipeline_member_params)
+      if @pipeline_member.save
         format.html { redirect_to @pipeline_member }
         format.js
         format.json { render :show, status: :ok, location: @pipeline_member }
