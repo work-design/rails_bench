@@ -1,4 +1,5 @@
 <%= f.text_field :name %>
 <%= f.collection_select :job_title_id, @job_titles, :id, :name, { include_blank: true }, { data: { url: members_admin_pipeline_url(@pipeline_member.pipeline_id) } } %>
 <%= f.collection_select :member_id, @members, :id, :name, include_blank: true %>
+<%= f.color_field :color %>
 <%= f.submit %>

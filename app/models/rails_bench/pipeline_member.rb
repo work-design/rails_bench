@@ -2,6 +2,7 @@ module RailsBench::PipelineMember
   extend ActiveSupport::Concern
   included do
     attribute :position, :integer
+    attribute :color, :string
 
     acts_as_list scope: [:pipeline_id]
 

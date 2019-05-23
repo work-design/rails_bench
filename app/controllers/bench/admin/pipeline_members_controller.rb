@@ -80,8 +80,8 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
     params.fetch(:pipeline_member, {}).permit(
       :name,
       :job_title_id,
-      :position,
-      :member_id
+      :member_id,
+      :color
     )
   end
 end

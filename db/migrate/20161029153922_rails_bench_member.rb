@@ -15,6 +15,7 @@ class RailsBenchInit < ActiveRecord::Migration[5.0]
       t.references :member
       t.string :name
       t.integer :position
+      t.string :color
       t.timestamps
     end
     
