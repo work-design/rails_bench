@@ -3,4 +3,4 @@ zh:
     admin:
       pipelines:
         index:
-          title: 流水线设置
+          title: 流水线
