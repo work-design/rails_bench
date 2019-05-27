@@ -50,18 +50,22 @@
         </div>
       </td>
       <td>
-        <%= link_to new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui mini circular icon button' do %>
-          <span>成员管理</span>
-        <% end %>
-        <%= link_to admin_pipeline_path(pipeline), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-eye"></i>
-        <% end %>
-        <%= link_to edit_admin_pipeline_path(pipeline), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to admin_pipeline_path(pipeline), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
+        <div>
+          <%= link_to new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui mini circular icon button' do %>
+            <span>成员管理</span>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to admin_pipeline_path(pipeline), data: { tooltip: t('.show') }, remote: true, class: 'ui mini circular icon button' do %>
+            <i class="fas fa-eye"></i>
+          <% end %>
+          <%= link_to edit_admin_pipeline_path(pipeline), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+          <%= link_to admin_pipeline_path(pipeline), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, class: 'ui mini circular icon button' do %>
+            <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
       </td>
     </tr>
   <% end %>
