@@ -28,7 +28,7 @@ class Bench::Admin::WorkersController < Bench::Admin::BaseController
         format.html { redirect_to admin_workers_url }
         format.js
       else
-        format.html { redirect_to admin_workers_url, error: @worker.errors }
+        format.html { redirect_to admin_workers_url, alert: @worker.errors }
         format.js
       end
     end
