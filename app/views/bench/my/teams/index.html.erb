@@ -28,8 +28,8 @@
       <td><%= team.name %></td>
       <td><%= team.description %></td>
       <td>
-        <% team.team_members.each do |member| %>
-          <%= image_tag member.worker.user_avatar, class: 'ui avatar image' %>
+        <% team.members.each do |member| %>
+          <%= image_tag member.avatar, class: 'ui avatar image' %>
         <% end %>
       </td>
       <td>

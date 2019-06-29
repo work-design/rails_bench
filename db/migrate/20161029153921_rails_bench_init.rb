@@ -1,5 +1,6 @@
 class RailsBenchInit < ActiveRecord::Migration[5.0]
   def change
+    
     create_table :task_timers do |t|
       t.references :task
       t.integer :duration
@@ -14,5 +15,8 @@ class RailsBenchInit < ActiveRecord::Migration[5.0]
       t.boolean :current, default: false
       t.timestamps
     end
+
+    
+    
   end
 end

@@ -20,7 +20,7 @@ class Bench::My::TasksController < Bench::My::BaseController
       focus: ['today'],
       state: ['todo', 'doing'],
       user_id: current_user.id
-    }.with_indifferent_access
+    }
     if session[:present_worker] && current_worker
       q_params.merge! worker_id: current_worker.id
     end

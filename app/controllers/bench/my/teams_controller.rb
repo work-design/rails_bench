@@ -2,7 +2,7 @@ class Bench::My::TeamsController < Bench::My::BaseController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.includes(team_members: { worker: :user }).page(params[:page])
+    @teams = Team.includes(:members).page(params[:page])
   end
 
   def new

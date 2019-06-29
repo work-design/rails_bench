@@ -12,7 +12,6 @@ module RailsBench::Member
     has_many :projects, through: :project_members
     has_many :pipelines, dependent: :nullify
   
-    delegate :name, :avatar, to: :user, prefix: true
   end
   
 end

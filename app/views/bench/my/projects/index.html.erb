@@ -16,7 +16,7 @@
     <%= link_to '项目列表', projects_path %>
   </h3>
   <div class="ui divided items">
-    <% current_worker && current_worker.projects.each do |project| %>
+    <% current_member && current_member.projects.each do |project| %>
       <%= render partial: 'project', locals: { project: project } %>
     <% end %>
   </div>
