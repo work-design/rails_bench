@@ -33,7 +33,7 @@
               <div class="content">
                 <div class="title" style="color: <%= pipeline_member.color %>;"><%= pipeline_member.name %></div>
                 <div class="description">
-                  <%= pipeline_member.job_title.name %>
+                  <%= pipeline_member.job_title&.name %>
                   <% if pipeline_member.member %>
                     <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
                     <%= pipeline_member.member.name %>
