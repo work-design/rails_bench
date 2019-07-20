@@ -1,0 +1,12 @@
+en:
+  activerecord:
+    enum:
+      task:
+        focus:
+          inbox: Inbox
+          today: Today
+          scheduled: Scheduled
+        state:
+          todo: Todo
+          doing: Doing
+          done: Done

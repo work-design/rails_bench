@@ -8,3 +8,13 @@ zh:
         job_title_id: 职位
         member_id: 人员
         color: 颜色
+    enum:
+      task:
+        focus:
+          inbox: 待办
+          today: 今天
+          scheduled: 日程
+        state:
+          todo: 接下来
+          doing: 进行中
+          done: 完成的
