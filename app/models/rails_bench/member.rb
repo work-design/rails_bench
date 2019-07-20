@@ -3,7 +3,6 @@ module RailsBench::Member
   included do
     attribute :pomodoro, :integer
     
-    belongs_to :user
     belongs_to :provider, optional: true
 
     has_many :task_workers
@@ -11,7 +10,6 @@ module RailsBench::Member
     has_many :project_members, dependent: :nullify
     has_many :projects, through: :project_members
     has_many :pipelines, dependent: :nullify
-  
   end
   
 end
