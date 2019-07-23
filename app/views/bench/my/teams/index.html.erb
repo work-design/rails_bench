@@ -1,30 +1,17 @@
-<div class="ui top attached borderless menu">
-  <div class="header item">My Teams</div>
-  <div class="right menu">
-    <div class="item">
-      <%= link_to 'New My Team', new_my_team_path, class: 'ui teal button' %>
-    </div>
-  </div>
-</div>
-
-<div class="ui top attached segment">
-  <%= render 'search_form' %>
-</div>
-
-<table class="ui bottom attached table">
+<table class="ui table">
   <thead>
     <tr>
-      <th><%= Team.human_attribute_name(:id) %></th>
       <th><%= Team.human_attribute_name(:name) %></th>
       <th><%= Team.human_attribute_name(:description) %></th>
       <th><%= Team.human_attribute_name(:members) %></th>
-      <th>Actions</th>
+      <th>
+        <%= link_to 'New My Team', new_my_team_path, class: 'ui teal button' %>
+      </th>
     </tr>
   </thead>
   <tbody>
   <% @teams.each do |team| %>
     <tr>
-      <td><%= team.id %></td>
       <td><%= team.name %></td>
       <td><%= team.description %></td>
       <td>
