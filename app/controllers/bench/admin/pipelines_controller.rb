@@ -29,6 +29,16 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
       end
     end
   end
+  
+  def options
+    @pipeline = Pipeline.find params[:pipeline_id]
+    pm = @pipeline.pipeline_members.first
+    if pm
+      @members = Member.default_where('member_departments.job_title_id': pm.job_title_id)
+    else
+      @members = Memeber.none
+    end
+  end
 
   def show
   end
@@ -45,10 +55,6 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
     q_params.merge! default_params
     @members = Member.default_where(q_params)
     @pipeline_member = PipelineMember.new
-  
-    respond_to do |format|
-      format.js
-    end
   end
 
   def edit

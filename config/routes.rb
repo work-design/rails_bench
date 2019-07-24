@@ -54,6 +54,7 @@ Rails.application.routes.draw do
 
   scope :admin, module: 'bench/admin', as: 'admin' do
     resources :pipelines do
+      get :options, on: :collection
       get :members, on: :member
       resources :pipeline_members, path: 'members', as: 'members' do
         get 'member' => :edit_member, on: :member

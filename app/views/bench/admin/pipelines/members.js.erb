@@ -1,6 +1,6 @@
 <% f_object = form_object(@pipeline_member, on: { wrapper_all: false, wrapper_input: false, label: false }) %>
 
-$('#pipeline_member_member_id_input').html('<%= j(render partial: 'members_options', locals: { f: f_object }) %>');
+$('#pipeline_member_member_id_input').html('<%= j(f_object.collection_select :member_id, @members, :id, :name, include_blank: true) %>');
 $('#pipeline_member_member_id').dropdown({
   placeholder: false
 });
