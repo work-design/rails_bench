@@ -43,15 +43,10 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
     }
     q_params.merge! default_params
     @members = Member.default_where(q_params)
-    if @members
-      @results = @members.map { |x| { value: x.id, text: x.name, name: x.name } }
-    end
-  
     @pipeline_member = PipelineMember.new
   
     respond_to do |format|
       format.js
-      format.json { render json: { values: @results } }
     end
   end
 

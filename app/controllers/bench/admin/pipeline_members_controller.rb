@@ -37,7 +37,11 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def edit
     @job_titles = JobTitle.default_where(default_params)
-    @members = @pipeline_member.job_title.members
+    if @pipeline_member.job_title
+      @members = @pipeline_member.job_title.members
+    else
+      @members = Member.none
+    end
   end
 
   def update

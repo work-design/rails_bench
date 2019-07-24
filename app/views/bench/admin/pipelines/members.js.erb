@@ -1,3 +1,6 @@
-<% form_object = default_form_object(@pipeline_member) %>
+<% f_object = form_object(@pipeline_member, on: { wrapper_all: false, wrapper_input: false, label: false }) %>
 
-$('#pipeline_member_member_id').html('<%= j(render partial: 'members_options', locals: { f: form_object }) %>');
+$('#pipeline_member_member_id_input').html('<%= j(render partial: 'members_options', locals: { f: f_object }) %>');
+$('#pipeline_member_member_id').dropdown({
+  placeholder: false
+});
