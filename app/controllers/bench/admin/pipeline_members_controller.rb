@@ -36,7 +36,11 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   end
 
   def edit
-    @job_titles = JobTitle.default_where(default_params)
+    q_params = {
+      super_job_title_id: nil
+    }
+    q_params.merge! default_params
+    @job_titles = JobTitle.default_where(q_params, super_job_title_id: { allow: nil })
     if @pipeline_member.job_title
       @members = @pipeline_member.job_title.members
     else
