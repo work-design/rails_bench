@@ -1,8 +1,6 @@
 //= require ./_sortable
 //= require ./_show_item
 
-$('.ui.toggle.checkbox').checkbox()
-
 var el = document.getElementById('task_lists');
 var sortable = new Sortable(el, {
   group: 'name',
