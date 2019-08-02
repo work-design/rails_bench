@@ -32,28 +32,16 @@ var sortable = new Sortable(el, {
 
   onEnd: function (evt) {
     window.xxevt = evt;
-    if (evt.oldIndex == evt.newIndex) {
+    if (evt.oldIndex === evt.newIndex) {
       return
     }
     var url = '/my/tasks/' + evt.item.getAttribute('data-id') + '/reorder';
-    var params = {
-      method: 'PATCH',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-Token': document.head.querySelector("[name=csrf-token]").content
-      },
-      body: JSON.stringify({
-        sort_array: this.toArray(),
-        old_index: evt.oldIndex,
-        new_index: evt.newIndex
-      }),
-    };
-    fetch(url, params).then(function(response) {
-      return response.json()
-    }).then(function(response) {
-      console.log(response)
-    })
+    var body = JSON.stringify({
+      sort_array: this.toArray(),
+      old_index: evt.oldIndex,
+      new_index: evt.newIndex
+    });
+    Rails.ajax({ url: url, type: 'PATCH', dataType: 'json', data: body })
   },
 
   onAdd: function (evt) {
@@ -84,4 +72,3 @@ var sortable = new Sortable(el, {
     evt.relatedRect; // TextRectangle
   }
 });
-
