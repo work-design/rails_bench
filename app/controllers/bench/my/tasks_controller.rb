@@ -71,7 +71,7 @@ class Bench::My::TasksController < Bench::My::BaseController
   end
 
   def reorder
-    sort_array = params[:sort_array].select { |i| i.to_i.to_s == i }
+    sort_array = params[:sort_array].select { |i| i.integer? }
 
     if params[:new_index] > params[:old_index]
       prev_one = @task.same_scopes.find(sort_array[params[:new_index].to_i - 1])
@@ -82,8 +82,6 @@ class Bench::My::TasksController < Bench::My::BaseController
         next_one.insert_at @task.position
       end
     end
-
-    render json: @task.as_json
   end
 
   def edit
