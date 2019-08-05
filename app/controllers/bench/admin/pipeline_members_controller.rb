@@ -1,6 +1,6 @@
 class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   before_action :set_pipeline
-  before_action :set_pipeline_member, only: [:show, :edit, :update, :destroy]
+  before_action :set_pipeline_member, only: [:show, :edit, :update, :reorder, :destroy]
   #before_action :set_piping, only: [:new]
 
   def index
@@ -59,6 +59,20 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
         format.html { render :edit }
         format.js
         format.json { render json: @pipeline_member.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def reorder
+    sort_array = params[:sort_array].select { |i| i.integer? }
+  
+    if params[:new_index] > params[:old_index]
+      prev_one = @pipeline_member.same_scope.find(sort_array[params[:new_index].to_i - 1])
+      @pipeline_member.insert_at prev_one.position
+    else
+      next_ones = @pipeline_member.same_scope.find(sort_array[(params[:new_index] + 1)..params[:old_index]])
+      next_ones.each do |next_one|
+        next_one.insert_at @pipeline_member.position
       end
     end
   end

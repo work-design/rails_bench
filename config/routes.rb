@@ -59,6 +59,7 @@ Rails.application.routes.draw do
       resources :pipeline_members, path: 'members', as: 'members' do
         get 'member' => :edit_member, on: :member
         patch 'member' => :update_member, on: :member
+        patch :reorder
       end
     end
   end
