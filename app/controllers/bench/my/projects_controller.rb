@@ -14,7 +14,7 @@ class Bench::My::ProjectsController < Bench::My::BaseController
 
     respond_to do |format|
       if @project.save
-        format.html { redirect_to my_projects_url, notice: 'Project was successfully created.' }
+        format.html { redirect_to my_projects_url }
         format.json { render :show, status: :created, location: @project }
       else
         format.html { render :new }
