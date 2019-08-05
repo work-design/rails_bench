@@ -7,7 +7,7 @@
 <div class="divided padded row">
 
   <div class="eight wide column">
-    <div class="ui divided items" id="task_lists" data-controller="sortable">
+    <div class="ui divided items" data-controller="sortable" data-src="/my/tasks/">
       <% @tasks.each do |task| %>
         <%= render partial: 'bench/my/tasks/_index/item', locals: { task: task } %>
       <% end %>
