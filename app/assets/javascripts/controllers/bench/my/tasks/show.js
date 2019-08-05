@@ -1,4 +1,4 @@
-//= require ./_sortable
+//= require rails_taxon/sortable
 //= require ./_show_item
 //= require valid
 
