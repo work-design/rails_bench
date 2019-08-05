@@ -5,11 +5,11 @@
   </td>
   <td>
     <div class="ui mini ordered steps">
-    <% @task.pipeline.pipeline_members.includes(:duty, :worker).each do |member| %>
-      <div class="<%= active_assert(member.worker_id == @task.worker_id, expected: 'active step', unexpected: 'step') %>">
+    <% @task.pipeline.pipeline_members.includes(:job_title, :member).each do |member| %>
+      <div class="<%= active_assert(member.member_id == @task.member_id, expected: 'active step', unexpected: 'step') %>">
         <div class="content">
-          <div class="title"><%= member.duty.name %></div>
-          <div class="description"><%= member.worker.user_name %></div>
+          <div class="title"><%= member.job_title&.name %></div>
+          <div class="description"><%= member.member&.name %></div>
         </div>
       </div>
     <% end %>
