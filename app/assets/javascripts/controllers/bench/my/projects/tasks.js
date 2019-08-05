@@ -1,4 +1,2 @@
-//= require ../tasks/_sortable
-//= require ../tasks/_show_item
+//= require rails_taxon/sortable
 //= require valid
-//= require_self
