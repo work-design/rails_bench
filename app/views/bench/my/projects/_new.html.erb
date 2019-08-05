@@ -1,0 +1,14 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header">
+    <%= t('.new') %>
+  </div>
+
+  <div class="content">
+    <%= form_with model: [:my, @project], html: { 'data-project_id': @project.id } do |f| %>
+      <%= f.text_field :name %>
+      <%= f.text_area :description %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
