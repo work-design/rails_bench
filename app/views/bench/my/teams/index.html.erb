@@ -5,7 +5,9 @@
       <th><%= Team.human_attribute_name(:description) %></th>
       <th><%= Team.human_attribute_name(:members) %></th>
       <th>
-        <%= link_to 'New My Team', new_my_team_path, class: 'ui teal button' %>
+        <%= link_to new_my_team_path, remote: true, class: 'ui teal button' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
       </th>
     </tr>
   </thead>
@@ -24,9 +26,9 @@
           <i class="fas fa-user"></i>
         <% end %>
         <%= link_to my_team_path(team), data: { tooltip: t('.show') }, class: 'ui mini circular icon button' do %>
-          <i class="location arrow icon"></i>
+          <i class="fas fa-eye"></i>
         <% end %>
-        <%= link_to edit_my_team_path(team), data: { tooltip: t('.edit') }, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_my_team_path(team), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
         <%= link_to my_team_path(team), method: :delete, data: { tooltip: t('.destroy'), confirm: 'Are you sure?' }, class: 'ui mini circular icon button' do %>
