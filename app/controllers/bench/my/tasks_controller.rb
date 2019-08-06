@@ -77,7 +77,7 @@ class Bench::My::TasksController < Bench::My::BaseController
       prev_one = @task.same_scopes.find(sort_array[params[:new_index].to_i - 1])
       @task.insert_at prev_one.position
     else
-      next_ones = @task.same_scopes.find(sort_array[(params[:new_index] + 1)..params[:old_index]])
+      next_ones = @task.same_scopes.find(sort_array[(params[:new_index].to_i + 1)..params[:old_index].to_i])
       next_ones.each do |next_one|
         next_one.insert_at @task.position
       end
