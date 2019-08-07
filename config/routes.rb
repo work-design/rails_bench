@@ -4,9 +4,6 @@ Rails.application.routes.draw do
     resources :projects do
       match :github, on: :member, via: [:get, :post]
     end
-    resources :members do
-      get :search, on: :collection
-    end
   end
 
   scope :my, module: 'bench/my', as: 'my' do
