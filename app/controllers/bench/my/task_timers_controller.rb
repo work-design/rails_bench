@@ -7,7 +7,7 @@ class Bench::My::TaskTimersController < Bench::My::BaseController
       state: ['todo', 'doing'],
       focus: 'today',
       user_id: current_user.id
-    }.with_indifferent_access
+    }
     q_params.merge! params.permit(:state)
     @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).where(project_id: @task.project_id).default_where(q_params).page(params[:page])
     @task_timers = @task.task_timers.order(id: :desc)
