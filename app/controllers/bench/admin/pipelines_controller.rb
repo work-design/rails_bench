@@ -94,7 +94,7 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
       :description,
       :piping_type
     )
-    p.merge! default_params
+    p.merge! default_form_params
   end
 
 end
