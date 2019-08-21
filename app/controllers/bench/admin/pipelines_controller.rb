@@ -3,7 +3,7 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
 
   def index
     q_params = {}
-    q_params.merge! organ_ancestors_params
+    q_params.merge! default_params
     q_params.merge! params.permit(:piping_type)
     @pipelines = Pipeline.default_where(q_params).page(params[:page])
   end

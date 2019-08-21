@@ -1,6 +1,7 @@
 module RailsBench::PipelineMember
   extend ActiveSupport::Concern
   included do
+    attribute :name, :string
     attribute :position, :integer
     attribute :color, :string
 
