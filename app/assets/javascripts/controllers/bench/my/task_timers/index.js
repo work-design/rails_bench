@@ -1,1 +1,1 @@
-//= require ../tasks/show
+import '../tasks/show'

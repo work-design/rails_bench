@@ -1,1 +1,1 @@
-//= require ./_show_item
+import './_show_item'

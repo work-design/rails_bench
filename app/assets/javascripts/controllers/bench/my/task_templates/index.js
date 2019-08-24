@@ -1,5 +1,3 @@
-//= require_self
-
 var el = document.getElementById('task_lists');
 var sortable = new Sortable(el, {
   group: 'name',

@@ -1,5 +1,4 @@
-//= require sortablejs
-//= require_self
+import Sortable from 'sortablejs'
 
 var el = document.getElementById('task_lists');
 var sortable = new Sortable(el, {

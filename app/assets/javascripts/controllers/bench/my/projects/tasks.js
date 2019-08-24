@@ -1,2 +1,2 @@
-//= require rails_taxon/sortable
+import 'rails_taxon/sortable'
 //= require valid
