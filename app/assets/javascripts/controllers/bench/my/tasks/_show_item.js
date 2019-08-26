@@ -1,4 +1,7 @@
-class ShowController extends Stimulus.Controller {
+import { Controller } from 'stimulus'
+
+class ShowController extends Controller {
+  static targets = ['src']
   connect() {
     let self = this.element;
     $(self).mouseenter(function(){
@@ -11,7 +14,5 @@ class ShowController extends Stimulus.Controller {
     });
   }
 }
-ShowController.targets = ['src'];
+
 application.register('show', ShowController);
-
-
