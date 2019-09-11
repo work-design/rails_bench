@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
   include RailsDetail::ContentModel
-  include RailsBooking::Plan
+  include RailsEvent::Planned
   include RailsBench::Task
 end unless defined? Task
