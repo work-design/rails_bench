@@ -15,18 +15,8 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
   def create
     @pipeline = Pipeline.new(pipeline_params)
 
-    respond_to do |format|
-      if @pipeline.save
-        format.html.phone
-        format.html { redirect_to admin_pipelines_url }
-        format.js { redirect_back fallback_location: admin_pipelines_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :new }
-        format.html { render :new }
-        format.js { redirect_back fallback_location: admin_pipelines_url }
-        format.json { render :show }
-      end
+    unless @pipeline.save
+      render :new, locals: { model: @pipeline }, status: :unprocessable_entity
     end
   end
   
@@ -63,24 +53,13 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
   def update
     @pipeline.assign_attributes(pipeline_params)
 
-    respond_to do |format|
-      if @pipeline.save
-        format.html.phone
-        format.html { redirect_to admin_pipelines_url }
-        format.js { redirect_back fallback_location: admin_pipelines_url }
-        format.json { render :show }
-      else
-        format.html.phone { render :edit }
-        format.html { render :edit }
-        format.js { redirect_back fallback_location: admin_pipelines_url }
-        format.json { render :show }
-      end
+    unless @pipeline.save
+      render :edit, locals: { model: @pipeline }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @pipeline.destroy
-    redirect_to admin_pipelines_url
   end
 
   private

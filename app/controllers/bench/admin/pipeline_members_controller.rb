@@ -3,10 +3,6 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   before_action :set_pipeline_member, only: [:show, :edit, :update, :reorder, :destroy]
   #before_action :set_piping, only: [:new]
 
-  def index
-    @pipeline_members = PipelineMember.all
-  end
-
   def new
     @pipeline_member = @pipeline.pipeline_members.build
     @job_titles = JobTitle.default_where(default_params)
@@ -21,14 +17,8 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   def create
     @pipeline_member = @pipeline.pipeline_members.build(pipeline_member_params)
 
-    respond_to do |format|
-      if @pipeline_member.save
-        format.html { redirect_to admin_pipelines_url(piping_type: @pipeline.piping_type, piping_id: @pipeline.piping_id) }
-        format.json { render :show, status: :created, location: @pipeline_member }
-      else
-        format.html { render :new }
-        format.json { render json: @pipeline_member.errors, status: :unprocessable_entity }
-      end
+    unless @pipeline_member.save
+      render :new, locals: { model: @pipeline_member }, status: :unprocessable_entity
     end
   end
 
@@ -51,16 +41,9 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def update
     @pipeline_member.assign_attributes(pipeline_member_params)
-    respond_to do |format|
-      if @pipeline_member.save
-        format.html { redirect_to @pipeline_member }
-        format.js
-        format.json { render :show, status: :ok, location: @pipeline_member }
-      else
-        format.html { render :edit }
-        format.js
-        format.json { render json: @pipeline_member.errors, status: :unprocessable_entity }
-      end
+    
+    unless @pipeline_member.save
+      render :edit, locals: { model: @pipeline_member }, status: :unprocessable_entity
     end
   end
 
@@ -80,10 +63,6 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def destroy
     @pipeline_member.destroy
-    respond_to do |format|
-      format.js
-      format.json { head :no_content }
-    end
   end
 
   private
