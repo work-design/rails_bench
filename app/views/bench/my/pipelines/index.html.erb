@@ -16,14 +16,12 @@
         <div class="ui mini pad steps">
           <% pipeline.pipeline_members.each do |pipeline_member| %>
             <div class="step">
-              <% if pipeline_member.worker.user.avatar.attached? %>
-                <%= image_tag pipeline_member.worker.user.avatar, class: 'ui avatar image' %>
-              <% else %>
-                <%= image_tag 'default_avatar.jpg', class: 'ui avatar image' %>
+              <% if pipeline_member.member.avatar.attached? %>
+                <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
               <% end %>
               <div class="content">
                 <span><%= pipeline_member.duty.name %></span>
-                <span><%= pipeline_member.worker.user_name %></span>
+                <span><%= pipeline_member.member.name %></span>
               </div>
             </div>
           <% end %>
