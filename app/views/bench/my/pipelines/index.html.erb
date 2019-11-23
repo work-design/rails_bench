@@ -28,7 +28,7 @@
         </div>
       </td>
       <td>
-        <%= link_to '成员管理', new_my_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui blue label' %>
+        <%= link_to '成员管理', new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui blue label' %>
         <%= link_to '编辑', edit_my_pipeline_path(pipeline), class: 'ui mini circular icon button' %>
         <%= link_to my_pipeline_path(pipeline), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash-alt"></i>

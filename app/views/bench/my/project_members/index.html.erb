@@ -15,15 +15,15 @@
   <tbody>
   <% @project_members.each do |project_member| %>
     <tr>
-      <td><%= project_member.duty.name %></td>
+      <td><%= project_member.job_title.name %></td>
       <td>
-        <% if project_member.worker_id.present? %>
-          <%= link_to project_member.worker.user_name %>
+        <% if project_member.member_id.present? %>
+          <%= link_to project_member.member.name %>
         <% else %>
           <%= link_to '邀请worker', worker_my_project_member_path(@project, project_member), remote: true, class: 'ui blue label' %>
         <% end %>
       </td>
-      <td><%= project_member.created_at.to_s(:db2) %></td>
+      <td><time><%= project_member.created_at.to_s(:rfc822) %></time></td>
       <td>
         <%= link_to '编辑', edit_my_project_member_path(@project, project_member), class: 'ui pink label' %>
         <%= link_to '删除', my_project_member_path(@project, project_member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
