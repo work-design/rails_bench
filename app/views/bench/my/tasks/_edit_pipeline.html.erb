@@ -1,5 +1,5 @@
 <td colspan="3">
-<%= default_form_with model: @task, url: my_task_path, method: :patch, on: { wrapper_all: false, offset: false } do |f| %>
+<%= form_with model: @task, url: my_task_path, method: :patch, on: { wrapper_all: false, offset: false } do |f| %>
   <%= hidden_field_tag :item, 'pipeline' %>
   <div class="inline fields">
     <%= f.collection_select :pipeline_id, @pipelines, :id, :name, on: { wrapper_all: false } %>

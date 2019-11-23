@@ -9,7 +9,7 @@
     <% end %>
   </h3>
   <div class="ui basic right aligned segment">
-    <%= search_form_with scope: nil do |f| %>
+    <%= form_with theme: 'search', scope: nil do |f| %>
       <%= f.check_box :present_worker, checked: session[:present_worker], label: 'Present worker', onChange: "this.form.cleanSubmit()" %>
     <% end %>
   </div>

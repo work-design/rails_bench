@@ -1,4 +1,4 @@
-<%= default_form_with model: [:my, @task], on: { wrapper_all: false, offset: false }, html: { style: 'width: 100%;' }, remote: true do |f| %>
+<%= form_with model: [:my, @task], on: { wrapper_all: false, offset: false }, html: { style: 'width: 100%;' }, remote: true do |f| %>
   <%= f.hidden_field :parent_id %>
   <%= f.hidden_field :project_id %>
   <div class="ui action input">
