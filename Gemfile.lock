@@ -42,7 +42,7 @@ PATH
   remote: .
   specs:
     rails_bench (0.1.0)
-      rails (~> 6.0.0.rc1)
+      rails_com (~> 1.2)
       rails_org
 
 GEM
@@ -141,7 +141,7 @@ GEM
     multi_json (1.13.1)
     multi_xml (0.6.0)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     pry (0.12.2)
       coderay (~> 1.1.0)
