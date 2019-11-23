@@ -12,9 +12,7 @@ class Bench::My::TeamsController < Bench::My::BaseController
   def create
     @team = Team.new(team_params)
 
-    if @team.save
-      redirect_to my_teams_url
-    else
+    unless @team.save
       render :new
     end
   end
@@ -26,16 +24,15 @@ class Bench::My::TeamsController < Bench::My::BaseController
   end
 
   def update
-    if @team.update(team_params)
-      redirect_to my_teams_url
-    else
+    @team.assign_attributes(team_params)
+    
+    unless @team.save
       render :edit
     end
   end
 
   def destroy
     @team.destroy
-    redirect_to my_teams_url
   end
 
   private

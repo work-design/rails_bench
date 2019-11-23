@@ -25,14 +25,8 @@ class Bench::My::ProjectMembersController < Bench::My::BaseController
   def create
     @project_member = @project.project_members.build(project_member_params)
 
-    respond_to do |format|
-      if @project_member.save
-        format.html { redirect_to my_project_members_url(@project), notice: 'Project member was successfully created.' }
-        format.json { render :show, status: :created, location: @project_member }
-      else
-        format.html { render :new }
-        format.json { render json: @project_member.errors, status: :unprocessable_entity }
-      end
+    if @project_member.save
+      render :new, locals: { model: @project_member }, status: :unprocessable_entity
     end
   end
 
@@ -43,14 +37,10 @@ class Bench::My::ProjectMembersController < Bench::My::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @project_member.update(project_member_params)
-        format.html { redirect_to my_project_members_url(@project), notice: 'Project member was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project_member }
-      else
-        format.html { render :edit }
-        format.json { render json: @project_member.errors, status: :unprocessable_entity }
-      end
+    @project_member.update(project_member_params)
+    
+    if @project_member.save
+      render :edit, locals: { model: @project_member }, status: :unprocessable_entity
     end
   end
 

@@ -39,24 +39,16 @@ class Bench::My::TasksController < Bench::My::BaseController
       @task.worker = current_user.present_worker
     end
 
-    respond_to do |format|
-      if @task.save_with_parent
-        format.js
-        format.html {
-          if task_params[:parent_id].present?
-            redirect_to my_task_url(task_params[:parent_id])
-          elsif task_params[:parent_id].blank? && task_params[:project_id].present?
-            redirect_to tasks_my_project_url(task_params[:project_id])
-          else
-            redirect_to my_tasks_url
-          end
-        }
-        format.json
-      else
-        format.js
-        format.html { render :new }
-        format.json
-      end
+    if task_params[:parent_id].present?
+      redirect_to = my_task_url(task_params[:parent_id])
+    elsif task_params[:parent_id].blank? && task_params[:project_id].present?
+      redirect_to = tasks_my_project_url(task_params[:project_id])
+    else
+      redirect_to = my_tasks_url
+    end
+    
+    if @task.save_with_parent
+      render :new, locals: { model: @task }, status: :unprocessable_entity
     end
   end
 
@@ -89,14 +81,10 @@ class Bench::My::TasksController < Bench::My::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: 'Task was successfully updated.' }
-        format.js { render 'update' }
-      else
-        format.html { render :edit }
-        format.js
-      end
+    @task.assign_attributes(task_params)
+
+    if @task.save
+      render :edit, locals: { model: @task }, status: :unprocessable_entity
     end
   end
 
@@ -134,11 +122,6 @@ class Bench::My::TasksController < Bench::My::BaseController
 
   def destroy
     @task.destroy
-    respond_to do |format|
-      format.html { redirect_to my_tasks_url, notice: 'Task was successfully destroyed.' }
-      format.json { head :no_content }
-      format.js
-    end
   end
 
   private

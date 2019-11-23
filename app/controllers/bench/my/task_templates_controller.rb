@@ -13,16 +13,8 @@ class Bench::My::TaskTemplatesController < Bench::My::BaseController
   def create
     @task_template = TaskTemplate.new(task_template_params)
 
-    respond_to do |format|
-      if @task_template.save
-        format.js
-        format.html { redirect_to @task_template, notice: 'Task template was successfully created.' }
-        format.json { render :show, status: :created, location: @task_template }
-      else
-        format.js
-        format.html { render :new }
-        format.json { render json: @task_template.errors, status: :unprocessable_entity }
-      end
+    if @task_template.save
+      render :new, locals: { model: @task_template }, status: :unprocessable_entity
     end
   end
 
@@ -33,16 +25,10 @@ class Bench::My::TaskTemplatesController < Bench::My::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @task_template.update(task_template_params)
-        format.js
-        format.html { redirect_to @task_template, notice: 'Task template was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task_template }
-      else
-        format.js
-        format.html { render :edit }
-        format.json { render json: @task_template.errors, status: :unprocessable_entity }
-      end
+    @task_template.update(task_template_params)
+
+    if @task_template.save
+      render :edit, locals: { model: @task_template }, status: :unprocessable_entity
     end
   end
 
@@ -64,10 +50,6 @@ class Bench::My::TaskTemplatesController < Bench::My::BaseController
 
   def destroy
     @task_template.destroy
-    respond_to do |format|
-      format.html { redirect_to task_templates_url, notice: 'Task template was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

@@ -12,14 +12,8 @@ class Bench::My::ProjectsController < Bench::My::BaseController
   def create
     @project = current_user.projects.build(project_params)
 
-    respond_to do |format|
-      if @project.save
-        format.html { redirect_to my_projects_url }
-        format.json { render :show, status: :created, location: @project }
-      else
-        format.html { render :new }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    unless @project.save
+      render :new, locals: { model: @project }, status: :unprocessable_entity
     end
   end
 
@@ -37,21 +31,16 @@ class Bench::My::ProjectsController < Bench::My::BaseController
 
   def github_hook
     @project.github_hook_add
-    head :no_content
   end
 
   def edit
   end
 
   def update
-    respond_to do |format|
-      if @project.update(project_params)
-        format.html { redirect_to my_projects_url, notice: 'Project was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project }
-      else
-        format.html { render :edit }
-        format.json { render json: @project.errors, status: :unprocessable_entity }
-      end
+    @project.assign_attributes project_params
+    
+    if @project.save
+      render :edit, locals: { model: @project }, status: :unprocessable_entity
     end
   end
 

@@ -26,9 +26,7 @@ class Bench::My::TaskTimersController < Bench::My::BaseController
   def create
     @task_timer = @task.task_timers.build(task_timer_params)
 
-    if @task_timer.save
-      render 'create'
-    else
+    unless @task_timer.save
       render :new
     end
   end
@@ -42,16 +40,15 @@ class Bench::My::TaskTimersController < Bench::My::BaseController
   end
 
   def update
-    if @task_timer.update(task_timer_params)
-      redirect_to @task_timer
-    else
+    @task_timer.assign_attributes(task_timer_params)
+    
+    unless @task_timer.save
       render :edit
     end
   end
 
   def destroy
     @task_timer.destroy
-    redirect_to task_timers_url
   end
 
   private

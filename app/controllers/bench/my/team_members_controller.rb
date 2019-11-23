@@ -90,10 +90,6 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
 
   def destroy
     @team_member.destroy
-    respond_to do |format|
-      format.html { redirect_to my_team_members_url(@team), notice: 'Project member was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

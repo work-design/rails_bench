@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 23c18ab6461a41ee15454bf55cc81c2d02818450
+  revision: 7ffb13323af450c7a0aa60940f4af4eb20f5176c
   specs:
     rails_org (0.1)
       rails_auth
