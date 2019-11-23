@@ -24,10 +24,10 @@
 
 <% elsif @task.project %>
   <td colspan="3">
-    <%= form_with model: @task, url: my_task_path, method: :patch, on: { wrapper_all: false, offset: false } do |f| %>
+    <%= form_with model: @task, url: my_task_path, method: :patch, on: { wrap_all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
       <div class="inline fields">
-        <%= f.collection_select :pipeline_id, @task.project.pipelines, :id, :name, on: { wrapper_all: false } %>
+        <%= f.collection_select :pipeline_id, @task.project.pipelines, :id, :name, on: { wrap_all: false } %>
         <%= f.submit %>
       </div>
     <% end %>

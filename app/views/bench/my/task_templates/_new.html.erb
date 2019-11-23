@@ -1,9 +1,9 @@
-<%= form_with model: [:my, @task_template], on: { wrapper_all: false, offset: false }, html: { style: 'width: 100%;' }, remote: true do |f| %>
+<%= form_with model: [:my, @task_template], on: { wrap_all: false, offset: false }, html: { style: 'width: 100%;' }, remote: true do |f| %>
   <%= f.hidden_field :tasking_type %>
   <%= f.hidden_field :tasking_id %>
   <%= f.hidden_field :parent_id %>
   <div class="ui action input">
-    <%= f.text_field :title, label: false, on: { wrapper_input: false }, required: 'required' %>
+    <%= f.text_field :title, label: false, on: { wrap_input: false }, required: 'required' %>
     <%= f.submit '保存' %>
     <a class="ui grey button" onclick="removeForm()">取消</a>
   </div>

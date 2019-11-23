@@ -1,5 +1,5 @@
-<% f_object = form_object(as: @pipeline.piping_type.underscore, on: { wrapper_all: false, wrapper_input: false, label: false }) %>
-<% f_method = f_object.wrapper_id('member_id') %>
+<% f_object = form_object(as: @pipeline.piping_type.underscore, on: { wrap_all: false, wrap_input: false, label: false }) %>
+<% f_method = f_object.wrap_id('member_id') %>
 $('#<%= f_method %>_input').html('<%= j(f_object.collection_select :member_id, @members, :id, :name, include_blank: true) %>');
 $('#<%= f_method %>').dropdown({
   placeholder: false
