@@ -1,21 +1,32 @@
 module RailsBench::Task
   extend ActiveSupport::Concern
+
   included do
-    acts_as_list scope: [:user_id, :parent_id]
-    has_closure_tree
+    attribute :title, :string
+    attribute :state, :integer
+    attribute :focus, :integer
+    attribute :repeat_type, :string
+    attribute :repeat_days, :integer, array: true
+    attribute :position, :integer
+    attribute :estimated_time, :integer
+    attribute :actual_time, :integer
+    attribute :done_at, :datetime
+    attribute :children_count, :integer, default: 0
+    attribute :detail_id, :integer
+    attribute :start_at, :datetime
   
     # Before
     belongs_to :project, optional: true
-  
+
     # Used
     belongs_to :pipeline, optional: true
     belongs_to :user, optional: true
-    belongs_to :worker, optional: true
+    belongs_to :member, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
-  
+
     delegate :workers, to: :pipeline, allow_nil: true
-  
+
     enum state: [
       :todo,
       :doing,
@@ -26,15 +37,17 @@ module RailsBench::Task
       :today,
       :scheduled
     ]
-  
+
     default_scope { order(position: :asc) }
     scope :default, -> { where(state: ['todo', 'doing']) }
-  
+
     after_initialize if: :new_record? do |lb|
     end
     after_save :sync_estimated_time
+
+    acts_as_list scope: [:user_id, :parent_id]
   end
-  
+
   def same_scopes
     Task.where(user_id: self.user_id, parent_id: self.parent_id)
   end
