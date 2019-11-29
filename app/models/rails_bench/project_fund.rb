@@ -1,7 +1,8 @@
 module RailsBench::ProjectFund
   extend ActiveSupport::Concern
   included do
-    include RailsTrade::Sell
+    attribute :visible, :boolean, default: true
+    
     belongs_to :project
     belongs_to :user
   
