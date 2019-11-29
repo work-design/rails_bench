@@ -1,6 +1,11 @@
 module RailsBench::Project
   extend ActiveSupport::Concern
+
   included do
+    attribute :name, :string
+    attribute :description, :string
+    attribute :github_repo, :string
+    
     belongs_to :creator, class_name: 'User'
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy

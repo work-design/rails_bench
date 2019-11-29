@@ -1,6 +1,8 @@
 module RailsBench::TaskTimer
   extend ActiveSupport::Concern
   included do
+    attribute :duration, :integer
+    attribute :finish_at, :datetime
     belongs_to :task
   end
 

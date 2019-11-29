@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: ed174659bbe6fed425a41106ebfb356262a4cefb
+  revision: ef01a067868b0afe14015fe1782dc2a2cd7ec90d
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 0e25c50555370de08d6ce594134300d6ad6b946b
+  revision: e73eed94bad57c3f8b0d7a4477d194f5e24aad89
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 7ffb13323af450c7a0aa60940f4af4eb20f5176c
+  revision: 6381e734f2c21b4d906f29079bf765853e79e218
   specs:
     rails_org (0.1)
       rails_auth
@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 75a34f1f81c687407c7ebe6f7aa0a8985e9459c6
+  revision: ea2db0ed9dfebdf72a9b1226f3d363fea2178ad8
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)

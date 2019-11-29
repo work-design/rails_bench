@@ -1,6 +1,10 @@
 module RailsBench::Pipeline
   extend ActiveSupport::Concern
   included do
+    attribute :name, :string
+    attribute :description, :string
+    
+    belongs_to :organ, optional: true
     belongs_to :piping, polymorphic: true, optional: true
     has_many :pipeline_members, ->{ order(position: :asc) }, dependent: :destroy
     has_many :members, through: :pipeline_members
