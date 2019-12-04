@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: ef01a067868b0afe14015fe1782dc2a2cd7ec90d
+  revision: b3fafd2f86ab6094213350802c1ffdd79b12c2c6
   specs:
     default_form (1.5.0)
       rails (>= 5.2, <= 6.1)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: e73eed94bad57c3f8b0d7a4477d194f5e24aad89
+  revision: 2a0e3c30dc9080fff0630a66639074408554aaf7
   specs:
     rails_com (1.2.9)
       default_form (~> 1.5)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 6381e734f2c21b4d906f29079bf765853e79e218
+  revision: 79b4513207f575e29b45d64790cb11f273693f48
   specs:
     rails_org (0.1)
       rails_auth
@@ -35,10 +35,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: ea2db0ed9dfebdf72a9b1226f3d363fea2178ad8
+  revision: fbbd1f400006ab428d7da6d300b24f72fcb24f35
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
+      rails_taxon
 
 PATH
   remote: .
@@ -122,7 +123,7 @@ GEM
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     http-2-next (0.1.2)
-    httpx (0.6.1)
+    httpx (0.6.2)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.7.0)
