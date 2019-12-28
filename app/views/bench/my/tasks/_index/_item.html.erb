@@ -16,8 +16,8 @@
       <% if task.project %>
         <span class="ui small grey label"><%= task.project.name %></span>
       <% end %>
-      <% if task.worker %>
-        <span class="ui small label"><%= task.worker.duty.name %></span>
+      <% if task.member %>
+        <span class="ui small label"><%= task.member.job_title.name %></span>
       <% end %>
       <span class="xxx" style="visibility: hidden;">
         <%= link_to my_task_path(task), data: { tooltip: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
