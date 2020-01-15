@@ -1,7 +1,7 @@
 require 'rails_com'
 module RailsBench
   class Engine < ::Rails::Engine
-    
+
     config.generators do |g|
       g.rails = {
         assets: false,
@@ -15,10 +15,6 @@ module RailsBench
       }
       g.templates.unshift File.expand_path('lib/templates', RailsCom::Engine.root)
     end
-  
-    initializer 'rails_bench.assets.precompile' do |app|
-      app.config.assets.precompile += ['rails_bench_manifest.js']
-    end
-    
+
   end
 end
