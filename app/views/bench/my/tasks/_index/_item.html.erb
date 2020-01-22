@@ -4,7 +4,7 @@
     <span class="xxx" style="visibility: hidden;">
       <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
     </span>
-    <i class="grey content icon"></i>
+    <i class="grey fas fa-bars"></i>
   </div>
 
   <div class="content">
@@ -21,7 +21,7 @@
       <% end %>
       <span class="xxx" style="visibility: hidden;">
         <%= link_to my_task_path(task), data: { tooltip: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
-          <i class="red undo icon"></i>
+          <i class="fas fa-trash"></i>
         <% end %>
       </span>
     </div>

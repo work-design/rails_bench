@@ -1,21 +1,21 @@
 <% if task.task_timer %>
   <%= link_to pause_my_task_task_timer_path(task, task.task_timer), method: 'patch', id: "pause_task_#{task.id}", remote: true do %>
-    <i class="grey pause icon"></i>
+    <i class="fas fa-pause grey"></i>
   <% end %>
 <% end %>
 
 <% if task.inbox? %>
   <%= link_to focus_my_task_path(task), id: "play_task_#{task.id}", remote: true do %>
-    <i class="plus icon"></i>
+    <i class="fas fa-plus"></i>
   <% end %>
 <% end %>
 
 <% if task.today? %>
   <%= link_to my_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}", remote: true do %>
-    <i class="green play icon"></i>
+    <i class="fas fa-play green"></i>
   <% end %>
 <% end %>
 
 <%= link_to edit_my_task_path(task, item: 'title'), data: { tooltip: t('.edit') }, remote: true, class: 'grey text' do %>
-  <i class="blue write icon"></i>
+  <i class="fas fa-pencil-alt blue"></i>
 <% end %>

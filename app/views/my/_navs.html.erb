@@ -1,6 +1,7 @@
 <div class="ui fluid vertical tabular menu">
   <%= link_to filter_params(focus: 'inbox'), class: active_helper(focus: 'inbox') do %>
-    <span><i class="teal paperclip icon"></i><%= Task.enum_i18n(:focus, 'inbox') %></span>
+    <i class="fas fa-paperclip"></i>
+    <span><%= Task.enum_i18n(:focus, 'inbox') %></span>
   <% end %>
   <% if params[:focus] %>
     <%= link_to filter_params(focus: 'today'), class: active_helper(focus: 'today') do %>
