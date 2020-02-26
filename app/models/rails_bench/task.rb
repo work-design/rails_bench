@@ -3,8 +3,8 @@ module RailsBench::Task
 
   included do
     attribute :title, :string
-    attribute :state, :integer
-    attribute :focus, :integer
+    attribute :state, :string
+    attribute :focus, :string
     attribute :repeat_type, :string
     attribute :repeat_days, :integer, array: true
     attribute :position, :integer
@@ -14,7 +14,7 @@ module RailsBench::Task
     attribute :children_count, :integer, default: 0
     attribute :detail_id, :integer
     attribute :start_at, :datetime
-  
+
     # Before
     belongs_to :project, optional: true
 
@@ -27,16 +27,16 @@ module RailsBench::Task
 
     delegate :workers, to: :pipeline, allow_nil: true
 
-    enum state: [
-      :todo,
-      :doing,
-      :done
-    ]
-    enum focus: [
-      :inbox,
-      :today,
-      :scheduled
-    ]
+    enum state: {
+      todo: 'todo',
+      doing: 'doing',
+      done: 'done'
+    }
+    enum focus: {
+      inbox: 'inbox',
+      today: 'today',
+      scheduled: 'scheduled'
+    }
 
     default_scope { order(position: :asc) }
     scope :default, -> { where(state: ['todo', 'doing']) }
