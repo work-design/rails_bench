@@ -5,7 +5,7 @@
       <th>Worker</th>
       <th>加入时间</th>
       <th>
-        <%= link_to new_my_team_member_path(@team), class: 'ui mini blue right floated button' do %>
+        <%= link_to new_my_team_member_path(@team), remote: true, class: 'ui mini icon button' do %>
           <i class="fas fa-plus"></i>
         <% end %>
       </th>

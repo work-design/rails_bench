@@ -2,7 +2,9 @@ class Bench::My::TeamsController < Bench::My::BaseController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index
-    @teams = Team.includes(:members).page(params[:page])
+    q_params = {}
+    q_params.merge! default_params
+    @teams = Team.includes(:members).default_where(q_params).page(params[:page])
   end
 
   def new
@@ -25,7 +27,7 @@ class Bench::My::TeamsController < Bench::My::BaseController
 
   def update
     @team.assign_attributes(team_params)
-    
+
     unless @team.save
       render :edit
     end
@@ -41,10 +43,11 @@ class Bench::My::TeamsController < Bench::My::BaseController
   end
 
   def team_params
-    params.fetch(:team, {}).permit(
+    p = params.fetch(:team, {}).permit(
       :name,
       :description
     )
+    p.merge! default_form_params
   end
 
 end
