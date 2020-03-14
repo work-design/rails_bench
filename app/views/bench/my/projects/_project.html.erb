@@ -5,11 +5,11 @@
 
   <div class="content">
     <%= link_to project.name, tasks_my_project_path(project) %>
-    <%= link_to edit_my_project_path(project) do %>
-      <i class="right floated edit icon"></i>
+    <%= link_to edit_my_project_path(project), remote: true, class: 'ui mini circular icon button' do %>
+      <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to my_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } do %>
-      <i class="right floated remove icon"></i>
+    <%= link_to my_project_path(project), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+      <i class="fas fa-trash"></i>
     <% end %>
     <span class="grey text"><%= project.description %></span>
   </div>
