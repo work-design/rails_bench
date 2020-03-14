@@ -3,7 +3,7 @@ class Bench::My::ProjectFundsController < Bench::My::BaseController
   before_action :set_project_fund, only: [:show, :edit, :update, :destroy]
 
   def index
-    q_params = {}.with_indifferent_access
+    q_params = {}
     q_params.merge! params.permit(:id)
     @project_funds = @project.project_funds.page(params[:page])
   end
@@ -21,35 +21,23 @@ class Bench::My::ProjectFundsController < Bench::My::BaseController
   def create
     @project_fund = @project.project_funds.build(project_fund_params)
 
-    respond_to do |format|
-      if @project_fund.save
-        format.html { redirect_to my_project_funds_url(@project_fund.project_id), notice: 'Project fund was successfully created.' }
-        format.json { render :show, status: :created, location: @project_fund }
-      else
-        format.html { render :new }
-        format.json { render json: @project_fund.errors, status: :unprocessable_entity }
-      end
+    if @project_fund.save
+      render 'create', locals: { return_to: redirect_to my_project_funds_url(@project_fund.project_id) }
+    else
+      render :new, locals: { model: @project_fund }, status: :unprocessable_entity
     end
   end
 
   def update
-    respond_to do |format|
-      if @project_fund.update(project_fund_params)
-        format.html { redirect_to my_project_funds_url(@project_fund.project_id, id: @project_fund.id), notice: 'Project fund was successfully updated.' }
-        format.json { render :show, status: :ok, location: @project_fund }
-      else
-        format.html { render :edit }
-        format.json { render json: @project_fund.errors, status: :unprocessable_entity }
-      end
+    if @project_fund.update(project_fund_params)
+      render 'update', locals: { return_to: redirect_to my_project_funds_url(@project_fund.project_id) }
+    else
+      render :edit, locals: { model: @project_fund }, status: :unprocessable_entity
     end
   end
 
   def destroy
     @project_fund.destroy
-    respond_to do |format|
-      format.html { redirect_to project_funds_url, notice: 'Project fund was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
