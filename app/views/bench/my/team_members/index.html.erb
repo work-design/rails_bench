@@ -1,9 +1,9 @@
 <table class="ui very basic table">
   <thead>
     <tr>
-      <th>职位</th>
-      <th>Worker</th>
-      <th>加入时间</th>
+      <th><%= TeamMember.human_attribute_name(:job_title_id) %></th>
+      <th><%= TeamMember.human_attribute_name(:member_id) %></th>
+      <th><%= TeamMember.human_attribute_name(:created_at) %></th>
       <th>
         <%= link_to new_my_team_member_path(@team), remote: true, class: 'ui mini icon button' do %>
           <i class="fas fa-plus"></i>
@@ -17,16 +17,20 @@
     <tr>
       <td><%= team_member.job_title.name %></td>
       <td>
-        <% if team_member.worker_id.present? %>
-          <%= link_to team_member.worker.user_name %>
+        <% if team_member.member_id.present? %>
+          <%= link_to team_member.member.name %>
         <% else %>
-          <%= link_to '邀请worker', worker_my_team_member_path(@team, team_member), remote: true, class: 'ui blue label' %>
+          <%= link_to '邀请worker', member_my_team_member_path(@team, team_member), remote: true, class: 'ui blue label' %>
         <% end %>
       </td>
-      <td><%= team_member.created_at.to_s(:db2) %></td>
+      <td><time><%= team_member.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to '编辑', edit_my_team_member_path(@team, team_member), class: 'ui pink label' %>
-        <%= link_to '删除', my_team_member_path(@team, team_member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+        <%= link_to edit_my_team_member_path(@team, team_member), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to my_team_member_path(@team, team_member), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
       </td>
     </tr>
   <% end %>

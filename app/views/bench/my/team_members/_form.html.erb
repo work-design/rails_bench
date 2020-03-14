@@ -1,8 +1,2 @@
-<%= f.collection_select :duty_id, JobTitle.all, :id, :name %>
-<div class="inline fields">
-  <div class="six wide field"></div>
-  <div>
-    <%= f.submit '保存', on: { wrap_all: false, offset: false } %>
-    <%= link_to '返回', my_team_members_path(@team), class: 'ui button' %>
-  </div>
-</div>
+<%= f.collection_select :job_title_id, JobTitle.all, :id, :name %>
+<%= f.submit %>

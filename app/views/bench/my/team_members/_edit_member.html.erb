@@ -1,0 +1,14 @@
+<div class="ui modal" id="modal">
+  <i class="close icon"></i>
+  <div class="ui header blue">
+    Edit Worker
+  </div>
+
+  <div class="content">
+    <%= form_with model: @team_member, url: my_team_member_path(@team, @team_member), method: :patch do |f| %>
+      <%= f.select :member_id, options_for_select([@team_member.member&.name, @team_member.member_id], @team_member.member&.name) %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
+</div>

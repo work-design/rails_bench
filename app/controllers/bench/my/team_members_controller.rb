@@ -1,6 +1,6 @@
 class Bench::My::TeamMembersController < Bench::My::BaseController
   before_action :set_team
-  before_action :set_team_member, only: [:show, :edit, :update, :edit_worker, :update_worker, :workers, :destroy]
+  before_action :set_team_member, only: [:show, :edit, :update, :edit_member, :update_member, :members, :destroy]
   skip_before_action :verify_authenticity_token, only: [:search]
 
   def index
@@ -8,9 +8,9 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
   end
 
   def search
-    @team_members = @team.team_members.where.not(worker_id: nil).where(duty_id: params[:duty_id])
+    @team_members = @team.team_members.where.not(member_id: nil).where(duty_id: params[:duty_id])
 
-    results = @team_members.map { |x| { value: x.worker_id, text: x.worker_name, name: x.worker_name } }
+    results = @team_members.map { |x| { value: x.member_id, text: x.member_name, name: x.member_name } }
 
     respond_to do |format|
       format.js
@@ -25,14 +25,10 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
   def create
     @team_member = @team.team_members.build(team_member_params)
 
-    respond_to do |format|
-      if @team_member.save
-        format.html { redirect_to my_team_members_url(@team), notice: 'Project member was successfully created.' }
-        format.json { render :show, status: :created, location: @team_member }
-      else
-        format.html { render :new }
-        format.json { render json: @team_member.errors, status: :unprocessable_entity }
-      end
+    if @team_member.save
+      render 'create', locals: { return_to: my_team_members_url(@team) }
+    else
+      render :new, locals: { model: @user }, status: :unprocessable_entity
     end
   end
 
@@ -43,34 +39,20 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @team_member.update(team_member_params)
-        format.html { redirect_to my_team_members_url(@team), notice: 'Project member was successfully updated.' }
-        format.json { render :show, status: :ok, location: @team_member }
-      else
-        format.html { render :edit }
-        format.json { render json: @team_member.errors, status: :unprocessable_entity }
-      end
+    @team_member.assign_attributes team_member_params
+
+    if @team_member.save
+      render 'update', locals: { return_to: my_team_members_url(@team) }
+    else
+      render :new, locals: { model: @user }, status: :unprocessable_entity
     end
   end
 
-  def edit_worker
+  def edit_member
 
   end
 
-  def update_worker
-    respond_to do |format|
-      if @team_member.update(worker_id: team_member_params[:worker_id])
-        format.html { redirect_to my_team_members_url(@team), notice: 'Employee was successfully updated.' }
-        format.js
-      else
-        format.html { redirect_to my_team_members_url(@team) }
-        format.js
-      end
-    end
-  end
-
-  def workers
+  def members
     if params[:q].include?('@')
       user = User.find_by(email: params[:q])
     elsif params[:q] =~ /\d+/
@@ -80,12 +62,12 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
     end
 
     if user
-      @workers = user.workers.where(duty_id: @team_member.duty_id)
+      @members = user.members.where(duty_id: @team_member.job_title_id)
     else
-      @workers = Worker.none
+      @members = Member.none
     end
 
-    render json: { results: @workers.as_json(only: [:id, :user_name]) }
+    render json: { results: @members.as_json(only: [:id, :name]) }
   end
 
   def destroy
@@ -103,8 +85,8 @@ class Bench::My::TeamMembersController < Bench::My::BaseController
 
   def team_member_params
     params.fetch(:team_member, {}).permit(
-      :duty_id,
-      :worker_id
+      :job_title_id,
+      :member_id
     )
   end
 
