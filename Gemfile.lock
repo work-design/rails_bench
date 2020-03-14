@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: e4600e93de120cc2d3a49970f6f1606179f8aa06
+  revision: c55e73c74f188513b852393e12dfef7b31764303
   specs:
     default_form (1.5.0)
       rails_com (~> 1.2)
@@ -15,7 +15,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: e06354e68708f26cc7f96b93d6407e04d5191c8a
+  revision: 5334e3eb7437caf9b78f9fcdcb900fdc3b59eafe
   specs:
     rails_com (1.2.9)
       default_where (~> 2.2)
@@ -25,7 +25,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a838ad2710798cbaeedc40eadba92d81e2f668ed
+  revision: c0e129cbe258118cdafc81664a3101a55c529961
   specs:
     rails_org (0.1)
       rails_auth
@@ -35,7 +35,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 8788f4beb269de3ae462d3413a440b397bffe7f7
+  revision: eb23b99ed012b21a2f37acffd0b0bfae0f26d06e
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -122,9 +122,9 @@ GEM
       activesupport (>= 4.2.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.2.2)
+    http-2-next (0.2.3)
     http-form_data (2.2.0)
-    httpx (0.6.6)
+    httpx (0.6.7)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.2)
@@ -234,4 +234,4 @@ DEPENDENCIES
   sqlite3
 
 BUNDLED WITH
-   1.17.2
+   2.1.2
