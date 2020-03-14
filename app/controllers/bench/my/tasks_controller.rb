@@ -46,8 +46,8 @@ class Bench::My::TasksController < Bench::My::BaseController
     else
       redirect_to = my_tasks_url
     end
-    
-    if @task.save_with_parent
+
+    unless @task.save_with_parent
       render :new, locals: { model: @task }, status: :unprocessable_entity
     end
   end
