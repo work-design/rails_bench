@@ -22,7 +22,7 @@ class Bench::My::ProjectFundsController < Bench::My::BaseController
     @project_fund = @project.project_funds.build(project_fund_params)
 
     if @project_fund.save
-      render 'create', locals: { return_to: redirect_to my_project_funds_url(@project_fund.project_id) }
+      render 'create', locals: { return_to: my_project_funds_url(@project_fund.project_id) }
     else
       render :new, locals: { model: @project_fund }, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Bench::My::ProjectFundsController < Bench::My::BaseController
 
   def update
     if @project_fund.update(project_fund_params)
-      render 'update', locals: { return_to: redirect_to my_project_funds_url(@project_fund.project_id) }
+      render 'update', locals: { return_to: my_project_funds_url(@project_fund.project_id) }
     else
       render :edit, locals: { model: @project_fund }, status: :unprocessable_entity
     end
