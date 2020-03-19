@@ -1,5 +1,4 @@
-<% if rails_role_user.any_role?('bench/admin') %>
-<div class="item">
+<div class="item" data-controller="menu">
   <a class="title">
     <i class="share alternate square icon"></i>
     <span>应用管理</span>
@@ -9,4 +8,3 @@
     <%= link_to '职员管理', admin_members_path, class: active_helper(controllers: ['workers']) %>
   </div>
 </div>
-<% end %>
