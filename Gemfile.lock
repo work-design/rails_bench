@@ -228,7 +228,7 @@ DEPENDENCIES
   jbuilder
   pry-rails
   puma
-  rails (= 6.0.2.2)
+  rails
   rails_bench!
   rails_com!
   rails_org!

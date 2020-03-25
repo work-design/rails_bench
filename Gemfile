@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 gemspec
 
-gem 'rails', '6.0.2.2'
+gem 'rails'
 gem 'puma'
 
 gem 'factory_bot_rails', require: false
