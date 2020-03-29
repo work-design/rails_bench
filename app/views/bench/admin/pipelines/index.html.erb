@@ -38,10 +38,10 @@
                     <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
                     <%= pipeline_member.member.name %>
                   <% end %>
-                  <%= link_to edit_admin_pipeline_member_path(pipeline, pipeline_member), data: { tooltip: t('.edit') }, remote: true do %>
+                  <%= link_to edit_admin_pipeline_member_path(pipeline, pipeline_member), aria: { label: t('.edit') }, remote: true do %>
                     <i class="fas fa-pencil-alt"></i>
                   <% end %>
-                  <%= link_to admin_pipeline_member_path(pipeline, pipeline_member), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true do %>
+                  <%= link_to admin_pipeline_member_path(pipeline, pipeline_member), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true do %>
                     <i class="fas fa-times"></i>
                   <% end %>
                 </div>
@@ -56,10 +56,10 @@
         </div>
       </td>
       <td>
-        <%= link_to edit_admin_pipeline_path(pipeline), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_pipeline_path(pipeline), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_pipeline_path(pipeline), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_pipeline_path(pipeline), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

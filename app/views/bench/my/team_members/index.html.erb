@@ -25,10 +25,10 @@
       </td>
       <td><time><%= team_member.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to edit_my_team_member_path(@team, team_member), data: { tooltip: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_my_team_member_path(@team, team_member), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to my_team_member_path(@team, team_member), method: :delete, data: { tooltip: t('.destroy'), confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to my_team_member_path(@team, team_member), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
           <i class="fas fa-trash"></i>
         <% end %>
       </td>

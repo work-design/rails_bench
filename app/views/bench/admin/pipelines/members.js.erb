@@ -1,4 +1,4 @@
-<% f_object = form_object(@pipeline_member, on: { wrap_all: false, wrap_input: false, label: false }) %>
+<% f_object = form_object(@pipeline_member, can: { wrap_all: false, wrap_input: false, label: false }) %>
 
 $('#pipeline_member_member_id_input').html('<%= j(f_object.collection_select :member_id, @members, :id, :name, include_blank: true) %>');
 $('#pipeline_member_member_id').dropdown({

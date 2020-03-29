@@ -16,6 +16,6 @@
   <% end %>
 <% end %>
 
-<%= link_to edit_my_task_path(task, item: 'title'), data: { tooltip: t('.edit') }, remote: true, class: 'grey text' do %>
+<%= link_to edit_my_task_path(task, item: 'title'), aria: { label: t('.edit') }, remote: true, class: 'grey text' do %>
   <i class="fas fa-pencil-alt blue"></i>
 <% end %>
