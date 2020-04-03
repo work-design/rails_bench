@@ -49,17 +49,17 @@
             </div>
           <% end %>
           <div class="step">
-            <%= link_to new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'ui mini circular icon button' do %>
+            <%= link_to new_admin_pipeline_member_path(pipeline, piping_type: params[:piping_type], piping_id: params[:piping_id]), remote: true, class: 'button is-small is-rounded is-light' do %>
               <span>添加</span>
             <% end %>
           </div>
         </div>
       </td>
       <td>
-        <%= link_to edit_admin_pipeline_path(pipeline), aria: { label: t('.edit') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to edit_admin_pipeline_path(pipeline), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to admin_pipeline_path(pipeline), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+        <%= link_to admin_pipeline_path(pipeline), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </td>

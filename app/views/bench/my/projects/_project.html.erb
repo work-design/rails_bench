@@ -5,10 +5,10 @@
 
   <div class="content">
     <%= link_to project.name, tasks_my_project_path(project) %>
-    <%= link_to edit_my_project_path(project), remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to edit_my_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to my_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'ui mini circular icon button' do %>
+    <%= link_to my_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-trash"></i>
     <% end %>
     <span class="grey text"><%= project.description %></span>
