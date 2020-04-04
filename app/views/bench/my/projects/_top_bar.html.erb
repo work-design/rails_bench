@@ -1,13 +1,16 @@
-<h2 class="ui center aligned icon header">
+<h2 class="level">
   <%= project.name %>
 </h2>
 
-<div class="ui top attached tabular menu">
-  <%= link_to '任务列表', tasks_my_project_path(project), class: active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index') %>
-  <%= link_to '项目信息', my_project_path(project), class: active_helper(projects: 'show') %>
-  <%= link_to '流水线', my_pipelines_path(piping_type: 'Project', piping_id: project.id), class: active_helper(controllers: ['pipelines', 'pipeline_members']) %>
-  <%= link_to '成员', my_project_members_path(project), class: active_helper(controllers: 'project_members') %>
-  <%= link_to '众筹', my_project_funds_path(project), class: active_helper(controllers: 'project_funds') %>
+<div class="tabs">
+  <ul>
+    <li><%= link_to '任务列表', tasks_my_project_path(project), class: active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index') %></li>
+    <li><%= link_to '项目信息', my_project_path(project), class: active_helper(projects: 'show') %></li>
+    <li><%= link_to '流水线', my_pipelines_path(piping_type: 'Project', piping_id: project.id), class: active_helper(controllers: ['pipelines', 'pipeline_members']) %></li>
+    <li><%= link_to '成员', my_project_members_path(project), class: active_helper(controllers: 'project_members') %></li>
+    <li><%= link_to '众筹', my_project_funds_path(project), class: active_helper(controllers: 'project_funds') %></li>
+  </ul>
+  
   <div class="right menu">
     <div class="item">
       <div class="ui transparent icon input">

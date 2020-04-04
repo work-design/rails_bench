@@ -1,12 +1,12 @@
 <%= render partial: 'bench/my/projects/top_bar', locals: { project: @project } %>
 
-<table class="ui very basic table">
+<table class="table is-fullwidth">
   <thead>
     <tr>
       <th><%= ProjectFund.human_attribute_name(:price) %></th>
       <th><%= ProjectFund.human_attribute_name(:user) %></th>
       <th>
-        <%= link_to new_my_project_fund_path(@project), class: 'ui right floated mini blue button' do %>
+        <%= link_to new_my_project_fund_path(@project), class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>

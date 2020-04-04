@@ -1,13 +1,15 @@
 <%= render partial: 'bench/my/projects/top_bar', locals: { project: @project } %>
 
-<table class="ui very basic table">
+<table class="table is-fullwidth">
   <thead>
     <tr>
       <th>职位</th>
       <th>Worker</th>
       <th>加入时间</th>
       <th>
-        <%= link_to 'New Project Member', new_my_project_member_path(@project), class: 'ui mini blue right floated button' %>
+        <%= link_to new_my_project_member_path(@project), class: 'button is-link is-small' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
       </th>
     </tr>
   </thead>
