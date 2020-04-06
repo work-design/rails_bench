@@ -12,7 +12,7 @@
       <th class="two wide"><%= Pipeline.human_attribute_name(:piping_type) %></th>
       <th class="nine wide"><%= Pipeline.human_attribute_name(:pipeline_members) %></th>
       <th class="two wide">
-        <%= link_to new_admin_pipeline_path, remote: true, class: 'ui mini green button' do %>
+        <%= link_to new_admin_pipeline_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><% t('.new') %>
         <% end %>
       </th>
