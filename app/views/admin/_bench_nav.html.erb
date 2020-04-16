@@ -1,7 +1,6 @@
 <div class="<%= active_helper(modules: 'bench/admin', active_class: 'menu ex-accordion is-active', item_class: 'menu ex-accordion') %>" data-controller="menu">
-  <%= content_tag :div, class: 'menu-list' do -%>
-    <%= link_to '职位管理', admin_duties_path, class: active_helper(controllers: ['duties']) %>
-    <%= link_to '职员管理', admin_members_path, class: active_helper(controllers: ['workers']) %>
+  <%= content_tag :div, class: 'menu-list' do %>
+    <%= link_to '职员管理', admin_members_path, class: active_helper(controllers: ['members']) -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="share alternate square icon"></i>
