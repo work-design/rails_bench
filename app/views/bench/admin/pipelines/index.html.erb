@@ -33,7 +33,7 @@
                 <div class="description">
                   <%= pipeline_member.job_title&.name %>
                   <% if pipeline_member.member %>
-                    <%= image_tag pipeline_member.member.avatar, class: 'ui avatar image' %>
+                    <%= image_tag pipeline_member.member.avatar, class: 'image is-24x24' if pipeline_member.member.avatar.attached? %>
                     <%= pipeline_member.member.name %>
                   <% end %>
                   <%= link_to edit_admin_pipeline_member_path(pipeline, pipeline_member), aria: { label: t('.edit') }, remote: true do %>
