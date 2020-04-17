@@ -1,6 +1,7 @@
 zh:
   bench:
     admin:
+      title: 工作管理
       pipelines:
         index:
           title: 流水线
