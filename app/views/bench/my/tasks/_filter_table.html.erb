@@ -1,16 +1,16 @@
 <table class="as-search">
   <tr>
     <td>
-      <%= link_to '默认', filter_params(except: :state), class: active_helper(state: '', active_class: 'button is-info', item_class: 'button is-light') %>
+      <%= link_to '默认', filter_params(except: :state), class: active_helper(state: '', active: 'button is-info', item: 'button is-light') %>
       <% Task.options_i18n(:state).each do |text, state| %>
-        <%= link_to text, filter_params(state: state), class: active_helper(state: state, active_class: 'button is-info', item_class: 'button is-light') %>
+        <%= link_to text, filter_params(state: state), class: active_helper(state: state, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
   <tr>
     <td>
-      <%= link_to t('.all'), filter_params(except: :worker_id), class: active_helper(worker_id: '', active_class: 'button is-info', item_class: 'button is-light') %>
-      <%# link_to current_member.job_titles.first.name, filter_params(worker_id: current_member.id), class: active_helper(worker_id: current_member.id, active_class: 'button is-info', item_class: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: :worker_id), class: active_helper(worker_id: '', active: 'button is-info', item: 'button is-light') %>
+      <%# link_to current_member.job_titles.first.name, filter_params(worker_id: current_member.id), class: active_helper(worker_id: current_member.id, active: 'button is-info', item: 'button is-light') %>
     </td>
   </tr>
 </table>
