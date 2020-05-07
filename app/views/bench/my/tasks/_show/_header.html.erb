@@ -20,12 +20,13 @@
 
 <div class="ui attached segment">
 
-  <div class="ui top attached breadcrumb">
-    <% @task.ancestors.each do |ancestor| %>
-      <%= link_to ancestor.title, my_task_path(ancestor.id), class: 'section' %>
-      <div class="divider">/</div>
-      <div class="active section"><%= @task.title %></div>
-    <% end %>
+  <div class="breadcrumb">
+    <ul>
+      <% @task.ancestors.each do |ancestor| %>
+        <li><%= link_to ancestor.title, my_task_path(ancestor.id) %></li>
+      <% end %>
+      <li class="active"><%= @task.title %></li>
+    </ul>
   </div>
 
 </div>
