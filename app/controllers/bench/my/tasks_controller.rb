@@ -17,7 +17,7 @@ class Bench::My::TasksController < Bench::My::BaseController
 
   def index
     q_params = {
-      focus: ['today'],
+      focus: ['today', 'inbox'],
       state: ['todo', 'doing'],
       user_id: current_user.id
     }

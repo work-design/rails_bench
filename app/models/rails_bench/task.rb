@@ -3,8 +3,8 @@ module RailsBench::Task
 
   included do
     attribute :title, :string
-    attribute :state, :string
-    attribute :focus, :string
+    attribute :state, :string, default: 'todo'
+    attribute :focus, :string, default: 'inbox'
     attribute :repeat_type, :string
     attribute :repeat_days, :integer, array: true
     attribute :position, :integer
