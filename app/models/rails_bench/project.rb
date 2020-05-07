@@ -5,20 +5,19 @@ module RailsBench::Project
     attribute :name, :string
     attribute :description, :string
     attribute :github_repo, :string
-    
-    belongs_to :creator, class_name: 'User'
+
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy
     has_many :pipelines, as: :piping, dependent: :destroy
     has_many :tasks, dependent: :nullify
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
-  
+
     validates :name, presence: true
-    
+
     has_one_attached :logo
   end
-  
+
   def logo_url
 
   end

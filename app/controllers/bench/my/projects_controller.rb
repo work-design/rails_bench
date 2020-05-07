@@ -2,15 +2,15 @@ class Bench::My::ProjectsController < Bench::My::BaseController
   before_action :set_project, only: [:show, :tasks, :edit, :repos, :github_hook, :update, :destroy]
 
   def index
-    @projects = current_user.projects.page(params[:page])
+    @projects = current_member.projects.page(params[:page])
   end
 
   def new
-    @project = current_user.projects.build
+    @project = current_member.projects.build
   end
 
   def create
-    @project = current_user.projects.build(project_params)
+    @project = current_member.projects.build(project_params)
 
     unless @project.save
       render :new, locals: { model: @project }, status: :unprocessable_entity
@@ -38,7 +38,7 @@ class Bench::My::ProjectsController < Bench::My::BaseController
 
   def update
     @project.assign_attributes project_params
-    
+
     if @project.save
       render :edit, locals: { model: @project }, status: :unprocessable_entity
     end
@@ -46,10 +46,6 @@ class Bench::My::ProjectsController < Bench::My::BaseController
 
   def destroy
     @project.destroy
-    respond_to do |format|
-      format.html { redirect_to my_projects_url, notice: 'Project was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private

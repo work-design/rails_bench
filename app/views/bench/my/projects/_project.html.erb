@@ -1,16 +1,16 @@
-<div class="item">
-  <div class="ui avatar image">
-    <i class="grey content icon"></i>
-  </div>
-
-  <div class="content">
+<tr>
+  <td>
     <%= link_to project.name, tasks_my_project_path(project) %>
+  </td>
+  <td>
+    <%= project.description %>
+  </td>
+  <td>
     <%= link_to edit_my_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
     <%= link_to my_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-trash"></i>
     <% end %>
-    <span class="grey text"><%= project.description %></span>
-  </div>
-</div>
+  </td>
+</tr>
