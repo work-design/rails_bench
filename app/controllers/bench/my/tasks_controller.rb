@@ -52,6 +52,14 @@ class Bench::My::TasksController < Bench::My::BaseController
     end
   end
 
+  def add
+    if params[:task_id]
+      @task = Task.find params[:task_id]
+    else
+      @task = Task.new
+    end
+  end
+
   def show
     q_params = {
       state: ['todo', 'doing'],

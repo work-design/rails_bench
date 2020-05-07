@@ -29,10 +29,12 @@ module RailsBench::Project
   end
 
   def github_hook_add
-    creator.github_client.create_hook get_github_repo[:full_name],
-                                      'web',
-                                      { url: github_hook_url, content_type: 'json'},
-                                      { events: ['push', 'pull_request'], active: true }
+    creator.github_client.create_hook(
+      get_github_repo[:full_name],
+      'web',
+      { url: github_hook_url, content_type: 'json'},
+      { events: ['push', 'pull_request'], active: true }
+    )
   end
 
   def duties

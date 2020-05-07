@@ -6,17 +6,22 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :my, module: 'bench/my', as: 'my' do
+  scope :my, module: 'bench/my', as: :my do
     resources :task_templates
     resources :tasks do
-      patch :close, on: :member
-      patch :reorder, on: :member
-      patch :current, on: :member
-      patch :next, on: :member
-      patch :rework, on: :member
-      patch :project_id, on: :member
-      get 'focus' => :edit_focus, on: :member
-      patch 'focus' => :update_focus, on: :member
+      collection do
+        get :add
+      end
+      member do
+        patch :close
+        patch :reorder
+        patch :current
+        patch :next
+        patch :rework
+        patch :project_id
+        get 'focus' => :edit_focus
+        patch 'focus' => :update_focus
+      end
       resources :task_timers do
         patch :pause, on: :member
       end
