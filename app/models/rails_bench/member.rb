@@ -9,7 +9,8 @@ module RailsBench::Member
     has_many :tasks, through: :task_workers
     has_many :project_members, dependent: :nullify
     has_many :projects, through: :project_members
-    has_many :pipelines, dependent: :nullify
+    has_many :pipeline_members, dependent: :nullify
+    has_many :pipelines, through: :pipeline_members
   end
 
 end
