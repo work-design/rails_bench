@@ -1,0 +1,32 @@
+<div class="item" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show">
+
+  <div class="ui avatar image">
+    <span class="xxx" style="visibility: hidden;">
+      <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
+    </span>
+    <i class="fas fa-bars"></i>
+  </div>
+
+  <div class="content">
+    <% if task.task_timer %>
+      <i class="green hourglass start icon"></i>
+    <% end %>
+    <%= link_to task.title, my_task_path(task) %>
+    <div class="right floated">
+      <% if ['today'].include?(task.focus) %>
+        <i class="fas fa-sun"></i>
+      <% end %>
+      <% if task.project %>
+        <span class="ui small grey label"><%= task.project.name %></span>
+      <% end %>
+      <% if task.worker %>
+        <span class="ui small label"><%= task.worker.duty.name %></span>
+      <% end %>
+      <span class="xxx" style="visibility: hidden;">
+        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</div>
