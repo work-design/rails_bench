@@ -1,4 +1,4 @@
-<h2 class="level">
+<h2 class="title has-text-centered">
   <%= project.name %>
 </h2>
 
@@ -10,13 +10,4 @@
     <li><%= link_to '成员', my_project_members_path(project), class: active_helper(controllers: 'project_members') %></li>
     <li><%= link_to '众筹', my_project_funds_path(project), class: active_helper(controllers: 'project_funds') %></li>
   </ul>
-  
-  <div class="right menu">
-    <div class="item">
-      <div class="ui transparent icon input">
-        <input type="text" placeholder="Search tasks">
-        <i class="search link icon"></i>
-      </div>
-    </div>
-  </div>
 </div>

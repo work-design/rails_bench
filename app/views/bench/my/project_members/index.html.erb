@@ -17,7 +17,7 @@
   <tbody>
   <% @project_members.each do |project_member| %>
     <tr>
-      <td><%= project_member.job_title.name %></td>
+      <td><%= project_member.job_title&.name %></td>
       <td>
         <% if project_member.member_id.present? %>
           <%= link_to project_member.member.name %>
