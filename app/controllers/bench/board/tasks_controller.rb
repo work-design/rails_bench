@@ -18,14 +18,11 @@ class Bench::Board::TasksController < Bench::Board::BaseController
   def index
     q_params = {
       focus: ['today', 'inbox'],
-      state: ['todo', 'doing'],
-      user_id: current_user.id
+      state: ['todo', 'doing']
     }
-    if session[:present_worker] && current_worker
-      q_params.merge! worker_id: current_worker.id
-    end
+    q_params.merge! default_params
     q_params.merge! params.permit(:focus, :state, :worker_id)
-    @tasks = Task.includes(:project, :task_timer).roots.default_where(q_params).page(params[:page])
+    @tasks = current_user.tasks.includes(:project, :task_timer).roots.default_where(q_params).page(params[:page])
   end
 
   def new

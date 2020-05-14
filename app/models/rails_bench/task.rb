@@ -20,8 +20,9 @@ module RailsBench::Task
 
     # Used
     belongs_to :pipeline, optional: true
-    belongs_to :user, optional: true
+    belongs_to :user
     belongs_to :member, optional: true
+    belongs_to :organ, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
 

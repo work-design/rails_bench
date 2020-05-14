@@ -1,0 +1,29 @@
+<div class="dropdown is-hoverable">
+  <div class="dropdown-trigger">
+    <button class="button">
+      <% if current_session_organ %>
+        <span class="icon"><%= image_tag current_session_organ.logo if current_session_organ.logo.attached? %></span>
+        <span><%= current_session_organ.name %></span>
+      <% else %>
+        <span>所有任务</span>
+      <% end %>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu">
+    <div class="dropdown-content">
+      <% other_organs.each do |organ| %>
+        <%= link_to full_url_for(subdomain: organ.subdomain), class: 'dropdown-item' do %>
+          <%= image_tag oraan.logo if organ.logo.attached? %>
+          <%= organ.name %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+
+</div>
