@@ -16,7 +16,7 @@
   <div class="ui small action input">
     <%= f.text_field :title %>
     <%= f.submit '保存', class: 'ui green button' %>
-    <a class="ui grey button" onclick="removeForm()">取消</a>
+    <%= link_to '取消', action: 'index' %>
   </div>
 <% end %>
 </div>

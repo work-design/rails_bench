@@ -1,23 +1,5 @@
 <% if params[:item] == 'title' %>
-  $('#task_<%= @task.id %>').html('<%= j(render "edit_#{params[:item]}") %>');
+  document.getElementById('task_<%= @task.id %>').innerHTML = '<%= j(render "edit_#{params[:item]}") %>'
 <% else %>
-  $('#task_edit_<%= params[:item] %>').replaceWith('<%= j(render "edit_#{params[:item]}") %>');
+  document.getElementById('task_edit_<%= params[:item] %>').replaceWith('<%= j(render "edit_#{params[:item]}") %>')
 <% end %>
-
-$('#task_project_id').dropdown();
-$('#task_pipeline_id').dropdown();
-
-
-function removeForm() {
-  <% if params[:item] != 'title' %>
-    $('#task_edit_<%= params[:item] %>').replaceWith('<%= j(render "_show/#{params[:item]}") %>');
-  <% else %>
-    $('#task_<%= @task.id %>').replaceWith('<%= j(render partial: '_index/item', locals: { task: @task }) %>');
-    $('.item > .content').mouseenter(function(){
-      $(this).parent().children('.rail').show()
-    });
-    $('.item').mouseleave(function(){
-      $(this).children('.rail').hide()
-    });
-  <% end %>
-}
