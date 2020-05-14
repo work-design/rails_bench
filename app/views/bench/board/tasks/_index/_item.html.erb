@@ -1,10 +1,10 @@
 <div class="level" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
-      <span class="xxx" style="visibility: hidden;" data-target="show.item">
+      <span style="visibility: hidden;" data-target="show.item">
         <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
       </span>
-      <i class="grey fas fa-bars"></i>
+      <i class="fas fa-bars fa-fw has-text-grey"></i>
     </div>
     <div class="level-item">
       <% if task.task_timer %>
@@ -20,9 +20,9 @@
     <% if task.member %>
       <span class="ui small label"><%= task.member.job_title.name %></span>
     <% end %>
-    <span class="xxx" style="visibility: hidden;" data-target="show.item">
-      <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
-        <i class="fas fa-trash"></i>
+    <span style="visibility: hidden;" data-target="show.item">
+      <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
+        <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>
   </div>
