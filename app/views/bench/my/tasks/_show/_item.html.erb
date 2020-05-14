@@ -1,7 +1,7 @@
 <div class="<%= active_helper(id: task.id) %>" data-id="<%= task.id %>" id="task_<%= task.id %>" data-controller="show">
   <div class="ui avatar image" id="play_task_<%= task.id %>">
-    <span class="xxx" style="visibility: hidden;">
-      <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
+    <span style="visibility: hidden;">
+      <%= render partial: '_shared/rail', locals: { task: task } %>
     </span>
     <i class="grey content icon"></i>
   </div>
@@ -9,8 +9,8 @@
   <div class="content">
     <%= link_to task.title, my_task_path(task) %>
     <div class="right floated">
-      <span class="xxx" style="visibility: hidden;">
-        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
+      <span style="visibility: hidden;">
+        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
           <i class="red undo icon"></i>
         <% end %>
       </span>
@@ -18,7 +18,7 @@
     <% if task.id == @task.id %>
       <div class="ui items">
         <% task.children.each do |child| %>
-          <%= render partial: 'bench/my/tasks/_show/item_child', locals: {task: child} %>
+          <%= render partial: '_show/item_child', locals: {task: child} %>
         <% end %>
         <div class="item" id="item_add">
           <%= link_to new_my_task_path(parent_id: @task.id), remote: true do %>

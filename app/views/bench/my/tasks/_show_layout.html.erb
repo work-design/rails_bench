@@ -1,23 +1,22 @@
-<%= render 'bench/my/tasks/_show/header' %>
+<%= render '_show/header' %>
 
-<div class="ui divided grid">
-
-<div class="eight wide column">
-  <div class="ui divided items" id="task_lists">
-    <% @tasks.each do |task| %>
-      <%= render partial: 'bench/my/tasks/_show/item', locals: { task: task } %>
-    <% end %>
+<div class="columns">
+  <div class="column">
+    <div id="task_lists">
+      <% @tasks.each do |task| %>
+        <%= render partial: '_show/item', locals: { task: task } %>
+      <% end %>
+    </div>
   </div>
-</div>
-
-<div class="eight wide column">
-  <div class="ui secondary pointing menu">
-    <%= link_to '任务概览', my_task_path(@task), class: active_helper(tasks: 'show') %>
-    <%= link_to '执行日志', my_task_task_timers_path(@task), class: active_helper(controllers: 'task_timers') %>
+  <div class="column">
+    <div class="tabs">
+      <ul>
+        <li><%= link_to '任务概览', my_task_path(@task), class: active_helper(tasks: 'show', active: 'is_active', item: nil) %></li>
+        <li><%= link_to '执行日志', my_task_task_timers_path(@task), class: active_helper(controllers: 'task_timers', active: 'is_active', item: nil) %></li>
+      </ul>
+    </div>
+    <div id="task_detail">
+      <%= yield %>
+    </div>
   </div>
-  <div id="task_detail">
-    <%= yield %>
-  </div>
-</div>
-
 </div>
