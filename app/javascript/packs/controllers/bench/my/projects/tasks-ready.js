@@ -1,2 +1,2 @@
 import 'rails_taxon/sortable'
-import '../tasks/_show_item'
+import '../../board/tasks/_show_item'

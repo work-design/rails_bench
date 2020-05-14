@@ -1,21 +1,6 @@
-
-
-<div class="ui basic horizontal segments">
-  <h3 class="ui basic segment header">
-    <% if params[:state] %>
-      <%= Task.enum_i18n(:state, params[:state]) %>
-    <% end %>
-  </h3>
-  <div class="ui basic right aligned segment">
-    <%= form_with theme: 'search', scope: nil do |f| %>
-      <%= f.check_box :present_worker, checked: session[:present_worker], label: 'Present worker', onChange: "this.form.cleanSubmit()" %>
-    <% end %>
-  </div>
-</div>
-
 <%= render 'filter_table' %>
 
-<div class="ui divided items" id="task_lists" data-controller="sortable" data-src="/my/tasks/">
+<div id="task_lists" data-controller="sortable" data-src="/my/tasks/">
   <% @tasks.each do |task| %>
     <%= render partial: '_index/item', locals: { task: task } %>
   <% end %>
