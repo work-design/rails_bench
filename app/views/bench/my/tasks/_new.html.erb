@@ -1,10 +1,14 @@
-<%= form_with model: [:my, @task], data: { controller: 'input' } do |f| %>
-  <%= f.hidden_field :parent_id %>
-  <%= f.hidden_field :project_id %>
-  <div class="ui action input">
-    <%= f.text_field :title, required: 'required' %>
-    <%= f.submit '保存' %>
-    <%= link_to '取消', add_my_tasks_path(task_id: @task.id), remote: true, class: 'button is-small is-light' %>
+<%= form_with model: [:my, @task], data: { controller: 'input' }, class: 'field is-horizontal' do |f| %>
+  <div class="field-body">
+    <%= f.hidden_field :parent_id %>
+    <%= f.hidden_field :project_id %>
+    <div class="field">
+      <%= f.text_field :title, required: 'required', class: 'input' %>
+    </div>
+    <div class="field is-narrow">
+      <%= f.submit '保存', class: 'button is-primary' %>
+      <%= link_to '取消', add_my_tasks_path(task_id: @task.id), remote: true, class: 'button is-light' %>
+    </div>
   </div>
 <% end %>
 
