@@ -1,4 +1,4 @@
-<table class="ui very basic large table">
+<table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
       <th class="six wide">
@@ -9,15 +9,15 @@
   </thead>
   <tbody>
     <tr>
-      <td class="right aligned"><%= Pipeline.human_attribute_name(:name) %></td>
+      <td class="has-text-right"><%= Pipeline.human_attribute_name(:name) %></td>
       <td><%= @pipeline.name %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Pipeline.human_attribute_name(:description) %></td>
+      <td class="has-text-right"><%= Pipeline.human_attribute_name(:description) %></td>
       <td><%= @pipeline.description %></td>
     </tr>
     <tr>
-      <td class="right aligned"><%= Pipeline.human_attribute_name(:piping_type) %></td>
+      <td class="has-text-right"><%= Pipeline.human_attribute_name(:piping_type) %></td>
       <td><%= @pipeline.piping_type %></td>
     </tr>
   </tbody>
