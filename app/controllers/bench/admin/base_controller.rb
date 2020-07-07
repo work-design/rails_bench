@@ -1,4 +1,3 @@
-class Bench::Admin::BaseController < RailsBench.config.admin_controller.constantize
+class Bench::Admin::BaseController < AdminController
 
-
-end
+end unless defined? Bench::Admin::BaseController

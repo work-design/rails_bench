@@ -1,3 +1,3 @@
-class Bench::Board::BaseController < RailsBench.config.board_controller.constantize
+class Bench::Board::BaseController < BoardController
 
-end
+end unless defined? Bench::Board::BaseController

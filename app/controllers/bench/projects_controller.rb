@@ -1,4 +1,4 @@
-class Bench::ProjectsController < ApplicationController
+class Bench::ProjectsController < Bench::BaseController
   before_action :set_project, only: [:show, :github, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:github]
 

@@ -1,4 +1,4 @@
-class Bench::WorkersController < ApplicationController
+class Bench::WorkersController < Bench::BaseController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
 
   def index
