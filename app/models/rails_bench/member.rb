@@ -15,6 +15,3 @@ module RailsBench::Member
   end
 
 end
-
-
-

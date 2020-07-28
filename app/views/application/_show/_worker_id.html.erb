@@ -2,9 +2,9 @@
   <td>
     <% if @task.user %>
       <% if @task.user.avatar.attached? %>
-        <%= image_tag @task.user.avatar, class: 'ui avatar image' %>
+        <%= image_tag @task.user.avatar, class: 'image is-32x32 is-rounded' %>
       <% else %>
-        <%= image_tag 'default_avatar.jpg', class: 'ui avatar image' %>
+        <%= image_tag 'default_avatar.jpg', class: 'image is-24x24 is-rounded' %>
       <% end %>
       <span><%= @task.user.name %></span>
     <% end %>

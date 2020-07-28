@@ -23,6 +23,5 @@ module RailsBench::Pipeline
 
 end
 
-
 # pipeline -> pipeline_member -> pipeline_worker
 #

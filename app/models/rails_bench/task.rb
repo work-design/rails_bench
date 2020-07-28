@@ -12,7 +12,6 @@ module RailsBench::Task
     attribute :actual_time, :integer
     attribute :done_at, :datetime
     attribute :children_count, :integer, default: 0
-    attribute :detail_id, :integer
     attribute :start_at, :datetime
 
     # Before
@@ -20,13 +19,14 @@ module RailsBench::Task
 
     # Used
     belongs_to :pipeline, optional: true
+    belongs_to :pipeline_member, optional: true
     belongs_to :user
     belongs_to :member, optional: true
     belongs_to :organ, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
 
-    delegate :workers, to: :pipeline, allow_nil: true
+    delegate :members, to: :pipeline, allow_nil: true
 
     enum state: {
       todo: 'todo',

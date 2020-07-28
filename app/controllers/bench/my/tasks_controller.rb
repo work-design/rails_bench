@@ -1,15 +1,8 @@
 class Bench::My::TasksController < Bench::My::BaseController
   before_action :set_task, only: [
     :show,
-    :edit,
-    :update,
-    :edit_focus,
-    :update_focus,
-    :project_id,
-    :reorder,
-    :current,
-    :next,
-    :rework,
+    :edit, :update, :edit_focus, :update_focus,
+    :project_id, :reorder, :current, :next, :rework,
     :destroy
   ]
   before_action :require_worker, only: [:index]
@@ -47,7 +40,9 @@ class Bench::My::TasksController < Bench::My::BaseController
       redirect_to = my_tasks_url
     end
 
-    unless @task.save_with_parent
+    if @task.save_with_parent
+      render 'create', locals: { return_to: redirect_to }
+    else
       render :new, locals: { model: @task }, status: :unprocessable_entity
     end
   end
@@ -147,14 +142,15 @@ class Bench::My::TasksController < Bench::My::BaseController
   end
 
   def task_params
-    params.fetch(:task, {}).permit(
+    p = params.fetch(:task, {}).permit(
       :project_id,
       :title,
       :content,
       :parent_id,
-      :worker_id,
+      :member_id,
       :pipeline_id,
       :estimated_time
     )
+    p.merge! default_form_params
   end
 end
