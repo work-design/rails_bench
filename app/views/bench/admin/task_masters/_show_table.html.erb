@@ -1,0 +1,20 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), edit_admin_task_master_path(@task_master), class: 'button is-small is-link', remote: true %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= TaskMaster.human_attribute_name(:tasking_type) %></td>
+      <td><%= @task_master.tasking_type %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= TaskMaster.human_attribute_name(:member_id) %></td>
+      <td><%= @task_master.member_id %></td>
+    </tr>
+  </tbody>
+</table>

@@ -53,7 +53,7 @@ Rails.application.routes.draw do
     resources :pipelines
   end
 
-  scope :admin, module: 'bench/admin', as: 'admin' do
+  scope :admin, module: 'bench/admin', as: :admin do
     resources :pipelines do
       get :options, on: :collection
       get :members, on: :member
@@ -65,6 +65,7 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :task_masters
   end
 
 end
