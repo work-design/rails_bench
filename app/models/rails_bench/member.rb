@@ -1,5 +1,6 @@
 module RailsBench::Member
   extend ActiveSupport::Concern
+
   included do
     attribute :pomodoro, :integer
 

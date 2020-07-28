@@ -8,10 +8,10 @@ module RailsBench::TaskTemplate
 
     belongs_to :tasking, polymorphic: true
     belongs_to :pipeline, optional: true
-  
+
     scope :ordered, -> { order(position: :asc) }
 
     acts_as_list
   end
-  
+
 end

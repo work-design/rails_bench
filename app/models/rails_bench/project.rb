@@ -18,10 +18,6 @@ module RailsBench::Project
     has_one_attached :logo
   end
 
-  def logo_url
-
-  end
-
   def creator
 
   end

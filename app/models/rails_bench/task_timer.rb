@@ -1,5 +1,6 @@
 module RailsBench::TaskTimer
   extend ActiveSupport::Concern
+
   included do
     attribute :duration, :integer
     attribute :finish_at, :datetime
@@ -17,7 +18,7 @@ module RailsBench::TaskTimer
   end
 
   def finish_at
-    super || Time.now
+    super || Time.current
   end
 
 end
