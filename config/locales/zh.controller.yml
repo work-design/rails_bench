@@ -8,3 +8,6 @@ zh:
       task_masters:
         index:
           title: 任务负责人
+      task_templates:
+        index:
+          title: 任务模板

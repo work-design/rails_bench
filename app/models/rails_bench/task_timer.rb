@@ -4,6 +4,7 @@ module RailsBench::TaskTimer
   included do
     attribute :duration, :integer
     attribute :finish_at, :datetime
+
     belongs_to :task
   end
 
@@ -14,7 +15,6 @@ module RailsBench::TaskTimer
   end
 
   def duration_format
-
   end
 
   def finish_at
@@ -22,6 +22,3 @@ module RailsBench::TaskTimer
   end
 
 end
-
-
-

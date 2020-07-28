@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   end
 
   scope :my, module: 'bench/my', as: :my do
-    resources :task_templates
     resources :tasks do
       collection do
         get :add
@@ -66,6 +65,11 @@ Rails.application.routes.draw do
       end
     end
     resources :task_masters
+    resources :task_templates do
+      collection do
+        get :add
+      end
+    end
   end
 
 end

@@ -1,19 +1,21 @@
-class Bench::My::TaskTemplatesController < Bench::My::BaseController
-  before_action :set_tasking, only: [:index, :new, :create]
+class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   before_action :set_task_template, only: [:show, :edit, :update, :reorder, :destroy]
+  default_form_builder nil
 
   def index
-    @task_templates = @tasking.task_templates.ordered
+    q_params = {}
+    q_params.merge! default_params
+    @task_templates = TaskTemplate.default_where(q_params)
   end
 
   def new
-    @task_template = @tasking.task_templates.build
+    @task_template = TaskTemplate.new
   end
 
   def create
     @task_template = TaskTemplate.new(task_template_params)
 
-    if @task_template.save
+    unless @task_template.save
       render :new, locals: { model: @task_template }, status: :unprocessable_entity
     end
   end
@@ -53,12 +55,6 @@ class Bench::My::TaskTemplatesController < Bench::My::BaseController
   end
 
   private
-  def set_tasking
-    if ['FacilitateProvider'].include?(params[:tasking_type]) && params[:tasking_id]
-      @tasking = params[:tasking_type].constantize.find params[:tasking_id]
-    end
-  end
-
   def set_task_template
     @task_template = TaskTemplate.find(params[:id])
   end
