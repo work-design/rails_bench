@@ -5,12 +5,12 @@
   </div>
 
   <div class="content">
-    <%= link_to task_template.title, my_task_template_path(task_template) %>
-    <%= link_to edit_my_task_template_path(task_template, item: 'title'), remote: true, class: 'grey text' do %>
+    <%= link_to task_template.title, admin_task_template_path(task_template) %>
+    <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'grey text' do %>
       <i class="write icon"></i>
     <% end %>
-    <%= link_to my_task_template_path(task_template), method: 'delete', class: 'grey text' do %>
-      <i class="undo icon"></i>
+    <%= link_to admin_task_template_path(task_template), method: :delete, data: { confirm: t('.confirm') }, class: 'grey text' do %>
+      <i class="fas fa-trash"></i>
     <% end %>
   </div>
 

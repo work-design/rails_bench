@@ -60,12 +60,13 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def task_template_params
-    params.fetch(:task_template, {}).permit(
+    p = params.fetch(:task_template, {}).permit(
       :title,
       :tasking_type,
       :tasking_id,
       :parent_id
     )
+    p.merge! default_form_params
   end
 
 end
