@@ -102,11 +102,6 @@ class Bench::Board::TasksController < Bench::Board::BaseController
     render 'update'
   end
 
-  def current
-    @task.set_current(params[:worker_id])
-    render 'update'
-  end
-
   def edit_focus
     @task
   end

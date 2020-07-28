@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       member do
         patch :close
         patch :reorder
-        patch :current
         patch :next
         patch :rework
         patch :project_id

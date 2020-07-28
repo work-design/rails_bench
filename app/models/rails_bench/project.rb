@@ -9,7 +9,6 @@ module RailsBench::Project
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy
     has_many :pipelines, as: :piping, dependent: :destroy
-    has_many :tasks, dependent: :nullify
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
 

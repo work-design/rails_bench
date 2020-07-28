@@ -5,7 +5,7 @@ module RailsBench::Task
     attribute :title, :string
     attribute :state, :string, default: 'todo'
     attribute :focus, :string, default: 'inbox'
-    attribute :repeat_type, :string
+    attribute :repeat_type, :string, default: 'once'
     attribute :repeat_days, :integer, array: true
     attribute :position, :integer
     attribute :estimated_time, :integer
@@ -14,10 +14,7 @@ module RailsBench::Task
     attribute :children_count, :integer, default: 0
     attribute :start_at, :datetime
 
-    # Before
-    belongs_to :project, optional: true
-
-    # Used
+    belongs_to :tasking, optional: true, polymorphic: true
     belongs_to :pipeline, optional: true
     belongs_to :pipeline_member, optional: true
     belongs_to :user
@@ -66,10 +63,6 @@ module RailsBench::Task
     end
   end
 
-  def set_current(worker_id)
-    self.worker_id = worker_id
-  end
-
   def set_next
     if worker
       next_member = pipeline.next_member self.worker_id
@@ -113,8 +106,3 @@ module RailsBench::Task
   end
 
 end
-
-# task => pipeline => pipeline_members => workers
-
-
-
