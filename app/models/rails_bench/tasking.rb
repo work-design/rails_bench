@@ -11,7 +11,9 @@ module RailsBench::Tasking
   end
 
   def to_task(member_id, task_template_id)
-    tasks.build()
+    task_template = TaskTemplate.find task_template_id
+
+    tasks.build(task_template_id: task_template)
   end
 
 end

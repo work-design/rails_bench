@@ -20,6 +20,7 @@ module RailsBench::Task
     belongs_to :user
     belongs_to :member, optional: true
     belongs_to :organ, optional: true
+    belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
 
