@@ -6,8 +6,7 @@ module RailsBench::Member
 
     belongs_to :provider, optional: true
 
-    has_many :task_members, dependent: :destroy
-    has_many :tasks, through: :task_members
+    has_many :tasks, dependent: :nullify
     has_many :project_members, dependent: :nullify
     has_many :projects, through: :project_members
     has_many :pipeline_members, dependent: :nullify
