@@ -19,7 +19,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 3d9cb728118325e12226f4ebf3171b5a64ef45f6
+  revision: 73022871a8e30a65e66ffcbff6732567d2ac47a3
   specs:
     rails_org (0.1)
       rails_auth
@@ -113,7 +113,7 @@ GEM
     acts_as_list (1.0.1)
       activerecord (>= 4.2)
     awesome_print (1.8.0)
-    bcrypt (3.1.13)
+    bcrypt (3.1.15)
     builder (3.2.4)
     closure_tree (7.1.0)
       activerecord (>= 4.2.10)

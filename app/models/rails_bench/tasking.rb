@@ -8,6 +8,7 @@ module RailsBench::Tasking
 
     has_many :task_masters, foreign_key: :tasking_type, primary_key: :record_name
     has_many :members, through: :task_masters
+    has_many :task_templates, -> { roots }, foreign_key: :tasking_type, primary_key: :record_name
   end
 
   def to_task(member_id, task_template_id)
