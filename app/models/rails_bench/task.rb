@@ -43,6 +43,7 @@ module RailsBench::Task
     after_initialize if: :new_record? do |lb|
     end
     before_save :sync_from_parent, if: -> { parent_id_changed? && parent }
+    before_save :sync_task_template, if: -> { task_template_id_changed? && task_template }
     after_save :sync_estimated_time
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
@@ -58,33 +59,35 @@ module RailsBench::Task
     self.tasking_id = parent.tasking_id
   end
 
+  def sync_task_template
+    tasks.build(task_template_id: task_template)
+  end
+
   def sync_tasking
     self.descendants.update_all(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
   end
 
   def set_next
-    if worker
-      next_member = pipeline.next_member self.worker_id
+    if member
+      next_member = pipeline.next_member self.member_id
     else
       next_member = pipeline.pipeline_members.first
     end
 
     if next_member
-      self.worker_id = next_member.worker_id
-      self.save
+      self.member_id = next_member.member_id
     end
   end
 
   def set_rework
-    if worker
-      prev_member = pipeline.prev_member self.worker_id
+    if member
+      prev_member = pipeline.prev_member self.member_id
     else
       prev_member = pipeline.pipeline_members.first
     end
 
     if prev_member
-      self.worker_id = prev_member.worker_id
-      self.save
+      self.member_id = prev_member.member_id
     end
   end
 
@@ -94,14 +97,18 @@ module RailsBench::Task
     end
   end
 
-  def self.reset_position
-    _parent_ids = self.distinct(:parent_id).pluck(:parent_id)
+  class_methods do
 
-    _parent_ids.each do |pid|
-      self.where(parent_id: pid).order(:updated_at).each_with_index do |todo_item, i|
-        todo_item.update_columns(position: i + 1)
+    def reset_position
+      _parent_ids = self.distinct(:parent_id).pluck(:parent_id)
+
+      _parent_ids.each do |pid|
+        self.where(parent_id: pid).order(:updated_at).each_with_index do |todo_item, i|
+          todo_item.update_columns(position: i + 1)
+        end
       end
     end
+
   end
 
 end
