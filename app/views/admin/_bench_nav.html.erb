@@ -1,6 +1,5 @@
 <div class="<%= active_helper(modules: 'bench/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
   <%= content_tag :div, class: 'menu-list' do %>
-    <%= link_to t('bench.admin.pipelines.index.title'), admin_pipelines_path, class: active_helper(controllers: ['pipelines'], active: 'is-active') %>
     <%= link_to t('bench.admin.task_templates.index.title'), admin_task_templates_path, class: active_helper(controllers: ['task_templates'], active: 'is-active') -%>
 <% end %>
   <a class="menu-label" data-action="menu#toggle">

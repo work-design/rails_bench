@@ -1,11 +1,7 @@
 zh:
   activerecord:
     attributes:
-      pipeline:
-        piping_type: 流水线类型
-        pipeline_members: 流水线设置
-      pipeline_member:
+      task_member:
         job_title_id: 职位
         member_id: 人员
         color: 颜色
-        master: 负责人

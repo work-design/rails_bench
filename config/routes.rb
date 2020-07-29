@@ -51,24 +51,15 @@ Rails.application.routes.draw do
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
-    resources :pipelines do
-      collection do
-        get :options
-      end
-      resources :pipeline_members, path: 'members', as: 'members' do
-        collection do
-          get :members
-        end
-        member do
-          get 'member' => :edit_member
-          patch 'member' => :update_member
-          patch :reorder
-        end
-      end
-    end
     resources :task_templates do
       collection do
         get :add
+        get :members
+      end
+      member do
+        get 'member' => :edit_member
+        patch 'member' => :update_member
+        patch :reorder
       end
     end
   end

@@ -10,6 +10,3 @@ zh:
           todo: 接下来
           doing: 进行中
           done: 完成的
-      pipeline:
-        piping_type:
-          Maintain: 线索

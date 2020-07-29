@@ -2,9 +2,6 @@ zh:
   bench:
     admin:
       title: 工作管理
-      pipelines:
-        index:
-          title: 流水线
       task_templates:
         index:
           title: 任务模板
