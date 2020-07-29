@@ -97,7 +97,8 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
       :name,
       :job_title_id,
       :member_id,
-      :color
+      :color,
+      :master
     )
   end
 end

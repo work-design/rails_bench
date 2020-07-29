@@ -55,10 +55,10 @@ Rails.application.routes.draw do
       collection do
         get :options
       end
-      member do
-        get :members
-      end
       resources :pipeline_members, path: 'members', as: 'members' do
+        collection do
+          get :members
+        end
         member do
           get 'member' => :edit_member
           patch 'member' => :update_member

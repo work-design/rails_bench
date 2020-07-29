@@ -4,9 +4,10 @@
       :job_title_id,
       @job_titles,
       :id, :name, { include_blank: true },
-      { data: { controller: 'typer', action: 'typer#form', url: members_admin_pipeline_url(@pipeline_member.pipeline_id) } }
+      { data: { controller: 'typer', action: 'typer#form', url: members_admin_pipeline_members_path(@pipeline) } }
   )
 %>
 <%= f.collection_select :member_id, @members, :id, :name, include_blank: true, can: { wrap_input_id: true } %>
 <%= f.color_field :color %>
+<%= f.check_box :master %>
 <%= f.submit %>
