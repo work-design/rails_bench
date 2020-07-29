@@ -10,7 +10,8 @@ module RailsBench::Tasking
     has_many :members, through: :task_masters
   end
 
-  def to_task(member, task_template_id)
+  def to_task(member_id, task_template_id)
+    member = Member.find member_id
     task = member.tasks.build(task_template_id: task_template_id)
     task.save
   end

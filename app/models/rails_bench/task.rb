@@ -14,11 +14,11 @@ module RailsBench::Task
     attribute :children_count, :integer, default: 0
     attribute :start_at, :datetime
 
+    belongs_to :user
+    belongs_to :member, optional: true
     belongs_to :tasking, optional: true, polymorphic: true
     belongs_to :pipeline, optional: true
     belongs_to :pipeline_member, optional: true
-    belongs_to :user
-    belongs_to :member, optional: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
@@ -40,11 +40,10 @@ module RailsBench::Task
     default_scope { order(position: :asc) }
     scope :default, -> { where(state: ['todo', 'doing']) }
 
-    after_initialize if: :new_record? do |lb|
-    end
+    before_save :sync_from_member, if: -> { member_id_changed? && member }
     before_save :sync_from_parent, if: -> { parent_id_changed? && parent }
-    before_save :sync_task_template, if: -> { task_template_id_changed? && task_template }
-    after_save :sync_estimated_time
+    before_save :sync_task_template, if: -> { task_template_id_changed? && task_template && root? }
+    after_save :sync_estimated_time, if: -> { saved_chagne_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
     acts_as_list scope: [:user_id, :parent_id]
@@ -54,17 +53,35 @@ module RailsBench::Task
     Task.where(user_id: self.user_id, parent_id: self.parent_id)
   end
 
+  def sync_from_member
+    self.user_id = member.user_id
+    self.organ_id = member.organ_id
+  end
+
   def sync_from_parent
     self.tasking_type = parent.tasking_type
     self.tasking_id = parent.tasking_id
   end
 
   def sync_task_template
-    tasks.build(task_template_id: task_template)
+    task_template.hash_tree.each do |_, template_children|
+      sync_task_template_children(template_children)
+    end
+  end
+
+  def sync_task_template_children(template_children)
+    template_children.each do |t_template, t_children|
+      member.tasks.build(task_template_id: t_template.id)
+      sync_task_template_children(t_children) unless t_children.blank?
+    end
   end
 
   def sync_tasking
     self.descendants.update_all(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
+  end
+
+  def sync_estimated_time
+    parent.update estimated_time: parent.children.sum(:estimated_time)
   end
 
   def set_next
@@ -88,12 +105,6 @@ module RailsBench::Task
 
     if prev_member
       self.member_id = prev_member.member_id
-    end
-  end
-
-  def sync_estimated_time
-    self.ancestors.each do |ancestor|
-      ancestor.update estimated_time: ancestor.children.sum(:estimated_time)
     end
   end
 
