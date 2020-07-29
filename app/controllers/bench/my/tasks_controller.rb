@@ -18,11 +18,11 @@ class Bench::My::TasksController < Bench::My::BaseController
       q_params.merge! worker_id: current_worker.id
     end
     q_params.merge! params.permit(:focus, :state, :worker_id)
-    @tasks = Task.includes(:project, :task_timer).roots.default_where(q_params).page(params[:page])
+    @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
 
   def new
-    @task = Task.new(parent_id: params[:parent_id], project_id: params[:project_id])
+    @task = Task.new(raw_task_params)
   end
 
   def create
@@ -40,7 +40,7 @@ class Bench::My::TasksController < Bench::My::BaseController
       redirect_to = my_tasks_url
     end
 
-    if @task.save_with_parent
+    if @task.save
       render 'create', locals: { return_to: redirect_to }
     else
       render :new, locals: { model: @task }, status: :unprocessable_entity
@@ -61,7 +61,7 @@ class Bench::My::TasksController < Bench::My::BaseController
       user_id: current_user.id
     }
     q_params.merge! params.permit(:state, :focus)
-    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).where(project_id: @task.project_id).default_where(q_params).page(params[:page])
+    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).where(tasking_type: @task.tasking_type, tasking_id: @task.tasking_id).default_where(q_params).page(params[:page])
     render :show
   end
 
@@ -91,21 +91,12 @@ class Bench::My::TasksController < Bench::My::BaseController
     end
   end
 
-  def project_id
-    @task.update_project_id(task_params[:project_id])
-    render 'update'
-  end
-
   def remove
     render 'update'
   end
 
   def edit_focus
     @task
-  end
-
-  def update_focus
-    @task.update(focus: params[:focus])
   end
 
   def next
@@ -136,10 +127,20 @@ class Bench::My::TasksController < Bench::My::BaseController
     @task = Task.find(params[:id])
   end
 
+  def raw_task_params
+    params.permit(
+      :parent_id,
+      :tasking_type,
+      :tasking_id
+    )
+  end
+
   def task_params
     p = params.fetch(:task, {}).permit(
-      :project_id,
+      :tasking_type,
+      :tasking_id,
       :title,
+      :focus,
       :content,
       :parent_id,
       :member_id,

@@ -42,7 +42,9 @@ module RailsBench::Task
 
     after_initialize if: :new_record? do |lb|
     end
+    before_save :sync_from_parent, if: -> { parent_id_changed? && parent }
     after_save :sync_estimated_time
+    after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
     acts_as_list scope: [:user_id, :parent_id]
   end
@@ -51,17 +53,13 @@ module RailsBench::Task
     Task.where(user_id: self.user_id, parent_id: self.parent_id)
   end
 
-  def save_with_parent
-    self.project_id = parent.project_id if parent
-    save
+  def sync_from_parent
+    self.tasking_type = parent.tasking_type
+    self.tasking_id = parent.tasking_id
   end
 
-  def update_project_id(project_id)
-    self.project_id = project_id
-    self.class.transaction do
-      self.descendants.update_all(project_id: self.project_id)
-      self.save!
-    end
+  def sync_tasking
+    self.descendants.update_all(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
   end
 
   def set_next

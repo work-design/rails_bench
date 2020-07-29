@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="level-right">
-    <% if task.project %>
-      <span class="ui small grey label"><%= task.project.name %></span>
+    <% if task.tasking %>
+      <span class="ui small grey label"><%= task.tasking.name %></span>
     <% end %>
     <% if task.member %>
       <span class="ui small label"><%= task.member.job_title.name %></span>

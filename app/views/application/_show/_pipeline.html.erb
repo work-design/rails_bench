@@ -22,7 +22,7 @@
   </td>
 </tr>
 
-<% elsif @task.project %>
+<% elsif @task.tasking %>
   <td colspan="3">
     <%= form_with model: @task, url: my_task_path, method: :patch, can: { wrap_all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
