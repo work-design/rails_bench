@@ -1,5 +1,4 @@
-$('#modal').replaceWith('<%= j(render 'new') %>');
-$('#modal').modal({ autofocus: false }).modal('show');
+document.getElementById('modal').innerHTML = '<%= j(render partial: 'modal_form', locals: { action: 'new' }) %>'
 
 $('#pipeline_member_job_title_id').dropdown({
   onChange: function (value, text, $selectedItem) {
@@ -8,7 +7,4 @@ $('#pipeline_member_job_title_id').dropdown({
 
     Rails.ajax({url: search_url, type: 'GET', dataType: 'script'});
   }
-});
-$('#pipeline_member_member_id').dropdown({
-  placeholder: false
 });

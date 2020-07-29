@@ -5,9 +5,6 @@ zh:
       pipelines:
         index:
           title: 流水线
-      task_masters:
-        index:
-          title: 任务负责人
       task_templates:
         index:
           title: 任务模板

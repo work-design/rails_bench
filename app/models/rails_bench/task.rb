@@ -65,6 +65,7 @@ module RailsBench::Task
   end
 
   def sync_task_template
+    self.title = task_template.title
     task_template.hash_tree.each do |_, template_children|
       sync_task_template_children(self, template_children)
     end

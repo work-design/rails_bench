@@ -5,6 +5,7 @@ module RailsBench::PipelineMember
     attribute :name, :string
     attribute :position, :integer
     attribute :color, :string
+    attribute :master, :boolean, default: false
 
     acts_as_list scope: [:pipeline_id]
 

@@ -1,0 +1,3 @@
+<%= form_with model: @pipeline_member, url: admin_pipeline_member_path(@pipeline, @pipeline_member) do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

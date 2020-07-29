@@ -52,8 +52,12 @@ Rails.application.routes.draw do
 
   scope :admin, module: 'bench/admin', as: :admin do
     resources :pipelines do
-      get :options, on: :collection
-      get :members, on: :member
+      collection do
+        get :options
+      end
+      member do
+        get :members
+      end
       resources :pipeline_members, path: 'members', as: 'members' do
         member do
           get 'member' => :edit_member
@@ -62,7 +66,6 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :task_masters
     resources :task_templates do
       collection do
         get :add

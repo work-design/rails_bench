@@ -8,6 +8,4 @@ zh:
         job_title_id: 职位
         member_id: 人员
         color: 颜色
-      task_master:
-        tasking_type: 任务类型
-        member_id: 负责人
+        master: 负责人

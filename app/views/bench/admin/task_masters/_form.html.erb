@@ -1,6 +1,0 @@
-<%= form_with model: [:admin, @task_master] do |f| %>
-  <%= render 'shared/error_messages', target: @task_master %>
-  <%= f.select :tasking_type, options_for_select(TaskMaster.options_i18n(:tasking_type), @task_master.tasking_type) %>
-  <%= f.collection_select :member_id, @members, :id, :name %>
-  <%= f.submit %>
-<% end %>
