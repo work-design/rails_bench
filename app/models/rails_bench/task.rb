@@ -16,6 +16,7 @@ module RailsBench::Task
 
     belongs_to :user
     belongs_to :member, optional: true
+    belongs_to :job_title_id, optional: true
     belongs_to :tasking, optional: true, polymorphic: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
@@ -39,7 +40,7 @@ module RailsBench::Task
     scope :default, -> { where(state: ['todo', 'doing']) }
 
     before_validation :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
-    before_validation :sync_from_task_template, if: -> { (task_template_id_changed? || new_record?) && task_template }
+    before_validation :sync_from_task_template, if: -> { task_template_id_changed? && task_template }
     before_validation :sync_from_member, if: -> { member_id_changed? && member }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
