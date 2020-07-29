@@ -19,7 +19,7 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
       render :new, locals: { model: @pipeline }, status: :unprocessable_entity
     end
   end
-  
+
   def options
     @pipeline = Pipeline.find params[:pipeline_id]
     pm = @pipeline.pipeline_members.first
@@ -31,20 +31,6 @@ class Bench::Admin::PipelinesController < Bench::Admin::BaseController
   end
 
   def show
-  end
-
-  def members
-    # if @pipeline.piping_type == 'FacilitateProvider'
-    #   @members = @pipeline.piping.provider.members.where(duty_id: params[:duty_id])
-    # elsif @pipeline.piping_type == 'Project'
-    #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
-    # end
-    q_params = {
-      'member_departments.job_title_id': params[:job_title_id]
-    }
-    q_params.merge! default_params
-    @members = Member.default_where(q_params)
-    @pipeline_member = PipelineMember.new
   end
 
   def edit

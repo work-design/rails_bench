@@ -3,6 +3,20 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   before_action :set_pipeline_member, only: [:show, :edit, :update, :reorder, :destroy]
   #before_action :set_piping, only: [:new]
 
+  def members
+    # if @pipeline.piping_type == 'FacilitateProvider'
+    #   @members = @pipeline.piping.provider.members.where(duty_id: params[:duty_id])
+    # elsif @pipeline.piping_type == 'Project'
+    #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
+    # end
+    q_params = {
+      'member_departments.job_title_id': pipeline_member_params[:job_title_id]
+    }
+    q_params.merge! default_params
+    @members = Member.default_where(q_params)
+    @pipeline_member = PipelineMember.new
+  end
+
   def new
     @pipeline_member = @pipeline.pipeline_members.build
     @job_titles = JobTitle.default_where(default_params)
@@ -41,7 +55,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def update
     @pipeline_member.assign_attributes(pipeline_member_params)
-    
+
     unless @pipeline_member.save
       render :edit, locals: { model: @pipeline_member }, status: :unprocessable_entity
     end
@@ -49,7 +63,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def reorder
     sort_array = params[:sort_array].select { |i| i.integer? }
-  
+
     if params[:new_index] > params[:old_index]
       prev_one = @pipeline_member.same_scope.find(sort_array[params[:new_index].to_i - 1])
       @pipeline_member.insert_at prev_one.position
