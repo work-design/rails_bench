@@ -40,8 +40,8 @@ module RailsBench::Task
     default_scope { order(position: :asc) }
     scope :default, -> { where(state: ['todo', 'doing']) }
 
+    before_validation :sync_from_parent, if: -> { parent_id_changed? && parent }
     before_validation :sync_from_member, if: -> { member_id_changed? && member }
-    before_save :sync_from_parent, if: -> { parent_id_changed? && parent }
     before_save :sync_task_template, if: -> { task_template_id_changed? && task_template && root? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
@@ -53,26 +53,27 @@ module RailsBench::Task
     Task.where(user_id: self.user_id, parent_id: self.parent_id)
   end
 
+  def sync_from_parent
+    self.tasking_type ||= parent.tasking_type
+    self.tasking_id ||= parent.tasking_id
+    self.member_id ||= parent.member_id
+  end
+
   def sync_from_member
     self.user_id = member.user_id
     self.organ_id = member.organ_id
   end
 
-  def sync_from_parent
-    self.tasking_type = parent.tasking_type
-    self.tasking_id = parent.tasking_id
-  end
-
   def sync_task_template
     task_template.hash_tree.each do |_, template_children|
-      sync_task_template_children(template_children)
+      sync_task_template_children(self, template_children)
     end
   end
 
-  def sync_task_template_children(template_children)
+  def sync_task_template_children(task, template_children)
     template_children.each do |t_template, t_children|
-      member.tasks.build(task_template_id: t_template.id)
-      sync_task_template_children(t_children) unless t_children.blank?
+      p_task = task.children.build(task_template_id: t_template.id)
+      sync_task_template_children(p_task, t_children) unless t_children.blank?
     end
   end
 
