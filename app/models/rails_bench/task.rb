@@ -17,8 +17,6 @@ module RailsBench::Task
     belongs_to :user
     belongs_to :member, optional: true
     belongs_to :tasking, optional: true, polymorphic: true
-    belongs_to :pipeline, optional: true
-    belongs_to :pipeline_member, optional: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
@@ -41,8 +39,8 @@ module RailsBench::Task
     scope :default, -> { where(state: ['todo', 'doing']) }
 
     before_validation :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
+    before_validation :sync_from_task_template, if: -> { (task_template_id_changed? || new_record?) && task_template }
     before_validation :sync_from_member, if: -> { member_id_changed? && member }
-    before_validation :sync_task_template, if: -> { task_template_id_changed? && task_template && root? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
@@ -59,23 +57,18 @@ module RailsBench::Task
     self.member_id ||= parent.member_id
   end
 
+  def sync_from_task_template
+    self.title ||= task_template.title
+    self.job_title_id ||= task_template.job_title_id
+    self.member_id = self.member_id || task_template.member_id || parent.member_id
+    task_template.children.each do |template_child|
+      self.children.build(task_template_id: template_child.id)
+    end
+  end
+
   def sync_from_member
     self.user_id = member.user_id
     self.organ_id = member.organ_id
-  end
-
-  def sync_task_template
-    self.title = task_template.title
-    task_template.hash_tree.each do |_, template_children|
-      sync_task_template_children(self, template_children)
-    end
-  end
-
-  def sync_task_template_children(task, template_children)
-    template_children.each do |t_template, t_children|
-      p_task = task.children.build(task_template_id: t_template.id)
-      sync_task_template_children(p_task, t_children) unless t_children.blank?
-    end
   end
 
   def sync_tasking

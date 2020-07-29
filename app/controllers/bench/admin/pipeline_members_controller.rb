@@ -3,19 +3,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
   before_action :set_pipeline_member, only: [:show, :edit, :update, :reorder, :destroy]
   #before_action :set_piping, only: [:new]
 
-  def members
-    # if @pipeline.piping_type == 'FacilitateProvider'
-    #   @members = @pipeline.piping.provider.members.where(duty_id: params[:duty_id])
-    # elsif @pipeline.piping_type == 'Project'
-    #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
-    # end
-    q_params = {
-      'member_departments.job_title_id': pipeline_member_params[:job_title_id]
-    }
-    q_params.merge! default_params
-    @members = Member.default_where(q_params)
-    @pipeline_member = PipelineMember.new
-  end
+
 
   def new
     @pipeline_member = @pipeline.pipeline_members.build

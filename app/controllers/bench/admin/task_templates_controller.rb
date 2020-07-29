@@ -1,5 +1,6 @@
 class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   before_action :set_task_template, only: [:show, :edit, :update, :reorder, :destroy]
+  before_action :set_job_titles, only: [:new, :edit]
   default_form_builder nil
 
   def index
@@ -7,6 +8,19 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     q_params.merge! default_params
     q_params.merge! params.permit(:parent_id, :tasking_type, :tasking_id)
     @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
+  end
+
+  def members
+    # if @pipeline.piping_type == 'FacilitateProvider'
+    #   @members = @pipeline.piping.provider.members.where(duty_id: params[:duty_id])
+    # elsif @pipeline.piping_type == 'Project'
+    #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
+    # end
+    q_params = {
+      'member_departments.job_title_id': pipeline_member_params[:job_title_id]
+    }
+    q_params.merge! default_params
+    @members = Member.default_where(q_params)
   end
 
   def new
@@ -58,6 +72,10 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   private
   def set_task_template
     @task_template = TaskTemplate.find(params[:id])
+  end
+
+  def set_job_titles
+    @job_titles = JobTitle.default_where(default_params)
   end
 
   def raw_task_template_params
