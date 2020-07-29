@@ -16,9 +16,7 @@ Rails.application.routes.draw do
         patch :reorder
         patch :next
         patch :rework
-        patch :project_id
         get 'focus' => :edit_focus
-        patch 'focus' => :update_focus
       end
       resources :task_timers do
         patch :pause, on: :member

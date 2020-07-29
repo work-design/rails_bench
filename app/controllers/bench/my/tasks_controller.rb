@@ -1,9 +1,6 @@
 class Bench::My::TasksController < Bench::My::BaseController
   before_action :set_task, only: [
-    :show,
-    :edit, :update, :edit_focus, :update_focus,
-    :project_id, :reorder, :current, :next, :rework,
-    :destroy
+    :show, :edit, :update, :edit_focus, :reorder, :next, :rework, :destroy
   ]
   before_action :require_worker, only: [:index]
   default_form_builder nil
