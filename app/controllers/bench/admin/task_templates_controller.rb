@@ -5,6 +5,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
+    q_params.merge! params.permit(:parent_id, :tasking_type, :tasking_id)
     @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
   end
 

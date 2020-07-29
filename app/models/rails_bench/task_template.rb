@@ -10,7 +10,9 @@ module RailsBench::TaskTemplate
     belongs_to :tasking, polymorphic: true, optional: true
     belongs_to :pipeline, optional: true
 
-    acts_as_list
+    default_scope -> { order(position: :asc) }
+
+    acts_as_list scope: [:organ_id, :tasking_type, :tasking_id, :parent_id]
   end
 
 end
