@@ -1,17 +1,34 @@
 <div class="item" data-id="<%= task_template.id %>" id="task_template_<%= task_template.id %>">
 
   <div class="ui avatar image">
-    <i class="grey content icon"></i>
+    <i class="fas fa-content"></i>
   </div>
 
   <div class="content">
     <%= link_to task_template.title, admin_task_template_path(task_template) %>
-    <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'grey text' do %>
+    <%= link_to new_admin_task_template_path(parent_id: task_template.id, tasking_type: params[:tasking_type], tasking_id: params[:tasking_id]), remote: true do %>
+      <i class="fas fa-plus"></i>
+    <% end %>
+    <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'has-text-grey' do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to admin_task_template_path(task_template), method: :delete, data: { confirm: t('.confirm') }, class: 'grey text' do %>
+    <%= link_to admin_task_template_path(task_template), method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger' do %>
       <i class="fas fa-trash"></i>
     <% end %>
   </div>
 
+</div>
+
+<div class="box">
+<% task_template.children.each do |child| %>
+  <div id="task_template_<%= child.id %>">
+    <%= link_to child.title, admin_task_template_path(child) %>
+    <%= link_to edit_admin_task_template_path(child, item: 'title'), remote: true, class: 'has-text-grey' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to admin_task_template_path(child), method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger' do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </div>
+<% end %>
 </div>

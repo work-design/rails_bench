@@ -5,11 +5,11 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
-    @task_templates = TaskTemplate.default_where(q_params)
+    @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
   end
 
   def new
-    @task_template = TaskTemplate.new
+    @task_template = TaskTemplate.new(raw_task_template_params)
   end
 
   def create
@@ -57,6 +57,14 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   private
   def set_task_template
     @task_template = TaskTemplate.find(params[:id])
+  end
+
+  def raw_task_template_params
+    params.permit(
+      :parent_id,
+      :tasking_type,
+      :tasking_id
+    )
   end
 
   def task_template_params
