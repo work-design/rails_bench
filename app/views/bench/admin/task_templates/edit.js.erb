@@ -1,5 +1,5 @@
 <% if params[:item] == 'title' %>
-document.getElementById('task_<%= @task.id %>').innerHTML = '<%= j(render "edit_#{params[:item]}") %>'
+document.getElementById('task_template_<%= @task_template.id %>').innerHTML = '<%= j(render "edit_#{params[:item]}") %>'
 <% else %>
 document.getElementById('task_edit_<%= params[:item] %>').replaceWith('<%= j(render "edit_#{params[:item]}") %>')
 <% end %>

@@ -29,7 +29,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   def update
     @task_template.update(task_template_params)
 
-    if @task_template.save
+    unless @task_template.save
       render :edit, locals: { model: @task_template }, status: :unprocessable_entity
     end
   end

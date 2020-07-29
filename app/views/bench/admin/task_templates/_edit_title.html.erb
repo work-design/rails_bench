@@ -1,10 +1,14 @@
-<%= form_with model: [:my, @task_template], can: { wrap_all: false, offset: false }, html: { style: 'width: 100%;' }, remote: true do |f| %>
-  <%= f.hidden_field :tasking_type %>
-  <%= f.hidden_field :tasking_id %>
-  <%= f.hidden_field :parent_id %>
-  <div class="ui action input">
-    <%= f.text_field :title, label: false, can: { wrap_input: false }, required: 'required' %>
-    <%= f.submit '保存' %>
-    <a class="ui grey button" onclick="removeForm()">取消</a>
+<%= form_with model: [:admin, @task_template], data: { controller: 'input' }, class: 'field is-horizontal' do |f| %>
+  <div class="field-body">
+    <%= f.hidden_field :tasking_type %>
+    <%= f.hidden_field :tasking_id %>
+    <%= f.hidden_field :parent_id %>
+    <div class="field">
+      <%= f.text_field :title, required: 'required', class: 'input' %>
+    </div>
+    <div class="field is-narrow">
+      <%= f.submit nil, class: 'button is-primary' %>
+      <%= link_to '取消', add_admin_task_templates_path(task_template_id: @task_template.id), remote: true, class: 'button is-light' %>
+    </div>
   </div>
 <% end %>
