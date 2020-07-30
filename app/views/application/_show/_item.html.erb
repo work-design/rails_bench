@@ -1,9 +1,9 @@
 <div class="<%= active_helper(id: task.id) %>" data-id="<%= task.id %>" id="task_<%= task.id %>" data-controller="show">
-  <div class="ui avatar image" id="play_task_<%= task.id %>">
+  <div id="play_task_<%= task.id %>">
     <span style="visibility: hidden;">
       <%= render partial: '_shared/rail', locals: { task: task } %>
     </span>
-    <i class="grey content icon"></i>
+    <i class="fas fa-bars"></i>
   </div>
 
   <div class="content">
@@ -16,7 +16,7 @@
       </span>
     </div>
     <% if task.id == @task.id %>
-      <div class="ui items">
+      <div class="ui items" data-controller="sortable" data-src="/my/tasks">
         <% task.children.each do |child| %>
           <%= render partial: '_show/item_child', locals: {task: child} %>
         <% end %>

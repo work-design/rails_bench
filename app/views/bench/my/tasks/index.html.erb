@@ -4,7 +4,7 @@
 
 <%= render 'filter_table' %>
 
-<div class="ui divided items" id="task_lists" data-controller="sortable" data-src="/my/tasks/">
+<div id="task_lists" data-controller="sortable" data-src="/my/tasks/">
   <% @tasks.each do |task| %>
     <%= render partial: '_index/item', locals: { task: task } %>
   <% end %>
