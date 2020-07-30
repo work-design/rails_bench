@@ -1,6 +1,0 @@
-<%= f.text_field :title, label: 'Titles' %>
-<%= f.text_field :name, label: 'Real Name' %>
-<%= f.collection_select :who_id, Who.all, :id, :name, { label: 'Role：' }, { class: 'ui fluid dropdown nine wide field' } %>
-<%= f.date_field :join_on, label: 'Join On' %>
-<%= f.check_box :disabled, label: 'Disabled' %>
-<%= f.submit %>

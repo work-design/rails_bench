@@ -1,6 +1,7 @@
 <div id="task_worker_id" class="level">
   <div class="level-left">
     <div class="level-item">
+      <span><%= @task.job_title&.name %></span>
     <% if @task.member %>
       <% if @task.member.avatar.attached? %>
         <%= image_tag @task.member.avatar, class: 'image is-32x32 is-rounded' %>
