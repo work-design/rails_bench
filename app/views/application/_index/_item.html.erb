@@ -18,7 +18,7 @@
       <span class="ui small grey label"><%= task.tasking.name %></span>
     <% end %>
     <% if task.member %>
-      <span class="ui small label"><%= task.member.job_title.name %></span>
+      <span class="ui small label"><%= task.job_title&.name %></span>
     <% end %>
     <span style="visibility: hidden;" data-show-target="item">
       <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>

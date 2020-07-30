@@ -16,7 +16,7 @@ module RailsBench::Task
 
     belongs_to :user
     belongs_to :member, optional: true
-    belongs_to :job_title_id, optional: true
+    belongs_to :job_title, optional: true
     belongs_to :tasking, optional: true, polymorphic: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
