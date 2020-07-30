@@ -17,18 +17,16 @@
       </span>
     </div>
   </div>
-  <div class="level">
-    <% if task.id == @task.id %>
-      <div class="level-left" data-controller="sortable" data-src="/my/tasks">
-        <% task.children.each do |child| %>
-          <%= render partial: '_show/item_child', locals: { task: child } %>
+  <% if task.id == @task.id %>
+    <div class="box" data-controller="sortable" data-src="/my/tasks">
+      <% task.children.each do |child| %>
+        <%= render partial: '_show/item_child', locals: { task: child } %>
+      <% end %>
+      <div id="item_add">
+        <%= link_to new_my_task_path(parent_id: @task.id), remote: true do %>
+          <i class="fas fa-plus"></i>
         <% end %>
-        <div id="item_add" class="level-item">
-          <%= link_to new_my_task_path(parent_id: @task.id), remote: true do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        </div>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>

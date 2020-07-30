@@ -1,9 +1,0 @@
-<%= form_for [:my, @task], remote: true, html: { class: 'ui form' } do |f| %>
-  <%= hidden_field_tag :item, 'content' %>
-  <div class="field">
-    <%= f.text_area :content %>
-  </div>
-  <%= f.submit class: 'ui blue button' %>
-<% end %>
-
-

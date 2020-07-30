@@ -1,0 +1,9 @@
+<%= form_with model: @task, url: my_task_path(@task) do |f| %>
+  <%=
+    f.collection_select(
+        :member_id, @members,
+        :id, :name, include_blank: true
+    )
+  %>
+  <%= f.submit %>
+<% end %>

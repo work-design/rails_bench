@@ -10,7 +10,7 @@
       <% end %>
     <% end %>
   </div>
-  <%= form_with model: [:my, @task], html: { class: 'form is-horizontal' } do |f| %>
+  <%= form_with theme: nil, model: [:my, @task], html: { class: 'form is-horizontal' } do |f| %>
     <div class="field-body">
       <div class="field">
         <%= f.text_field :title, class: 'input' %>

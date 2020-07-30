@@ -1,9 +1,8 @@
 class Bench::My::TasksController < Bench::My::BaseController
   before_action :set_task, only: [
-    :show, :edit, :update, :edit_focus, :reorder, :next, :rework, :destroy
+    :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :next, :rework, :destroy
   ]
   before_action :require_worker, only: [:index]
-  default_form_builder nil
 
   def index
     q_params = {
@@ -77,13 +76,20 @@ class Bench::My::TasksController < Bench::My::BaseController
   end
 
   def edit
-    @pipelines = @task.project.pipelines if params[:item] == 'pipeline'
+  end
+
+  def edit_assign
+    q_params = {
+      'member_departments.job_title_id': @task.job_title_id
+    }
+    q_params.merge! default_params
+    @members = Member.default_where(q_params)
   end
 
   def update
     @task.assign_attributes(task_params)
 
-    if @task.save
+    unless @task.save
       render :edit, locals: { model: @task }, status: :unprocessable_entity
     end
   end
