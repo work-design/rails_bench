@@ -1,7 +1,6 @@
 class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
-  before_action :set_task_template, only: [:show, :edit, :update, :reorder, :destroy]
+  before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
   before_action :set_job_titles, only: [:new, :edit]
-  default_form_builder nil
 
   def index
     q_params = {}
@@ -17,7 +16,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     #   member_ids = @pipeline.piping.project_members.where.not(member_id: nil).where(duty_id: params[:duty_id]).pluck(:member_id)
     # end
     q_params = {
-      'member_departments.job_title_id': pipeline_member_params[:job_title_id]
+      'member_departments.job_title_id': task_template_params[:job_title_id]
     }
     q_params.merge! default_params
     @members = Member.default_where(q_params)
@@ -39,6 +38,11 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def edit
+  end
+
+  def edit_member
+    @job_titles = JobTitle.default_where(default_params)
+    @members = Member.none
   end
 
   def update
@@ -91,7 +95,10 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
       :title,
       :tasking_type,
       :tasking_id,
-      :parent_id
+      :parent_id,
+      :job_title_id,
+      :member_id,
+      :color
     )
     p.merge! default_form_params
   end

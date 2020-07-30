@@ -7,8 +7,7 @@ class Bench::Admin::PipelineMembersController < Bench::Admin::BaseController
 
   def new
     @pipeline_member = @pipeline.pipeline_members.build
-    @job_titles = JobTitle.default_where(default_params)
-    @members = Member.none
+
     # if @piping.is_a?(Project)
     #   @job_titles = @piping.duties
     # else

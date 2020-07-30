@@ -1,3 +1,0 @@
-<% f = form_object(@pipeline_member, wrap: { all: nil, select: nil }, on: { label: false }) %>
-
-document.getElementById('pipeline_member_member_id').parentNode.innerHTML = '<%= j(f.collection_select :member_id, @members, :id, :name, include_blank: true) %>'
