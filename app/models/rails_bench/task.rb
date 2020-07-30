@@ -82,11 +82,11 @@ module RailsBench::Task
     if lower_item
       lower_item.state = 'doing'
       lower_item.save
+      lower_item.to_notification(receiver: lower_item.user)
     end
   end
 
   def notify_by_upstream
-    to_notification(receiver: member)
   end
 
   def set_rework
