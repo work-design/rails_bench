@@ -10,20 +10,20 @@
       </div>
     </div>
     <div class="level-right">
-      <span style="visibility: hidden">
-        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
-          <i class="fas fa-undo"></i>
+      <span style="visibility: hidden" data-show-target="item">
+        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: :delete, remote: true do %>
+          <i class="fas fa-undo has-text-danger"></i>
         <% end %>
       </span>
     </div>
   </div>
-  <div class="content">
+  <div class="level">
     <% if task.id == @task.id %>
-      <div class="ui items" data-controller="sortable" data-src="/my/tasks">
+      <div class="level-left" data-controller="sortable" data-src="/my/tasks">
         <% task.children.each do |child| %>
-          <%= render partial: '_show/item_child', locals: {task: child} %>
+          <%= render partial: '_show/item_child', locals: { task: child } %>
         <% end %>
-        <div class="item" id="item_add">
+        <div id="item_add" class="level-item">
           <%= link_to new_my_task_path(parent_id: @task.id), remote: true do %>
             <i class="fas fa-plus"></i>
           <% end %>

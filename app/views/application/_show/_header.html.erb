@@ -17,18 +17,12 @@
 <% end %>
 
 <% unless @task.root? %>
-
-<div class="ui attached segment">
-
   <div class="breadcrumb">
     <ul>
       <% @task.ancestors.each do |ancestor| %>
         <li><%= link_to ancestor.title, my_task_path(ancestor.id) %></li>
       <% end %>
-      <li class="active"><%= @task.title %></li>
+      <li class="is-active"><%= @task.title %></li>
     </ul>
   </div>
-
-</div>
-
 <% end %>
