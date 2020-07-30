@@ -46,6 +46,7 @@ module RailsBench::Task
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
     acts_as_list scope: [:user_id, :parent_id]
+    acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
   end
 
   def same_scopes
