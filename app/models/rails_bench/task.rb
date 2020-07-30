@@ -28,7 +28,8 @@ module RailsBench::Task
     enum state: {
       todo: 'todo',
       doing: 'doing',
-      done: 'done'
+      done: 'done',
+      rework: 'rework'
     }
     enum focus: {
       inbox: 'inbox',
@@ -45,7 +46,7 @@ module RailsBench::Task
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
-    acts_as_list scope: [:user_id, :parent_id]
+    acts_as_list scope: [:parent_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
   end
 
@@ -82,26 +83,16 @@ module RailsBench::Task
   end
 
   def set_next
-    if member
-      next_member = pipeline.next_member self.member_id
-    else
-      next_member = pipeline.pipeline_members.first
-    end
-
-    if next_member
-      self.member_id = next_member.member_id
+    if lower_item
+      lower_item.state = 'doing'
+      lower_item.save
     end
   end
 
   def set_rework
-    if member
-      prev_member = pipeline.prev_member self.member_id
-    else
-      prev_member = pipeline.pipeline_members.first
-    end
-
-    if prev_member
-      self.member_id = prev_member.member_id
+    if higher_item
+      higher_item.state = 'rework'
+      higher_item.save
     end
   end
 
