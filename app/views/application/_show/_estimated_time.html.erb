@@ -1,11 +1,13 @@
-<tr id="task_edit_estimated_time">
-  <td>预估时间：</td>
-  <td><%= @task.estimated_time %></td>
-  <td>
+<div id="task_edit_estimated_time" class="level">
+  <div class="level-left">
+    <span>预估时间：</span>
+    <span><%= @task.estimated_time %></span>
+  </div>
+  <div class="level-right">
   <% if @task.leaf? %>
     <%= link_to edit_my_task_path(@task, item: 'estimated_time'), remote: true do %>
-      <i class="grey edit icon"></i>
+      <i class="fas fa-pencil-alt"></i>
     <% end %>
   <% end %>
-  </td>
-</tr>
+  </div>
+</div>

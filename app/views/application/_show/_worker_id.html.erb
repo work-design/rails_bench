@@ -1,17 +1,25 @@
-<tr id="task_worker_id">
-  <td>
-    <% if @task.user %>
-      <% if @task.user.avatar.attached? %>
-        <%= image_tag @task.user.avatar, class: 'image is-32x32 is-rounded' %>
+<div id="task_worker_id" class="level">
+  <div class="level-left">
+    <div class="level-item">
+    <% if @task.member %>
+      <% if @task.member.avatar.attached? %>
+        <%= image_tag @task.member.avatar, class: 'image is-32x32 is-rounded' %>
       <% else %>
         <%= image_tag 'default_avatar.jpg', class: 'image is-24x24 is-rounded' %>
       <% end %>
-      <span><%= @task.user.name %></span>
+      <span><%= @task.member.name %></span>
     <% end %>
-  </td>
-  <td>
-    <%= link_to '交接', next_my_task_path(@task), method: :patch, class: 'button is-link is-small' %>
-    <%= link_to '返工', rework_my_task_path(@task), method: :patch, class: 'button is-danger is-small' %>
-  </td>
-  <td></td>
-</tr>
+    </div>
+    <div class="level-item">
+      <%= link_to assign_my_task_path(@task), aria: { label: '指派' }, remote: true do %>
+        <i class="fas fa-hand-point-right"></i>
+      <% end %>
+    </div>
+  </div>
+  <div class="level-right">
+    <div class="buttons are-small">
+      <%= link_to '交接', next_my_task_path(@task), method: :patch, class: 'button is-link' %>
+      <%= link_to '返工', rework_my_task_path(@task), method: :patch, class: 'button is-danger' %>
+    </div>
+  </div>
+</div>
