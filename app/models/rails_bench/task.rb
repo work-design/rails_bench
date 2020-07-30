@@ -50,10 +50,6 @@ module RailsBench::Task
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
   end
 
-  def same_scopes
-    Task.where(user_id: self.user_id, parent_id: self.parent_id)
-  end
-
   def sync_from_parent
     self.tasking_type ||= parent.tasking_type
     self.tasking_id ||= parent.tasking_id
@@ -87,6 +83,10 @@ module RailsBench::Task
       lower_item.state = 'doing'
       lower_item.save
     end
+  end
+
+  def notify_by_upstream
+    to_notification(receiver: member)
   end
 
   def set_rework
