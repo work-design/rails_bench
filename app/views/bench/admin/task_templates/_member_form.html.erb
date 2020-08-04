@@ -4,7 +4,7 @@
         :job_title_id,
         @job_titles,
         :id, :name, { include_blank: true },
-        { data: { controller: 'typer', action: 'typer#form', url: members_admin_task_templates_path } }
+        { data: { controller: 'typer', url: members_admin_task_templates_path } }
     )
   %>
   <%=
