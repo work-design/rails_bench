@@ -10,10 +10,8 @@ class Bench::My::TasksController < Bench::My::BaseController
       state: ['todo', 'doing'],
       user_id: current_user.id
     }
-    if session[:present_worker] && current_worker
-      q_params.merge! worker_id: current_worker.id
-    end
-    q_params.merge! params.permit(:focus, :state, :worker_id)
+    q_params.merge! member_id: current_member.id if current_member
+    q_params.merge! params.permit(:focus, :state, :tasking_type, :tasking_id)
     @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
 
@@ -23,10 +21,7 @@ class Bench::My::TasksController < Bench::My::BaseController
 
   def create
     @task = Task.new(task_params)
-    @task.user_id = current_user.id
-    if session[:present_worker]
-      @task.worker = current_user.present_worker
-    end
+    @task.member_id ||= current_member.id
 
     if task_params[:parent_id].present?
       redirect_to = my_task_url(task_params[:parent_id])
