@@ -7,7 +7,6 @@ class Bench::Board::TasksController < Bench::Board::BaseController
     :update_focus,
     :project_id,
     :reorder,
-    :current,
     :next,
     :rework,
     :destroy
@@ -22,7 +21,7 @@ class Bench::Board::TasksController < Bench::Board::BaseController
     }
     q_params.merge! default_params
     q_params.merge! params.permit(:focus, :state, :worker_id)
-    @tasks = current_user.tasks.includes(:project, :task_timer).roots.default_where(q_params).page(params[:page])
+    @tasks = current_user.tasks.includes(:task_timer).roots.default_where(q_params).page(params[:page])
   end
 
   def new
