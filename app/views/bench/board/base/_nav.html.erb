@@ -1,9 +1,9 @@
 <div class="dropdown is-hoverable">
   <div class="dropdown-trigger">
     <button class="button">
-      <% if current_session_organ %>
-        <span class="icon"><%= image_tag current_session_organ.logo if current_session_organ.logo.attached? %></span>
-        <span><%= current_session_organ.name %></span>
+      <% if current_organ %>
+        <span class="icon"><%= image_tag current_organ.logo if current_organ.logo.attached? %></span>
+        <span><%= current_organ.name %></span>
       <% else %>
         <span>所有任务</span>
       <% end %>
