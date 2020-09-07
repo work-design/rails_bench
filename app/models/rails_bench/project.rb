@@ -17,10 +17,6 @@ module RailsBench::Project
     has_one_attached :logo
   end
 
-  def creator
-
-  end
-
   def get_github_repo
     Rails.cache.fetch "projects/#{self.id}/github_repo" do
       creator&.github_repos(self.github_repo)

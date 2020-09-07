@@ -11,7 +11,6 @@ class Bench::Board::TasksController < Bench::Board::BaseController
     :rework,
     :destroy
   ]
-  before_action :require_worker, only: [:index]
   default_form_builder nil
 
   def index
@@ -124,15 +123,6 @@ class Bench::Board::TasksController < Bench::Board::BaseController
   end
 
   private
-  def require_worker
-    case params[:present_worker]
-    when '1'
-      session[:present_worker] = true
-    when '0'
-      session[:present_worker] = false
-    end
-  end
-
   def set_task
     @task = Task.find(params[:id])
   end
