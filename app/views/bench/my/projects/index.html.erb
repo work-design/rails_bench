@@ -1,19 +1,22 @@
-<h3 class="ui header">
+<h3 class="title has-text-centered">
   <%= t('.title') %>
 </h3>
 
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <td></td>
-      <td colspan="2">
-        <%= link_to '新建项目', new_my_project_path, remote: true, class: 'button is-light' %>
-      </td>
+      <th></th>
+      <th></th>
+      <th>
+        <%= link_to '新建项目', new_my_project_path, remote: true, class: 'button is-primary is-light' %>
+      </th>
     </tr>
   </thead>
+  <tbody>
   <% @projects.each do |project| %>
     <%= render partial: 'project', locals: { project: project } %>
   <% end %>
+  </tbody>
 </table>
 
 <%= paginate @projects %>

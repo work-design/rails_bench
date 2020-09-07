@@ -5,6 +5,7 @@ module RailsBench::Project
     attribute :name, :string
     attribute :description, :string
     attribute :github_repo, :string
+    attribute :state, :string
 
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy
