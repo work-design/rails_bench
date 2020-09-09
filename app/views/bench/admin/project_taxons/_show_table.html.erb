@@ -1,0 +1,16 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), edit_admin_project_taxon_path(@project_taxon), class: 'button is-small is-link', remote: true %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= ProjectTaxon.human_attribute_name(:name) %></td>
+      <td><%= @project_taxon.name %></td>
+    </tr>
+  </tbody>
+</table>

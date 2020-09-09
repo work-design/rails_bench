@@ -17,7 +17,7 @@ module RailsBench::Task
     belongs_to :user
     belongs_to :member, optional: true
     belongs_to :job_title, optional: true
-    belongs_to :tasking, optional: true, polymorphic: true
+    belongs_to :tasking, polymorphic: true, optional: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
@@ -48,6 +48,10 @@ module RailsBench::Task
 
     acts_as_list scope: [:parent_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
+  end
+
+  def same_scopes
+    self.class.where(user_id: self.user_id, parent_id: self.parent_id, organ_id: self.organ_id)
   end
 
   def sync_from_parent

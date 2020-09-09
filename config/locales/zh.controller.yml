@@ -2,6 +2,11 @@ zh:
   bench:
     admin:
       title: 工作管理
+      project_taxons:
+        index:
+          title: 项目分类
+        show:
+          title: 详情
       task_templates:
         index:
           title: 任务模板

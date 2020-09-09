@@ -7,6 +7,7 @@ module RailsBench::Project
     attribute :github_repo, :string
     attribute :state, :string
 
+    belongs_to :organ, optional: true
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy
     has_many :pipelines, as: :piping, dependent: :destroy

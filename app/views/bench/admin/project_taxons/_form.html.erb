@@ -1,0 +1,5 @@
+<%= form_with model: [:admin, @project_taxon] do |f| %>
+  <%= render 'shared/error_messages', target: @project_taxon %>
+  <%= f.text_field :name %>
+  <%= f.submit %>
+<% end %>
