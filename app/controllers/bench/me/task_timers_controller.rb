@@ -1,4 +1,4 @@
-class Bench::My::TaskTimersController < Bench::My::BaseController
+class Bench::Me::TaskTimersController < Bench::Me::BaseController
   before_action :set_task
   before_action :set_task_timer, only: [:show, :edit, :update, :pause, :destroy]
 
@@ -41,7 +41,7 @@ class Bench::My::TaskTimersController < Bench::My::BaseController
 
   def update
     @task_timer.assign_attributes(task_timer_params)
-    
+
     unless @task_timer.save
       render :edit
     end

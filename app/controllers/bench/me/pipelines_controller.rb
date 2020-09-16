@@ -1,4 +1,4 @@
-class Bench::My::PipelinesController < Bench::My::BaseController
+class Bench::Me::PipelinesController < Bench::Me::BaseController
   before_action :set_piping, only: [:index, :new]
   before_action :set_pipeline, only: [:show, :workers, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token, only: [:workers]

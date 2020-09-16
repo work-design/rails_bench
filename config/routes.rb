@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :my, module: 'bench/my', as: :my do
+  scope :me, module: 'bench/me', as: :me do
     resources :tasks do
       collection do
         get :add

@@ -1,4 +1,4 @@
-class Bench::My::ProjectMembersController < Bench::My::BaseController
+class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   before_action :set_project
   before_action :set_project_member, only: [:show, :edit, :update, :edit_worker, :update_worker, :workers, :destroy]
   skip_before_action :verify_authenticity_token, only: [:search]
@@ -38,7 +38,7 @@ class Bench::My::ProjectMembersController < Bench::My::BaseController
 
   def update
     @project_member.update(project_member_params)
-    
+
     if @project_member.save
       render :edit, locals: { model: @project_member }, status: :unprocessable_entity
     end

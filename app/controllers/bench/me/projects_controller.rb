@@ -1,4 +1,4 @@
-class Bench::My::ProjectsController < Bench::My::BaseController
+class Bench::Me::ProjectsController < Bench::Me::BaseController
   before_action :set_project, only: [:show, :tasks, :edit, :repos, :github_hook, :update, :destroy]
 
   def index

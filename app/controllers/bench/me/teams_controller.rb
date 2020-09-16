@@ -1,4 +1,4 @@
-class Bench::My::TeamsController < Bench::My::BaseController
+class Bench::Me::TeamsController < Bench::Me::BaseController
   before_action :set_team, only: [:show, :edit, :update, :destroy]
 
   def index

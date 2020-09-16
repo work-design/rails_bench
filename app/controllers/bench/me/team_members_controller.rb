@@ -1,4 +1,4 @@
-class Bench::My::TeamMembersController < Bench::My::BaseController
+class Bench::Me::TeamMembersController < Bench::Me::BaseController
   before_action :set_team
   before_action :set_team_member, only: [:show, :edit, :update, :edit_member, :update_member, :members, :destroy]
   skip_before_action :verify_authenticity_token, only: [:search]
