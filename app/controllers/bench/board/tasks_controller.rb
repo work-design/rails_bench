@@ -19,7 +19,7 @@ class Bench::Board::TasksController < Bench::Board::BaseController
       state: ['todo', 'doing']
     }
     q_params.merge! default_params
-    q_params.merge! params.permit(:focus, :state, :worker_id)
+    q_params.merge! params.permit(:focus, :state)
     @tasks = current_user.tasks.includes(:task_timer).roots.default_where(q_params).page(params[:page])
   end
 
