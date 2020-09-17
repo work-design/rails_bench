@@ -8,7 +8,7 @@
     <%= link_to task_template.title, admin_task_template_path(task_template) %>
     <span class="has-text-success"><%= task_template.job_title&.name %></span>
     <span class="has-text-primary"><%= task_template.member&.name %></span>
-    <%= link_to new_admin_task_template_path(parent_id: task_template.id, tasking_type: params[:tasking_type], tasking_id: params[:tasking_id]), remote: true do %>
+    <%= link_to new_admin_task_template_path(parent_id: task_template.id), remote: true do %>
       <i class="fas fa-plus"></i>
     <% end %>
     <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'has-text-grey' do %>

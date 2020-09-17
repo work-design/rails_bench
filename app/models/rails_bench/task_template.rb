@@ -14,6 +14,11 @@ module RailsBench::TaskTemplate
     belongs_to :member, optional: true
 
     acts_as_list scope: [:organ_id, :tasking_type, :tasking_id, :parent_id]
+
+    before_validation do
+      self.tasking_type ||= parent&.tasking_type
+      self.tasking_id ||= parent&.tasking_id
+    end
   end
 
 end

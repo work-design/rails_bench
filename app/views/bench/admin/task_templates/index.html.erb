@@ -7,6 +7,6 @@
   <div id="item_add" class="item">
     <%= link_to new_admin_task_template_path(tasking_type: params[:tasking_type], tasking_id: params[:tasking_id]), remote: true do %>
       <i class="fas fa-plus"></i>
-    <% end %>
+    <% end if params[:tasking_type] %>
   </div>
 </div>
