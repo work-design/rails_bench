@@ -3,6 +3,7 @@ module RailsBench::Task
 
   included do
     attribute :title, :string
+    attribute :note, :string
     attribute :state, :string, default: 'todo'
     attribute :focus, :string, default: 'inbox'
     attribute :repeat_type, :string, default: 'once'
@@ -67,6 +68,10 @@ module RailsBench::Task
     task_template.children.each do |template_child|
       self.children.build(task_template_id: template_child.id)
     end
+  end
+
+  def self_and_siblings
+    super.where(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
   end
 
   def sync_from_member

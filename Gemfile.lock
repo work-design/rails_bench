@@ -39,11 +39,11 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 401808b42e399211f4db66ab69ca6f862498f9f9
+  revision: 273157f19d04292c2a837091400eb34a7cdd2c4d
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
-      closure_tree (>= 6.6, <= 7.1)
+      closure_tree (>= 7.2)
       rails_com (~> 1.2)
 
 PATH
@@ -119,7 +119,7 @@ GEM
     bcrypt (3.1.16)
     builder (3.2.4)
     chunky_png (1.3.12)
-    closure_tree (7.1.0)
+    closure_tree (7.2.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     coderay (1.1.3)

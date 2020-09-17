@@ -9,7 +9,7 @@ class Bench::Me::TaskTimersController < Bench::Me::BaseController
       user_id: current_user.id
     }
     q_params.merge! params.permit(:state)
-    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).where(project_id: @task.project_id).default_where(q_params).page(params[:page])
+    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
     @task_timers = @task.task_timers.order(id: :desc)
   end
 
