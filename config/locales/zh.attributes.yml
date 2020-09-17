@@ -3,6 +3,8 @@ zh:
     attributes:
       project:
         project_taxon_id: 分类
+      project_fund:
+        amount: 金额
       task_member:
         job_title_id: 职位
         member_id: 人员

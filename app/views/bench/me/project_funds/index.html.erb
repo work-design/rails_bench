@@ -3,7 +3,7 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th><%= ProjectFund.human_attribute_name(:price) %></th>
+      <th><%= ProjectFund.human_attribute_name(:amount) %></th>
       <th><%= ProjectFund.human_attribute_name(:user) %></th>
       <th>
         <%= link_to new_me_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
@@ -16,7 +16,7 @@
   <tbody>
     <% @project_funds.each do |project_fund| %>
       <tr>
-        <td><%= project_fund.price %></td>
+        <td><%= project_fund.amount %></td>
         <td>
           <% if project_fund.visible %>
             <%= link_to project_fund.user.name, user_path(project_fund.user_id) %>
