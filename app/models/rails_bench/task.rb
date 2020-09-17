@@ -54,7 +54,7 @@ module RailsBench::Task
   end
 
   def sync_from_parent
-    self.tasking_type ||= parent.tasking_type
+    self.tasking_type = tasking_type.presence || parent.tasking_type
     self.tasking_id ||= parent.tasking_id
     self.member_id ||= parent.member_id
   end

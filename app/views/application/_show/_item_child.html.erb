@@ -1,4 +1,4 @@
-<div class="level" data-id="<%= task.id %>" id="task_<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+<div class="level mb-0" data-id="<%= task.id %>" id="task_<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item" style="visibility: hidden" data-show-target="item">
       <%= render partial: '_shared/rail', locals: { task: task } %>

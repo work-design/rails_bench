@@ -2,13 +2,11 @@
   <%= render partial: 'project_bar', locals: { project: @task.tasking } %>
 <% end %>
 
-<% unless @task.root? %>
-  <div class="breadcrumb">
-    <ul>
-      <% @task.ancestors.each do |ancestor| %>
-        <li><%= link_to ancestor.title, me_task_path(ancestor.id) %></li>
-      <% end %>
-      <li class="is-active"><%= @task.title %></li>
-    </ul>
-  </div>
-<% end %>
+<div class="breadcrumb">
+  <ul>
+    <% @task.ancestors.each do |ancestor| %>
+      <li><%= link_to ancestor.title, me_task_path(ancestor.id) %></li>
+    <% end %>
+    <li class="is-active"><%= @task.title %></li>
+  </ul>
+</div>
