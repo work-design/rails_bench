@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 51e89ed0d3fa4ebc40f757711f6586a0d0df384d
+  revision: 072dafbc01289c5c4a245976a8f3079649847e0d
   specs:
     rails_com (1.2.9)
       acme-client
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 60ced55a21e7b44369426e0fe0e16b46dad75b20
+  revision: 7043153f91c95d03dbbd5baec7bb11955dfd9e3f
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 6ac552627e82aa6bab847e38960b68a1d12ab557
+  revision: 60dfae4187a5b928c4b3ba5cd429486d57d02866
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
