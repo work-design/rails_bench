@@ -52,8 +52,8 @@ class Bench::Me::TasksController < Bench::Me::BaseController
       user_id: current_user.id
     }
     q_params.merge! params.permit(:state, :focus)
-    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).where(tasking_type: @task.tasking_type, tasking_id: @task.tasking_id).default_where(q_params).page(params[:page])
-    render :show
+
+    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
   end
 
   def reorder
