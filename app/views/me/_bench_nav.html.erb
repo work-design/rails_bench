@@ -1,4 +1,5 @@
-<span class="menu-label">接项目</span>
+<span class="menu-label"><%= t('bench.me.title') %></span>
 <div class="menu-list">
-  <%= link_to '我的项目', me_projects_path, class: active_helper(controllers: ['projects', 'project_members', 'project_funds'], active: 'is-active') %>
+  <%= link_to t('bench.me.tasks.index.title'), me_tasks_path, class: active_helper(controllers: ['tasks'], active: 'is-active') %>
+  <%= link_to t('bench.me.projects.index.title'), me_projects_path, class: active_helper(controllers: ['projects', 'project_members', 'project_funds'], active: 'is-active') %>
 </div>

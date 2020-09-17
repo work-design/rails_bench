@@ -11,6 +11,13 @@ zh:
         index:
           title: 任务模板
     me:
+      title: 接项目
+      projects:
+        index:
+          title: 我的项目
       project_funds:
         index:
           title: 项目资金
+      tasks:
+        index:
+          title: 我的任务

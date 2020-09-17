@@ -1,16 +1,16 @@
 <div class="level-left">
   <div class="image" id="play_task_<%= @task.id %>">
     <% if @task.task_timer %>
-      <%= link_to pause_my_task_task_timer_path(@task, @task.task_timer), method: 'patch', remote: true do %>
+      <%= link_to pause_me_task_task_timer_path(@task, @task.task_timer), method: 'patch', remote: true do %>
         <i class="grey pause icon"></i>
       <% end %>
     <% else %>
-      <%= link_to my_task_task_timers_path(@task), method: 'post', remote: true do %>
+      <%= link_to me_task_task_timers_path(@task), method: 'post', remote: true do %>
         <i class="grey play icon"></i>
       <% end %>
     <% end %>
   </div>
-  <%= form_with theme: nil, model: [:my, @task], html: { class: 'form is-horizontal' } do |f| %>
+  <%= form_with theme: nil, model: [:me, @task], html: { class: 'form is-horizontal' } do |f| %>
     <div class="field-body">
       <div class="field">
         <%= f.text_field :title, class: 'input' %>

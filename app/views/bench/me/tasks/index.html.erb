@@ -4,13 +4,13 @@
 
 <%= render 'filter_table' %>
 
-<div id="task_lists" data-controller="sortable" data-src="/my/tasks/">
+<div id="task_lists" data-controller="sortable" data-src="/me/tasks/">
   <% @tasks.each do |task| %>
     <%= render partial: '_index/item', locals: { task: task } %>
   <% end %>
   <div class="item" id="item_add">
     <% if 'done' != params[:state] %>
-      <%= link_to new_my_task_path, remote: true do %>
+      <%= link_to new_me_task_path, remote: true do %>
         <i class="fas fa-plus"></i>
       <% end %>
     <% end %>
