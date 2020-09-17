@@ -56,10 +56,9 @@ Rails.application.routes.draw do
           patch 'member' => :update_member
         end
       end
-      resources :project_funds, path: 'funds', as: 'funds' do
-      end
+      resources :project_funds, path: 'funds', as: 'funds'
+      resources :task_templates
     end
-    resources :task_templates
   end
 
   scope :admin, module: 'bench/admin', as: :admin do

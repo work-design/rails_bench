@@ -6,6 +6,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     q_params = {}
     q_params.merge! default_params
     q_params.merge! params.permit(:parent_id, :tasking_type, :tasking_id)
+
     @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
   end
 
@@ -41,7 +42,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def update
-    @task_template.update(task_template_params)
+    @task_template.assign_attributes(task_template_params)
 
     unless @task_template.save
       render :edit, locals: { model: @task_template }, status: :unprocessable_entity
