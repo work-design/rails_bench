@@ -25,8 +25,8 @@ class Bench::Me::TasksController < Bench::Me::BaseController
 
     if task_params[:parent_id].present?
       redirect_to = me_task_url(task_params[:parent_id])
-    elsif task_params[:parent_id].blank? && task_params[:project_id].present?
-      redirect_to = tasks_me_project_url(task_params[:project_id])
+    elsif task_params[:parent_id].blank? && task_params[:tasking_type] == 'Project'
+      redirect_to = tasks_me_project_url(task_params[:tasking_id])
     else
       redirect_to = me_tasks_url
     end
