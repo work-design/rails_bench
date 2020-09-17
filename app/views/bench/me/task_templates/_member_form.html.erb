@@ -1,0 +1,18 @@
+<%= form_with model: @task_template, url: admin_task_template_path(@task_template) do |f| %>
+  <%=
+    f.collection_select(
+        :job_title_id,
+        @job_titles,
+        :id, :name, { include_blank: true },
+        { data: { controller: 'typer', url: members_admin_task_templates_path } }
+    )
+  %>
+  <%=
+    f.collection_select(
+        :member_id, @members,
+        :id, :name, include_blank: true
+    )
+  %>
+  <%= f.color_field :color %>
+  <%= f.submit %>
+<% end %>

@@ -1,4 +1,5 @@
 class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
+  before_action :set_project
   before_action :set_task_template, only: [:show, :members, :edit, :update, :destroy]
 
   def index
@@ -54,6 +55,10 @@ class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
   end
 
   private
+  def set_project
+    @project = Project.find params[:project_id]
+  end
+
   def set_task_template
     @task_template = TaskTemplate.find(params[:id])
   end
