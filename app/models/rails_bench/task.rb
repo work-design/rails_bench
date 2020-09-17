@@ -3,10 +3,10 @@ module RailsBench::Task
 
   included do
     attribute :title, :string
+    attribute :position, :integer
     attribute :note, :string
     attribute :repeat_type, :string, default: 'once'
     attribute :repeat_days, :integer, array: true
-    attribute :position, :integer
     attribute :estimated_time, :integer
     attribute :actual_time, :integer
     attribute :done_at, :datetime
