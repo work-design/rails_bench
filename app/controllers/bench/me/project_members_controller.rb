@@ -1,7 +1,7 @@
 class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   before_action :set_project
   before_action :set_project_member, only: [:show, :edit, :update, :edit_worker, :update_worker, :workers, :destroy]
-  skip_before_action :verify_authenticity_token, only: [:search]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
     @project_members = @project.project_members.page(params[:page])
@@ -25,7 +25,7 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   def create
     @project_member = @project.project_members.build(project_member_params)
 
-    if @project_member.save
+    unless @project_member.save
       render :new, locals: { model: @project_member }, status: :unprocessable_entity
     end
   end
@@ -37,27 +37,15 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   end
 
   def update
-    @project_member.update(project_member_params)
+    @project_member.assign_attributes(project_member_params)
 
-    if @project_member.save
+    unless @project_member.save
       render :edit, locals: { model: @project_member }, status: :unprocessable_entity
     end
   end
 
   def edit_worker
 
-  end
-
-  def update_worker
-    respond_to do |format|
-      if @project_member.update(worker_id: project_member_params[:worker_id])
-        format.html { redirect_to my_project_members_url(@project), notice: 'Employee was successfully updated.' }
-        format.js
-      else
-        format.html { redirect_to my_project_members_url(@project) }
-        format.js
-      end
-    end
   end
 
   def workers
@@ -80,10 +68,6 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
 
   def destroy
     @project_member.destroy
-    respond_to do |format|
-      format.html { redirect_to my_project_members_url(@project), notice: 'Project member was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
@@ -95,10 +79,14 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
     @project_member = ProjectMember.find(params[:id])
   end
 
+  def prepare_form
+    @job_titles = JobTitle.default_where(default_params)
+  end
+
   def project_member_params
     params.fetch(:project_member, {}).permit(
-      :duty_id,
-      :worker_id
+      :job_title_id,
+      :member_id
     )
   end
 
