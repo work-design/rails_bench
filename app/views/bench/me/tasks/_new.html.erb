@@ -8,7 +8,7 @@
     </div>
     <div class="field is-narrow">
       <%= f.submit '保存', class: 'button is-primary' %>
-      <%= link_to '取消', add_my_tasks_path(task_id: @task.id), remote: true, class: 'button is-light' %>
+      <%= link_to '取消', add_me_tasks_path(task_id: @task.id), remote: true, class: 'button is-light' %>
     </div>
   </div>
 <% end %>
