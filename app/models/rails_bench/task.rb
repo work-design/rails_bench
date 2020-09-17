@@ -4,8 +4,6 @@ module RailsBench::Task
   included do
     attribute :title, :string
     attribute :note, :string
-    attribute :state, :string, default: 'todo'
-    attribute :focus, :string, default: 'inbox'
     attribute :repeat_type, :string, default: 'once'
     attribute :repeat_days, :integer, array: true
     attribute :position, :integer
@@ -31,12 +29,12 @@ module RailsBench::Task
       doing: 'doing',
       done: 'done',
       rework: 'rework'
-    }
+    }, _default: 'todo'
     enum focus: {
       inbox: 'inbox',
       today: 'today',
       scheduled: 'scheduled'
-    }
+    }, _default: 'inbox'
 
     default_scope { order(position: :asc) }
     scope :default, -> { where(state: ['todo', 'doing']) }

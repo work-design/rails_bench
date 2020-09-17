@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: 81c83626c03b4956f507f497fdd1c67e668ed46b
+  revision: 73b0e94861852fda7ab4eb32f887a3c03c66e04f
   specs:
     rails_org (0.1)
       rails_auth
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_taxon.git
-  revision: 273157f19d04292c2a837091400eb34a7cdd2c4d
+  revision: 6ac552627e82aa6bab847e38960b68a1d12ab557
   specs:
     rails_taxon (1.0.0)
       acts_as_list (>= 1.0)
