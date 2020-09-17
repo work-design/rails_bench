@@ -10,7 +10,7 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
   end
 
   def new
-    @project = current_member.projects.build
+    @project = current_member.projects.build(project_taxon_id: params[:project_taxon_id])
   end
 
   def create
