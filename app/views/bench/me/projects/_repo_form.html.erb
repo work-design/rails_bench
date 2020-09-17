@@ -5,7 +5,7 @@
     <label class="six wide field" for="worker_pomodoro"><i class="icon github"></i>github</label>
     <div class="ui right labeled input">
       <%= f.text_field :github_repo, label: false, can: { wrap_input: false, wrap_all: false } %>
-      <%= link_to 'select', repos_my_project_path(@project), class: 'ui blue label' %>
+      <%= link_to 'select', repos_me_project_path(@project), class: 'ui blue label' %>
     </div>
   </div>
   <%= f.select :github_repo, options_for_select([@project.github_repo], @project.github_repo), {}, { class: 'ui fluid dropdown search selection', id: 'project_github_repo_select' } %>

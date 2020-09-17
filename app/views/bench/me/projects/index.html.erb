@@ -2,11 +2,16 @@
   <%= t('.title') %>
 </h3>
 
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th></th>
-      <th></th>
+      <th><%= Project.human_attribute_name(:project_taxon_id) %></th>
+      <th><%= Project.human_attribute_name(:name) %></th>
+      <th><%= Project.human_attribute_name(:description) %></th>
+      <th><%= Project.human_attribute_name(:state) %></th>
       <th>
         <%= link_to '新建项目', new_me_project_path, remote: true, class: 'button is-primary is-light' %>
       </th>
@@ -14,7 +19,20 @@
   </thead>
   <tbody>
   <% @projects.each do |project| %>
-    <%= render partial: 'project', locals: { project: project } %>
+    <tr>
+      <td><%= project.project_taxon&.name %></td>
+      <td><%= link_to project.name, tasks_me_project_path(project) %></td>
+      <td><%= project.description %></td>
+      <td><%= project.state %></td>
+      <td>
+        <%= link_to edit_me_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to me_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
   </tbody>
 </table>

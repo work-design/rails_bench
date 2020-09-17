@@ -1,8 +1,12 @@
 class Bench::Me::ProjectsController < Bench::Me::BaseController
   before_action :set_project, only: [:show, :tasks, :edit, :repos, :github_hook, :update, :destroy]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @projects = current_member.projects.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:project_taxon_id, 'name-like')
+
+    @projects = current_member.projects.default_where(q_params).page(params[:page])
   end
 
   def new
@@ -53,9 +57,14 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
     @project = Project.find(params[:id])
   end
 
+  def prepare_form
+    @project_taxons = ProjectTaxon.default_where(default_params)
+  end
+
   def project_params
     params.fetch(:project, {}).permit(
       :name,
+      :project_taxon_id,
       :description,
       :github_repo
     )

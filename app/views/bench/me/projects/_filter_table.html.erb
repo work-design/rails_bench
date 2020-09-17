@@ -1,0 +1,11 @@
+<table class="as-search">
+  <tr>
+    <th><%= Project.human_attribute_name(:project_taxon_id) %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: [:project_taxon_id]), class: active_params(project_taxon_id: '', active: 'button is-info', item: 'button is-light') %>
+      <% ProjectTaxon.all.each do |project_taxon| %>
+        <%= link_to project_taxon.name, filter_params(project_taxon_id: project_taxon.id), class: active_params(project_taxon_id: project_taxon.id, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+</table>

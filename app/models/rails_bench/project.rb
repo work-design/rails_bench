@@ -8,6 +8,7 @@ module RailsBench::Project
     attribute :state, :string
 
     belongs_to :organ, optional: true
+    belongs_to :project_taxon, optional: true
     has_many :teams, as: :teaming, dependent: :destroy
     has_many :project_members, dependent: :destroy
     has_many :pipelines, as: :piping, dependent: :destroy
