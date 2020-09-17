@@ -20,7 +20,9 @@ Rails.application.routes.draw do
         get 'assign' => :edit_assign
       end
       resources :task_timers do
-        patch :pause, on: :member
+        member do
+          patch :pause
+        end
       end
       resources :task_members
       resources :pictures
@@ -28,32 +30,41 @@ Rails.application.routes.draw do
     end
     resources :teams do
       resources :team_members, path: 'members', as: 'members' do
-        get :search, on: :collection
-        get :members, on: :member
-        get 'member' => :edit_member, on: :member
-        patch 'member' => :update_member, on: :member
+        collection do
+          get :search
+        end
+        member do
+          get :members
+          get 'member' => :edit_member
+          patch 'member' => :update_member
+        end
       end
     end
     resources :projects do
-      get :tasks, on: :member
-      get :repos, on: :member
-      get :github_hook, on: :member
+      member do
+        get :tasks
+        get :repos
+        get :github_hook
+      end
       resources :project_members, path: 'members', as: 'members' do
-        get :search, on: :collection
-        get :members, on: :member
-        get 'member' => :edit_member, on: :member
-        patch 'member' => :update_member, on: :member
+        collection do
+          get :search
+        end
+        member do
+          get :members
+          get 'member' => :edit_member
+          patch 'member' => :update_member
+        end
       end
       resources :project_funds, path: 'funds', as: 'funds' do
-
       end
     end
-    resources :pipelines
+    resources :task_templates
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
     resources :project_taxons
-    resources :project_
+    resources :project_states
     resources :task_templates do
       collection do
         get :add

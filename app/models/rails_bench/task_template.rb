@@ -3,9 +3,9 @@ module RailsBench::TaskTemplate
 
   included do
     attribute :title, :string
-    attribute :parent_id, :integer
     attribute :position, :integer
     attribute :color, :string
+    attribute :parent_id, :integer
 
     belongs_to :organ, optional: true
     belongs_to :tasking, polymorphic: true, optional: true
