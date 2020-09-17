@@ -12,15 +12,15 @@
     <% end %>
     </div>
     <div class="level-item">
-      <%= link_to assign_my_task_path(@task), aria: { label: '指派' }, remote: true do %>
+      <%= link_to assign_me_task_path(@task), aria: { label: '指派' }, remote: true do %>
         <i class="fas fa-hand-point-right"></i>
       <% end %>
     </div>
   </div>
   <div class="level-right">
     <div class="buttons are-small">
-      <%= link_to '交接', next_my_task_path(@task), method: :patch, class: 'button is-link' %>
-      <%= link_to '返工', rework_my_task_path(@task), method: :patch, class: 'button is-danger' %>
+      <%= link_to '交接', next_me_task_path(@task), method: :patch, class: 'button is-link' %>
+      <%= link_to '返工', rework_me_task_path(@task), method: :patch, class: 'button is-danger' %>
     </div>
   </div>
 </div>

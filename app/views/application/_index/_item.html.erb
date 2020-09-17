@@ -10,7 +10,7 @@
       <% if task.task_timer %>
         <i class="green hourglass start icon"></i>
       <% end %>
-      <%= link_to task.title, my_task_path(task) %>
+      <%= link_to task.title, me_task_path(task) %>
     </div>
   </div>
   <div class="level-right">
@@ -21,7 +21,7 @@
       <span class="ui small label"><%= task.job_title&.name %></span>
     <% end %>
     <span style="visibility: hidden;" data-show-target="item">
-      <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
+      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>

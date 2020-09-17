@@ -6,24 +6,24 @@
       </div>
       <div class="level-item">
         <i class="fas fa-bars"></i>
-        <%= link_to task.title, my_task_path(task) %>
+        <%= link_to task.title, me_task_path(task) %>
       </div>
     </div>
     <div class="level-right">
       <span style="visibility: hidden" data-show-target="item">
-        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: :delete, remote: true do %>
+        <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: :delete, remote: true do %>
           <i class="fas fa-undo has-text-danger"></i>
         <% end %>
       </span>
     </div>
   </div>
   <% if task.id == @task.id %>
-    <div class="box" data-controller="sortable" data-src="/my/tasks">
+    <div class="box" data-controller="sortable" data-src="/me/tasks">
       <% task.children.each do |child| %>
         <%= render partial: '_show/item_child', locals: { task: child } %>
       <% end %>
       <div id="item_add">
-        <%= link_to new_my_task_path(parent_id: @task.id), remote: true do %>
+        <%= link_to new_me_task_path(parent_id: @task.id), remote: true do %>
           <i class="fas fa-plus"></i>
         <% end %>
       </div>

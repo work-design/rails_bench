@@ -1,21 +1,21 @@
 <% if task.task_timer %>
-  <%= link_to pause_my_task_task_timer_path(task, task.task_timer), method: 'patch', id: "pause_task_#{task.id}", remote: true do %>
+  <%= link_to pause_me_task_task_timer_path(task, task.task_timer), method: 'patch', id: "pause_task_#{task.id}", remote: true do %>
     <i class="fas fa-pause fa-fw has-text-grey"></i>
   <% end %>
 <% end %>
 
 <% if task.inbox? %>
-  <%= link_to focus_my_task_path(task), id: "play_task_#{task.id}", remote: true do %>
+  <%= link_to focus_me_task_path(task), id: "play_task_#{task.id}", remote: true do %>
     <i class="fas fa-plus fa-fw has-text-link"></i>
   <% end %>
 <% end %>
 
 <% if task.today? %>
-  <%= link_to my_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}", remote: true do %>
+  <%= link_to me_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}", remote: true do %>
     <i class="fas fa-play fa-fw has-text-primary"></i>
   <% end %>
 <% end %>
 
-<%= link_to edit_my_task_path(task, item: 'title'), aria: { label: t('.edit') }, remote: true do %>
+<%= link_to edit_me_task_path(task, item: 'title'), aria: { label: t('.edit') }, remote: true do %>
   <i class="fas fa-pencil-alt fa-fw has-text-info"></i>
 <% end %>

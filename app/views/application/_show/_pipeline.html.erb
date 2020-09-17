@@ -16,7 +16,7 @@
     </div>
   </td>
   <td>
-    <%= link_to edit_my_task_path(@task, item: 'pipeline'), remote: true do %>
+    <%= link_to edit_me_task_path(@task, item: 'pipeline'), remote: true do %>
       <i class="grey edit icon"></i>
     <% end %>
   </td>
@@ -24,7 +24,7 @@
 
 <% elsif @task.tasking %>
   <td colspan="3">
-    <%= form_with model: @task, url: my_task_path, method: :patch, can: { wrap_all: false, offset: false } do |f| %>
+    <%= form_with model: @task, url: me_task_path, method: :patch, can: { wrap_all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
       <div class="inline fields">
         <%= f.collection_select :pipeline_id, @task.project.pipelines, :id, :name, can: { wrap_all: false } %>

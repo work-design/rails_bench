@@ -24,11 +24,11 @@ class Bench::Me::TasksController < Bench::Me::BaseController
     @task.member_id ||= current_member.id
 
     if task_params[:parent_id].present?
-      redirect_to = my_task_url(task_params[:parent_id])
+      redirect_to = me_task_url(task_params[:parent_id])
     elsif task_params[:parent_id].blank? && task_params[:project_id].present?
-      redirect_to = tasks_my_project_url(task_params[:project_id])
+      redirect_to = tasks_me_project_url(task_params[:project_id])
     else
-      redirect_to = my_tasks_url
+      redirect_to = me_tasks_url
     end
 
     if @task.save
@@ -99,12 +99,12 @@ class Bench::Me::TasksController < Bench::Me::BaseController
 
   def next
     @task.set_next
-    redirect_to my_task_url(@task)
+    redirect_to me_task_url(@task)
   end
 
   def rework
     @task.set_rework
-    redirect_to my_task_url(@task)
+    redirect_to me_task_url(@task)
   end
 
   def destroy

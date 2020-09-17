@@ -2,7 +2,7 @@
 
   <div class="ui avatar image">
     <span class="xxx" style="visibility: hidden;">
-      <%= render partial: 'bench/my/tasks/_shared/rail', locals: { task: task } %>
+      <%= render partial: '_shared/rail', locals: { task: task } %>
     </span>
     <i class="fas fa-bars"></i>
   </div>
@@ -11,7 +11,7 @@
     <% if task.task_timer %>
       <i class="green hourglass start icon"></i>
     <% end %>
-    <%= link_to task.title, my_task_path(task) %>
+    <%= link_to task.title, me_task_path(task) %>
     <div class="right floated">
       <% if ['today'].include?(task.focus) %>
         <i class="fas fa-sun"></i>
@@ -23,7 +23,7 @@
         <span class="ui small label"><%= task.worker.duty.name %></span>
       <% end %>
       <span class="xxx" style="visibility: hidden;">
-        <%= link_to my_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
+        <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true, class: 'grey text' do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </span>

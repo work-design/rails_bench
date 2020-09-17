@@ -1,27 +1,25 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-  <div class="ui basic segment">
-    <%= render 'bench/me/tasks/filter_table' %>
-  </div>
+<%= render 'bench/me/tasks/filter_table' %>
 
-<div class="divided padded row">
+<div class="columns">
 
-  <div class="eight wide column">
+  <div class="column">
     <div class="ui divided items" data-controller="sortable" data-src="/me/tasks/">
       <% @tasks.each do |task| %>
-        <%= render partial: 'bench/me/tasks/_index/item', locals: { task: task } %>
+        <%= render partial: '_index/item', locals: { task: task } %>
       <% end %>
       <div id="item_add" class="item">
         <% if 'done' != params[:state] %>
-          <%= link_to new_me_task_path(project_id: @project.id), remote: true do %>
-            <i class="grey plus icon"></i>
+          <%= link_to new_me_task_path(tasking_type: 'Project', tasking_id: @project.id), remote: true do %>
+            <i class="fas fa-plus"></i>
           <% end %>
         <% end %>
       </div>
     </div>
   </div>
 
-  <div class="eight wide column">
+  <div class="column">
 
   </div>
 

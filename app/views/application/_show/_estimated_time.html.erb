@@ -5,7 +5,7 @@
   </div>
   <div class="level-right">
   <% if @task.leaf? %>
-    <%= link_to edit_my_task_path(@task, item: 'estimated_time'), remote: true do %>
+    <%= link_to edit_me_task_path(@task, item: 'estimated_time'), remote: true do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
   <% end %>
