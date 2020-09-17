@@ -11,9 +11,9 @@
          <%= link_to edit_me_project_path(@project) do %>
            <i class="write icon"></i>
          <% end %>
-         <% if @project.get_github_repo.present? %>
-           <%= link_to 'open', @project.get_github_repo[:html_url], target: '_blank' %>
-         <% end %>
+         <%# if @project.get_github_repo.present? %>
+           <%# link_to 'open', @project.get_github_repo[:html_url], target: '_blank' %>
+         <%# end %>
 
          <%= link_to 'add github hook', github_hook_me_project_path(@project), class: 'ui mini button' %>
        </div>

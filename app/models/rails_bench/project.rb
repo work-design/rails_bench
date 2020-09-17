@@ -15,6 +15,9 @@ module RailsBench::Project
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
 
+    has_one :project_creator, -> { where(owned: true) }, class_name: 'ProjectMember'
+    has_one :creator, through: :project_creator, source: :member
+
     validates :name, presence: true
 
     has_one_attached :logo
@@ -22,12 +25,12 @@ module RailsBench::Project
 
   def get_github_repo
     Rails.cache.fetch "projects/#{self.id}/github_repo" do
-      creator&.github_repos(self.github_repo)
+      creator.user.github_repos(self.github_repo)
     end
   end
 
   def github_hook_add
-    creator.github_client.create_hook(
+    creator.user.github_client.create_hook(
       get_github_repo[:full_name],
       'web',
       { url: github_hook_url, content_type: 'json'},
