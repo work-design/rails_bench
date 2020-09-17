@@ -10,3 +10,7 @@ zh:
       task_templates:
         index:
           title: 任务模板
+    me:
+      project_funds:
+        index:
+          title: 项目资金

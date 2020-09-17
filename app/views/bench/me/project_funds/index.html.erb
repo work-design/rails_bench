@@ -1,4 +1,4 @@
-<%= render partial: 'bench/my/projects/top_bar', locals: { project: @project } %>
+<%= render partial: 'project_bar', locals: { project: @project } %>
 
 <table class="table is-fullwidth">
   <thead>
@@ -6,7 +6,7 @@
       <th><%= ProjectFund.human_attribute_name(:price) %></th>
       <th><%= ProjectFund.human_attribute_name(:user) %></th>
       <th>
-        <%= link_to new_my_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
+        <%= link_to new_me_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -25,10 +25,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to edit_my_project_fund_path(@project, project_fund), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to edit_me_project_fund_path(@project, project_fund), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
             <i class="fas fa-pencil-alt"></i>
           <% end %>
-          <%= link_to my_project_fund_path(@project, project_fund), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to me_project_fund_path(@project, project_fund), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
             <i class="fas fa-trash"></i>
           <% end %>
         </td>

@@ -1,4 +1,4 @@
-<%= render partial: 'bench/my/projects/top_bar', locals: { project: @project } %>
+<%= render partial: 'project_bar', locals: { project: @project } %>
 
 <table class="table is-fullwidth">
   <thead>
@@ -7,7 +7,7 @@
       <th>Worker</th>
       <th>加入时间</th>
       <th>
-        <%= link_to new_my_project_member_path(@project), class: 'button is-link is-small' do %>
+        <%= link_to new_me_project_member_path(@project), class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -22,13 +22,13 @@
         <% if project_member.member_id.present? %>
           <%= link_to project_member.member.name %>
         <% else %>
-          <%= link_to '邀请worker', worker_my_project_member_path(@project, project_member), remote: true, class: 'ui blue label' %>
+          <%= link_to '邀请worker', member_me_project_member_path(@project, project_member), remote: true, class: 'ui blue label' %>
         <% end %>
       </td>
       <td><time><%= project_member.created_at.to_s(:rfc822) %></time></td>
       <td>
-        <%= link_to '编辑', edit_my_project_member_path(@project, project_member), class: 'ui pink label' %>
-        <%= link_to '删除', my_project_member_path(@project, project_member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
+        <%= link_to '编辑', edit_me_project_member_path(@project, project_member), class: 'ui pink label' %>
+        <%= link_to '删除', me_project_member_path(@project, project_member), method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui red label' %>
       </td>
     </tr>
   <% end %>

@@ -8,6 +8,6 @@
     <li><%= link_to '项目信息', me_project_path(project), class: active_helper(projects: 'show') %></li>
     <li><%= link_to '流水线', me_pipelines_path(piping_type: 'Project', piping_id: project.id), class: active_helper(controllers: ['pipelines', 'pipeline_members']) %></li>
     <li><%= link_to '成员', me_project_members_path(project), class: active_helper(controllers: 'project_members') %></li>
-    <li><%= link_to '众筹', me_project_funds_path(project), class: active_helper(controllers: 'project_funds') %></li>
+    <li><%= link_to t('bench.me.project_funds.index.title'), me_project_funds_path(project), class: active_helper(controllers: 'project_funds') %></li>
   </ul>
 </div>
