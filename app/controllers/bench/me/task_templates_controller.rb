@@ -3,18 +3,16 @@ class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
   before_action :set_task_template, only: [:show, :members, :edit, :update, :destroy]
 
   def index
-    q_params = {}
-    q_params.merge! params.permit(:tasking_type, :tasking_id)
-
-    @task_templates = TaskTemplate.default_where(q_params).page(params[:page])
+    @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
   end
 
   def new
-    @task_template = TaskTemplate.new(tasking_type: params[:tasking_type], tasking_id: params[:tasking_id])
+    @task_template = @project.task_templates.build
   end
 
   def create
-    @task_template = TaskTemplate.new(task_template_params)
+    @task_template = @project.task_templates.build(task_template_params)
+    @task_template.tasking_id = @project.id
 
     unless @task_template.save
       render :new, locals: { model: @task_template }, status: :unprocessable_entity
@@ -65,10 +63,7 @@ class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
 
   def task_template_params
     params.fetch(:task_template, {}).permit(
-      :name,
-      :description,
-      :tasking_type,
-      :tasking_id
+      :title
     )
   end
 
