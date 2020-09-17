@@ -1,11 +1,11 @@
-<% if @task.pipeline %>
+<% if @task.task_template %>
 <tr id="task_edit_pipeline">
   <td>
-    <%= @task.pipeline.name %>
+    <%= @task.task_template.title %>
   </td>
   <td>
     <div class="ui mini ordered steps">
-    <% @task.pipeline.pipeline_members.includes(:job_title, :member).each do |member| %>
+    <% @task.task_template.children.includes(:job_title, :member).each do |member| %>
       <div class="<%= member.member_id == @task.member_id ? 'active step' : 'step' %>">
         <div class="content">
           <div class="title"><%= member.job_title&.name %></div>
@@ -17,17 +17,17 @@
   </td>
   <td>
     <%= link_to edit_me_task_path(@task, item: 'pipeline'), remote: true do %>
-      <i class="grey edit icon"></i>
+      <i class="fas fa-pencil"></i>
     <% end %>
   </td>
 </tr>
 
 <% elsif @task.tasking %>
   <td colspan="3">
-    <%= form_with model: @task, url: me_task_path, method: :patch, can: { wrap_all: false, offset: false } do |f| %>
+    <%= form_with model: @task, url: me_task_path, method: :patch, wrap: { all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
       <div class="inline fields">
-        <%= f.collection_select :pipeline_id, @task.project.pipelines, :id, :name, can: { wrap_all: false } %>
+        <%= f.collection_select :task_template_id, @task.tasking.task_templates, :id, :title, wrap: { all: false } %>
         <%= f.submit %>
       </div>
     <% end %>
