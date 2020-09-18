@@ -2,6 +2,9 @@ zh:
   bench:
     admin:
       title: 工作管理
+      project_stages:
+        index:
+          title: 项目阶段
       project_taxons:
         index:
           title: 项目分类

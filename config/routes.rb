@@ -67,6 +67,7 @@ Rails.application.routes.draw do
         get :parameter
       end
     end
+    resources :project_stages
     resources :project_states
     resources :task_templates do
       collection do

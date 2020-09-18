@@ -4,7 +4,7 @@ module RailsBench::ProjectStage
   included do
     attribute :name, :string
     attribute :begin_on, :date
-    attribute :finish_on, :date
+    attribute :end_on, :date
     attribute :state, :string
   end
 
