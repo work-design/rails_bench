@@ -19,9 +19,19 @@ zh:
       projects:
         index:
           title: 我的项目
+        tasks:
+          title: 待办
+        show:
+          title: 项目信息
       project_funds:
         index:
           title: 项目资金
+      project_members:
+        index:
+          title: 项目组成员
       tasks:
         index:
           title: 我的任务
+      task_templates:
+        index:
+          title: 工作流

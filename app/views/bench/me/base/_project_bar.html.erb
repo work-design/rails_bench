@@ -4,10 +4,10 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to '任务列表', tasks_me_project_path(project) %></li>
-    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to '项目信息', me_project_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>"><%= link_to '流水线', me_project_task_templates_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'project_members', active: 'is-active') %>"><%= link_to '成员', me_project_members_path(project) %></li>
+    <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), tasks_me_project_path(project) %></li>
+    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), me_project_path(project) %></li>
+    <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.me.task_templates.index.title'), me_project_task_templates_path(project) %></li>
+    <li class="<%= active_helper(controllers: 'project_members', active: 'is-active') %>"><%= link_to t('bench.me.project_members.index.title'), me_project_members_path(project) %></li>
     <li class="<%= active_helper(controllers: 'project_funds', active: 'is-active') %>"><%= link_to t('bench.me.project_funds.index.title'), me_project_funds_path(project) %></li>
   </ul>
 </div>
