@@ -5,6 +5,9 @@ zh:
         project_taxon_id: 分类
       project_fund:
         amount: 金额
+      project_stage:
+        begin_on: 开始日期
+        end_on: 截止日期
       project_taxon:
         parameters: 字段
       task_member:
