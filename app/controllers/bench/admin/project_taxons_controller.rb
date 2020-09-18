@@ -2,7 +2,10 @@ class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
   before_action :set_project_taxon, only: [:show, :edit, :parameter, :update, :destroy]
 
   def index
-    @project_taxons = ProjectTaxon.page(params[:page])
+    q_params = {}
+    #q_params.merge! default_params
+
+    @project_taxons = ProjectTaxon.default_where(q_params).order(id: :asc).page(params[:page])
   end
 
   def new
