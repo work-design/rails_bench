@@ -44,6 +44,8 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
     @project.assign_attributes project_params
 
     if @project.save
+      render 'update', locals: { return_to: me_project_path(@project) }
+    else
       render :edit, locals: { model: @project }, status: :unprocessable_entity
     end
   end
@@ -66,7 +68,8 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
       :name,
       :project_taxon_id,
       :description,
-      :github_repo
+      :github_repo,
+      parameters: {}
     )
   end
 

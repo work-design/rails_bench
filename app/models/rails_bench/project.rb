@@ -6,7 +6,7 @@ module RailsBench::Project
     attribute :description, :string
     attribute :github_repo, :string
     attribute :state, :string
-    attribute :extra, :json
+    attribute :parameters, :json
 
     belongs_to :organ, optional: true
     belongs_to :project_taxon, optional: true
