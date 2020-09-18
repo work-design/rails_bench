@@ -26,9 +26,9 @@
   <td colspan="3">
     <%= form_with model: @task, url: me_task_path, method: :patch, wrap: { all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
-      <div class="inline fields">
-        <%= f.collection_select :task_template_id, @task.tasking.task_templates, :id, :title, wrap: { all: false } %>
-        <%= f.submit %>
+      <div class="field-body">
+        <%= f.collection_select :task_template_id, @task.tasking.task_templates, :id, :title, label: false, wrap: { all: false, input: false } %>
+        <%= f.submit nil, wrap: { submit: false }, offset: false %>
       </div>
     <% end %>
   </td>
