@@ -1,5 +1,5 @@
 class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
-  before_action :set_project_taxon, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_taxon, only: [:show, :edit, :parameter, :update, :destroy]
 
   def index
     @project_taxons = ProjectTaxon.page(params[:page])
@@ -21,6 +21,9 @@ class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
   end
 
   def edit
+  end
+
+  def parameter
   end
 
   def update

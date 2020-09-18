@@ -5,6 +5,7 @@ zh:
       project_taxons:
         index:
           title: 项目分类
+          parameter: 格式设置
         show:
           title: 详情
       task_templates:

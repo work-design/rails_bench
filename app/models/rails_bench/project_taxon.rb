@@ -3,8 +3,6 @@ module RailsBench::ProjectTaxon
 
   included do
     attribute :name, :string
-    attribute :parameters, :json
-
   end
 
 end
