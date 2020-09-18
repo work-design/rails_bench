@@ -8,7 +8,10 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th><%= Project.human_attribute_name(:project_taxon_id) %></th>
+      <th>
+        <p><%= Project.human_attribute_name(:project_taxon_id) %></p>
+        <p><%= Project.human_attribute_name(:project_stage_id) %></p>
+      </th>
       <th><%= Project.human_attribute_name(:name) %></th>
       <th><%= Project.human_attribute_name(:description) %></th>
       <th><%= Project.human_attribute_name(:state) %></th>
@@ -20,7 +23,10 @@
   <tbody>
   <% @projects.each do |project| %>
     <tr>
-      <td><%= project.project_taxon&.name %></td>
+      <td>
+        <p><%= project.project_taxon&.name %></p>
+        <p><%= project.project_stage&.name %></p>
+      </td>
       <td><%= link_to project.name, tasks_me_project_path(project) %></td>
       <td><%= project.description %></td>
       <td><%= project.state %></td>

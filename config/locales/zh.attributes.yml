@@ -2,6 +2,7 @@ zh:
   activerecord:
     attributes:
       project:
+        project_stage_id: 阶段
         project_taxon_id: 分类
       project_fund:
         amount: 金额

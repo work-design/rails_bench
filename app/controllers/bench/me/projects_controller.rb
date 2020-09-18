@@ -61,12 +61,14 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
 
   def prepare_form
     @project_taxons = ProjectTaxon.default_where(default_params)
+    @project_stages = ProjectStage.default_where(default_params)
   end
 
   def project_params
     params.fetch(:project, {}).permit(
       :name,
       :project_taxon_id,
+      :project_stage_id,
       :description,
       :github_repo,
       parameters: {}
