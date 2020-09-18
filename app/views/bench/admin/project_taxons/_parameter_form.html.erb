@@ -1,0 +1,5 @@
+<%= form_with model: [:admin, @project_taxon] do |f| %>
+  <%= render 'shared/error_messages', target: @project_taxon %>
+  <%= render partial: 'com/parameter/item', locals: { model: @project_taxon, f: f } %>
+  <%= f.submit %>
+<% end %>

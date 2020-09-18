@@ -5,6 +5,8 @@ zh:
         project_taxon_id: 分类
       project_fund:
         amount: 金额
+      project_taxon:
+        parameters: 字段
       task_member:
         job_title_id: 职位
         member_id: 人员

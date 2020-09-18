@@ -62,7 +62,11 @@ Rails.application.routes.draw do
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
-    resources :project_taxons
+    resources :project_taxons do
+      member do
+        get :parameter
+      end
+    end
     resources :project_states
     resources :task_templates do
       collection do

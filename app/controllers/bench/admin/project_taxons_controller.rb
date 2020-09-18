@@ -41,9 +41,15 @@ class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
   end
 
   def project_taxon_params
-    params.fetch(:project_taxon, {}).permit(
-      :name
+    result = params.fetch(:project_taxon, {}).permit(
+      :name,
+      parameters: [:column, :value]  #todo key is original method of hash
     )
+
+    _params = result['parameters']&.values&.map { |i|  {i['column'] => i['value'] } }
+    _params = Array(_params).to_combine_h
+    result['parameters'] = _params
+    result
   end
 
 end
