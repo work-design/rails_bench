@@ -1,0 +1,4 @@
+<%= form_with model: [:me, @project] do |f| %>
+  <%= render partial: 'com/parameter/extra_form', locals: { taxon: @project.project_taxon, f: f } %>
+  <%= f.submit %>
+<% end %>

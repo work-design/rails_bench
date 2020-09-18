@@ -9,7 +9,7 @@
        <div class="content">
          <%= @project.github_repo %>
          <%= link_to edit_me_project_path(@project) do %>
-           <i class="write icon"></i>
+           <i class="fas fa-pencil-alt"></i>
          <% end %>
          <%# if @project.get_github_repo.present? %>
            <%# link_to 'open', @project.get_github_repo[:html_url], target: '_blank' %>
