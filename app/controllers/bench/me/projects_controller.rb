@@ -1,10 +1,10 @@
 class Bench::Me::ProjectsController < Bench::Me::BaseController
   before_action :set_project, only: [:show, :tasks, :edit, :repos, :github_hook, :update, :destroy]
-  before_action :prepare_form, only: [:new, :edit]
+  before_action :prepare_form, only: [:index, :new, :edit]
 
   def index
     q_params = {}
-    q_params.merge! params.permit(:project_taxon_id, 'name-like')
+    q_params.merge! params.permit(:project_taxon_id, :project_stage_id, 'name-like')
 
     @projects = current_member.projects.default_where(q_params).page(params[:page])
   end
