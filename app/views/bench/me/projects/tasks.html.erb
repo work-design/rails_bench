@@ -7,7 +7,7 @@
   <div class="column">
     <div data-controller="sortable" data-src="/me/tasks/">
       <% @tasks.each do |task| %>
-        <%= render partial: '_show/item', locals: { task: task } %>
+        <%= render partial: '_show/task', locals: { task: task } %>
       <% end %>
       <div id="item_add" class="item">
         <% if 'done' != params[:state] %>
