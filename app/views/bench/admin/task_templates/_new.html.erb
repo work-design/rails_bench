@@ -8,7 +8,7 @@
     </div>
     <div class="field is-narrow">
       <%= f.submit '保存', class: 'button is-primary' %>
-      <%= link_to '取消', add_admin_task_templates_path(task_template_id: @task_template.id), remote: true, class: 'button is-light' %>
+      <button class="button is-light" data-controller="common" data-action="common#cancel">取消</button>
     </div>
   </div>
 <% end %>
