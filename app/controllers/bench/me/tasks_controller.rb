@@ -2,7 +2,6 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   before_action :set_task, only: [
     :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :next, :rework, :destroy
   ]
-  before_action :require_worker, only: [:index]
 
   def index
     q_params = {
@@ -99,12 +98,10 @@ class Bench::Me::TasksController < Bench::Me::BaseController
 
   def next
     @task.set_next
-    redirect_to me_task_url(@task)
   end
 
   def rework
     @task.set_rework
-    redirect_to me_task_url(@task)
   end
 
   def destroy
@@ -112,15 +109,6 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   end
 
   private
-  def require_worker
-    case params[:present_worker]
-    when '1'
-      session[:present_worker] = true
-    when '0'
-      session[:present_worker] = false
-    end
-  end
-
   def set_task
     @task = Task.find(params[:id])
   end

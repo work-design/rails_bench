@@ -45,7 +45,7 @@ module RailsBench::Task
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
-    acts_as_list scope: [:parent_id]
+    acts_as_list scope: [:parent_id, :tasking_type, :tasking_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
   end
 
