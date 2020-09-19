@@ -1,24 +1,26 @@
 <div class="level-left">
-  <div class="image" id="play_task_<%= @task.id %>">
+  <div class="level-item" id="play_task_<%= @task.id %>">
     <% if @task.task_timer %>
       <%= link_to pause_me_task_task_timer_path(@task, @task.task_timer), method: 'patch', remote: true do %>
-        <i class="grey pause icon"></i>
+        <i class="fas fa-pause"></i>
       <% end %>
     <% else %>
       <%= link_to me_task_task_timers_path(@task), method: 'post', remote: true do %>
-        <i class="grey play icon"></i>
+        <i class="fas fa-play"></i>
       <% end %>
     <% end %>
   </div>
-  <%= form_with theme: nil, model: [:me, @task], html: { class: 'form is-horizontal' } do |f| %>
-    <div class="field-body">
-      <div class="field">
-        <%= f.text_field :title, class: 'input' %>
+  <div class="level-item">
+    <%= form_with theme: nil, model: [:me, @task], html: { class: 'form is-horizontal' } do |f| %>
+      <div class="field-body">
+        <div class="field">
+          <%= f.text_field :title, class: 'input' %>
+        </div>
+        <div class="field is-narrow">
+          <%= f.submit '保存', class: 'button is-primary' %>
+          <button class="button is-light" data-controller="common" data-action="common#cancel">取消</button>
+        </div>
       </div>
-      <div class="field is-narrow">
-        <%= f.submit '保存', class: 'button is-primary' %>
-        <%= link_to '取消', { action: 'index' }, { class: 'button is-light' } %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
