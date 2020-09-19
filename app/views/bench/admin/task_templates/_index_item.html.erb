@@ -1,27 +1,30 @@
-<div class="item" data-id="<%= task_template.id %>" id="task_template_<%= task_template.id %>">
-
-  <div class="ui avatar image">
-    <i class="fas fa-content"></i>
+<div class="level" data-id="<%= task_template.id %>" id="task_template_<%= task_template.id %>">
+  <div class="level-left">
+    <div class="level-item">
+      <i class="fas fa-bars"></i>
+      <span><%= task_template.title %></span>
+    </div>
+    <div class="level-item">
+      <span class="has-text-success"><%= task_template.job_title&.name %></span>
+      <span class="has-text-primary"><%= task_template.member&.name %></span>
+    </div>
   </div>
-
-  <div class="content">
-    <%= link_to task_template.title, admin_task_template_path(task_template) %>
-    <span class="has-text-success"><%= task_template.job_title&.name %></span>
-    <span class="has-text-primary"><%= task_template.member&.name %></span>
-    <%= link_to new_admin_task_template_path(parent_id: task_template.id), remote: true do %>
-      <i class="fas fa-plus"></i>
-    <% end %>
-    <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'has-text-grey' do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to member_admin_task_template_path(task_template), remote: true, class: 'has-text-grey' do %>
-      <i class="fas fa-user-tie"></i>
-    <% end %>
-    <%= link_to admin_task_template_path(task_template), method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger' do %>
-      <i class="fas fa-trash"></i>
-    <% end %>
+  <div class="level-right">
+    <div class="level-item">
+      <%= link_to new_admin_task_template_path(parent_id: task_template.id), remote: true do %>
+        <i class="fas fa-plus fa-fw"></i>
+      <% end %>
+      <%= link_to edit_admin_task_template_path(task_template, item: 'title'), remote: true, class: 'has-text-grey' do %>
+        <i class="fas fa-pencil-alt fa-fw"></i>
+      <% end %>
+      <%= link_to member_admin_task_template_path(task_template), remote: true, class: 'has-text-grey' do %>
+        <i class="fas fa-user-tie fa-fw"></i>
+      <% end %>
+      <%= link_to admin_task_template_path(task_template), method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger' do %>
+        <i class="fas fa-trash fa-fw"></i>
+      <% end %>
+    </div>
   </div>
-
 </div>
 
 <div class="box">
