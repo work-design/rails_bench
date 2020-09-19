@@ -22,7 +22,7 @@
   <% if task.id == @task.id %>
     <div class="box is-shadowless py-0" data-controller="sortable" data-src="/me/tasks">
       <% task.children.each do |child| %>
-        <%= render partial: '_show/item_child', locals: { task: child } %>
+        <%= render partial: '_show/task', locals: { task: child } %>
       <% end %>
       <div id="item_add" class="box is-shadowless py-0">
         <%= link_to new_me_task_path(parent_id: @task.id), remote: true do %>

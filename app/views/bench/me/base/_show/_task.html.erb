@@ -1,10 +1,10 @@
-<div class="level is-underline mb-0" data-id="<%= task.id %>" id="task_<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+<div class="level is-underline" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
       <span style="visibility: hidden" data-show-target="item">
         <%= render partial: '_shared/rail', locals: { task: task } %>
       </span>
-      <i class="fas fa-bars fa-fw"></i>
+      <i class="fas fa-bars fa-fw has-text-grey"></i>
     </div>
     <div class="level-item">
       <% if task.task_timer %>
@@ -14,8 +14,11 @@
     </div>
   </div>
   <div class="level-right">
-    <span style="visibility: hidden" data-show-target="item">
-      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: :delete, remote: true do %>
+    <% if task.member %>
+      <span class="tag"><%= task.member&.name %></span>
+    <% end %>
+    <span style="visibility: hidden;" data-show-target="item">
+      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: 'delete', remote: true do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>
