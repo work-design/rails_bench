@@ -1,4 +1,5 @@
 <%= render layout: 'show_layout' do %>
+  
   <ul class="ui items">
     <% @task_timers.each do |task_timer| %>
       <li>
@@ -15,4 +16,5 @@
     <% end %>
     <li><%= @task.created_at %> 创建了任务</li>
   </ul>
+  
 <% end %>

@@ -23,7 +23,7 @@
 </tr>
 
 <% elsif @task.tasking %>
-  <td colspan="3">
+  <div class="level is-underline">
     <%= form_with model: @task, url: me_task_path, method: :patch, wrap: { all: false, offset: false } do |f| %>
       <%= hidden_field_tag :item, 'pipeline' %>
       <div class="field-body">
@@ -31,5 +31,5 @@
         <%= f.submit nil, wrap: { submit: false }, offset: false %>
       </div>
     <% end %>
-  </td>
+  </div>
 <% end %>

@@ -2,7 +2,7 @@
 
 <div class="columns">
   <div class="column">
-    <div id="task_lists">
+    <div class="box">
       <% @tasks.each do |task| %>
         <%= render partial: '_show/item', locals: { task: task } %>
       <% end %>

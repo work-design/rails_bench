@@ -4,11 +4,10 @@ class Bench::Me::TaskTimersController < Bench::Me::BaseController
 
   def index
     q_params = {
-      state: ['todo', 'doing'],
-      focus: 'today',
-      user_id: current_user.id
+      state: ['todo', 'doing']
     }
     q_params.merge! params.permit(:state)
+
     @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
     @task_timers = @task.task_timers.order(id: :desc)
   end
