@@ -5,7 +5,7 @@
 <div class="columns">
 
   <div class="column">
-    <div class="ui divided items" data-controller="sortable" data-src="/me/tasks/">
+    <div data-controller="sortable" data-src="/me/tasks/">
       <% @tasks.each do |task| %>
         <%= render partial: 'item', locals: { task: task } %>
       <% end %>

@@ -1,6 +1,6 @@
 <%= render 'filter_table' %>
 
-<div id="task_lists" data-controller="sortable" data-src="/my/tasks/">
+<div data-controller="sortable" data-src="/my/tasks/">
   <% @tasks.each do |task| %>
     <%= render partial: '_index/item', locals: { task: task } %>
   <% end %>
