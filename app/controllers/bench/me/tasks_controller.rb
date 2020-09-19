@@ -142,7 +142,7 @@ class Bench::Me::TasksController < Bench::Me::BaseController
       :content,
       :parent_id,
       :member_id,
-      :pipeline_id,
+      :task_template_id,
       :estimated_time
     )
     p.merge! default_form_params
