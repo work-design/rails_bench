@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1f74cfec8ec9d54cbce473f100562060ad566132
+  revision: 6556fcfaeb19cd0ef15a086f7db47aed1f787724
   specs:
     rails_com (1.2.9)
       acme-client
@@ -56,7 +56,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    acme-client (2.0.6)
+    acme-client (2.0.7)
       faraday (>= 0.17, < 2.0.0)
     actioncable (6.0.3.3)
       actionpack (= 6.0.3.3)
