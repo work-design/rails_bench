@@ -1,0 +1,9 @@
+<%= form_with model: @expense do |f| %>
+  <%= render 'shared/error_messages', target: @expense %>
+  <%= f.text_field :subject %>
+  <%= f.text_field :amount %>
+  <%= f.text_field :note %>
+  <%= f.text_field :financial_taxon_id %>
+  <%= f.text_field :invoices_count %>
+  <%= f.submit %>
+<% end %>

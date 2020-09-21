@@ -16,6 +16,9 @@ zh:
           title: 任务模板
     me:
       title: 接项目
+      expenses:
+        index:
+          title: 项目支出
       projects:
         index:
           title: 我的项目

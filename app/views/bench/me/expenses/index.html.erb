@@ -1,0 +1,44 @@
+<%= render partial: 'project_bar', locals: { project: @project } %>
+
+<%= render 'filter_form' %>
+
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= Expense.human_attribute_name(:subject) %></th>
+      <th><%= Expense.human_attribute_name(:amount) %></th>
+      <th><%= Expense.human_attribute_name(:note) %></th>
+      <th><%= Expense.human_attribute_name(:financial_taxon_id) %></th>
+      <th><%= Expense.human_attribute_name(:invoices_count) %></th>
+      <th>
+        <%= link_to new_me_expense_path, remote: true, class: 'button is-link is-small' do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @expenses.each do |expense| %>
+    <tr>
+      <td><%= expense.subject %></td>
+      <td><%= expense.amount %></td>
+      <td><%= expense.note %></td>
+      <td><%= expense.financial_taxon_id %></td>
+      <td><%= expense.invoices_count %></td>
+      <td>
+        <%= link_to me_expense_path(expense), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to edit_me_expense_path(expense), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to me_expense_path(expense), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @expenses %>
