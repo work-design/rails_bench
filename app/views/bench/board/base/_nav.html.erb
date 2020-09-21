@@ -15,7 +15,7 @@
   <div class="dropdown-menu">
     <div class="dropdown-content">
       <% other_organs.each do |organ| %>
-        <%= link_to full_url_for(subdomain: organ.subdomain), class: 'dropdown-item' do %>
+        <%= link_to full_url_for(host: organ.host), class: 'dropdown-item' do %>
           <%= image_tag oraan.logo if organ.logo.attached? %>
           <%= organ.name %>
         <% end %>
