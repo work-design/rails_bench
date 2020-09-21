@@ -69,6 +69,7 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
       :name,
       :project_taxon_id,
       :project_stage_id,
+      :budget,
       :description,
       :github_repo,
       parameters: {}

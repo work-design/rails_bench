@@ -7,6 +7,8 @@ module RailsBench::Project
     attribute :github_repo, :string
     attribute :state, :string
     attribute :parameters, :json
+    attribute :budget, :decimal
+    attribute :fund_amount, :decimal
 
     belongs_to :organ, optional: true
     belongs_to :project_taxon, optional: true

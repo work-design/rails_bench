@@ -55,7 +55,9 @@ class Bench::Me::ProjectFundsController < Bench::Me::BaseController
   def project_fund_params
     q = params.fetch(:project_fund, {}).permit(
       :amount,
-      :visible
+      :note,
+      :visible,
+      :proof
     )
     q.merge! user_id: current_user.id
     q

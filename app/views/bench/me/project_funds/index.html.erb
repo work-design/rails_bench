@@ -5,6 +5,8 @@
     <tr>
       <th><%= ProjectFund.human_attribute_name(:amount) %></th>
       <th><%= ProjectFund.human_attribute_name(:user) %></th>
+      <th><%= ProjectFund.human_attribute_name(:note) %></th>
+      <th><%= ProjectFund.human_attribute_name(:proof) %></th>
       <th>
         <%= link_to new_me_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
@@ -22,6 +24,12 @@
             <%= link_to project_fund.user.name, user_path(project_fund.user_id) %>
           <% else %>
             <%= project_fund.user.name %>
+          <% end %>
+        </td>
+        <td><%= project_fund.note %></td>
+        <td>
+          <% if project_fund.proof_blob %>
+            <p><%= link_to project_fund.proof_blob.filename, project_fund.proof_blob.service_url, target: '_blank' %></p>
           <% end %>
         </td>
         <td>
