@@ -22,7 +22,7 @@ module RailsBench::Task
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
 
-    delegate :members, to: :pipeline, allow_nil: true
+    has_one_attached :proof
 
     enum state: {
       todo: 'todo',

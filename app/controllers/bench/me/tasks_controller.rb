@@ -97,7 +97,6 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   end
 
   def next
-    @task.set_next
   end
 
   def rework
@@ -131,7 +130,9 @@ class Bench::Me::TasksController < Bench::Me::BaseController
       :parent_id,
       :member_id,
       :task_template_id,
-      :estimated_time
+      :estimated_time,
+      :note,
+      :proof
     )
     p.merge! default_form_params
   end

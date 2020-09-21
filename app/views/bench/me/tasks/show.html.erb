@@ -1,11 +1,7 @@
 <%= render layout: 'show_layout' do %>
 
   <div id="detail_note">
-    <% if @task.note %>
-      <%= render partial: 'detail/my/notes/show', locals: { note: @task.note } %>
-    <% else %>
-      <%# link_to '添加描述', edit_my_note_path('Task', @task.id), remote: true %>
-    <% end %>
+    <%= @task.note %>
   </div>
 
   <div class="box">

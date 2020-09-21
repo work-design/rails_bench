@@ -1,0 +1,6 @@
+<%= form_with model: [:me, @task] do |f| %>
+  <%= f.hidden_field :done_at, value: Time.current %>
+  <%= f.text_area :note %>
+  <%= f.file_field :proof %>
+  <%= f.submit %>
+<% end %>
