@@ -1,7 +1,0 @@
-<%= render partial: 'project_bar', locals: { project: @project } %>
-
-<div class="ui bottom attached segment">
-  <%= form_with model: @project_member, url: my_project_members_path(@project) do |f| %>
-    <%= render partial: 'form', locals: { f: f } %>
-  <% end %>
-</div>

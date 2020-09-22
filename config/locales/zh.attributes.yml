@@ -10,6 +10,9 @@ zh:
         amount: 金额
         note: 备注
         proof: 凭证
+      project_member:
+        job_title_id: 职位
+        member_id: 成员
       project_stage:
         begin_on: 开始日期
         end_on: 截止日期

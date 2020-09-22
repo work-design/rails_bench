@@ -1,6 +1,6 @@
 class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   before_action :set_project
-  before_action :set_project_member, only: [:show, :edit, :update, :edit_worker, :update_worker, :workers, :destroy]
+  before_action :set_project_member, only: [:show, :edit, :update, :edit_member, :destroy]
   before_action :prepare_form, only: [:new, :edit]
 
   def index
@@ -25,7 +25,9 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
   def create
     @project_member = @project.project_members.build(project_member_params)
 
-    unless @project_member.save
+    if @project_member.save
+      render 'create'
+    else
       render :new, locals: { model: @project_member }, status: :unprocessable_entity
     end
   end
@@ -44,8 +46,7 @@ class Bench::Me::ProjectMembersController < Bench::Me::BaseController
     end
   end
 
-  def edit_worker
-
+  def edit_member
   end
 
   def workers

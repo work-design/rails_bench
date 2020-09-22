@@ -1,0 +1,3 @@
+<%= form_with model: @project_member, url: me_project_members_path(@project) do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>
