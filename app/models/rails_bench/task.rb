@@ -82,7 +82,7 @@ module RailsBench::Task
   end
 
   def sync_estimated_time
-    parent.update estimated_time: parent.children.sum(:estimated_time)
+    parent.update estimated_time: parent.children.sum(:estimated_time) if parent
   end
 
   def set_next

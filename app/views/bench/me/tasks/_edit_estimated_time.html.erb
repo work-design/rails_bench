@@ -1,17 +1,14 @@
-<tr id="task_edit_estimated_time">
-  <td>
-    预估时间：
+<div class="level-left">
+  <div class="level-item">
+    <span>预估时间：</span>
     <%= form_tag me_task_path(@task), method: :patch, remote: true, id: 'edit_estimated_time' %>
     <%= hidden_field_tag :item, 'estimated_time', form: 'edit_estimated_time' %>
-  </td>
-  <td><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></td>
-  <td>
-    <%= submit_tag 'save', class: 'ui mini button', form: 'edit_estimated_time' %>
+  </div>
+  <div class="level-item"><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></div>
+</div>
+<div class="level-right">
+  <div class="level-item">
+    <%= submit_tag 'save', class: 'button is-primary', form: 'edit_estimated_time' %>
     <button class="button is-light" data-controller="common" data-action="common#cancel">取消</button>
-  </td>
-</tr>
-
-
-
-
-
+  </div>
+</div>
