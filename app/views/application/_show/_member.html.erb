@@ -6,7 +6,7 @@
       <% if @task.member.avatar.attached? %>
         <%= image_tag @task.member.avatar, class: 'image is-32x32 is-rounded' %>
       <% else %>
-        <%= image_pack_tag 'default_avatar.jpg', class: 'image is-24x24 is-rounded' %>
+        <%= image_pack_tag 'avatar.png', class: 'image is-24x24 is-rounded' %>
       <% end %>
       <span><%= @task.member.name %></span>
     <% end %>
@@ -20,7 +20,7 @@
   <div class="level-right">
     <div class="buttons are-small">
       <%= link_to '交接', next_me_task_path(@task), remote: true, class: 'button is-link' %>
-      <%= link_to '返工', rework_me_task_path(@task), method: :patch, remote: true, class: 'button is-danger' %>
+      <%= link_to '返工', rework_me_task_path(@task), remote: true, class: 'button is-danger' %>
     </div>
   </div>
 </div>

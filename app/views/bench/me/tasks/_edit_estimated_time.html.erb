@@ -7,7 +7,7 @@
   <td><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></td>
   <td>
     <%= submit_tag 'save', class: 'ui mini button', form: 'edit_estimated_time' %>
-    <a class="ui grey mini button" onclick="removeForm()">取消</a>
+    <button class="button is-light" data-controller="common" data-action="common#cancel">取消</button>
   </td>
 </tr>
 
