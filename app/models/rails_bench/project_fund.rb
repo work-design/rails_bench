@@ -11,7 +11,12 @@ module RailsBench::ProjectFund
 
     has_one_attached :proof
 
-    #after_create_commit :get_order
+    after_save :sum_amount, if: -> { saved_change_to_amount? }
+  end
+
+  def sum_amount
+    project.compute_fund_amount
+    project.save
   end
 
 end

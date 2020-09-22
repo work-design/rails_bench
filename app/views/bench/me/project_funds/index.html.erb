@@ -1,5 +1,11 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
+<section class="hero">
+  <div class="here-body">
+    <h3 class="title has-text-centered">项目预算： <%= @project.fund_amount %></h3>
+  </div>
+</section>
+
 <table class="table is-fullwidth">
   <thead>
     <tr>
