@@ -35,6 +35,8 @@ zh:
       tasks:
         index:
           title: 我的待办
+        show:
+          title: 待办
       task_templates:
         index:
           title: 工作流
