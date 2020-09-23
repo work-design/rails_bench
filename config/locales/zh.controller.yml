@@ -1,4 +1,9 @@
 zh:
+  application:
+    shared:
+      rail:
+        done: 完成
+        today: 今天
   bench:
     admin:
       title: 工作管理

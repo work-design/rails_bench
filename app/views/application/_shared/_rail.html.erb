@@ -4,8 +4,12 @@
   <% end %>
 <% end %>
 
+<%= link_to focus_me_task_path(task), aria: { label: t('.done') }, id: "play_task_#{task.id}", remote: true do %>
+  <i class="far fa-square fa-fw has-text-link"></i>
+<% end %>
+
 <% if task.inbox? %>
-  <%= link_to focus_me_task_path(task), id: "play_task_#{task.id}", remote: true do %>
+  <%= link_to focus_me_task_path(task), aria: { label: t('.today') }, id: "play_task_#{task.id}", remote: true do %>
     <i class="fas fa-plus fa-fw has-text-link"></i>
   <% end %>
 <% end %>
