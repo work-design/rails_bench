@@ -1,14 +1,1 @@
-$('#modal').replaceWith('<%= j(render 'edit_focus') %>');
-$('#modal').modal('setting', { autofocus: false }).modal('show');
-
-$('[data-title="repeat_type"]').dropdown({
-
-  onChange: function(value, text, $selectedItem){
-    var repeat_url = new URL(window.location.origin);
-    repeat_url.pathname = 'repeat_form';
-    repeat_url.search = $.param({booking_type: this.dataset['bookingType'], repeat_type: value});
-
-    fetch_xhr_script(repeat_url)
-  }
-
-});
+document.getElementById('modal').innerHTML = '<%= j(render partial: 'modal_form', locals: { action: 'focus' }) %>'

@@ -1,7 +1,0 @@
-<%= form_with model: @task, url: me_task_path(@task), method: 'patch', can: { wrap_id: true } do |f| %>
-  <div class="inline fields">
-    <label class="six wide field"></label>
-    <%= link_to 'today', focus_me_task_path(@task, focus: 'today'), method: :patch, remote: true, class: 'button is-link is-small' %>
-  </div>
-  <%= render partial: 'the_booking/time/form', locals: { f: f } %>
-<% end %>
