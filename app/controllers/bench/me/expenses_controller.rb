@@ -12,6 +12,7 @@ class Bench::Me::ExpensesController < Bench::Me::BaseController
 
   def create
     @expense = Expense.new(expense_params)
+    @expense.creator = current_member
 
     unless @expense.save
       render :new, locals: { model: @expense }, status: :unprocessable_entity
@@ -50,8 +51,7 @@ class Bench::Me::ExpensesController < Bench::Me::BaseController
       :subject,
       :amount,
       :note,
-      :financial_taxon_id,
-      :invoices_count
+      :financial_taxon_id
     )
   end
 
