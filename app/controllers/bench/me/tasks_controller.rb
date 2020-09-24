@@ -1,6 +1,6 @@
 class Bench::Me::TasksController < Bench::Me::BaseController
   before_action :set_task, only: [
-    :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :next, :rework, :destroy
+    :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
   ]
 
   def index
@@ -96,7 +96,16 @@ class Bench::Me::TasksController < Bench::Me::BaseController
     @task
   end
 
-  def next
+  def edit_done
+  end
+
+  def update_done
+    @task.assign_attributes(task_params)
+    @task.done_at = Time.current
+
+    unless @task.save
+      render :edit_done, locals: { model: @task }, status: :unprocessable_entity
+    end
   end
 
   def rework
@@ -132,6 +141,7 @@ class Bench::Me::TasksController < Bench::Me::BaseController
       :task_template_id,
       :estimated_time,
       :note,
+      :done_at,
       :proof
     )
     p.merge! default_form_params

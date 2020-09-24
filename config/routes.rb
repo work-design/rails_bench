@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       member do
         patch :close
         patch :reorder
-        get :next
+        get 'done' => :edit_done
+        patch 'done' => :update_done
         patch :rework
         get 'focus' => :edit_focus
         get 'assign' => :edit_assign

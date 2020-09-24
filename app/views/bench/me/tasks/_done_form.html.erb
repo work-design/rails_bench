@@ -1,0 +1,5 @@
+<%= form_with model: @task, url: done_me_task_path(@task) do |f| %>
+  <%= f.text_area :note %>
+  <%= f.file_field :proof %>
+  <%= f.submit %>
+<% end %>

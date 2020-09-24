@@ -42,6 +42,7 @@ module RailsBench::Task
     before_validation :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
     before_validation :sync_from_task_template, if: -> { task_template_id_changed? && task_template }
     before_validation :sync_from_member, if: -> { member_id_changed? && member }
+    before_save :check_done, if: -> { done_at_changed? && done_at.present? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
 
@@ -87,10 +88,15 @@ module RailsBench::Task
 
   def set_next
     if lower_item
-      lower_item.state = 'doing'
+      lower_item.state = 'doing' if lower_item.state == 'todo'
       lower_item.save
       lower_item.to_notification(receiver: lower_item.user)
     end
+  end
+
+  def check_done
+    set_next
+    self.state = 'done'
   end
 
   def notify_by_upstream

@@ -4,7 +4,7 @@
   <% end %>
 <% end %>
 
-<%= link_to focus_me_task_path(task), aria: { label: t('.done') }, id: "play_task_#{task.id}", remote: true do %>
+<%= link_to done_me_task_path(task), aria: { label: t('.done') }, id: "play_task_#{task.id}", remote: true do %>
   <i class="far fa-square fa-fw has-text-link"></i>
 <% end %>
 
