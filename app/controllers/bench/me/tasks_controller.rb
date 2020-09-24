@@ -47,7 +47,6 @@ class Bench::Me::TasksController < Bench::Me::BaseController
 
   def show
     q_params = {
-      state: ['todo', 'doing'],
       user_id: current_user.id
     }
     q_params.merge! params.permit(:state, :focus)
