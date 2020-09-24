@@ -12,6 +12,13 @@
     </div>
   </div>
   <div class="column">
-  
+    <div class="panel">
+      <p class="panel-heading"><%= @project.project_taxon.name %></p>
+      <div class="box">
+      <% @project.project_taxon.task_templates.each do |task_template| %>
+        <%= render partial: 'index_item', locals: { task_template: task_template } %>
+      <% end %>
+      </div>
+    </div>
   </div>
 </div>
