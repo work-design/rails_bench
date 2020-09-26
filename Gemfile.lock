@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: 97bb05c23df95f21f72c4c573efb4a39b23a2574
+  revision: 56536edc9bbc76fdc435489c451b0e550b6ae230
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: e8eec43ac347e8867889fe94c834e2f8d8e035b2
+  revision: c69e3f4f6b81e459770a7c51d5b3970eca83e80c
   specs:
     rails_com (1.2.9)
       acme-client
@@ -20,7 +20,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: c2666bc56001ece4c72cf5e296fb6cc4cd09e39f
+  revision: 89424665afdda8590615e2fd86996cbfa16f317c
   specs:
     rails_org (0.1)
       rails_auth
@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7043153f91c95d03dbbd5baec7bb11955dfd9e3f
+  revision: 16480966c97fad15014d3dc40a46f03cd4a13cb8
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)

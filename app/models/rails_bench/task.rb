@@ -90,7 +90,7 @@ module RailsBench::Task
     if lower_item
       lower_item.state = 'doing' if lower_item.state == 'todo'
       lower_item.save
-      lower_item.to_notification(receiver: lower_item.user)
+      lower_item.to_notification(user: lower_item.user)
     end
   end
 
