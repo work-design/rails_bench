@@ -19,7 +19,7 @@ zh:
         end_on: 截止日期
       project_taxon:
         parameters: 字段
-      task_member:
+      task_template:
         job_title_id: 职位
-        member_id: 人员
+        member_id: 责任人
         color: 颜色
