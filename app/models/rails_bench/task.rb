@@ -55,7 +55,7 @@ module RailsBench::Task
   end
 
   def task_templates
-    TaskTemplate.where(tasking_type: tasking_type, tasking_id: tasking_id)
+    TaskTemplate.roots.where(tasking_type: tasking_type, tasking_id: tasking_id).or(TaskTemplate.roots.where(tasking_type: tasking.taxon.class_name, tasking_id: tasking.taxon.id))
   end
 
   def sync_from_parent
