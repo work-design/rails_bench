@@ -54,6 +54,10 @@ module RailsBench::Task
     self.class.where(user_id: self.user_id, parent_id: self.parent_id, organ_id: self.organ_id)
   end
 
+  def task_templates
+    TaskTemplate.where(tasking_type: tasking_type, tasking_id: tasking_id)
+  end
+
   def sync_from_parent
     self.tasking_type = tasking_type.presence || parent.tasking_type
     self.tasking_id ||= parent.tasking_id

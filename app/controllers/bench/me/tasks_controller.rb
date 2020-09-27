@@ -2,6 +2,7 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   before_action :set_task, only: [
     :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
   ]
+  before_action :prepare_form, only: [:show]
 
   def index
     q_params = {
@@ -118,6 +119,10 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   private
   def set_task
     @task = Task.find(params[:id])
+  end
+
+  def prepare_form
+    @task_templates = TaskTemplate.where(tasking_type: @task)
   end
 
   def raw_task_params

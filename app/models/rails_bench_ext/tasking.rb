@@ -1,4 +1,4 @@
-module RailsBench::Tasking
+module RailsBenchExt::Tasking
   extend ActiveSupport::Concern
 
   included do
