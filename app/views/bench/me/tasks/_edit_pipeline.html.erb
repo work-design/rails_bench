@@ -1,9 +1,0 @@
-<td colspan="3">
-<%= form_with model: @task, url: me_task_path, method: :patch, can: { wrap_all: false, offset: false } do |f| %>
-  <%= hidden_field_tag :item, 'pipeline' %>
-  <div class="inline fields">
-    <%= f.collection_select :pipeline_id, @pipelines, :id, :name, can: { wrap_all: false } %>
-    <%= f.submit %>
-  </div>
-<% end %>
-</td>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   scope :me, module: 'bench/me', as: :me do
     resources :tasks do
       collection do
-        get :add
+        get 'template' => :new_template
       end
       member do
         patch :close

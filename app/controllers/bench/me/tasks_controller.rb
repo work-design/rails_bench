@@ -19,6 +19,10 @@ class Bench::Me::TasksController < Bench::Me::BaseController
     @task = Task.new(raw_task_params)
   end
 
+  def new_template
+    @task = Task.new(raw_task_params)
+  end
+
   def create
     @task = Task.new(task_params)
     @task.member_id ||= current_member.id
@@ -35,14 +39,6 @@ class Bench::Me::TasksController < Bench::Me::BaseController
       render 'create', locals: { return_to: redirect_to }
     else
       render :new, locals: { model: @task }, status: :unprocessable_entity
-    end
-  end
-
-  def add
-    if params[:task_id]
-      @task = Task.find params[:task_id]
-    else
-      @task = Task.new
     end
   end
 

@@ -11,15 +11,4 @@ module RailsBenchExt::OtherTasking
     has_many :members, through: :task_templates
   end
 
-  def to_task(member_id, task_template_id)
-    member = Member.find member_id
-    member.tasks.build(task_template_id: task_template_id, tasking_type: self.class_name, tasking_id: self.id)
-  end
-
-  def to_task!(member_id, task_template_id)
-    task = to_task(member_id, task_template_id)
-    task.save
-    task
-  end
-
 end
