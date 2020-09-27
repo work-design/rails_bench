@@ -45,3 +45,6 @@ zh:
       task_templates:
         index:
           title: 工作流
+      task_timers:
+        index:
+          title: 工作日志
