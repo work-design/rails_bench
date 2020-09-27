@@ -25,7 +25,10 @@ class Bench::Me::ProjectsController < Bench::Me::BaseController
   end
 
   def tasks
-    @tasks = @project.tasks.roots
+    q_params = {}
+    q_params.merge! params.permit(:state)
+
+    @tasks = @project.tasks.roots.default_where(q_params)
   end
 
   def repos
