@@ -29,6 +29,7 @@ zh:
           title: 我的项目
         tasks:
           title: 待办
+          task_template: 从模板添加
         show:
           title: 项目信息
       project_funds:

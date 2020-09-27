@@ -20,7 +20,6 @@ module RailsBench::Project
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
-    has_many :task_templates, -> { roots }, as: :tasking
 
     has_one :project_creator, -> { where(owned: true) }, class_name: 'ProjectMember'
     has_one :creator, through: :project_creator, source: :member

@@ -3,8 +3,6 @@ module RailsBench::ProjectTaxon
 
   included do
     attribute :name, :string
-
-    has_many :task_templates, -> { roots }, as: :tasking
   end
 
 end
