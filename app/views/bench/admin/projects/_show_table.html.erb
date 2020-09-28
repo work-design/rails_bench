@@ -1,0 +1,18 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), edit_me_project_path(@project), class: 'button is-small is-link' %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @project.parameters.each do |k, v| %>
+    <tr>
+      <td class="has-text-right"><%= k.to_s %></td>
+      <td><%= v %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

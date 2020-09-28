@@ -7,6 +7,7 @@ zh:
         project_stage_id: 阶段
         project_taxon_id: 分类
         budget: 项目预算
+        state: 状态
         fund_amount: 项目资金
         name-like: 名称包含
       project_fund:

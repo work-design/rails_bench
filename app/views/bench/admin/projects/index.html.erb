@@ -1,0 +1,48 @@
+<%= render 'filter_form' %>
+<%= render 'filter_table' %>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <p><%= Project.human_attribute_name(:project_taxon_id) %></p>
+        <p><%= Project.human_attribute_name(:project_stage_id) %></p>
+      </th>
+      <th><%= Project.human_attribute_name(:name) %></th>
+      <th><%= Project.human_attribute_name(:description) %></th>
+      <th>
+        <p class="has-text-danger"><%= Project.human_attribute_name(:budget) %></p>
+        <p><%= Project.human_attribute_name(:fund_amount) %></p>
+      </th>
+      <th><%= Project.human_attribute_name(:state) %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @projects.each do |project| %>
+    <tr>
+      <td>
+        <p><%= project.project_taxon&.name %></p>
+        <p><%= project.project_stage&.name %></p>
+      </td>
+      <td><%= link_to project.name, admin_project_path(project), remote: true %></td>
+      <td><%= project.description %></td>
+      <td>
+        <p class="has-text-danger"><%= project.budget %></p>
+        <p><%= project.fund_amount %></p>
+      </td>
+      <td><%= project.state_i18n %></td>
+      <td>
+        <%= link_to edit_admin_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to admin_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @projects %>

@@ -87,6 +87,7 @@ Rails.application.routes.draw do
     end
     resources :project_stages
     resources :project_states
+    resources :projects
     resources :task_templates do
       collection do
         get :add

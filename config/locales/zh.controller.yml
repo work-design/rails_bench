@@ -10,6 +10,9 @@ zh:
       facilitates:
         index:
           title: 标准化服务
+      projects:
+        index:
+          title: 项目库
       project_stages:
         index:
           title: 项目阶段
