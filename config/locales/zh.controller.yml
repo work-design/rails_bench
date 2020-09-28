@@ -32,6 +32,8 @@ zh:
           task_template: 从模板添加
         show:
           title: 项目信息
+        task_templates:
+          title: 工作流
       project_funds:
         index:
           title: 项目资金

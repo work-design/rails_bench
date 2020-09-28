@@ -6,7 +6,7 @@
       <%= render partial: 'index_item', locals: { task_template: task_template } %>
     <% end %>
     <div id="item_add">
-      <%= link_to new_me_task_template_path(@project), remote: true do %>
+      <%= link_to new_me_task_template_path(tasking_type: 'Project', tasking_id: @project.id), remote: true do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>
