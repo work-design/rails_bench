@@ -61,6 +61,8 @@ class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
   def task_template_params
     params.fetch(:task_template, {}).permit(
       :title,
+      :tasking_type,
+      :tasking_id,
       :job_title_id,
       :member_id
     )

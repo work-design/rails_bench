@@ -1,4 +1,4 @@
-class Bench::Me::FacilitateProvidersController < Bench::Me::BaseController
+class Bench::Admin::FacilitateProvidersController < Bench::Admin::BaseController
   before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 
   def index

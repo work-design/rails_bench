@@ -72,11 +72,6 @@ Rails.application.routes.draw do
         put :order
       end
     end
-    resources :facilitate_providers do
-      member do
-        get :task_templates
-      end
-    end
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
@@ -101,6 +96,11 @@ Rails.application.routes.draw do
     end
     resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates
+    resources :facilitate_providers do
+      member do
+        get :task_templates
+      end
+    end
   end
 
 end
