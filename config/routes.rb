@@ -46,6 +46,7 @@ Rails.application.routes.draw do
         get :tasks
         get :repos
         get :github_hook
+        get :task_templates
       end
       resources :project_members, path: 'members', as: 'members' do
         collection do
@@ -58,9 +59,9 @@ Rails.application.routes.draw do
         end
       end
       resources :project_funds, path: 'funds', as: 'funds'
-      resources :task_templates
       resources :expenses
     end
+    resources :task_templates
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
