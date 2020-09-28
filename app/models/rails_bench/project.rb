@@ -11,6 +11,7 @@ module RailsBench::Project
     attribute :fund_amount, :decimal
 
     belongs_to :organ, optional: true
+    belongs_to :creator, class_name: 'Member'
     belongs_to :project_taxon, optional: true
     belongs_to :taxon, class_name: 'ProjectTaxon', foreign_key: :project_taxon_id
     belongs_to :project_stage, optional: true
@@ -20,9 +21,6 @@ module RailsBench::Project
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
-
-    has_one :project_creator, -> { where(owned: true) }, class_name: 'ProjectMember'
-    has_one :creator, through: :project_creator, source: :member
 
     validates :name, presence: true
 
