@@ -94,13 +94,16 @@ Rails.application.routes.draw do
         patch :reorder
       end
     end
-    resources :facilitate_taxons, except: [:index, :show]
-    resources :facilitates
     resources :facilitate_providers do
       member do
         get :task_templates
       end
     end
+  end
+
+  scope :panel, module: 'bench/panel', as: :panel do
+    resources :facilitate_taxons, except: [:index, :show]
+    resources :facilitates
   end
 
 end

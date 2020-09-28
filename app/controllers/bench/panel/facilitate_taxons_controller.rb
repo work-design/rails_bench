@@ -1,4 +1,4 @@
-class Bench::Admin::FacilitateTaxonsController < Bench::Admin::BaseController
+class Bench::Panel::FacilitateTaxonsController < Bench::Panel::BaseController
   before_action :set_facilitate_taxon, only: [:edit, :update, :destroy]
 
   def new
@@ -38,10 +38,9 @@ class Bench::Admin::FacilitateTaxonsController < Bench::Admin::BaseController
   end
 
   def facilitate_taxon_params
-    p = params.fetch(:facilitate_taxon, {}).permit(
+    params.fetch(:facilitate_taxon, {}).permit(
       :name
     )
-    p.merge! default_form_params
   end
 
 end

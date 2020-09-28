@@ -7,9 +7,13 @@ zh:
   bench:
     admin:
       title: 工作管理
-      facilitates:
+      facilitate_providers:
         index:
           title: 标准化服务
+        task_templates:
+          title: 流程
+        show:
+          title: 服务详情
       projects:
         index:
           title: 项目库
@@ -30,9 +34,6 @@ zh:
       expenses:
         index:
           title: 项目支出
-      facilitate_providers:
-        index:
-          title: 服务供应管理
       projects:
         index:
           title: 我的项目
@@ -60,3 +61,8 @@ zh:
       task_timers:
         index:
           title: 工作日志
+    panel:
+      title: 工作管理
+      facilitates:
+        index:
+          title: 标准化服务

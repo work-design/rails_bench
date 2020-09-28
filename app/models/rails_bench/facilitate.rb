@@ -9,7 +9,6 @@ module RailsBench::Facilitate
     attribute :qr_prefix, :string
     attribute :published, :boolean, default: true
 
-    belongs_to :organ, optional: true
     belongs_to :facilitate_taxon, autosave: true, counter_cache: true
 
     has_one :facilitate_provider, -> { where(selected: true) }

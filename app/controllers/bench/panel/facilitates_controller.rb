@@ -1,10 +1,9 @@
-class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
+class Bench::Panel::FacilitatesController < Bench::Panel::BaseController
   before_action :set_facilitate_taxons, only: [:index, :new, :edit]
   before_action :set_facilitate, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
-    q_params.merge! default_params
     q_params.merge! params.permit(:facilitate_taxon_id)
 
     @facilitates = Facilitate.default_where(q_params).page(params[:page])
@@ -42,10 +41,7 @@ class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
 
   private
   def set_facilitate_taxons
-    q_params = {}
-    q_params.merge! default_params
-
-    @facilitate_taxons = FacilitateTaxon.default_where(q_params)
+    @facilitate_taxons = FacilitateTaxon.all
   end
 
   def set_facilitate

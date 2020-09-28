@@ -1,12 +1,12 @@
 <% content_for :breadcrumb do %>
 <div class="breadcrumb">
   <ul>
-    <li><%= link_to t('facility.me.facilitate_providers.index.title'), me_facilitate_providers_path %></li>
+    <li><%= link_to t('facility.admin.facilitate_providers.index.title'), admin_facilitate_providers_path %></li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>
 <% end %>
 
-<%= form_with model: @facilitate_provider, url: me_facilitate_providers_path do |f| %>
+<%= form_with model: @facilitate_provider, url: admin_facilitate_providers_path do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
 <% end %>

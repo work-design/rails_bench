@@ -1,4 +1,4 @@
-<%= form_with model: [:admin, @facilitate] do |f| %>
+<%= form_with model: [:panel, @facilitate] do |f| %>
   <%= render 'shared/error_messages', target: @facilitate %>
   <div class="field is-horizontal">
     <div class="field-label is-normal">
@@ -6,7 +6,7 @@
     </div>
     <div class="field-body">
       <%= f.select :facilitate_taxon_id, options_from_collection_for_select(@facilitate_taxons, :id, :name, @facilitate.facilitate_taxon_id), { label: false, include_blank: true, wrap: { all: nil, select: 'field is-narrow > control > select is-fullwidth' } }, { class: '' } %>
-      <%= link_to 'Add Taxon', new_admin_facilitate_taxon_path(return_to: request.path), remote: true, class: 'ui button' %>
+      <%= link_to 'Add Taxon', new_panel_facilitate_taxon_path(return_to: request.path), remote: true, class: 'ui button' %>
     </div>
   </div>
   <%= f.text_field :name %>

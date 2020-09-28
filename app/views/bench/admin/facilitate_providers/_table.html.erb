@@ -20,12 +20,12 @@
           <i class="grey remove icon"></i>
         <% end %>
       </td>
-      <td><%= link_to '服务管理', me_facilitate_provider_path(facilitate_provider) %></td>
+      <td><%= link_to '服务管理', admin_facilitate_provider_path(facilitate_provider) %></td>
       <td>
-        <%= link_to edit_me_facilitate_provider_path(facilitate_provider), aria: { label: t('.edit') }, class: 'button is-primary is-rounded' do %>
+        <%= link_to edit_admin_facilitate_provider_path(facilitate_provider), aria: { label: t('.edit') }, class: 'button is-primary is-rounded' do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
-        <%= link_to me_facilitate_provider_path(facilitate_provider), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-primary is-rounded' do %>
+        <%= link_to admin_facilitate_provider_path(facilitate_provider), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-primary is-rounded' do %>
           <i class="fas fa-trash"></i>
         <% end %>
       </td>
