@@ -47,9 +47,6 @@ zh:
       project_funds:
         index:
           title: 项目资金
-      project_members:
-        index:
-          title: 项目组成员
       tasks:
         index:
           title: 我的待办

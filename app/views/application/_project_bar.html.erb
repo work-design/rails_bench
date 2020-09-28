@@ -11,7 +11,6 @@
     <% end %>
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), me_project_path(project) %></li>
     <li class="<%= active_helper(projects: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.me.projects.task_templates.title'), task_templates_me_project_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'project_members', active: 'is-active') %>"><%= link_to t('bench.me.project_members.index.title'), me_project_members_path(project) %></li>
     <li class="<%= active_helper(controllers: 'project_funds', active: 'is-active') %>"><%= link_to t('bench.me.project_funds.index.title'), me_project_funds_path(project) %></li>
     <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.me.expenses.index.title'), me_project_expenses_path(project) %></li>
   </ul>
