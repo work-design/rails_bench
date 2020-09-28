@@ -7,6 +7,9 @@ zh:
   bench:
     admin:
       title: 工作管理
+      facilitates:
+        index:
+          title: 标准化服务
       project_stages:
         index:
           title: 项目阶段
@@ -24,6 +27,9 @@ zh:
       expenses:
         index:
           title: 项目支出
+      facilitate_providers:
+        index:
+          title: 服务供应管理
       projects:
         index:
           title: 我的项目

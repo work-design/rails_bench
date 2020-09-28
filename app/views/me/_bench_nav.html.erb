@@ -2,4 +2,5 @@
 <div class="menu-list">
   <%= link_to t('bench.me.tasks.index.title'), me_tasks_path, class: active_helper(controllers: ['tasks'], active: 'is-active') %>
   <%= link_to t('bench.me.projects.index.title'), me_projects_path, class: active_helper(controllers: ['projects', 'project_members', 'project_funds', 'bench/me/task_templates', 'bench/me/expenses'], active: 'is-active') %>
+  <%= link_to t('bench.me.facilitate_providers.index.title'), me_facilitate_providers_path, class: active_helper(controllers: ['facilitate_providers'], active: 'is-active') %>
 </div>

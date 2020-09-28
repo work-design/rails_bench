@@ -1,0 +1,14 @@
+<table class="as-search">
+  <tr>
+    <th><%= Facilitate.human_attribute_name(:facilitate_taxon_id) %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
+      <% @facilitate_taxons.each do |facilitate_taxon| %>
+        <%= link_to facilitate_taxon.name, filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_params(facilitate_taxon_id: facilitate_taxon.id, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+      <%= link_to new_admin_facilitate_taxon_path, aria: { label: t('.new') }, remote: true, class: 'button is-rounded is-light' do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
+    </td>
+  </tr>
+</table>

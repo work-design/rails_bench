@@ -1,0 +1,35 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= FacilitateProvider.human_attribute_name(:name) %></th>
+      <th><%= FacilitateProvider.human_attribute_name(:note) %></th>
+      <th><%= FacilitateProvider.human_attribute_name(:selected) %></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% facilitate_providers.each do |facilitate_provider| %>
+    <tr>
+      <td><%= link_to facilitate_provider.facilitate.name, facilitate_path(facilitate_provider.facilitate_id) %></td>
+      <td><%= facilitate_provider.note %></td>
+      <td>
+        <% if facilitate_provider.selected %>
+          <i class="green checkmark icon"></i>
+        <% else %>
+          <i class="grey remove icon"></i>
+        <% end %>
+      </td>
+      <td><%= link_to '服务管理', me_facilitate_provider_path(facilitate_provider) %></td>
+      <td>
+        <%= link_to edit_me_facilitate_provider_path(facilitate_provider), aria: { label: t('.edit') }, class: 'button is-primary is-rounded' do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to me_facilitate_provider_path(facilitate_provider), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-primary is-rounded' do %>
+          <i class="fas fa-trash"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

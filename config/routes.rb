@@ -4,6 +4,11 @@ Rails.application.routes.draw do
     resources :projects do
       match :github, on: :member, via: [:get, :post]
     end
+    resources :facilitates, only: [:index, :show] do
+      collection do
+        get :buy
+      end
+    end
   end
 
   scope :me, module: 'bench/me', as: :me do
@@ -62,6 +67,16 @@ Rails.application.routes.draw do
       resources :expenses
     end
     resources :task_templates
+    resources :facilitates, only: [] do
+      member do
+        put :order
+      end
+    end
+    resources :facilitate_providers do
+      member do
+        get :task_templates
+      end
+    end
   end
 
   scope :admin, module: 'bench/admin', as: :admin do
@@ -83,6 +98,8 @@ Rails.application.routes.draw do
         patch :reorder
       end
     end
+    resources :facilitate_taxons, except: [:index, :show]
+    resources :facilitates
   end
 
 end
