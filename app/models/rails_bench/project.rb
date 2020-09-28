@@ -15,9 +15,6 @@ module RailsBench::Project
     belongs_to :project_taxon, optional: true
     belongs_to :taxon, class_name: 'ProjectTaxon', foreign_key: :project_taxon_id
     belongs_to :project_stage, optional: true
-    has_many :teams, as: :teaming, dependent: :destroy
-    has_many :project_members, dependent: :destroy
-    has_many :pipelines, as: :piping, dependent: :destroy
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
