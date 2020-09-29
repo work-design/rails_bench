@@ -1,4 +1,5 @@
-class Bench::Me::TaskTemplatesController < Bench::Me::BaseController
+class Bench::Me::TaskTemplatesController < Bench::Admin::TaskTemplatesController
+  include RailsBenchController::Me
   before_action :set_task_template, only: [:show, :members, :edit, :update, :destroy]
 
   def index

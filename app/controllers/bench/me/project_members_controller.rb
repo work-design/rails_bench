@@ -1,4 +1,5 @@
-class Bench::Me::ProjectMembersController < Bench::Me::BaseController
+class Bench::Me::ProjectMembersController < Bench::Admin::BaseController
+  include RailsBenchController::Me
   before_action :set_project
   before_action :set_project_member, only: [:show, :edit, :update, :edit_member, :destroy]
   before_action :prepare_form, only: [:new, :edit]

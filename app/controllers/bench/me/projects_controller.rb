@@ -1,5 +1,5 @@
-class Bench::Me::ProjectsController < Bench::Me::BaseController
-  layout 'me'
+class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
+  include RailsBenchController::Me
   before_action :set_project, only: [:show, :task_templates, :tasks, :edit, :repos, :github_hook, :update, :destroy]
   before_action :prepare_form, only: [:index, :new, :edit]
 
