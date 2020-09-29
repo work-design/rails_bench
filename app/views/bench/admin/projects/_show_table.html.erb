@@ -10,7 +10,11 @@
   <tbody>
     <tr>
       <td class="has-text-right"><%= Project.human_attribute_name(:creator_id) %></td>
-      <td><%= @project.creator.name %></td>
+      <td>
+        <% @project.owners.each do |owner| %>
+          <p><%= owner.name %></p>
+        <% end %>
+      </td>
     </tr>
     <% @project.parameters.each do |k, v| %>
     <tr>
