@@ -3,7 +3,7 @@
   <%= f.text_field :subject %>
   <%= f.text_field :amount %>
   <%= f.text_area :note %>
-  <%= f.text_field :financial_taxon_id %>
+  <%= f.collection_select :financial_taxon_id, @financial_taxons, :id, :name %>
   <%= f.file_field :proof %>
   <%= f.submit %>
 <% end %>

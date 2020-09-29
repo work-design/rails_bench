@@ -1,9 +1,10 @@
 class Bench::Me::ExpensesController < Bench::Me::BaseController
   before_action :set_project
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form
 
   def index
-    @expenses = Expense.page(params[:page])
+    @expenses = @project.expenses.page(params[:page])
   end
 
   def new
@@ -11,7 +12,7 @@ class Bench::Me::ExpensesController < Bench::Me::BaseController
   end
 
   def create
-    @expense = Expense.new(expense_params)
+    @expense = @project.expenses.build(expense_params)
     @expense.creator = current_member
 
     unless @expense.save
@@ -43,7 +44,11 @@ class Bench::Me::ExpensesController < Bench::Me::BaseController
   end
 
   def set_expense
-    @expense = Expense.find(params[:id])
+    @expense = @project.expenses.find(params[:id])
+  end
+
+  def prepare_form
+    @financial_taxons = FinancialTaxon.default_where(default_params)
   end
 
   def expense_params
