@@ -1,4 +1,6 @@
-class Bench::Me::TasksController < Bench::Me::BaseController
+class Bench::Me::TasksController < Bench::Admin::TasksController
+  layout 'me'
+
   before_action :set_task, only: [
     :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
   ]
