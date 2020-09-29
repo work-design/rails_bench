@@ -8,7 +8,7 @@ class Bench::Me::ExpensesController < Bench::Me::BaseController
   end
 
   def new
-    @expense = Expense.new
+    @expense = @project.expenses.build
   end
 
   def create

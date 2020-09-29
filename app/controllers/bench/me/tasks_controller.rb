@@ -16,27 +16,18 @@ class Bench::Me::TasksController < Bench::Me::BaseController
   end
 
   def new
-    @task = Task.new(raw_task_params)
+    @task = Task.new raw_task_params
   end
 
   def new_template
-    @task = Task.new(raw_task_params)
+    @task = Task.new raw_task_params
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.member_id ||= current_member.id
-
-    if task_params[:parent_id].present?
-      redirect_to = me_task_url(task_params[:parent_id])
-    elsif task_params[:parent_id].blank? && task_params[:tasking_type] == 'Project'
-      redirect_to = tasks_me_project_url(task_params[:tasking_id])
-    else
-      redirect_to = me_tasks_url
-    end
+    @task = current_member.tasks.build task_params
 
     if @task.save
-      render 'create', locals: { return_to: redirect_to }
+      render 'create'
     else
       render :new, locals: { model: @task }, status: :unprocessable_entity
     end
