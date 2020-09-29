@@ -16,6 +16,7 @@ module RailsBench::Project
     belongs_to :project_stage, optional: true
     has_one :project_creator, -> { where(owned: true) }, class_name: 'ProjectMember'
     has_one :creator, through: :project_creator, source: :member
+    has_many :project_members, dependent: :destroy
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
