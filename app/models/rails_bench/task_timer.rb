@@ -9,7 +9,7 @@ module RailsBench::TaskTimer
   end
 
   def pause
-    self.finish_at = Time.now
+    self.finish_at = Time.current
     self.duration = (self.finish_at - created_at).to_i
     self.save
   end

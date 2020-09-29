@@ -5,7 +5,9 @@ module RailsBench::Member
     attribute :pomodoro, :integer
 
     has_many :tasks, dependent: :nullify
-    has_many :projects, foreign_key: :creator_id
+    has_many :project_members, dependent: :nullify
+    has_many :projects, through: :project_members
+    has_many :task_projects, ->(o) { where.not(creator_id: o.id) }, through: :tasks, source: :tasking, source_type: 'Project'
     has_many :task_templates, dependent: :destroy
   end
 

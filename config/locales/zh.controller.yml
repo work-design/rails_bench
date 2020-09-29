@@ -40,6 +40,7 @@ zh:
       projects:
         index:
           title: 我的项目
+          new: 申报项目
         tasks:
           title: 待办
           task_template: 从模板添加
