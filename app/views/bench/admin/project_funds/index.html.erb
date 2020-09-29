@@ -14,7 +14,7 @@
       <th><%= ProjectFund.human_attribute_name(:note) %></th>
       <th><%= ProjectFund.human_attribute_name(:proof) %></th>
       <th>
-        <%= link_to new_me_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
+        <%= link_to new_admin_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
         <% end %>
       </th>
@@ -39,10 +39,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to edit_me_project_fund_path(@project, project_fund), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to edit_admin_project_fund_path(@project, project_fund), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
             <i class="fas fa-pencil-alt"></i>
           <% end %>
-          <%= link_to me_project_fund_path(@project, project_fund), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to admin_project_fund_path(@project, project_fund), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
             <i class="fas fa-trash"></i>
           <% end %>
         </td>

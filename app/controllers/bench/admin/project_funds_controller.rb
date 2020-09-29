@@ -1,4 +1,4 @@
-class Bench::Me::ProjectFundsController < Bench::Me::BaseController
+class Bench::Admin::ProjectFundsController < Bench::Admin::BaseController
   before_action :set_project
   before_action :set_project_fund, only: [:show, :edit, :update, :destroy]
 

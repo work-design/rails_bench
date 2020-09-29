@@ -8,11 +8,15 @@
     </tr>
   </thead>
   <tbody>
-  <% @project.parameters.each do |k, v| %>
+    <tr>
+      <td class="has-text-right"><%= Project.human_attribute_name(:creator_id) %></td>
+      <td><%= @project.creator.name %></td>
+    </tr>
+    <% @project.parameters.each do |k, v| %>
     <tr>
       <td class="has-text-right"><%= k.to_s %></td>
       <td><%= v %></td>
     </tr>
-  <% end %>
+    <% end %>
   </tbody>
 </table>

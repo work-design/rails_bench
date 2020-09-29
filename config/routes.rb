@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   scope module: 'bench' do
     resources :projects do
-      match :github, on: :member, via: [:get, :post]
+      member do
+        match :github, via: [:get, :post]
+      end
     end
     resources :facilitates, only: [:index, :show] do
       collection do
@@ -38,7 +40,6 @@ Rails.application.routes.draw do
         get :tasks
         get :repos
         get :github_hook
-        get :task_templates
       end
       resources :project_funds, path: 'funds', as: 'funds'
       resources :expenses
@@ -59,7 +60,13 @@ Rails.application.routes.draw do
     end
     resources :project_stages
     resources :project_states
-    resources :projects
+    resources :projects do
+      member do
+        get :task_templates
+      end
+      resources :project_funds, path: 'funds', as: 'funds'
+      resources :expenses
+    end
     resources :task_templates do
       collection do
         get :add

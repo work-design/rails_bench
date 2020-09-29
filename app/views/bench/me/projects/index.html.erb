@@ -33,7 +33,7 @@
         <p class="has-text-danger"><%= project.budget %></p>
         <p><%= project.fund_amount %></p>
       </td>
-      <td><%= project.state %></td>
+      <td><%= project.state_i18n %></td>
       <td>
         <%= link_to edit_me_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>

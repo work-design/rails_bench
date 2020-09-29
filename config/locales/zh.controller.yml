@@ -17,6 +17,9 @@ zh:
       projects:
         index:
           title: 项目库
+      project_funds:
+        index:
+          title: 项目资金
       project_stages:
         index:
           title: 项目阶段
