@@ -5,4 +5,10 @@ module RailsBenchController::Me
     layout 'me'
   end
 
+  class_methods do
+    def local_prefixes
+      [controller_path, 'bench/me/base']
+    end
+  end
+
 end unless defined? RailsBenchController::Me
