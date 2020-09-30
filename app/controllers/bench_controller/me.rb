@@ -1,4 +1,4 @@
-module RailsBenchController::Me
+module BenchController::Me
   extend ActiveSupport::Concern
 
   included do
@@ -11,4 +11,4 @@ module RailsBenchController::Me
     end
   end
 
-end unless defined? RailsBenchController::Me
+end unless defined? BenchController::Me

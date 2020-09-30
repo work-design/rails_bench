@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     resources :projects do
       member do
         get :task_templates
+        get :tasks
       end
       resources :project_funds, path: 'funds', as: 'funds'
       resources :expenses

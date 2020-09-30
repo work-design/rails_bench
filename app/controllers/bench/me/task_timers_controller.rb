@@ -1,5 +1,5 @@
 class Bench::Me::TaskTimersController < Bench::Admin::BaseController
-  include RailsBenchController::Me
+  include BenchController::Me
   before_action :set_task
   before_action :set_task_timer, only: [:show, :edit, :update, :pause, :destroy]
 

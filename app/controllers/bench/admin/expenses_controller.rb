@@ -1,5 +1,4 @@
-class Bench::Me::ExpensesController < Bench::Admin::ExpensesController
-  include BenchController::Me
+class Bench::Admin::ExpensesController < Bench::Admin::BaseController
   before_action :set_project
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :prepare_form
@@ -14,7 +13,6 @@ class Bench::Me::ExpensesController < Bench::Admin::ExpensesController
 
   def create
     @expense = @project.expenses.build(expense_params)
-    @expense.creator = current_member
 
     unless @expense.save
       render :new, locals: { model: @expense }, status: :unprocessable_entity

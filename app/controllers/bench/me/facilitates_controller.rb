@@ -1,5 +1,5 @@
 class Bench::Me::FacilitatesController < Bench::Admin::BaseController
-  include RailsBenchController::Me
+  include BenchController::Me
   before_action :set_facilitate, only: [:show, :order]
   before_action :set_facilitate_taxons, only: [:index]
 

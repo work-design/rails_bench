@@ -1,5 +1,5 @@
 class Bench::Me::TasksController < Bench::Admin::TasksController
-  include RailsBenchController::Me
+  include BenchController::Me
 
   before_action :set_task, only: [
     :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
