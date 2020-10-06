@@ -15,9 +15,9 @@
       <td><%= facilitate_provider.note %></td>
       <td>
         <% if facilitate_provider.selected %>
-          <i class="green checkmark icon"></i>
+          <i class="fas fa-checkmark"></i>
         <% else %>
-          <i class="grey remove icon"></i>
+          <i class="fas fa-times"></i>
         <% end %>
       </td>
       <td><%= link_to '服务管理', admin_facilitate_provider_path(facilitate_provider) %></td>
