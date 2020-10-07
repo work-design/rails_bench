@@ -3,6 +3,9 @@ zh:
     attributes:
       facilitate:
         facilitate_taxon_id: 分类
+      facilitate_provider:
+        selected: 中标
+        provider_id: 供应商
       project:
         creator_id: 申报负责人
         project_stage_id: 阶段
