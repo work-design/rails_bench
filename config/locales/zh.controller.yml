@@ -9,7 +9,7 @@ zh:
       title: 工作管理
       facilitate_providers:
         index:
-          title: 标准化服务
+          title: 投标
         task_templates:
           title: 流程
         show:
@@ -67,3 +67,6 @@ zh:
       facilitates:
         index:
           title: 标准化服务
+      facilitate_providers:
+        index:
+          title: 供应商管理

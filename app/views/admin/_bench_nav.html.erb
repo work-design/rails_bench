@@ -2,7 +2,7 @@
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('bench.admin.projects.index.title'), admin_projects_path, class: active_helper(controllers: ['projects', 'project_funds', 'expenses'], active: 'is-active') %>
     <%= link_to t('bench.admin.facilitate_providers.index.title'), admin_facilitate_providers_path, class: active_helper(controllers: ['facilitate_providers'], active: 'is-active') -%>
-<% end %>
+  <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fas fa-share-alt"></i>
     <span><%= t('bench.admin.title') %></span>

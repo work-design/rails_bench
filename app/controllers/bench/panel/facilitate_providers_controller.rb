@@ -1,11 +1,9 @@
-class Bench::Admin::FacilitateProvidersController < Bench::Admin::BaseController
+class Bench::Panel::FacilitateProvidersController < Bench::Panel::BaseController
+  before_action :set_facilitate
   before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 
   def index
-    q_params = {}
-    q_params.merge! default_params
-
-    @facilitate_providers = FacilitateProvider.default_where(q_params)
+    @facilitate_providers = @facilitate.facilitate_providers
   end
 
   def new
@@ -45,6 +43,10 @@ class Bench::Admin::FacilitateProvidersController < Bench::Admin::BaseController
   end
 
   private
+  def set_facilitate
+    @facilitate = Facilitate.find params[:facilitate_id]
+  end
+
   def set_facilitate_provider
     @facilitate_provider = FacilitateProvider.find(params[:id])
   end

@@ -88,7 +88,9 @@ Rails.application.routes.draw do
 
   scope :panel, module: 'bench/panel', as: :panel do
     resources :facilitate_taxons, except: [:index, :show]
-    resources :facilitates
+    resources :facilitates do
+      resources :facilitate_providers
+    end
   end
 
 end

@@ -1,0 +1,10 @@
+<h2 class="title has-text-centered">
+  <%= @facilitate_provider.facilitate.name %>
+</h2>
+
+<div class="tabs">
+  <ul>
+    <li class="<%= active_helper(facilitate_providers: ['task_templates'], active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.task_templates.title'), task_templates_admin_facilitate_provider_path(@facilitate_provider) %></li>
+    <li class="<%= active_helper(facilitate_providers: 'show', active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.show.title'), admin_facilitate_provider_path(@facilitate_provider) %></li>
+  </ul>
+</div>
