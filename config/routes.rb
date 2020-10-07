@@ -57,7 +57,7 @@ Rails.application.routes.draw do
       member do
         get :parameter
       end
-      resources :project_references
+      resources :project_preferences
     end
     resources :project_stages
     resources :project_states

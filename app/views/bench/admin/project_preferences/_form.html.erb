@@ -1,0 +1,6 @@
+<%= form_with model: @project_preference do |f| %>
+  <%= render 'shared/error_messages', target: @project_preference %>
+  <%= f.text_field :facilitate_id %>
+  <%= f.text_field :provider_id %>
+  <%= f.submit %>
+<% end %>
