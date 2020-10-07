@@ -53,7 +53,7 @@ class Bench::Panel::FacilitateProvidersController < Bench::Panel::BaseController
 
   def facilitate_provider_params
     params.fetch(:facilitate_provider, {}).permit(
-      :facilitate_id,
+      :selected,
       :note
     )
   end
