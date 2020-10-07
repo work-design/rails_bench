@@ -23,7 +23,7 @@
     <tr>
       <td rowspan="<%= taxon.facilitates_count + 1 %>">
         <%= taxon.name %>
-        <%= link_to edit_panel_facilitate_taxon_path(taxon) do %>
+        <%= link_to edit_panel_facilitate_taxon_path(taxon), remote: true do %>
           <i class="fas fa-pencil-alt"></i>
         <% end %>
       </td>
