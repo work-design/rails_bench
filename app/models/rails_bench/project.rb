@@ -46,7 +46,7 @@ module RailsBench::Project
   end
 
   def duties
-    Duty.where(id: self.project_members.distinct(:duty_id).pluck(:duty_id))
+    JobTitle.where(id: self.project_members.distinct(:job_title_id).pluck(:job_title_id))
   end
 
   def github_hook_url
