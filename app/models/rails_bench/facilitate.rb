@@ -2,6 +2,7 @@ module RailsBench::Facilitate
   extend ActiveSupport::Concern
 
   included do
+    attribute :name, :string
     attribute :quantity, :integer, default: 1
     attribute :unified_quantity, :integer, default: 1
     attribute :unit, :string, default: '个'

@@ -57,6 +57,7 @@ Rails.application.routes.draw do
       member do
         get :parameter
       end
+      resources :project_references
     end
     resources :project_stages
     resources :project_states
@@ -67,6 +68,7 @@ Rails.application.routes.draw do
       end
       resources :project_funds, path: 'funds', as: 'funds'
       resources :expenses
+      resources :project_facilitates
     end
     resources :task_templates do
       collection do
