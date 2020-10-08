@@ -27,7 +27,7 @@
       <td><%= project_taxon.name %></td>
       <td><%= simple_format project_taxon.parameters %></td>
       <td>
-        <%= link_to admin_project_taxon_project_preferences_path(project_taxon), aria: { label: t('bench.admin.project_references.index.title') }, class: 'button is-small is-rounded is-light' do %>
+        <%= link_to admin_project_taxon_project_preferences_path(project_taxon), aria: { label: t('bench.admin.project_preferences.index.title') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-paint-roller"></i>
         <% end %>
         <%= link_to admin_task_templates_path(tasking_type: 'ProjectTaxon', tasking_id: project_taxon.id), aria: { label: t('bench.admin.task_templates.index.title') }, class: 'button is-small is-rounded is-light' do %>
