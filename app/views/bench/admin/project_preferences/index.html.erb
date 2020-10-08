@@ -2,6 +2,7 @@
 <div class="breadcrumb has-succeeds-seprator">
   <ul>
     <li><%= link_to t('bench.admin.project_taxons.index.title'), admin_project_taxons_path %></li>
+    <li><%= link_to @project_taxon.name, admin_project_taxons_path(id: @project_taxon.id) %></li>
     <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>
