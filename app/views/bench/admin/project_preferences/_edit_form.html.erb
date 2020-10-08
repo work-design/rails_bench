@@ -1,3 +1,3 @@
-<%= form_with model: @project_preference, url: admin_project_taxon_project_preferences_path(@project_taxon) do |f| %>
+<%= form_with model: @project_preference, url: admin_project_taxon_project_preference_path(@project_taxon, @project_preference) do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
 <% end %>
