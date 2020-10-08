@@ -1,6 +1,7 @@
 class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   before_action :set_project_taxon
   before_action :set_project_preference, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form, only: [:new]
 
   def index
     @project_preferences = ProjectPreference.page(params[:page])
@@ -43,6 +44,10 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def set_project_preference
     @project_preference = ProjectPreference.find(params[:id])
+  end
+
+  def prepare_form
+    @facilitate_taxons = FacilitateTaxon.all
   end
 
   def project_preference_params

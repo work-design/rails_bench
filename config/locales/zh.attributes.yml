@@ -26,6 +26,10 @@ zh:
         end_on: 截止日期
       project_taxon:
         parameters: 字段
+      project_preference:
+        facilitate_taxon_id: 服务分类
+        facilitate_id: 标准化服务
+        provider_id: 供应商
       task_template:
         job_title_id: 职位
         member_id: 责任人
