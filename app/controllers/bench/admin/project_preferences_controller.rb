@@ -1,7 +1,7 @@
 class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   before_action :set_project_taxon
   before_action :set_project_preference, only: [:show, :edit, :update, :destroy]
-  before_action :prepare_form, only: [:new]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
     @project_preferences = ProjectPreference.page(params[:page])
@@ -9,6 +9,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def new
     @project_preference = @project_taxon.project_preferences.build
+    @facilitates = Facilitate.none
   end
 
   def create
@@ -31,6 +32,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def edit
+    @facilitates = Facilitate.default_where(facilitate_taxon_id: @project_preference.facilitate_taxon_id)
   end
 
   def update
@@ -56,7 +58,6 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def prepare_form
     @facilitate_taxons = FacilitateTaxon.all
-    @facilitates = Facilitate.none
   end
 
   def project_preference_params
