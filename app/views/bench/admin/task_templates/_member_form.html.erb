@@ -9,7 +9,8 @@
   %>
   <%=
     f.collection_select(
-        :member_id, @members,
+        :member_id,
+        @members,
         :id, :name, include_blank: true
     )
   %>

@@ -1,5 +1,18 @@
 <%= render 'shared/error_messages', target: @project_preference %>
-<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name, include_blank: true %>
-<%= f.text_field :facilitate_id %>
+<%=
+  f.collection_select(
+      :facilitate_taxon_id,
+      @facilitate_taxons,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: members_admin_task_templates_path } }
+  )
+%>
+<%=
+  f.collection_select(
+      :facilitate_id,
+      @facilitates,
+      :id, :name, include_blank: true
+  )
+%>
 <%= f.text_field :provider_id %>
 <%= f.submit %>
