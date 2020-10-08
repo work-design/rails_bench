@@ -48,6 +48,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def prepare_form
     @facilitate_taxons = FacilitateTaxon.all
+    @facilitates = Facilitate.none
   end
 
   def project_preference_params
