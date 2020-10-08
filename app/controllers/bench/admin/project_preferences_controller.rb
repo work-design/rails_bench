@@ -8,15 +8,23 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def new
-    @project_preference = ProjectPreference.new
+    @project_preference = @project_taxon.project_preferences.build
   end
 
   def create
-    @project_preference = ProjectPreference.new(project_preference_params)
+    @project_preference = @project_taxon.project_preferences.build(project_preference_params)
 
     unless @project_preference.save
       render :new, locals: { model: @project_preference }, status: :unprocessable_entity
     end
+  end
+
+  def facilitates
+    @project_preference = @project_taxon.project_preferences.build
+
+    q_params = {}
+    q_params.merge! facilitate_taxon_id: project_preference_params[:facilitate_taxon_id]
+    @facilitates = Facilitate.default_where(q_params)
   end
 
   def show
@@ -43,7 +51,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def set_project_preference
-    @project_preference = ProjectPreference.find(params[:id])
+    @project_preference = @project_taxon.project_preferences.find(params[:id])
   end
 
   def prepare_form
@@ -53,6 +61,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def project_preference_params
     params.fetch(:project_preference, {}).permit(
+      :facilitate_taxon_id,
       :facilitate_id,
       :provider_id
     )
