@@ -73,7 +73,11 @@ Rails.application.routes.draw do
       end
       resources :project_funds, path: 'funds', as: 'funds'
       resources :expenses
-      resources :project_facilitates
+      resources :project_facilitates do
+        collection do
+          get :providers
+        end
+      end
     end
     resources :task_templates do
       collection do
