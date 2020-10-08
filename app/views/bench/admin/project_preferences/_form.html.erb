@@ -11,8 +11,15 @@
   f.collection_select(
       :facilitate_id,
       @facilitates,
-      :id, :name, include_blank: true
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: providers_admin_project_taxon_project_preferences_path(@project_taxon) } }
   )
 %>
-<%= f.text_field :provider_id %>
+<%=
+  f.collection_select(
+      :provider_id,
+      @providers,
+      :id, :name
+  )
+%>
 <%= f.submit %>

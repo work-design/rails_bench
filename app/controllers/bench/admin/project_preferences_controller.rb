@@ -1,6 +1,6 @@
 class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   before_action :set_project_taxon
-  before_action :set_project_preference, only: [:show, :edit, :update, :destroy]
+  before_action :set_project_preference, only: [:show, :edit, :update, :destroy, :new, :facilitates, :providers]
   before_action :prepare_form, only: [:new, :edit]
 
   def index
@@ -8,8 +8,8 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def new
-    @project_preference = @project_taxon.project_preferences.build
     @facilitates = Facilitate.none
+    @providers = Organ.none
   end
 
   def create
@@ -21,11 +21,14 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def facilitates
-    @project_preference = @project_taxon.project_preferences.build
-
     q_params = {}
     q_params.merge! facilitate_taxon_id: project_preference_params[:facilitate_taxon_id]
     @facilitates = Facilitate.default_where(q_params)
+  end
+
+  def providers
+    @facilitate = Facilitate.find project_preference_params[:facilitate_id]
+    @providers = @facilitate.providers
   end
 
   def show
@@ -33,6 +36,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
 
   def edit
     @facilitates = Facilitate.default_where(facilitate_taxon_id: @project_preference.facilitate_taxon_id)
+    @providers = @project_preference.facilitate.providers
   end
 
   def update
@@ -53,7 +57,11 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   end
 
   def set_project_preference
-    @project_preference = @project_taxon.project_preferences.find(params[:id])
+    if params[:id]
+      @project_preference = @project_taxon.project_preferences.find(params[:id])
+    else
+      @project_preference = @project_taxon.project_preferences.build
+    end
   end
 
   def prepare_form

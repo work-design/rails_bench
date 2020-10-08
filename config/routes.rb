@@ -60,6 +60,7 @@ Rails.application.routes.draw do
       resources :project_preferences do
         collection do
           get :facilitates
+          get :providers
         end
       end
     end
