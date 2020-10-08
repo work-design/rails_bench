@@ -25,7 +25,7 @@
   <% @project_preferences.each do |project_preference| %>
     <tr>
       <td><%= project_preference.facilitate.name %></td>
-      <td><%= project_preference.provider_id %></td>
+      <td><%= project_preference.provider&.name %></td>
       <td>
         <%= link_to edit_admin_project_taxon_project_preference_path(@project_taxon, project_preference), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-pencil-alt"></i>
