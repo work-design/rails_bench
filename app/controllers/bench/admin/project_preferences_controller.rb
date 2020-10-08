@@ -4,7 +4,7 @@ class Bench::Admin::ProjectPreferencesController < Bench::Admin::BaseController
   before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @project_preferences = ProjectPreference.page(params[:page])
+    @project_preferences = @project_taxon.project_preferences.page(params[:page])
   end
 
   def new

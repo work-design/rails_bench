@@ -12,6 +12,7 @@
 <table class="table is-hoverable is-fullwidth">
   <thead>
     <tr>
+      <th><%= ProjectPreference.human_attribute_name(:facilitate_taxon_id) %></th>
       <th><%= ProjectPreference.human_attribute_name(:facilitate_id) %></th>
       <th><%= ProjectPreference.human_attribute_name(:provider_id) %></th>
       <th>
@@ -24,6 +25,7 @@
   <tbody>
   <% @project_preferences.each do |project_preference| %>
     <tr>
+      <td><%= project_preference.facilitate_taxon.name %></td>
       <td><%= project_preference.facilitate.name %></td>
       <td><%= project_preference.provider&.name %></td>
       <td>
