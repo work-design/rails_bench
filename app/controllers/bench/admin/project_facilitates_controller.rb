@@ -68,8 +68,8 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   end
 
   def prepare_form
-    @facilitate_taxons = FacilitateTaxon.limit(500)
-    @facilitates = Facilitate.limit(500)
+    @facilitate_taxons = FacilitateTaxon.all
+    @facilitates = @project_facilitate&.facilitate_taxon&.facilitates || Facilitate.none
     @providers = @project_facilitate&.facilitate&.providers || []
   end
 
