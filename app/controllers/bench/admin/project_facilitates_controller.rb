@@ -4,7 +4,12 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @project_facilitates = @project.project_facilitates.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:facilitate_taxon_id)
+    q_params.merge!({"facilitates.name-like": params[:name]})
+    @project_facilitates = @project.project_facilitates.includes(:facilitate, :provider)
+                                   .default_where(q_params).page(params[:page])
+    @facilitate_taxons = FacilitateTaxon.all
   end
 
   def new
