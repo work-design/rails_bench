@@ -1,19 +1,21 @@
 class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   before_action :set_project
   before_action :set_project_facilitate, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @project_facilitates = ProjectFacilitate.page(params[:page])
+    @project_facilitates = @project.project_facilitates.page(params[:page])
   end
 
   def new
-    @project_facilitate = ProjectFacilitate.new
+    @project_facilitate = @project.project_facilitates.new
   end
 
   def create
-    @project_facilitate = ProjectFacilitate.new(project_facilitate_params)
+    @project_facilitate = @project.project_facilitates.new(project_facilitate_params)
 
     unless @project_facilitate.save
+      logger.info(@project_facilitate.errors.full_messages)
       render :new, locals: { model: @project_facilitate }, status: :unprocessable_entity
     end
   end
@@ -36,6 +38,12 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
     @project_facilitate.destroy
   end
 
+  # slect options
+  def providers
+    @facilitate = Facilitate.find project_facilitate_params[:facilitate_id]
+    @providers = @facilitate.providers
+  end
+
   private
   def set_project
     @project = Project.find params[:project_id]
@@ -50,6 +58,11 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
       :facilitate_id,
       :provider_id
     )
+  end
+
+  def prepare_form
+    @facilitates = Facilitate.all
+    @providers = @project_facilitate&.facilitate&.providers || []
   end
 
 end

@@ -7,11 +7,11 @@ class Bench::Panel::FacilitateProvidersController < Bench::Panel::BaseController
   end
 
   def new
-    @facilitate_provider = current_organ.facilitate_providers.build(facilitate_id: params[:facilitate_id])
+    @facilitate_provider = @facilitate.facilitate_providers.build()
   end
 
   def create
-    @facilitate_provider = current_organ.facilitate_providers.build(facilitate_provider_params)
+    @facilitate_provider = @facilitate.facilitate_providers.build(facilitate_provider_params)
 
     if @facilitate_provider.save
       render 'create', locals: { return_to: me_facilitate_providers_url }

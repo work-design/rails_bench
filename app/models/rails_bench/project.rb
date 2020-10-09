@@ -20,6 +20,7 @@ module RailsBench::Project
     has_many :project_webhooks, dependent: :delete_all
     has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
+    has_many :project_facilitates
 
     validates :name, presence: true
 
