@@ -19,7 +19,7 @@
   <tbody>
   <% @project_facilitates.each do |project_facilitate| %>
     <tr>
-      <td><%= project_facilitate.facilitate&.name %></td>
+      <td><%= project_facilitate.facilitate.name %></td>
       <td><%= project_facilitate.provider&.name %></td>
       <td>
         <%= link_to admin_project_project_facilitate_path(@project,project_facilitate), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
