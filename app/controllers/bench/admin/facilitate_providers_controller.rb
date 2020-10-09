@@ -16,7 +16,7 @@ class Bench::Admin::FacilitateProvidersController < Bench::Admin::BaseController
     @facilitate_provider = current_organ.facilitate_providers.build(facilitate_provider_params)
 
     if @facilitate_provider.save
-      render 'create', locals: { return_to: me_facilitate_providers_url }
+      render 'create', locals: { return_to: admin_facilitate_providers_url }
     else
       render :new, locals: { model: @facilitate_provider }, status: :unprocessable_entity
     end
