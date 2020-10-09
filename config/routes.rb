@@ -75,6 +75,7 @@ Rails.application.routes.draw do
       resources :expenses
       resources :project_facilitates do
         collection do
+          get :facilitates
           get :providers
         end
       end
