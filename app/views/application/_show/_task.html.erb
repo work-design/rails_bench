@@ -4,6 +4,9 @@
       <i class="fas fa-bars fa-fw has-text-grey is-drawable"></i>
       <%= link_to task.title, me_task_path(task) %>
     </div>
+    <% if task.member %>
+      <span class="tag"><%= task.member&.name %></span>
+    <% end %>
   </div>
   <div class="level-right">
     <div class="level-item">
@@ -14,11 +17,8 @@
         <%= render partial: '_shared/rail', locals: { task: task } %>
       </span>
     </div>
-    <% if task.member %>
-      <span class="tag"><%= task.member&.name %></span>
-    <% end %>
     <span style="visibility: hidden" data-show-target="item">
-      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, method: :delete, remote: true do %>
+      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: :delete, remote: true do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>
