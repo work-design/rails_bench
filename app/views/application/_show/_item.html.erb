@@ -6,8 +6,8 @@
         <%= render partial: '_show/task', locals: { task: child } %>
       <% end %>
       <div id="item_add" class="level is-underline">
-        <div class="level-left pl-6">
-          <div class="level-item pl-5">
+        <div class="level-left pl-1">
+          <div class="level-item pl-1">
             <%= link_to new_me_task_path(parent_id: @task.id), remote: true do %>
               <i class="fas fa-plus"></i>
             <% end %>
