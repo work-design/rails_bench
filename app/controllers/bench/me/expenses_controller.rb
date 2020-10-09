@@ -5,7 +5,7 @@ class Bench::Me::ExpensesController < Bench::Admin::ExpensesController
   before_action :prepare_form
 
   def index
-    @expenses = @project.expenses.page(params[:page])
+    @expenses = @project.expenses.includes(:financial_taxon).page(params[:page])
   end
 
   def new

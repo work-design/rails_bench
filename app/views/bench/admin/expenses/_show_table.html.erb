@@ -22,7 +22,7 @@
     </tr>
     <tr>
       <td class="has-text-right"><%= Expense.human_attribute_name(:financial_taxon_id) %></td>
-      <td><%= @expense.financial_taxon_id %></td>
+      <td><%= @expense.financial_taxon.name %></td>
     </tr>
     <tr>
       <td class="has-text-right"><%= Expense.human_attribute_name(:invoices_count) %></td>
