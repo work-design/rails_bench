@@ -30,6 +30,10 @@ zh:
         facilitate_taxon_id: 服务分类
         facilitate_id: 标准化服务
         provider_id: 供应商
+      project_facilitate:
+        facilitate_taxon_id: 服务分类
+        facilitate_id: 标准化服务
+        provider_id: 供应商
       task_template:
         job_title_id: 职位
         member_id: 责任人

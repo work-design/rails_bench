@@ -12,7 +12,7 @@ module RailsBench::ProjectFacilitate
   end
 
   def sync_facilitate_taxon
-    self.facilitate_taxon_id = facilitate&.facilitate_taxon_id 
+    self.facilitate_taxon_id = facilitate&.facilitate_taxon_id
   end
 
 

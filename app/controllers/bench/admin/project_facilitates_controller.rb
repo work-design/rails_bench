@@ -4,7 +4,12 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @project_facilitates = @project.project_facilitates.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:facilitate_taxon_id)
+    q_params.merge!({"facilitates.name-like": params[:name]})
+    @project_facilitates = @project.project_facilitates.includes(:facilitate, :provider)
+                                   .default_where(q_params).page(params[:page])
+    @facilitate_taxons = FacilitateTaxon.all
   end
 
   def new
@@ -39,6 +44,12 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   end
 
   # slect options
+  def facilitates
+    q_params = {}
+    q_params.merge! facilitate_taxon_id: project_facilitate_params[:facilitate_taxon_id]
+    @facilitates = Facilitate.default_where(q_params)
+  end
+
   def providers
     @facilitate = Facilitate.find project_facilitate_params[:facilitate_id]
     @providers = @facilitate.providers
@@ -55,13 +66,15 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
 
   def project_facilitate_params
     params.fetch(:project_facilitate, {}).permit(
+      :facilitate_taxon_id,
       :facilitate_id,
       :provider_id
     )
   end
 
   def prepare_form
-    @facilitates = Facilitate.all
+    @facilitate_taxons = FacilitateTaxon.all
+    @facilitates = @project_facilitate&.facilitate_taxon&.facilitates || Facilitate.none
     @providers = @project_facilitate&.facilitate&.providers || []
   end
 
