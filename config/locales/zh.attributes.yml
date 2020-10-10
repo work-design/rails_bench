@@ -10,9 +10,10 @@ zh:
         creator_id: 申报负责人
         project_stage_id: 阶段
         project_taxon_id: 分类
-        budget: 项目预算
         state: 状态
         fund_amount: 项目资金
+        budget_amount: 项目预算
+        expense_amount: 项目支出
         name-like: 名称包含
       project_fund:
         amount: 金额
