@@ -11,11 +11,13 @@ zh:
         project_stage_id: 阶段
         project_taxon_id: 分类
         state: 状态
-        fund_amount: 项目资金
-        budget_amount: 项目预算
-        expense_amount: 项目支出
+        fund_budget: 资金预算
+        fund_amount: 资金到账
+        expense_budget: 预算支出
+        expense_amount: 实际支出
         name-like: 名称包含
       project_fund:
+        budget: 预算
         amount: 金额
         note: 备注
         proof: 凭证

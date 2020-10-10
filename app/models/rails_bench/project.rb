@@ -7,6 +7,7 @@ module RailsBench::Project
     attribute :github_repo, :string
     attribute :state, :string
     attribute :parameters, :json
+    attribute :fund_budget, :decimal
     attribute :fund_amount, :decimal
 
     belongs_to :organ, optional: true
@@ -43,7 +44,8 @@ module RailsBench::Project
     )
   end
 
-  def compute_fund_amount
+  def compute_fund_budget_amount
+    self.fund_budget = project_funds.sum(:budget)
     self.fund_amount = project_funds.sum(:amount)
   end
 
