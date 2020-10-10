@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th>
-        <%= link_to t('.edit'), edit_me_project_path(@project), class: 'button is-small is-link' %>
+        <%= link_to t('.edit'), { action: 'edit', id: @project.id }, { class: 'button is-small is-link' } %>
       </th>
       <th></th>
     </tr>
