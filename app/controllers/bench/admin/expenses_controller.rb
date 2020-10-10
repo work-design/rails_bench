@@ -13,6 +13,7 @@ class Bench::Admin::ExpensesController < Bench::Admin::BaseController
 
   def create
     @expense = @project.expenses.build(expense_params)
+    @expense.creator = current_member if defined? current_member
 
     unless @expense.save
       render :new, locals: { model: @expense }, status: :unprocessable_entity
