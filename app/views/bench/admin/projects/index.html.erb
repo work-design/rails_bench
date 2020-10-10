@@ -21,8 +21,8 @@
       <th><%= Project.human_attribute_name(:name) %></th>
       <th><%= Project.human_attribute_name(:description) %></th>
       <th>
-        <p class="has-text-danger"><%= Project.human_attribute_name(:budget) %></p>
-        <p><%= Project.human_attribute_name(:fund_amount) %></p>
+        <p class="has-text-danger"><%= Project.human_attribute_name(:fund_budget) %>/<%= Project.human_attribute_name(:fund_amount) %></p>
+        <p><%= Project.human_attribute_name(:expense_budget) %>/<%= Project.human_attribute_name(:expense_amount) %></p>
       </th>
       <th><%= Project.human_attribute_name(:creator_id) %></th>
       <th><%= Project.human_attribute_name(:state) %></th>
@@ -39,8 +39,8 @@
       <td><%= link_to project.name, admin_project_path(project) %></td>
       <td><%= project.description %></td>
       <td>
-        <p class="has-text-danger"><%= link_to project.budget, admin_project_funds_path(project) %></p>
-        <p><%= link_to project.fund_amount, admin_project_expenses_path(project) %></p>
+        <p class="has-text-danger"><%= link_to "#{project.fund_budget}/#{project.fund_amount}", admin_project_funds_path(project) %></p>
+        <p><%= link_to "#{project.expense_budget}/#{project.expense_amount}", admin_project_expenses_path(project) %></p>
       </td>
       <td>
         <% project.owners.each do |owner| %>

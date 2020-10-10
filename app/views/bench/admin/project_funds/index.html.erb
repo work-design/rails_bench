@@ -1,14 +1,18 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-<section class="hero">
-  <div class="here-body">
-    <h3 class="title has-text-centered">项目预算： <%= @project.fund_amount %></h3>
+<section class="columns">
+  <div class="column">
+    <%= Project.human_attribute_name(:fund_budget) %>： <%= @project.fund_budget %>
+  </div>
+  <div class="column">
+    <%= Project.human_attribute_name(:fund_amount) %>： <%= @project.fund_amount %>
   </div>
 </section>
 
 <table class="table is-fullwidth">
   <thead>
     <tr>
+      <th><%= ProjectFund.human_attribute_name(:budget) %></th>
       <th><%= ProjectFund.human_attribute_name(:amount) %></th>
       <th><%= ProjectFund.human_attribute_name(:user_id) %></th>
       <th><%= ProjectFund.human_attribute_name(:note) %></th>
@@ -24,6 +28,7 @@
   <tbody>
     <% @project_funds.each do |project_fund| %>
       <tr>
+        <td><%= project_fund.budget %></td>
         <td><%= project_fund.amount %></td>
         <td>
           <% if project_fund.visible %>
