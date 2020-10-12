@@ -5,7 +5,6 @@
       <th><%= Budget.human_attribute_name(:amount) %></th>
       <th><%= Budget.human_attribute_name(:note) %></th>
       <th><%= Budget.human_attribute_name(:financial_taxon_id) %></th>
-      <th><%= Budget.human_attribute_name(:invoices_count) %></th>
       <th>
         <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-link is-small' }) do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
@@ -20,7 +19,6 @@
       <td><%= budget.amount %></td>
       <td><%= budget.note %></td>
       <td><%= budget.financial_taxon_id %></td>
-      <td><%= budget.invoices_count %></td>
       <td>
         <%= link_to({ action: 'show', project_id: @project.id, id: budget.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
           <i class="fas fa-eye"></i>

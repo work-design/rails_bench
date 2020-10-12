@@ -1,4 +1,4 @@
-<%= render 'shared/error_messages', target: @expense %>
+<%= render 'shared/error_messages', target: @budget %>
 <%= f.text_field :subject %>
 <%= f.text_area :note %>
 <%= f.collection_select :financial_taxon_id, @financial_taxons, :id, :name %>
