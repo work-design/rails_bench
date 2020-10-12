@@ -11,8 +11,8 @@
       <th><%= Facilitate.human_attribute_name(:created_at) %></th>
       <th><%= Facilitate.human_attribute_name(:price) %></th>
       <th>
-        <%= link_to new_panel_facilitate_path, remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
+        <%= link_to({ action: 'new' }, { remote: true, class: 'button is-link is-small' }) do %>
+          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
         <% end %>
       </th>
     </tr>

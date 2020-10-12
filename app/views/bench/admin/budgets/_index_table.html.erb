@@ -7,7 +7,7 @@
       <th><%= Budget.human_attribute_name(:financial_taxon_id) %></th>
       <th>
         <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-link is-small' }) do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
+          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
         <% end %>
       </th>
     </tr>
