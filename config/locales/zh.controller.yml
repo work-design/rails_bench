@@ -7,6 +7,12 @@ zh:
   bench:
     admin:
       title: 工作管理
+      budgets:
+        index:
+          title: 项目预算
+      expenses:
+        index:
+          title: 项目支出
       facilitate_providers:
         index:
           title: 投标

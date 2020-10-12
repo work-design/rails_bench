@@ -10,7 +10,8 @@
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), admin_project_path(project) %></li>
     <li class="<%= active_helper(projects: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.me.projects.task_templates.title'), task_templates_admin_project_path(project) %></li>
     <li class="<%= active_helper(controllers: 'project_funds', active: 'is-active') %>"><%= link_to t('bench.admin.project_funds.index.title'), admin_project_funds_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.me.expenses.index.title'), admin_project_expenses_path(project) %></li>
+    <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>"><%= link_to t('bench.admin.budgets.index.title'), admin_project_budgets_path(project) %></li>
+    <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.admin.expenses.index.title'), admin_project_expenses_path(project) %></li>
     <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>"><%= link_to t('bench.admin.project_facilitates.index.title'), admin_project_project_facilitates_path(project) %></li>
   </ul>
 </div>

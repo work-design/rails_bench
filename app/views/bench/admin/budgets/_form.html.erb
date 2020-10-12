@@ -1,0 +1,6 @@
+<%= render 'shared/error_messages', target: @expense %>
+<%= f.text_field :subject %>
+<%= f.text_area :note %>
+<%= f.collection_select :financial_taxon_id, @financial_taxons, :id, :name %>
+<%= f.file_field :proof %>
+<%= f.submit %>

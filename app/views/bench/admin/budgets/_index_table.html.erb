@@ -1,0 +1,40 @@
+<table class="table is-hoverable is-fullwidth">
+  <thead>
+    <tr>
+      <th><%= Budget.human_attribute_name(:subject) %></th>
+      <th><%= Budget.human_attribute_name(:amount) %></th>
+      <th><%= Budget.human_attribute_name(:note) %></th>
+      <th><%= Budget.human_attribute_name(:financial_taxon_id) %></th>
+      <th><%= Budget.human_attribute_name(:invoices_count) %></th>
+      <th>
+        <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-link is-small' }) do %>
+          <i class="fas fa-plus"></i><%= t('.new') %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @budgets.each do |budget| %>
+    <tr>
+      <td><%= budget.subject %></td>
+      <td><%= budget.amount %></td>
+      <td><%= budget.note %></td>
+      <td><%= budget.financial_taxon_id %></td>
+      <td><%= budget.invoices_count %></td>
+      <td>
+        <%= link_to({ action: 'show', project_id: @project.id, id: budget.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+          <i class="fas fa-eye"></i>
+        <% end %>
+        <%= link_to({ action: 'edit', project_id: @project.id, id: budget.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+          <i class="fas fa-pencil-alt"></i>
+        <% end %>
+        <%= link_to({ action: 'destroy', project_id: @project.id, id: budget.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+          <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<%= paginate @budgets %>

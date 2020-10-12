@@ -1,0 +1,32 @@
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), edit_me_project_expense_path(@project, @expense), class: 'button is-small is-link', remote: true %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="has-text-right"><%= Expense.human_attribute_name(:subject) %></td>
+      <td><%= @expense.subject %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Expense.human_attribute_name(:amount) %></td>
+      <td><%= @expense.amount %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Expense.human_attribute_name(:note) %></td>
+      <td><%= @expense.note %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Expense.human_attribute_name(:financial_taxon_id) %></td>
+      <td><%= @expense.financial_taxon_id %></td>
+    </tr>
+    <tr>
+      <td class="has-text-right"><%= Expense.human_attribute_name(:invoices_count) %></td>
+      <td><%= @expense.invoices_count %></td>
+    </tr>
+  </tbody>
+</table>
