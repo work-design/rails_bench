@@ -5,7 +5,10 @@ class Bench::Admin::ExpensesController < Finance::Admin::ExpensesController
   before_action :prepare_form
 
   def index
-    @expenses = @project.expenses.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:fund_use_id)
+
+    @expenses = @project.expenses.default_where(q_params).page(params[:page])
   end
 
   def new

@@ -28,7 +28,7 @@
       <tr>
         <td><%= fund_use.fund.name %></td>
         <td><%= fund_use.budget_amount %></td>
-        <td><%= fund_use.amount %></td>
+        <td><%= link_to fund_use.amount, { controller: 'bench/admin/expenses', action: 'index', project_id: @project.id, fund_use_id: fund_use.id } %></td>
         <td><%= fund_use.note %></td>
         <td>
           <%= link_to({ action: 'edit', project_id: @project.id, id: fund_use.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
