@@ -36,11 +36,11 @@
         <p><%= project.project_taxon&.name %></p>
         <p><%= project.project_stage&.name %></p>
       </td>
-      <td><%= link_to project.name, admin_project_path(project) %></td>
+      <td><%= link_to project.name, { action: 'show', id: project.id } %></td>
       <td><%= project.description %></td>
       <td>
-        <p class="has-text-danger"><%= link_to "#{project.fund_budget}/#{project.fund_amount}", admin_project_funds_path(project) %></p>
-        <p><%= link_to "#{project.budget_amount}/#{project.expense_amount}", admin_project_expenses_path(project) %></p>
+        <p class="has-text-danger"><%= link_to "#{project.fund_budget}/#{project.fund_amount}", { controller: 'bench/admin/fund_uses', action: 'index', project_id: project.id } %></p>
+        <p><%= link_to "#{project.budget_amount}/#{project.expense_amount}", { controller: 'bench/admin/expenses', action: 'index', project_id: project.id } %></p>
       </td>
       <td>
         <% project.owners.each do |owner| %>
