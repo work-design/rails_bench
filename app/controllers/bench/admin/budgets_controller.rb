@@ -15,7 +15,6 @@ class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
 
   def create
     @budget = @project.budgets.build(expense_params)
-    @budget.creator = current_member if defined? current_member
 
     unless @budget.save
       render :new, locals: { model: @budget }, status: :unprocessable_entity
@@ -58,7 +57,8 @@ class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
       :subject,
       :amount,
       :note,
-      :financial_taxon_id
+      :financial_taxon_id,
+      expense_items_attributes: {}
     )
   end
 
