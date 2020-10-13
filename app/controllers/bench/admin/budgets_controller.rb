@@ -1,4 +1,4 @@
-class Bench::Admin::BudgetsController < Bench::Admin::BaseController
+class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
   before_action :set_project
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :prepare_form
@@ -9,6 +9,7 @@ class Bench::Admin::BudgetsController < Bench::Admin::BaseController
 
   def new
     @budget = @project.budgets.build
+    @budget.expense_items.build
   end
 
   def create
@@ -36,6 +37,10 @@ class Bench::Admin::BudgetsController < Bench::Admin::BaseController
 
   def destroy
     @budget.destroy
+  end
+
+  def self.local_prefixes
+    [controller_path, 'bench/admin/base']
   end
 
   private
