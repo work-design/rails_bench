@@ -23,7 +23,7 @@ zh:
       projects:
         index:
           title: 项目库
-      project_funds:
+      fund_uses:
         index:
           title: 项目资金
       project_stages:

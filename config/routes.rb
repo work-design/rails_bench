@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       member do
         match :github, via: [:get, :post]
       end
+      resources :fund_incomes
     end
     resources :facilitates, only: [:index, :show] do
       collection do
@@ -41,7 +42,6 @@ Rails.application.routes.draw do
         get :repos
         get :github_hook
       end
-      resources :funds
       resources :expenses
     end
     resources :task_templates
@@ -71,7 +71,7 @@ Rails.application.routes.draw do
         get :task_templates
         get :tasks
       end
-      resources :funds
+      resources :fund_uses
       resources :budgets do
         collection do
           get :add_item
