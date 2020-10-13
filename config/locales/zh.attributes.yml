@@ -16,11 +16,6 @@ zh:
         expense_budget: 预算支出
         expense_amount: 实际支出
         name-like: 名称包含
-      project_fund:
-        budget: 预算
-        amount: 金额
-        note: 备注
-        proof: 凭证
       project_member:
         job_title_id: 职位
         member_id: 成员

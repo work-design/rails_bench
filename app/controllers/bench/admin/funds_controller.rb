@@ -53,13 +53,11 @@ class Bench::Admin::FundsController < Bench::Admin::BaseController
   end
 
   def fund_params
-    q = params.fetch(:fund, {}).permit(
+    params.fetch(:fund, {}).permit(
       :amount,
       :note,
       :visible,
       :proof
     )
-    q.merge! user_id: current_user.id
-    q
   end
 end

@@ -12,11 +12,11 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th><%= ProjectFund.human_attribute_name(:budget) %></th>
-      <th><%= ProjectFund.human_attribute_name(:amount) %></th>
-      <th><%= ProjectFund.human_attribute_name(:user_id) %></th>
-      <th><%= ProjectFund.human_attribute_name(:note) %></th>
-      <th><%= ProjectFund.human_attribute_name(:proof) %></th>
+      <th><%= Fund.human_attribute_name(:budget) %></th>
+      <th><%= Fund.human_attribute_name(:amount) %></th>
+      <th><%= Fund.human_attribute_name(:user_id) %></th>
+      <th><%= Fund.human_attribute_name(:note) %></th>
+      <th><%= Fund.human_attribute_name(:proof) %></th>
       <th>
         <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-small is-link' }) do %>
           <i class="fas fa-plus"></i><span><%= t('.new') %></span>
