@@ -1,3 +1,3 @@
-<% f = form_object(@task_template, as: :task_template, wrap: { all: nil, select: nil }, on: { label: false }) %>
+<% f = form_object(@task_template, scope: :task_template, wrap: { all: nil, select: nil }, on: { label: false }) %>
 
 document.getElementById('task_template_member_id').parentNode.innerHTML = '<%= j(f.collection_select :member_id, @members, :id, :name, include_blank: true) %>'
