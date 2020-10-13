@@ -7,8 +7,8 @@
       <th><%= Expense.human_attribute_name(:financial_taxon_id) %></th>
       <th><%= Expense.human_attribute_name(:invoices_count) %></th>
       <th>
-        <%= link_to new_me_project_expense_path(@project), remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
+        <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-small is-link' }) do %>
+          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
         <% end %>
       </th>
     </tr>
