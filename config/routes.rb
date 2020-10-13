@@ -41,7 +41,7 @@ Rails.application.routes.draw do
         get :repos
         get :github_hook
       end
-      resources :project_funds, path: 'funds', as: 'funds'
+      resources :funds
       resources :expenses
     end
     resources :task_templates
@@ -71,7 +71,7 @@ Rails.application.routes.draw do
         get :task_templates
         get :tasks
       end
-      resources :project_funds, path: 'funds', as: 'funds'
+      resources :funds
       resources :budgets do
         collection do
           get :add_item

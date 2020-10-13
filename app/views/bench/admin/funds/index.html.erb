@@ -18,36 +18,35 @@
       <th><%= ProjectFund.human_attribute_name(:note) %></th>
       <th><%= ProjectFund.human_attribute_name(:proof) %></th>
       <th>
-        <%= link_to new_admin_project_fund_path(@project), remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
+        <%= link_to({ action: 'new', project_id: @project.id }, { remote: true, class: 'button is-small is-link' }) do %>
+          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
         <% end %>
       </th>
     </tr>
   </thead>
-
   <tbody>
-    <% @project_funds.each do |project_fund| %>
+    <% @funds.each do |fund| %>
       <tr>
-        <td><%= project_fund.budget %></td>
-        <td><%= project_fund.amount %></td>
+        <td><%= fund.budget %></td>
+        <td><%= fund.amount %></td>
         <td>
-          <% if project_fund.visible %>
-            <%= link_to project_fund.user.name, user_path(project_fund.user_id) %>
+          <% if fund.visible %>
+            <%= link_to fund.user.name, user_path(fund.user_id) %>
           <% else %>
-            <%= project_fund.user.name %>
+            <%= fund.user.name %>
           <% end %>
         </td>
-        <td><%= project_fund.note %></td>
+        <td><%= fund.note %></td>
         <td>
-          <% if project_fund.proof_blob %>
-            <p><%= link_to project_fund.proof_blob.filename, project_fund.proof_blob.service_url, target: '_blank' %></p>
+          <% if fund.proof_blob %>
+            <p><%= link_to fund.proof_blob.filename, fund.proof_blob.service_url, target: '_blank' %></p>
           <% end %>
         </td>
         <td>
-          <%= link_to edit_admin_project_fund_path(@project, project_fund), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to({ action: 'edit', project_id: @project.id, id: fund.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
             <i class="fas fa-pencil-alt"></i>
           <% end %>
-          <%= link_to admin_project_fund_path(@project, project_fund), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+          <%= link_to({ action: 'destroy', project_id: @project.id, id: fund.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
             <i class="fas fa-trash"></i>
           <% end %>
         </td>

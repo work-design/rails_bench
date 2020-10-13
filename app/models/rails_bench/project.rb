@@ -18,7 +18,6 @@ module RailsBench::Project
     has_many :owners, through: :project_owners, source: :member
     has_many :project_members, dependent: :destroy
     has_many :project_webhooks, dependent: :delete_all
-    has_many :project_funds, dependent: :nullify
     has_many :tasks, as: :tasking
     has_many :project_facilitates
 
