@@ -1,4 +1,5 @@
-class Bench::Admin::ExpensesController < Bench::Admin::BaseController
+class Bench::Admin::ExpensesController < Finance::Admin::ExpensesController
+  include BenchController::Admin
   before_action :set_project
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :prepare_form
@@ -9,6 +10,7 @@ class Bench::Admin::ExpensesController < Bench::Admin::BaseController
 
   def new
     @expense = @project.expenses.build
+    @expense.expense_items.build
   end
 
   def create

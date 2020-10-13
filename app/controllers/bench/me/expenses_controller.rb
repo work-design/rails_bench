@@ -10,6 +10,7 @@ class Bench::Me::ExpensesController < Bench::Admin::ExpensesController
 
   def new
     @expense = @project.expenses.build
+    @expense.expense_items.build
   end
 
   def create

@@ -78,7 +78,12 @@ Rails.application.routes.draw do
           get :remove_item
         end
       end
-      resources :expenses
+      resources :expenses do
+        collection do
+          get :add_item
+          get :remove_item
+        end
+      end
       resources :project_facilitates do
         collection do
           get :facilitates

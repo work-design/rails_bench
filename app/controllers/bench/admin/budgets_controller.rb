@@ -1,4 +1,5 @@
 class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
+  include BenchController::Admin
   before_action :set_project
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
   before_action :prepare_form
@@ -37,10 +38,6 @@ class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
 
   def destroy
     @budget.destroy
-  end
-
-  def self.local_prefixes
-    [controller_path, 'bench/admin/base']
   end
 
   private
