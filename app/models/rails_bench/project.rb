@@ -41,11 +41,6 @@ module RailsBench::Project
     )
   end
 
-  def compute_fund_budget_amount
-    self.fund_budget = project_funds.sum(:budget)
-    self.fund_amount = project_funds.sum(:amount)
-  end
-
   def duties
     JobTitle.where(id: self.project_members.distinct(:job_title_id).pluck(:job_title_id))
   end
