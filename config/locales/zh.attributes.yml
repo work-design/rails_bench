@@ -12,8 +12,8 @@ zh:
         project_taxon_id: 分类
         state: 状态
         fund_budget: 资金预算
-        fund_amount: 资金到账
-        expense_budget: 预算支出
+        fund_amount: 资金支付
+        expense_budget: 预算
         expense_amount: 实际支出
         name-like: 名称包含
       project_member:

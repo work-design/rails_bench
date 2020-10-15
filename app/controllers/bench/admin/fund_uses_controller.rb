@@ -46,11 +46,7 @@ class Bench::Admin::FundUsesController < Bench::Admin::BaseController
 
   private
   def prepare_form
-    q_params = {
-      'id-not': @project.fund_uses.pluck(:fund_id)
-    }
-
-    @funds = Fund.default_where(q_params)
+    @funds = Fund.where.not(id: @project.fund_uses.pluck(:fund_id))
   end
 
   def set_project

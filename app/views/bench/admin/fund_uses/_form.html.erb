@@ -1,3 +1,4 @@
-<%= f.collection_select :fund_id, @funds, :id, :name %>
+<%= f.collection_select :fund_id, @funds, :id, :name, prompt: @funds.blank? ? '无更多资金项' : false %>
 <%= f.number_field :budget_amount, step: 0.01 %>
+<%= f.text_area :note %>
 <%= f.submit %>
