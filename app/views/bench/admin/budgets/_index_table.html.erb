@@ -18,7 +18,7 @@
       <td><%= budget.subject %></td>
       <td><%= budget.amount %></td>
       <td><%= budget.note %></td>
-      <td><%= budget.financial_taxon_id %></td>
+      <td><%= budget.financial_taxon.name %></td>
       <td>
         <%= link_to({ action: 'show', project_id: @project.id, id: budget.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
           <i class="fas fa-eye"></i>

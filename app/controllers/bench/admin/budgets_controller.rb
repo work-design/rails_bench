@@ -5,7 +5,10 @@ class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
   before_action :prepare_form
 
   def index
-    @budgets = @project.budgets.page(params[:page])
+    q_params = {}
+    q_params.merge! params.permit(:financial_taxon_id)
+
+    @budgets = @project.budgets.default_where(q_params).page(params[:page])
   end
 
   def new
