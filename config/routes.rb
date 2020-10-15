@@ -42,7 +42,12 @@ Rails.application.routes.draw do
         get :repos
         get :github_hook
       end
-      resources :expenses
+      resources :expenses do
+        collection do
+          get :add_item
+          get :remove_item
+        end
+      end
     end
     resources :task_templates
     resources :facilitates, only: [] do

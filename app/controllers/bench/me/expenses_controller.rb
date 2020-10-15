@@ -22,6 +22,21 @@ class Bench::Me::ExpensesController < Bench::Admin::ExpensesController
     end
   end
 
+  def add_item
+    @expense = current_member.created_expenses.build(type: params[:type], financial_taxon_id: params[:financial_taxon_id])
+    if @expense.financial_taxon
+      @taxon_options = @expense.financial_taxon.children.map { |i| [i.name, i.id] }
+    else
+      @taxon_options = []
+    end
+    @expense.expense_items.build
+  end
+
+  def add_member
+    @expense = current_member.created_expenses.build(type: params[:type], financial_taxon_id: params[:financial_taxon_id])
+    @expense.expense_members.build
+  end
+
   def show
   end
 
