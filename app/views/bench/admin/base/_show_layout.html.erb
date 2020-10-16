@@ -1,17 +1,17 @@
-<%= render '_show/header' %>
+<%= render 'header' %>
 
 <div class="columns">
   <div class="column">
     <div class="box">
       <% @tasks.each do |task| %>
-        <%= render partial: '_show/item', locals: { task: task } %>
+        <%= render partial: 'item', locals: { task: task } %>
       <% end %>
     </div>
   </div>
   <div class="column">
     <div class="tabs">
       <ul>
-        <li class="<%= active_helper(tasks: 'show', active: 'is-active') %>"><%= link_to '任务概览', me_task_path(@task) %></li>
+        <li class="<%= active_helper(tasks: 'show', active: 'is-active') %>"><%= link_to '任务概览', { action: 'show', id: @task.id } %></li>
         <li class="<%= active_helper(controllers: 'task_timers', active: 'is-active') %>"><%= link_to '执行日志', me_task_task_timers_path(@task) %></li>
       </ul>
     </div>
