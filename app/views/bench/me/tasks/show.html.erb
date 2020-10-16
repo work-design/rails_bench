@@ -1,14 +1,11 @@
 <%= render layout: 'show_layout' do %>
-
   <div id="detail_note">
     <%= @task.note %>
   </div>
-
   <div class="box">
-    <%= render '_show/member' %>
-    <%= render '_show/task_template' %>
-    <%= render '_show/estimated_time' %>
-    <%= render '_show/project_id' %>
+    <%= render 'member' %>
+    <%= render 'task_template' %>
+    <%= render 'estimated_time' %>
+    <%= render 'project_id' %>
   </div>
-
 <% end %>

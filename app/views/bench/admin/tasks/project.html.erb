@@ -1,29 +1,19 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-<%= render 'bench/me/tasks/filter_table' %>
+<%= render 'filter_table' %>
 
-<div class="columns">
-
-  <div class="column">
-    <div data-controller="sortable" data-src="/me/tasks/">
-      <% @tasks.each do |task| %>
-        <%= render partial: '_show/task', locals: { task: task } %>
+<div data-controller="sortable" data-src="/me/tasks/">
+  <% @tasks.each do |task| %>
+    <%= render partial: 'task', locals: { task: task } %>
+  <% end %>
+  <div id="item_add">
+    <% if 'done' != params[:state] %>
+      <%= link_to new_me_task_path(tasking_type: 'Project', tasking_id: @project.id), aria: { label: t('.new') }, remote: true do %>
+        <i class="fas fa-plus fa-fw"></i>
       <% end %>
-      <div id="item_add">
-        <% if 'done' != params[:state] %>
-          <%= link_to new_me_task_path(tasking_type: 'Project', tasking_id: @project.id), aria: { label: t('.new') }, remote: true do %>
-            <i class="fas fa-plus fa-fw"></i>
-          <% end %>
-          <%= link_to template_me_tasks_path(tasking_type: 'Project', tasking_id: @project.id), aria: { label: t('.task_template') }, remote: true do %>
-            <i class="fas fa-search-plus fa-fw"></i>
-          <% end %>
-        <% end %>
-      </div>
-    </div>
+      <%= link_to template_me_tasks_path(tasking_type: 'Project', tasking_id: @project.id), aria: { label: t('.task_template') }, remote: true do %>
+        <i class="fas fa-search-plus fa-fw"></i>
+      <% end %>
+    <% end %>
   </div>
-
-  <div class="column">
-
-  </div>
-
 </div>
