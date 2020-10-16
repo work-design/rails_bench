@@ -2,12 +2,12 @@
 <div class="breadcrumb has-succeeds-seprator">
   <ul>
     <li><%= link_to t('bench.admin.project_taxons.index.title'), admin_project_taxons_path %></li>
-    <li><%= link_to @project_taxon.name, admin_project_taxons_path(id: @project_taxon.id) %></li>
-    <li class="is-active"><%= t('.title') %></li>
+    <li class="is-active"><%= @project_taxon.name %></li>
   </ul>
 </div>
 <% end %>
 
+<%= render 'project_taxon_bar' %>
 <%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">

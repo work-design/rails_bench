@@ -1,4 +1,4 @@
-<%# render partial: "my/#{@tasking.class.name.underscore.pluralize}/top_bar", locals: { @tasking.class.name.underscore.to_sym => @tasking } %>
+<%= render partial: "#{params[:tasking_type].underscore}_bar", locals: { params[:tasking_type].underscore.to_sym => params[:tasking_id] } %>
 
 <div class="columns">
   <div class="column">

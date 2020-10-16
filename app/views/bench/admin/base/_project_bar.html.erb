@@ -4,7 +4,7 @@
 </h2>
 <% end %>
 
-<div class="tabs">
+<div class="tabs is-centered">
   <ul>
     <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), tasks_admin_project_path(project) %></li>
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), admin_project_path(project) %></li>
