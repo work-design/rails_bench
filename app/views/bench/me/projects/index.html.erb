@@ -29,7 +29,7 @@
         <p><%= project.project_taxon&.name %></p>
         <p><%= project.project_stage&.name %></p>
       </td>
-      <td><%= link_to project.name, tasks_me_project_path(project) %></td>
+      <td><%= link_to project.name, { controller: 'bench/me/tasks', action: 'project', project_id: project.id } %></td>
       <td><%= project.description %></td>
       <td>
         <p class="has-text-danger"><%= project.budget_amount %></p>

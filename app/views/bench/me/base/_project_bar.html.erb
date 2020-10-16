@@ -6,10 +6,10 @@
 
 <div class="tabs">
   <ul>
-    <% if controller_name == 'tasks' %>
+    <% if params[:id] %>
       <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), me_task_path(params[:id]) %></li>
     <% else %>
-      <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), tasks_me_project_path(project) %></li>
+      <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), { controller: 'bench/me/tasks', action: 'project', project_id: project.id } %></li>
     <% end %>
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), me_project_path(project) %></li>
     <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.me.expenses.index.title'), me_project_expenses_path(project) %></li>

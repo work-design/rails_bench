@@ -1,6 +1,6 @@
 class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
   include BenchController::Me
-  before_action :set_project, only: [:show, :task_templates, :tasks, :edit, :repos, :github_hook, :update, :destroy]
+  before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :destroy]
   before_action :prepare_form, only: [:index, :new, :edit]
 
   def index
@@ -27,13 +27,6 @@ class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
 
   def task_templates
     @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
-  end
-
-  def tasks
-    q_params = {}
-    q_params.merge! params.permit(:state)
-
-    @tasks = @project.tasks.roots.default_where(q_params)
   end
 
   def repos

@@ -17,6 +17,14 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
 
+  def project
+    q_params = {}
+    q_params.merge! params.permit(:state)
+
+    @project = Project.find params[:project_id]
+    @tasks = @project.tasks.roots.default_where(q_params)
+  end
+
   def new
     @task = Task.new raw_task_params
   end

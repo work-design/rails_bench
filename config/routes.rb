@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resources :tasks do
       collection do
         get 'template' => :new_template
+        get 'project/:project_id' => :project
       end
       member do
         patch :close
@@ -38,7 +39,6 @@ Rails.application.routes.draw do
     end
     resources :projects do
       member do
-        get :tasks
         get :repos
         get :github_hook
       end
