@@ -1,3 +1,7 @@
+<%= link_to edit_me_task_path(task, item: 'title'), aria: { label: t('.edit') }, remote: true do %>
+  <i class="fas fa-pencil-alt fa-fw has-text-info"></i>
+<% end %>
+
 <% if task.task_timer %>
   <%= link_to pause_me_task_task_timer_path(task, task.task_timer), method: 'patch', id: "pause_task_#{task.id}", remote: true do %>
     <i class="fas fa-pause fa-fw has-text-grey"></i>
@@ -16,8 +20,4 @@
   <%= link_to me_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}", remote: true do %>
     <i class="fas fa-play fa-fw has-text-primary"></i>
   <% end %>
-<% end %>
-
-<%= link_to edit_me_task_path(task, item: 'title'), aria: { label: t('.edit') }, remote: true do %>
-  <i class="fas fa-pencil-alt fa-fw has-text-info"></i>
 <% end %>
