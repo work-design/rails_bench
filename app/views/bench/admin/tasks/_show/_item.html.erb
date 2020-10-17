@@ -3,7 +3,7 @@
   <% if task.id == @task.id %>
     <div class="box is-shadowless py-0 pr-0" data-controller="sortable" data-src="/me/tasks/">
       <% task.children.each do |child| %>
-        <%= render partial: '_show/task', locals: { task: child } %>
+        <%= render partial: 'task', locals: { task: child } %>
       <% end %>
       <div id="item_add" class="level is-underline">
         <div class="level-left pl-1">
