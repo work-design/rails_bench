@@ -11,6 +11,11 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
   end
 
+  def project
+    @project = Project.find params[:project_id]
+    @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
+  end
+
   def members
     q_params = {
       'member_departments.job_title_id': task_template_params[:job_title_id]

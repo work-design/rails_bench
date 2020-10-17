@@ -25,17 +25,6 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
   def show
   end
 
-  def task_templates
-    @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
-  end
-
-  def tasks
-    q_params = {}
-    q_params.merge! params.permit(:state)
-
-    @tasks = @project.tasks.roots.default_where(q_params)
-  end
-
   def repos
     @repos = @project.creator&.github_repos
     render json: { results: @repos }

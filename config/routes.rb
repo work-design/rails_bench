@@ -72,10 +72,6 @@ Rails.application.routes.draw do
     resources :project_stages
     resources :project_states
     resources :projects do
-      member do
-        get :task_templates
-        get :tasks
-      end
       resources :fund_uses
       resources :budgets do
         collection do
@@ -96,10 +92,16 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :tasks do
+      collection do
+        get 'project/:project_id' => :project
+      end
+    end
     resources :task_templates do
       collection do
         get :add
         get :members
+        get 'project/:project_id' => :project
       end
       member do
         get 'member' => :edit_member
