@@ -7,7 +7,7 @@
 </div>
 <% end %>
 
-<%= render 'project_taxon_bar' %>
+<%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
 <%= render 'filter_form' %>
 
 <table class="table is-hoverable is-fullwidth">

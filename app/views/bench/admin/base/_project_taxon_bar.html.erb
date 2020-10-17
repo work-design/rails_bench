@@ -1,12 +1,12 @@
 <% content_for :breadcrumb do %>
 <h2 class="title has-text-centered">
-  <%# project_taxon.name %>
+  <%= project_taxon.name %>
 </h2>
 <% end %>
 
 <div class="tabs is-centered">
   <ul>
-    <li class="<%= active_helper(controllers: 'project_preferences', active: 'is-active') %>"><%= link_to t('bench.admin.project_preferences.index.title'), { controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: @project_taxon.id } %></li>
-    <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.admin.task_templates.index.title'), { controller: 'bench/admin/task_templates', tasking_type: params[:tasking_type], tasking_id: params[:tasking_id] } %></li>
+    <li class="<%= active_helper(controllers: 'project_preferences', active: 'is-active') %>"><%= link_to t('bench.admin.project_preferences.index.title'), { controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: project_taxon.id } %></li>
+    <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.admin.task_templates.index.title'), { controller: 'bench/admin/task_templates', tasking_type: 'ProjectTaxon', tasking_id: project_taxon.id } %></li>
   </ul>
 </div>

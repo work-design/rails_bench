@@ -1,6 +1,7 @@
 class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
+  before_action :set_tasking, only: [:index]
   before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
-  before_action :set_job_titles, only: [:new, :edit]
+  before_action :prepare_form, only: [:new, :edit]
 
   def index
     q_params = {}
@@ -70,11 +71,18 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   private
+  def set_tasking
+    case params[:tasking_type]
+    when 'ProjectTaxon'
+      @tasking = ProjectTaxon.find params[:tasking_id]
+    end
+  end
+
   def set_task_template
     @task_template = TaskTemplate.find(params[:id])
   end
 
-  def set_job_titles
+  def prepare_form
     @job_titles = JobTitle.default_where(default_params)
   end
 
