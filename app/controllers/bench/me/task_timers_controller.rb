@@ -51,6 +51,10 @@ class Bench::Me::TaskTimersController < Bench::Admin::BaseController
     @task_timer.destroy
   end
 
+  def self.local_prefixes
+    [controller_path, 'bench/admin/tasks', 'bench/admin/base']
+  end
+
   private
   def set_task
     @task = Task.find params[:task_id]
