@@ -1,0 +1,3 @@
+<%= form_with model: @fund_budget, url: { action: 'create', financial_type: params[:financial_type], financial_id: params[:financial_id] } do |f| %>
+  <%= render partial: 'form', locals: { f: f } %>
+<% end %>

@@ -72,7 +72,6 @@ Rails.application.routes.draw do
     resources :project_stages
     resources :project_states
     resources :projects do
-      resources :fund_uses
       resources :budgets do
         collection do
           get :add_item
@@ -113,6 +112,10 @@ Rails.application.routes.draw do
       member do
         get :task_templates
       end
+    end
+    scope path: ':financial_type/:financial_id' do
+      resources :fund_budgets
+      resources :fund_expenses
     end
   end
 

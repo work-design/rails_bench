@@ -1,5 +1,0 @@
-<%= form_with model: @fund_use, url: { action: 'update', project_id: @project.id, id: @fund_use.id } do |f| %>
-  <%= f.number_field :budget_amount, step: 0.01 %>
-  <%= f.text_area :note %>
-  <%= f.submit %>
-<% end %>
