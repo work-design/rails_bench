@@ -1,12 +1,3 @@
-<% content_for :breadcrumb do %>
-<div class="breadcrumb has-succeeds-seprator">
-  <ul>
-    <li><%= link_to t('bench.admin.project_taxons.index.title'), admin_project_taxons_path %></li>
-    <li class="is-active"><%= @project_taxon.name %></li>
-  </ul>
-</div>
-<% end %>
-
 <%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
 <%= render 'filter_form' %>
 
