@@ -44,8 +44,7 @@ class Bench::Admin::ProjectStagesController < Bench::Admin::BaseController
     params.fetch(:project_stage, {}).permit(
       :name,
       :begin_on,
-      :end_on,
-      :state
+      :end_on
     )
   end
 

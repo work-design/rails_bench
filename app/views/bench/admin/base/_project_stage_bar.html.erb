@@ -1,0 +1,18 @@
+<% content_for :breadcrumb do %>
+<div class="breadcrumb has-succeeds-seprator">
+  <ul>
+    <li><%= link_to t('bench.admin.project_taxons.index.title'), admin_project_stages_path %></li>
+    <li class="is-active"><%= project_stage.name %></li>
+  </ul>
+</div>
+<% end %>
+
+<h2 class="title has-text-centered">
+  <%= project_stage.name %>
+</h2>
+
+<div class="tabs is-centered">
+  <ul>
+    <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>"><%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'ProjectStage', financial_id: project_stage.id } %></li>
+  </ul>
+</div>
