@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= link_to Project.human_attribute_name(:project_taxon_id), admin_project_taxons_path %></th>
+    <th><%= link_to Project.human_attribute_name(:project_taxon_id), admin_project_taxons_path, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:project_taxon_id]), class: active_params(project_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @project_taxons.each do |project_taxon| %>
@@ -9,7 +9,7 @@
     </td>
   </tr>
   <tr>
-    <th><%= link_to Project.human_attribute_name(:project_stage_id), admin_project_stages_path %></th>
+    <th><%= link_to Project.human_attribute_name(:project_stage_id), admin_project_stages_path, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:project_stage_id]), class: active_params(project_stage_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @project_stages.each do |project_stage| %>

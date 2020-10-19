@@ -1,5 +1,5 @@
 class Task < ApplicationRecord
-  include RailsTaxon::Node
+  include RailsCom::Taxon
   include RailsDetail::ContentModel if defined? RailsDetail
   include RailsEvent::Planned if defined? RailsEvent
   include RailsBench::Task

@@ -1,4 +1,4 @@
 class FacilitateTaxon < ApplicationRecord
-  include RailsTaxon::Node
+  include RailsCom::Taxon
   include RailsBench::FacilitateTaxon
 end unless defined? FacilitateTaxon

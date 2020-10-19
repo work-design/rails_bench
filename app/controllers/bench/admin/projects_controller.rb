@@ -1,5 +1,5 @@
 class Bench::Admin::ProjectsController < Bench::Admin::BaseController
-  before_action :set_project, only: [:show, :task_templates, :tasks, :edit, :repos, :github_hook, :update, :destroy]
+  before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :destroy]
   before_action :prepare_form, only: [:index, :new, :edit]
 
   def index
@@ -7,7 +7,7 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
     q_params.merge! default_params
     q_params.merge! params.permit(:project_taxon_id, :project_stage_id, 'name-like')
 
-    @projects = Project.default_where(q_params).page(params[:page])
+    @projects = Project.default_where(q_params).order(id: :desc).page(params[:page])
   end
 
   def new
