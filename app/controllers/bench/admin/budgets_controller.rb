@@ -28,6 +28,7 @@ class Bench::Admin::BudgetsController < Finance::Admin::BudgetsController
   end
 
   def edit
+    super
   end
 
   def update

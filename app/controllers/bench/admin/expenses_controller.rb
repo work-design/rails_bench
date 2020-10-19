@@ -25,10 +25,15 @@ class Bench::Admin::ExpensesController < Finance::Admin::ExpensesController
     end
   end
 
+  def add_item
+    super
+  end
+
   def show
   end
 
   def edit
+    super
   end
 
   def update
@@ -58,10 +63,12 @@ class Bench::Admin::ExpensesController < Finance::Admin::ExpensesController
 
   def expense_params
     params.fetch(:expense, {}).permit(
+      :type,
       :subject,
       :amount,
       :note,
-      :financial_taxon_id
+      :financial_taxon_id,
+      expense_items_attributes: {}
     )
   end
 
