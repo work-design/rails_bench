@@ -39,7 +39,7 @@
       <td><%= link_to project.name, { action: 'show', id: project.id } %></td>
       <td><%= project.description %></td>
       <td>
-        <p class="has-text-danger"><%= link_to "#{project.fund_budget}/#{project.fund_amount}", { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></p>
+        <p class="has-text-danger"><%= link_to "#{project.fund_budget}/#{project.fund_expense}", { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></p>
         <p><%= link_to "#{project.budget_amount}/#{project.expense_amount}", { controller: 'bench/admin/expenses', action: 'index', project_id: project.id } %></p>
       </td>
       <td>
