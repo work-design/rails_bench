@@ -4,7 +4,6 @@ module RailsBench::Project
   included do
     attribute :name, :string
     attribute :description, :string
-    attribute :github_repo, :string
     attribute :state, :string
     attribute :parameters, :json
 
