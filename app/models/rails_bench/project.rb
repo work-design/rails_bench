@@ -5,7 +5,6 @@ module RailsBench::Project
     attribute :name, :string
     attribute :description, :string
     attribute :state, :string
-    attribute :parameters, :json
 
     belongs_to :organ, optional: true
     belongs_to :project_taxon, counter_cache: true, optional: true

@@ -16,7 +16,7 @@
         <% end %>
       </td>
     </tr>
-    <% @project.parameters.each do |k, v| %>
+    <% @project.extra.each do |k, v| %>
     <tr>
       <td class="has-text-right"><%= k.to_s %></td>
       <td><%= v %></td>

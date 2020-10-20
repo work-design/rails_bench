@@ -11,8 +11,8 @@
       <th><%= Project.human_attribute_name(:name) %></th>
       <th><%= Project.human_attribute_name(:description) %></th>
       <th>
-        <p class="has-text-danger"><%= Project.human_attribute_name(:budget) %></p>
-        <p><%= Project.human_attribute_name(:fund_amount) %></p>
+        <p class="has-text-danger"><%= Project.human_attribute_name(:budget_amount) %></p>
+        <p><%= Project.human_attribute_name(:expense_amount) %></p>
       </th>
       <th><%= Project.human_attribute_name(:state) %></th>
       <th>
@@ -33,7 +33,7 @@
       <td><%= project.description %></td>
       <td>
         <p class="has-text-danger"><%= project.budget_amount %></p>
-        <p><%= project.fund_amount %></p>
+        <p><%= project.expense_amount %></p>
       </td>
       <td><%= project.state_i18n %></td>
       <td>
