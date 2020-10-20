@@ -15,7 +15,7 @@
       <th><%= ProjectStage.human_attribute_name(:name) %></th>
       <th><%= ProjectStage.human_attribute_name(:begin_on) %></th>
       <th><%= ProjectStage.human_attribute_name(:end_on) %></th>
-      <th><%= ProjectStage.human_attribute_name(:state) %></th>
+      <th><%= ProjectStage.human_attribute_name(:projects_count) %></th>
       <th>
         <%= link_to new_admin_project_stage_path, remote: true, class: 'button is-link is-small' do %>
           <i class="fas fa-plus"></i><%= t('.new') %>
@@ -29,7 +29,7 @@
       <td><%= project_stage.name %></td>
       <td><%= project_stage.begin_on %></td>
       <td><%= project_stage.end_on %></td>
-      <td><%# project_stage.state %></td>
+      <td><%= project_stage.projects_count %></td>
       <td>
         <%= link_to admin_fund_budgets_path(financial_type: 'ProjectStage', financial_id: project_stage.id), aria: { label: t('bench.admin.fund_budgets.index.title') }, class: 'button is-small is-rounded is-light' do %>
           <i class="fas fa-hand-holding-usd"></i>

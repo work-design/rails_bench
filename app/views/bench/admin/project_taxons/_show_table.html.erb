@@ -12,5 +12,9 @@
       <td class="has-text-right"><%= ProjectTaxon.human_attribute_name(:name) %></td>
       <td><%= @project_taxon.name %></td>
     </tr>
+    <tr>
+      <td class="has-text-right"><%= ProjectTaxon.human_attribute_name(:projects_count) %></td>
+      <td><%= @project_taxon.projects_count %></td>
+    </tr>
   </tbody>
 </table>

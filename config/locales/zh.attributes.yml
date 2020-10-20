@@ -22,7 +22,9 @@ zh:
       project_stage:
         begin_on: 开始日期
         end_on: 截止日期
+        projects_count: 项目数
       project_taxon:
+        projects_count: 项目数
         parameters: 字段
       project_preference:
         facilitate_taxon_id: 服务分类
