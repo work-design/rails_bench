@@ -73,7 +73,7 @@ class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
       :budget,
       :description,
       :github_repo,
-      parameters: {}
+      extra: {}
     )
     p.merge! default_form_params
   end
