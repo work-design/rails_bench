@@ -66,7 +66,7 @@ class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
   end
 
   def project_params
-    params.fetch(:project, {}).permit(
+    p = params.fetch(:project, {}).permit(
       :name,
       :project_taxon_id,
       :project_stage_id,
@@ -75,6 +75,7 @@ class Bench::Me::ProjectsController < Bench::Admin::ProjectsController
       :github_repo,
       parameters: {}
     )
+    p.merge! default_form_params
   end
 
 end
