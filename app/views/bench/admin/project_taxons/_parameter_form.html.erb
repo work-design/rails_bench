@@ -1,5 +1,5 @@
 <%= form_with model: @project_taxon, url: { action: 'update', id: @project_taxon.id } do |f| %>
   <%= render 'shared/error_messages', target: @project_taxon %>
-  <%= render partial: 'com/parameter/item', locals: { model: @project_taxon, f: f } %>
+  <%= render partial: 'com/extra/item', locals: { model: @project_taxon, f: f } %>
   <%= f.submit %>
 <% end %>
