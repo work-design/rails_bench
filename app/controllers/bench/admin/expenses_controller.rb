@@ -8,7 +8,7 @@ class Bench::Admin::ExpensesController < Finance::Admin::ExpensesController
     q_params = {}
     q_params.merge! params.permit(:fund_use_id)
 
-    @expenses = @project.expenses.default_where(q_params).page(params[:page])
+    @expenses = @project.expenses.includes(:financial_taxon).default_where(q_params).page(params[:page])
   end
 
   def new
