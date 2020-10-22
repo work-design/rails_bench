@@ -17,7 +17,8 @@
       <%= link_to t('bench.admin.project_taxons.show.title'), { controller: 'bench/admin/project_taxons', action: 'show', id: project_taxon.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'project_preferences', active: 'is-active') %>">
-      <%= link_to t('bench.admin.project_preferences.index.title'), { controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: project_taxon.id } do %>
+      <%= link_to({ controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: project_taxon.id }) do %>
+        <%= t('bench.admin.project_preferences.index.title') %>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
