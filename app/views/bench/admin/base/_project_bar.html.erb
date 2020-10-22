@@ -1,10 +1,8 @@
-<% content_for :breadcrumb do %>
 <h2 class="title has-text-centered">
   <%= project.name %>
 </h2>
-<% end %>
 
-<div class="tabs is-centered">
+<div class="tabs">
   <ul>
     <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %></li>
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), admin_project_path(project) %></li>
