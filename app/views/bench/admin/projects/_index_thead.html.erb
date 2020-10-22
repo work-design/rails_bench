@@ -1,0 +1,23 @@
+<th>
+  <p>
+    <%= Project.human_attribute_name(:project_taxon_id) %>
+    <%= link_to({ controller: 'project_taxons', action: 'index' },{ aria: { label: t('bench.admin.project_taxons.index.title') } }) do %>
+      <i class="fas fa-cog"></i>
+    <% end %>
+  </p>
+  <p>
+    <%= Project.human_attribute_name(:project_stage_id) %>
+    <%= link_to admin_project_stages_path, aria: { label: t('bench.admin.project_stages.index.title') } do %>
+      <i class="fas fa-cog"></i>
+    <% end %>
+  </p>
+</th>
+<th><%= Project.human_attribute_name(:name) %></th>
+<th><%= Project.human_attribute_name(:description) %></th>
+<th>
+  <p class="has-text-danger"><%= Project.human_attribute_name(:fund_budget) %>/<%= Project.human_attribute_name(:fund_amount) %></p>
+  <p><%= Project.human_attribute_name(:expense_budget) %>/<%= Project.human_attribute_name(:expense_amount) %></p>
+</th>
+<th><%= Project.human_attribute_name(:creator_id) %></th>
+<th><%= Project.human_attribute_name(:state) %></th>
+<th></th>

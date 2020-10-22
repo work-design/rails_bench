@@ -1,5 +1,5 @@
-<%= render layout: 'index_table', locals: { cache_key: 1 } do %>
-  <%= render partial: 'tbody', collection: @project_stages, as: :project_stage %>
+<%= render layout: 'index_table', locals: { cache_key: ProjectStage.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_stages, as: :project_stage %>
 <% end %>
 
 <%= paginate @project_stages %>
