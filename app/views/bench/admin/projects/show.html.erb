@@ -1,3 +1,18 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-<%= render 'show_table' %>
+<table class="table is-fullwidth">
+  <thead>
+  <tr>
+    <th>
+      <%= link_to t('.edit'), { action: 'edit', id: @project.id }, { remote: true, class: 'button is-small is-link' } %>
+      <%= link_to admin_map_path(target_id: @project.id, target_type: @project.class), class: 'button is-small is-link', target: :_balnk do%>
+        Map
+      <% end if defined? LngLat%>
+    </th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <%= render 'show_table' %>
+  </tbody>
+</table>
