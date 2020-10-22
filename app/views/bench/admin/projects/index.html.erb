@@ -7,7 +7,7 @@
       <th>
         <p>
           <%= Project.human_attribute_name(:project_taxon_id) %>
-          <%= link_to admin_project_taxons_path, aria: { label: t('bench.admin.project_taxons.index.title') } do %>
+          <%= link_to({ controller: 'project_taxons', action: 'index' },{ aria: { label: t('bench.admin.project_taxons.index.title') } }) do %>
             <i class="fas fa-cog"></i>
           <% end %>
         </p>

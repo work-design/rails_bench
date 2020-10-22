@@ -17,8 +17,8 @@
       <th><%= ProjectStage.human_attribute_name(:end_on) %></th>
       <th><%= ProjectStage.human_attribute_name(:projects_count) %></th>
       <th>
-        <%= link_to new_admin_project_stage_path, remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
+        <%= link_to({ action: 'new' }, { remote: true, class: 'button is-small is-link' }) do %>
+          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
         <% end %>
       </th>
     </tr>
