@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { x: 1 } do %>
+<%= render layout: 'index_table', locals: { cache_key: 1 } do %>
   <%= render partial: 'tbody', collection: @project_stages, as: :project_stage %>
 <% end %>
 
