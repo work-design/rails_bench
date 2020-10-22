@@ -1,28 +1,12 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>
-        <%= link_to t('.edit'), edit_admin_project_stage_path(@project_stage), class: 'button is-small is-link', remote: true %>
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="has-text-right"><%= ProjectStage.human_attribute_name(:name) %></td>
-      <td><%= @project_stage.name %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= ProjectStage.human_attribute_name(:begin_on) %></td>
-      <td><%= @project_stage.begin_on %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= ProjectStage.human_attribute_name(:end_on) %></td>
-      <td><%= @project_stage.end_on %></td>
-    </tr>
-    <tr>
-      <td class="has-text-right"><%= ProjectStage.human_attribute_name(:state) %></td>
-      <td><%= @project_stage.state %></td>
-    </tr>
-  </tbody>
-</table>
+<tr>
+  <td class="has-text-right"><%= ProjectStage.human_attribute_name(:name) %></td>
+  <td><%= @project_stage.name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= ProjectStage.human_attribute_name(:begin_on) %></td>
+  <td><%= @project_stage.begin_on %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= ProjectStage.human_attribute_name(:end_on) %></td>
+  <td><%= @project_stage.end_on %></td>
+</tr>
