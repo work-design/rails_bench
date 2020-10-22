@@ -1,2 +1,15 @@
 <%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
-<%= render 'show_table' %>
+
+<table class="table is-fullwidth">
+  <thead>
+    <tr>
+      <th>
+        <%= link_to t('.edit'), { action: 'edit' }, remote: true, class: 'button is-small is-link' %>
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render 'show_table' %>
+  </tbody>
+</table>
