@@ -1,21 +1,5 @@
-<%= render 'filter_form' %>
-<%= render 'button' %>
-
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-    <% cache do %>
-      <%= render 'thead' %>
-    <% end %>
-    </tr>
-  </thead>
-  <tbody>
-  <% @project_stages.each do |project_stage| %>
-    <tr>
-      <%= render partial: 'tbody', locals: { project_stage: project_stage } %>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render layout: 'index_table', locals: { x: 1 } do %>
+  <%= render partial: 'tbody', collection: @project_stages, as: :project_stage %>
+<% end %>
 
 <%= paginate @project_stages %>
