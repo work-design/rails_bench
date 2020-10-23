@@ -1,0 +1,29 @@
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:monitor_factor_taxon_id) %></td>
+  <td>
+    <div class="tags has-addons">
+      <span class="tag"><%= @monitor_factor.monitor_factor_taxon.name %></span>
+      <span class="tag" style="background-color: <%= @monitor_factor.monitor_factor_taxon.color %>;"></span>
+    </div>
+  </td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:name) %></td>
+  <td><%= @monitor_factor.name %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:description) %></td>
+  <td><%= @monitor_factor.description %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:targt_value) %></td>
+  <td><%= @monitor_factor.targt_value %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:unit) %></td>
+  <td><%= @monitor_factor.unit %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= MonitorFactor.human_attribute_name(:targt_source) %></td>
+  <td><%= @monitor_factor.targt_source %></td>
+</tr>

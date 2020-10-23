@@ -1,4 +1,4 @@
-class Bench::Panel::FacilitateTaxonsController < Bench::Panel::BaseController
+class Bench::Admin::FacilitateTaxonsController < Bench::Admin::BaseController
   before_action :set_facilitate_taxon, only: [:edit, :update, :destroy]
 
   def new

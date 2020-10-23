@@ -1,0 +1,32 @@
+<table class="as-search">
+  <tr>
+    <th><%= MonitorFactor.human_attribute_name(:monitor_factor_taxon_id) %></th>
+    <td class="field is-grouped is-grouped-multiline">
+      <div class="control">
+        <%= link_to filter_params(except: [:monitor_factor_taxon_id]), class: active_params(monitor_factor_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
+          <div class="tags has-addons">
+            <span class="tag"><%= t('.all') %></span>
+          </div>
+        <%end%>
+      </div>
+      
+      <% @monitor_factor_taxons.each do |monitor_factor_taxon| %>
+        <div class="control">
+        <%= link_to filter_params(monitor_factor_taxon_id: monitor_factor_taxon.id), class: active_params(monitor_factor_taxon_id: monitor_factor_taxon.id, active: 'is-info', item: 'is-light') do %>
+          <div class="tags has-addons">
+            <span class="tag"><%= monitor_factor_taxon.name %></span>
+          
+            <span class="tag" style="background-color: <%= monitor_factor_taxon.color %>;"></span>
+          </div>
+        <%end%>
+        </div>
+      <% end %>
+
+      <div class="control">
+        <%= link_to new_panel_monitor_factor_taxon_path, aria: { label: t('.new') }, remote: true, class: 'tag is-rounded is-light' do %>
+          <i class="fas fa-plus"></i>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>

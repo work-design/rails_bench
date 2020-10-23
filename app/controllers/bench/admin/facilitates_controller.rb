@@ -1,4 +1,4 @@
-class Bench::Panel::FacilitatesController < Bench::Panel::BaseController
+class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
   before_action :set_facilitate_taxons, only: [:index, :new, :edit]
   before_action :set_facilitate, only: [:show, :edit, :update, :destroy]
 

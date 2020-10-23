@@ -117,10 +117,13 @@ Rails.application.routes.draw do
       resources :fund_budgets
       resources :fund_expenses
     end
+    resources :indicator_taxons, except: [:index, :show]
+    resources :indicators
+    resources :facilitate_taxons, except: [:index, :show]
+    resources :facilitates
   end
 
   scope :panel, module: 'bench/panel', as: :panel do
-    resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates do
       resources :facilitate_providers
     end

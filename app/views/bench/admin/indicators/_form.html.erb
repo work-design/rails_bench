@@ -1,0 +1,11 @@
+<%= form_with model: [:panel, @target] do |f| %>
+  <%= render 'shared/error_messages', target: @target %>
+  <%= f.select :monitor_factor_taxon_id, options_from_collection_for_select(@monitor_factor_taxons, :id, :name, @target.monitor_factor_taxon_id), { include_blank: true}, { class: '' } %>
+  <%= f.text_field :name %>
+  <%= f.text_area :desc %>
+  <%= f.text_field :unit %>
+  <%= f.number_field :targt_value %>
+  <%= f.text_field :targt_source %>
+  
+  <%= f.submit %>
+<% end %>

@@ -29,6 +29,12 @@ zh:
       fund_expenses:
         index:
           title: 资金使用
+      facilitates:
+        index:
+          title: 标准化服务
+      indicators:
+        index:
+          title: 评价指标
       project_stages:
         index:
           title: 项目阶段
@@ -79,9 +85,6 @@ zh:
           title: 工作日志
     panel:
       title: 工作管理
-      facilitates:
-        index:
-          title: 标准化服务
       facilitate_providers:
         index:
           title: 供应商管理

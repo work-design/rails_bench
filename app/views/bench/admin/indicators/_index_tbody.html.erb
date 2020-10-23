@@ -1,0 +1,31 @@
+<tr>
+  <td>
+    <div class="tags has-addons">
+      <span class="tag"><%= target.monitor_factor_taxon.name %></span>
+      <span class="tag" style="background-color: <%= target.monitor_factor_taxon.color %>;"></span>
+    </div>
+  </td>
+  <td>
+    <%= target.name %>
+  </td>
+  <td>
+    <%= target.description %>
+  </td>
+  <td>
+    <%= target.targt_value %>
+  </td>
+  <td>
+    <%= target.unit %>
+  </td>
+  <td>
+    <%= link_to panel_monitor_factor_path(target), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-eye"></i>
+    <% end %>
+    <%= link_to edit_panel_monitor_factor_path(target), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to panel_monitor_factor_path(target), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>
