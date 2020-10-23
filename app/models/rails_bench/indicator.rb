@@ -11,7 +11,7 @@ module RailsBench::Indicator
 
     belongs_to :organ, optional: true
     belongs_to :indicator_taxon
-    has_many :region_factors
+    has_many :project_indicators, dependent: :destroy
 
     validates :name, presence: true
   end

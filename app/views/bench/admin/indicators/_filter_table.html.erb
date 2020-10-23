@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= MonitorFactor.human_attribute_name(:monitor_factor_taxon_id) %></th>
+    <th><%= Indicator.human_attribute_name(:monitor_factor_taxon_id) %></th>
     <td class="field is-grouped is-grouped-multiline">
       <div class="control">
         <%= link_to filter_params(except: [:monitor_factor_taxon_id]), class: active_params(monitor_factor_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
