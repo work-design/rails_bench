@@ -109,11 +109,6 @@ Rails.application.routes.draw do
         patch :reorder
       end
     end
-    resources :facilitate_providers do
-      member do
-        get :task_templates
-      end
-    end
     scope path: ':financial_type/:financial_id' do
       resources :fund_budgets
       resources :fund_expenses
@@ -121,10 +116,16 @@ Rails.application.routes.draw do
     resources :indicator_taxons, except: [:index, :show]
     resources :indicators
     resources :facilitate_taxons, except: [:index, :show]
-    resources :facilitates
+    resources :facilitates do
+      resources :facilitate_providers do
+        member do
+          get :task_templates
+        end
+      end
+    end
   end
 
-  scope :panel, module: 'bench/panel', as: :panel do
+  scope :provider, module: 'provider/admin', as: :provider do
     resources :facilitates do
       resources :facilitate_providers
     end

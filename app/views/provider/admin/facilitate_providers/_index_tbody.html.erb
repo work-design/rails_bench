@@ -1,0 +1,20 @@
+<tr>
+  <td><%= link_to facilitate_provider.facilitate.name, facilitate_path(facilitate_provider.facilitate_id) %></td>
+  <td><%= facilitate_provider.note %></td>
+  <td>
+    <% if facilitate_provider.selected %>
+      <i class="fas fa-check has-text-success"></i>
+    <% else %>
+      <i class="fas fa-times has-text-danger"></i>
+    <% end %>
+  </td>
+  <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
+  <td>
+    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { remote: true, aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>

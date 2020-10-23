@@ -2,8 +2,7 @@
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('bench.admin.project_taxons.index.title'), admin_project_taxons_path, class: active_helper(controllers: ['project_taxons', 'project_preferences', 'task_templates'], active: 'is-active') %>
     <%= link_to t('bench.admin.projects.index.title'), admin_projects_path, class: active_helper(controllers: ['projects', 'fund_uses', 'budgets', 'expenses', 'project_facilitates'], active: 'is-active') %>
-    <%= link_to t('bench.admin.facilitate_providers.index.title'), admin_facilitate_providers_path, class: active_helper(controllers: ['facilitate_providers'], active: 'is-active') -%>
-    <%= link_to t('bench.admin.facilitates.index.title'), admin_facilitates_path, class: active_helper(controllers: ['facilitates'], active: 'is-active') -%>
+    <%= link_to t('bench.admin.facilitates.index.title'), admin_facilitates_path, class: active_helper(controllers: ['facilitates', 'facilitate_providers'], active: 'is-active') %>
     <%= link_to t('bench.admin.indicators.index.title'), admin_indicators_path, class: active_helper(controllers: ['indicators'], active: 'is-active') -%>
 <% end %>
   <a class="menu-label" data-action="menu#toggle">

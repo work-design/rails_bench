@@ -1,20 +1,22 @@
-class Bench::Panel::FacilitateProvidersController < Bench::Admin::BaseController
-  before_action :set_facilitate
+class Bench::Admin::FacilitateProvidersController < Bench::Admin::BaseController
   before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 
   def index
-    @facilitate_providers = @facilitate.facilitate_providers
+    q_params = {}
+    q_params.merge! default_params
+
+    @facilitate_providers = FacilitateProvider.default_where(q_params)
   end
 
   def new
-    @facilitate_provider = @facilitate.facilitate_providers.build()
+    @facilitate_provider = current_organ.facilitate_providers.build(facilitate_id: params[:facilitate_id])
   end
 
   def create
-    @facilitate_provider = @facilitate.facilitate_providers.build(facilitate_provider_params)
+    @facilitate_provider = current_organ.facilitate_providers.build(facilitate_provider_params)
 
     if @facilitate_provider.save
-      render 'create', locals: { return_to: me_facilitate_providers_url }
+      render 'create', locals: { return_to: admin_facilitate_providers_url }
     else
       render :new, locals: { model: @facilitate_provider }, status: :unprocessable_entity
     end
@@ -43,17 +45,13 @@ class Bench::Panel::FacilitateProvidersController < Bench::Admin::BaseController
   end
 
   private
-  def set_facilitate
-    @facilitate = Facilitate.find params[:facilitate_id]
-  end
-
   def set_facilitate_provider
     @facilitate_provider = FacilitateProvider.find(params[:id])
   end
 
   def facilitate_provider_params
     params.fetch(:facilitate_provider, {}).permit(
-      :selected,
+      :facilitate_id,
       :note
     )
   end
