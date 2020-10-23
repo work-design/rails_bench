@@ -9,7 +9,6 @@ module RailsBench::Project
     belongs_to :organ, optional: true
     belongs_to :project_taxon, counter_cache: true, optional: true
     belongs_to :taxon, class_name: 'ProjectTaxon', foreign_key: :project_taxon_id
-    belongs_to :project_stage, counter_cache: true, optional: true
     has_many :project_owners, -> { where(owned: true) }, class_name: 'ProjectMember'
     has_many :owners, through: :project_owners, source: :member
     has_many :project_members, dependent: :destroy
@@ -17,6 +16,7 @@ module RailsBench::Project
     has_many :tasks, as: :tasking
     has_many :project_indicators, dependent: :destroy
     has_many :project_facilitates, dependent: :destroy
+    has_many :project_mileposts, dependent: :delete_all
 
     validates :name, presence: true
 
