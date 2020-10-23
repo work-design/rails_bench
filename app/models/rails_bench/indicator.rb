@@ -5,8 +5,8 @@ module RailsBench::Indicator
     attribute :name, :string
     attribute :description, :string
     attribute :unit, :string
-
-    attribute :targt_value, :decimal
+    attribute :reference_min, :decimal
+    attribute :reference_max, :decimal
     attribute :targt_source, :string
 
     belongs_to :organ, optional: true

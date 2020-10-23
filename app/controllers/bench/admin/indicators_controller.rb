@@ -1,6 +1,6 @@
 class Bench::Admin::IndicatorsController < Bench::Admin::BaseController
   before_action :pre_form, except: [:destroy]
-  before_action :set_indicator, only: [:edit, :update, :destroy]
+  before_action :set_indicator, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
@@ -25,7 +25,6 @@ class Bench::Admin::IndicatorsController < Bench::Admin::BaseController
   end
 
   def show
-    @monitor_factor = Indicator.find(params[:id])
   end
 
   def edit
@@ -47,7 +46,7 @@ class Bench::Admin::IndicatorsController < Bench::Admin::BaseController
 
   private
   def set_indicator
-    @indicator = Indicator.find(params[:id])
+    @indicator = Indicator.find params[:id]
   end
 
   def pre_form

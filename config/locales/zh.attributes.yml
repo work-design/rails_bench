@@ -6,6 +6,24 @@ zh:
       facilitate_provider:
         selected: 中标
         provider_id: 供应商
+      project_indicator:
+        recorded_on: 监测时间
+        value: 值
+        source: 值来源
+        comment: 评论
+        indicator_id: 监测指标
+      indicator_taxon:
+        name: 名称
+        color: 颜色
+        description: 描述
+      indicator:
+        name: 名称
+        description: 描述
+        unit: 单位
+        reference_min: 参考值（小）
+        reference_max: 参考值（大）
+        target_source: 目标值来源
+        indicator_taxon_id: 类别
       project:
         creator_id: 申报负责人
         project_stage_id: 阶段

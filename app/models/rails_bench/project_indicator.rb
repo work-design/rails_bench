@@ -2,8 +2,9 @@ module RailsBench::ProjectIndicator
   extend ActiveSupport::Concern
 
   included do
-    attribute :record_date, :date
-    attribute :value, :decimal
+    attribute :recorded_on, :date
+    attribute :recorded_at, :datetime
+    attribute :value, :string
     attribute :source, :string
     attribute :comment, :string
 

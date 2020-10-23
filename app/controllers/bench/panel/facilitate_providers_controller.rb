@@ -1,4 +1,4 @@
-class Bench::Panel::FacilitateProvidersController < Bench::Panel::BaseController
+class Bench::Panel::FacilitateProvidersController < Bench::Admin::BaseController
   before_action :set_facilitate
   before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 

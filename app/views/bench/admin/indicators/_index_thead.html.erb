@@ -1,6 +1,9 @@
-<th><%= MonitorFactor.human_attribute_name(:indicator_taxon_id) %></th>
-<th><%= MonitorFactor.human_attribute_name(:name) %></th>
-<th><%= MonitorFactor.human_attribute_name(:description) %></th>
-<th><%= MonitorFactor.human_attribute_name(:target_value) %></th>
-<th><%= MonitorFactor.human_attribute_name(:unit) %></th>
+<th><%= Indicator.human_attribute_name(:indicator_taxon_id) %></th>
+<th><%= Indicator.human_attribute_name(:name) %></th>
+<th><%= Indicator.human_attribute_name(:description) %></th>
+<th>
+  <p><%= Indicator.human_attribute_name(:reference_min) %></p>
+  <p><%= Indicator.human_attribute_name(:reference_max) %></p>
+</th>
+<th><%= Indicator.human_attribute_name(:unit) %></th>
 <th></th>
