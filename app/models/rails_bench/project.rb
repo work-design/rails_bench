@@ -15,7 +15,8 @@ module RailsBench::Project
     has_many :project_members, dependent: :destroy
     has_many :project_webhooks, dependent: :delete_all
     has_many :tasks, as: :tasking
-    has_many :project_facilitates
+    has_many :project_indicators, dependent: :destroy
+    has_many :project_facilitates, dependent: :destroy
 
     validates :name, presence: true
 

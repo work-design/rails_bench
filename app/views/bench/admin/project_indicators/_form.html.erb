@@ -1,0 +1,7 @@
+<%= render 'shared/error_messages', target: @target %>
+<%= f.select :monitor_factor_id, options_from_collection_for_select(@monitor_factors, :id, :name, @target.monitor_factor_id), { include_blank: true}, { class: '' } %>
+<%= f.hidden_field :region_id, value: @region.id %>
+<%= f.number_field :value %>
+<%= f.date_field :record_date %>
+<%= f.text_field :source %>
+<%= f.text_field :comment %>

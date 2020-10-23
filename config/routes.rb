@@ -90,6 +90,7 @@ Rails.application.routes.draw do
           get :providers
         end
       end
+      resources :project_indicators
     end
     resources :tasks do
       collection do

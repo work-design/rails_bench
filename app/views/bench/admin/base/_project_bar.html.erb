@@ -4,10 +4,10 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.me.projects.tasks.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %></li>
-    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.me.projects.show.title'), admin_project_path(project) %></li>
-    <li class="<%= active_helper(projects: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.me.projects.task_templates.title'), { controller: 'bench/admin/task_templates', action: 'project', project_id: project.id } %></li>
-    <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>"><%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></li>
+    <li class="<%= active_helper(projects: 'tasks', tasks: ['show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.admin.projects.tasks.title'), { controller: 'tasks', action: 'project', project_id: project.id } %></li>
+    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.admin.projects.show.title'), { action: 'show', id: project.id } %></li>
+    <li class="<%= active_helper(projects: 'task_templates', active: 'is-active') %>"><%= link_to t('bench.admin.task_templates.project.title'), { controller: 'task_templates', action: 'project', project_id: project.id } %></li>
+    <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>"><%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></li>
     <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>"><%= link_to t('bench.admin.budgets.index.title'), admin_project_budgets_path(project) %></li>
     <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.admin.expenses.index.title'), admin_project_expenses_path(project) %></li>
     <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>"><%= link_to t('bench.admin.project_facilitates.index.title'), admin_project_project_facilitates_path(project) %></li>
