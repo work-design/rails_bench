@@ -12,7 +12,13 @@ module RailsBench::Milepost
 
     default_scope -> { order(position: :asc) }
 
+    after_save_commit :sync_name_to_project_mileposts, if: ->{ saved_change_to_name? }
+
     acts_as_list scope: [:organ_id]
+  end
+
+  def sync_name_to_project_mileposts
+    project_mileposts.update_all(milepost_name: name)
   end
 
 end
