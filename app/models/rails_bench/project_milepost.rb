@@ -4,6 +4,7 @@ module RailsBench::ProjectMilepost
   included do
     attribute :recorded_on, :date
     attribute :current, :boolean, default: false
+    attribute :milepost_name, :string
 
     belongs_to :project
     belongs_to :milepost
