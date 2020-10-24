@@ -9,6 +9,16 @@
     </td>
   </tr>
   <tr>
+    <th><%= link_to Project.human_attribute_name(:milepost_id), { controller: 'mileposts', action: 'index' }, text: true %></th>
+    <td>
+      <%= link_to t('.all'), filter_params(except: ['project_mileposts.milepost_id', :project_stage_id]), class: active_params('project_mileposts.milepost_id': nil, active: 'button is-info', item: 'button is-light') %>
+      <% @mileposts.each do |milepost| %>
+        <%= link_to milepost.name, filter_params('project_mileposts.milepost_id': milepost.id), class: active_params('project_mileposts.milepost_id': milepost.id, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+  <% if params['project_mileposts.milepost_id'] %>
+  <tr>
     <th><%= link_to Project.human_attribute_name(:project_stage_id), admin_project_stages_path, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:project_stage_id]), class: active_params(project_stage_id: nil, active: 'button is-info', item: 'button is-light') %>
@@ -17,4 +27,5 @@
       <% end %>
     </td>
   </tr>
+  <% end %>
 </table>

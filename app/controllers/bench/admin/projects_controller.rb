@@ -5,8 +5,13 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
   def index
     q_params = {}
     q_params.merge! default_params
-    q_params.merge! params.permit(:project_taxon_id, :project_stage_id, 'name-like')
+    q_params.merge! params.permit(:project_taxon_id, :project_stage_id, 'name-like', 'project_mileposts.milepost_id')
+    if params[:project_stage_id]
+      project_stage = ProjectStage.find params[:project_stage_id]
+      q_params.merge! 'project_mileposts.recorded_on-gte': project_stage.begin_on, 'project_mileposts.recorded_on-lte': project_stage.end_on
+    end
 
+    @mileposts = Milepost.default_where(default_params)
     @projects = Project.includes(:project_taxon, :project_mileposts).default_where(q_params).order(id: :desc).page(params[:page])
   end
 
