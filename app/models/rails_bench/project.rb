@@ -17,6 +17,7 @@ module RailsBench::Project
     has_many :project_indicators, dependent: :destroy
     has_many :project_facilitates, dependent: :destroy
     has_many :project_mileposts, dependent: :delete_all
+    has_many :mileposts, through: :project_mileposts
 
     validates :name, presence: true
 

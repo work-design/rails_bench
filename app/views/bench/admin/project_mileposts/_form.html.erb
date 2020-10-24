@@ -1,4 +1,3 @@
 <%= render 'shared/error_messages', target: @project_milepost %>
-<%= f.text_field :milepost_id %>
-<%= f.text_field :recorded_on %>
-<%= f.text_field :current %>
+<%= f.collection_select :milepost_id, @mileposts, :id, :name %>
+<%= f.date_field :recorded_on %>

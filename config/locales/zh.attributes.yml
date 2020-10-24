@@ -39,6 +39,9 @@ zh:
       project_member:
         job_title_id: 职位
         member_id: 成员
+      project_milepost:
+        milepost_id: 节点
+        recorded_on: 日期
       project_stage:
         begin_on: 开始日期
         end_on: 截止日期

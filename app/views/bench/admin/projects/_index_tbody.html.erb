@@ -7,14 +7,17 @@
     <p><%= link_to "#{project.budget_amount}/#{project.expense_amount}", { controller: 'bench/admin/expenses', action: 'index', project_id: project.id } %></p>
   </td>
   <td>
-  <% project.owners.each do |owner| %>
-    <p><%= owner.name %></p>
-  <% end %>
+    <% project.owners.each do |owner| %>
+      <p><%= owner.name %></p>
+    <% end %>
   </td>
   <td>
-  <% project.project_mileposts.each do |project_milepost| %>
-    <p><%= project_milepost.milepost_name %></p>
-  <% end %>
+    <% project.project_mileposts.each do |project_milepost| %>
+      <p><%= project_milepost.milepost_name %>: <%= project_milepost.recorded_on %></p>
+    <% end %>
+    <%= link_to({ controller: 'project_mileposts', action: 'new', project_id: project.id }, { remote: true, class: 'button is-small is-rounded' }) do %>
+      <i class="fas fa-step-forward"></i><span><%= '下一步' %></span>
+    <% end %>
   </td>
   <td>
     <%= link_to admin_project_path(project), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>

@@ -3,9 +3,6 @@
   <td><%= project_milepost.recorded_on %></td>
   <td><%= project_milepost.current %></td>
   <td>
-    <%= link_to({ action: 'show', id: project_milepost.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-eye"></i>
-    <% end %>
     <%= link_to({ action: 'edit', id: project_milepost.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
