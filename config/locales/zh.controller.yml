@@ -20,6 +20,9 @@ zh:
           title: 流程
         show:
           title: 服务详情
+      mileposts:
+        index:
+          title: 项目状态
       projects:
         index:
           title: 项目库

@@ -24,6 +24,8 @@ zh:
         reference_max: 参考值（大）
         target_source: 目标值来源
         indicator_taxon_id: 类别
+      milepost:
+        project_mileposts_count: 项目数
       project:
         creator_id: 申报负责人
         project_stage_id: 阶段

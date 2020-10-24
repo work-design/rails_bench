@@ -91,6 +91,7 @@ Rails.application.routes.draw do
         end
       end
       resources :project_indicators
+      resources :project_mileposts, except: [:index, :show]
     end
     resources :tasks do
       collection do
@@ -113,7 +114,12 @@ Rails.application.routes.draw do
       resources :fund_budgets
       resources :fund_expenses
     end
-    resources :mileposts
+    resources :mileposts do
+      member do
+        patch :move_lower
+        patch :move_higher
+      end
+    end
     resources :indicator_taxons, except: [:index, :show]
     resources :indicators
     resources :facilitate_taxons, except: [:index, :show]

@@ -13,5 +13,7 @@
   <p><%= Project.human_attribute_name(:expense_budget) %>/<%= Project.human_attribute_name(:expense_amount) %></p>
 </th>
 <th><%= Project.human_attribute_name(:creator_id) %></th>
-<th><%= Project.human_attribute_name(:state) %></th>
+<th>
+  <p><%= link_to Project.human_attribute_name(:milepost_id), { controller: 'mileposts', action: 'index' }, text: true %></p>
+</th>
 <th></th>
