@@ -1,8 +1,5 @@
 <tr>
-  <td>
-    <p><%= project.project_taxon&.name %></p>
-    <p><%= project.project_stage&.name %></p>
-  </td>
+  <td><%= project.project_taxon&.name %></td>
   <td><%= link_to project.name, { action: 'show', id: project.id } %></td>
   <td><%= project.description %></td>
   <td>

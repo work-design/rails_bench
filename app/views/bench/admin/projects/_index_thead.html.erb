@@ -5,12 +5,6 @@
       <i class="fas fa-cog"></i>
     <% end %>
   </p>
-  <p>
-    <%= Project.human_attribute_name(:project_stage_id) %>
-    <%= link_to admin_project_stages_path, aria: { label: t('bench.admin.project_stages.index.title') } do %>
-      <i class="fas fa-cog"></i>
-    <% end %>
-  </p>
 </th>
 <th><%= Project.human_attribute_name(:name) %></th>
 <th><%= Project.human_attribute_name(:description) %></th>
