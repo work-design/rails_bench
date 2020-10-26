@@ -26,6 +26,8 @@ zh:
       projects:
         index:
           title: 项目库
+        show:
+          title: 项目详情
       fund_budgets:
         index:
           title: 资金预算
@@ -53,8 +55,13 @@ zh:
       project_facilitates:
         index:
           title: 项目组成
+      tasks:
+        project:
+          title: 待办
       task_templates:
         index:
+          title: 工作流
+        project:
           title: 工作流
     me:
       title: 项目管理
@@ -79,6 +86,8 @@ zh:
         index:
           title: 我的待办
         show:
+          title: 待办
+        project:
           title: 待办
       task_templates:
         index:
