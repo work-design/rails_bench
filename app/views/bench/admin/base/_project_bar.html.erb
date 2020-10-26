@@ -7,7 +7,7 @@
     <li class="<%= active_helper(tasks: ['project', 'show', 'content'], task_timers: 'index', active: 'is-active') %>">
       <%= link_to t('bench.admin.tasks.project.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %>
     </li>
-    <li class="<%= active_helper(maps: 'show', active: 'is-active') %>">
+    <li class="<%= active_helper(maps: ['show', 'edit', 'new'], active: 'is-active') %>">
       <%= link_to({ controller: '/admin/maps', action: 'show', target_id: project.id, target_type: 'Project'}) do %>
         Map
       <% end if defined? LngLat %>
