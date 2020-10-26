@@ -17,6 +17,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
 
   def create
     @project_indicator = @project.project_indicators.build(project_indicator_params)
+    @project_indicator.recorded_at = Time.current
 
     if @project_indicator.save
       render 'create'
