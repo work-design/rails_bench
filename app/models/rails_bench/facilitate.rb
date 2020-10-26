@@ -17,6 +17,8 @@ module RailsBench::Facilitate
     has_one :provider, through: :facilitate_provider
     has_many :facilitate_providers, dependent: :destroy
     has_many :providers, through: :facilitate_providers
+    has_many :facilitate_indicators, dependent: :destroy
+    has_many :indicators, through: :facilitate_indicators
 
     has_one_attached :logo
   end
