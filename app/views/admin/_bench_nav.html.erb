@@ -4,7 +4,7 @@
     <%= link_to t('bench.admin.project_stages.index.title'), { controller: 'bench/admin/project_stages' }, class: active_helper(controllers: ['project_stages'], active: 'is-active') %>
     <%= link_to t('bench.admin.projects.index.title'), { controller: 'bench/admin/projects', action: 'index' }, class: active_helper(controllers: ['projects', 'fund_uses', 'budgets', 'expenses', 'project_facilitates'], active: 'is-active') %>
     <%= link_to t('bench.admin.indicators.index.title'), { controller: 'bench/admin/indicators' }, class: active_helper(controllers: ['indicators'], active: 'is-active') %>
-    <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers'], active: 'is-active') -%>
+    <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') -%>
 <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fas fa-share-alt"></i>

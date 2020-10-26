@@ -1,6 +1,7 @@
 class Bench::Admin::FacilitateIndicatorsController < Bench::Admin::BaseController
   before_action :set_facilitate
   before_action :set_facilitate_indicator, only: [:show, :edit, :update, :destroy]
+  before_action :prepare_form
 
   def index
     @facilitate_indicators = @facilitate.facilitate_indicators.page(params[:page])
@@ -43,6 +44,10 @@ class Bench::Admin::FacilitateIndicatorsController < Bench::Admin::BaseControlle
 
   def set_facilitate_indicator
     @facilitate_indicator = @facilitate.facilitate_indicators.find params[:id]
+  end
+
+  def prepare_form
+    @indicators = @facilitate.facilitate_taxon.indicators.where.not(id: @facilitate.indicator_ids)
   end
 
   def facilitate_indicator_params
