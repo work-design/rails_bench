@@ -4,13 +4,33 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(tasks: ['project', 'show', 'content'], task_timers: 'index', active: 'is-active') %>"><%= link_to t('bench.admin.tasks.project.title'), { controller: 'tasks', action: 'project', project_id: project.id } %></li>
-    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>"><%= link_to t('bench.admin.projects.show.title'), { controller: 'projects', action: 'show', id: project.id } %></li>
-    <li class="<%= active_helper(task_templates: 'project', active: 'is-active') %>"><%= link_to t('bench.admin.task_templates.project.title'), { controller: 'task_templates', action: 'project', project_id: project.id } %></li>
-    <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>"><%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></li>
-    <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>"><%= link_to t('bench.admin.budgets.index.title'), admin_project_budgets_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.admin.expenses.index.title'), admin_project_expenses_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'project_indicators', active: 'is-active') %>"><%= link_to t('bench.admin.project_indicators.index.title'), { controller: 'project_indicators', action: 'index', project_id: project.id } %></li>
-    <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>"><%= link_to t('bench.admin.project_facilitates.index.title'), { controller: 'project_facilitates', action: 'index', project_id: project.id } %></li>
+    <li class="<%= active_helper(tasks: ['project', 'show', 'content'], task_timers: 'index', active: 'is-active') %>">
+      <%= link_to t('bench.admin.tasks.project.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(maps: 'show', active: 'is-active') %>">
+      <%= link_to({ controller: '/admin/maps', action: 'show', target_id: project.id, target_type: 'Project'}) do %>
+        Map
+      <% end if defined? LngLat %>
+    </li>
+    <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>">
+      <%= link_to t('bench.admin.projects.show.title'), { controller: 'bench/admin/projects', action: 'show', id: project.id } %></li>
+    <li class="<%= active_helper(task_templates: 'project', active: 'is-active') %>">
+      <%= link_to t('bench.admin.task_templates.project.title'), { controller: 'bench/admin/task_templates', action: 'project', project_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
+      <%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>">
+      <%= link_to t('bench.admin.budgets.index.title'), { controller: 'bench/admin/budgets', action: 'index', project_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>">
+      <%= link_to t('bench.admin.expenses.index.title'), { controller: 'bench/admin/expenses', action: 'index', project_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'project_indicators', active: 'is-active') %>">
+      <%= link_to t('bench.admin.project_indicators.index.title'), { controller: 'bench/admin/project_indicators', action: 'index', project_id: project.id } %>
+    </li>
+    <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>">
+      <%= link_to t('bench.admin.project_facilitates.index.title'), { controller: 'bench/admin/project_facilitates', action: 'index', project_id: project.id } %>
+    </li>
   </ul>
 </div>

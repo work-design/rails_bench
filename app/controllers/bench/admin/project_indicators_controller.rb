@@ -1,10 +1,11 @@
 class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
   before_action :set_project
-  before_action :pre_form, only: [:edit, :new, :update, :create]
+  before_action :pre_form, only: [:index, :edit, :new, :update, :create]
   before_action :set_project_indicator, only: [:show, :edit, :update, :destroy]
 
   def index
     q_params = {}
+    q_params.merge!
 
     @project_indicators = @project.project_indicators.default_where(q_params).page(params[:page])
   end
@@ -47,6 +48,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
 
   private
   def pre_form
+    @indicator_taxons = IndicatorTaxon.default_where(default_params)
     @indicators = Indicator.all
   end
 

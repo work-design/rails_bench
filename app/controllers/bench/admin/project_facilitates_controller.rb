@@ -7,8 +7,7 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
     q_params = {}
     q_params.merge! params.permit(:facilitate_taxon_id)
     q_params.merge!({"facilitates.name-like": params[:name]})
-    @project_facilitates = @project.project_facilitates.includes(:facilitate, :provider)
-                                   .default_where(q_params).page(params[:page])
+    @project_facilitates = @project.project_facilitates.includes(:facilitate, :provider).default_where(q_params).page(params[:page])
     @facilitate_taxons = FacilitateTaxon.all
   end
 
@@ -73,7 +72,7 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
   end
 
   def prepare_form
-    @facilitate_taxons = FacilitateTaxon.all
+    @facilitate_taxons = FacilitateTaxon.default_where(default_params)
     @facilitates = @project_facilitate&.facilitate_taxon&.facilitates || Facilitate.none
     @providers = @project_facilitate&.facilitate&.providers || []
   end
