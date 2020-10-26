@@ -42,7 +42,7 @@ class Bench::Admin::FacilitateIndicatorsController < Bench::Admin::BaseControlle
   end
 
   def set_facilitate_indicator
-    @facilitate_indicator =  @facilitate.facilitate_indicators.find params[:id]
+    @facilitate_indicator = @facilitate.facilitate_indicators.find params[:id]
   end
 
   def facilitate_indicator_params

@@ -13,6 +13,9 @@ zh:
       expenses:
         index:
           title: 项目支出
+      facilitate_indicators:
+        index:
+          title: 评价指标
       facilitate_providers:
         index:
           title: 投标

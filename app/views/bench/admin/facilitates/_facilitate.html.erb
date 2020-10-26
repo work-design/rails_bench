@@ -6,9 +6,13 @@
   <td><%= facilitate.description %></td>
   <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td><%# facilitate.price %></td>
+  <td></td>
   <td>
+    <%= link_to({ controller: 'facilitate_indicators', action: 'index', facilitate_id: facilitate.id }, { class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-smile-beam"></i><span><%= t('bench.admin.facilitate_indicators.index.title') %></span>
+    <% end %>
     <%= link_to({ controller: 'facilitate_providers', action: 'index', facilitate_id: facilitate.id }, { class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-search"></i><span><%= t('bench.panel.facilitate_providers.index.title') %></span>
+      <i class="fas fa-search"></i><span><%= t('bench.admin.facilitate_providers.index.title') %></span>
     <% end %>
     <%= link_to({ action: 'show', id: facilitate.id }, { aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-eye"></i>
