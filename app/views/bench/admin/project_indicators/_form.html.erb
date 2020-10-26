@@ -1,7 +1,5 @@
-<%= render 'shared/error_messages', target: @target %>
-<%= f.select :monitor_factor_id, options_from_collection_for_select(@monitor_factors, :id, :name, @target.monitor_factor_id), { include_blank: true}, { class: '' } %>
-<%= f.hidden_field :region_id, value: @region.id %>
+<%= render 'shared/error_messages', target: @project_indicator %>
+<%= f.collection_select :indicator_id, @indicators, :id, :name, include_blank: true %>
 <%= f.number_field :value %>
-<%= f.date_field :record_date %>
-<%= f.text_field :source %>
+<%= f.date_field :recorded_on %>
 <%= f.text_field :comment %>

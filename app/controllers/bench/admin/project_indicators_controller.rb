@@ -11,6 +11,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
 
   def new
     @project_indicator = @project.project_indicators.build
+    @project_indicator.recorded_on = Date.current
   end
 
   def create

@@ -1,6 +1,6 @@
 <tr>
   <td><%= project_indicator.indicator.name %></td>
-  <td><%= project_indicator.record_date %></td>
+  <td><%= project_indicator.recorded_on %></td>
   <td>
     <%= project_indicator.value  %> (<%= project_indicator.indicator.unit %>)
   </td>
@@ -8,13 +8,13 @@
     <%= project_indicator.source %>
   </td>
   <td>
-    <%= link_to panel_region_region_factor_path(@region, project_indicator), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'show', id: project_indicator.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-eye"></i>
     <% end %>
-    <%= link_to({ controller: 'project_indicators', action: 'edit', project_id: @project.id, id: project_indicator.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: project_indicator.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to panel_region_region_factor_path(@region, project_indicator), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'destroy', id: project_indicator.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>

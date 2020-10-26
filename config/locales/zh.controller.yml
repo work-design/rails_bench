@@ -55,6 +55,9 @@ zh:
       project_facilitates:
         index:
           title: 项目组成
+      project_indicators:
+        index:
+          title: 监测指标
       tasks:
         project:
           title: 待办

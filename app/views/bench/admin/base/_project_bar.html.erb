@@ -10,6 +10,7 @@
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>"><%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %></li>
     <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>"><%= link_to t('bench.admin.budgets.index.title'), admin_project_budgets_path(project) %></li>
     <li class="<%= active_helper(controllers: 'expenses', active: 'is-active') %>"><%= link_to t('bench.admin.expenses.index.title'), admin_project_expenses_path(project) %></li>
-    <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>"><%= link_to t('bench.admin.project_facilitates.index.title'), admin_project_project_facilitates_path(project) %></li>
+    <li class="<%= active_helper(controllers: 'project_indicators', active: 'is-active') %>"><%= link_to t('bench.admin.project_indicators.index.title'), { controller: 'project_indicators', action: 'index', project_id: project.id } %></li>
+    <li class="<%= active_helper(controllers: 'project_facilitates', active: 'is-active') %>"><%= link_to t('bench.admin.project_facilitates.index.title'), { controller: 'project_facilitates', action: 'index', project_id: project.id } %></li>
   </ul>
 </div>
