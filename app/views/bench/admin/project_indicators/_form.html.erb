@@ -2,4 +2,4 @@
 <%= f.collection_select :indicator_id, @indicators, :id, :name, include_blank: true %>
 <%= f.number_field :value %>
 <%= f.date_field :recorded_on %>
-<%= f.text_field :comment %>
+<%= f.text_area :comment %>

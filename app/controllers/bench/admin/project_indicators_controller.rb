@@ -28,6 +28,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
   end
 
   def edit
+    @project_indicator.recorded_on ||= Date.current
   end
 
   def update
@@ -62,6 +63,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
       :value,
       :source,
       :comment,
+      :recorded_on,
       :indicator_id
     )
   end
