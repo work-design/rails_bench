@@ -6,6 +6,7 @@ zh:
       facilitate_provider:
         selected: 中标
         provider_id: 供应商
+        price: 参考价格
       project_indicator:
         recorded_on: 监测时间
         value: 值

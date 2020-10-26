@@ -129,6 +129,7 @@ Rails.application.routes.draw do
           get :task_templates
         end
       end
+      resources :facilitate_indicators
     end
   end
 
