@@ -1,5 +1,5 @@
 <%= render 'shared/error_messages', target: @indicator %>
-<%= f.collection_select :indicator_taxon_id, @indicator_taxons, :id, :name, include_blank: true %>
+<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name, include_blank: true %>
 <%= f.text_field :name %>
 <%= f.text_area :description %>
 <%= f.text_field :unit %>

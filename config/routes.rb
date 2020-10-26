@@ -120,7 +120,6 @@ Rails.application.routes.draw do
         patch :move_higher
       end
     end
-    resources :indicator_taxons, except: [:index, :show]
     resources :indicators
     resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates do

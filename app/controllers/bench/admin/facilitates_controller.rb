@@ -4,6 +4,7 @@ class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
 
   def index
     q_params = {}
+    q_params.merge! default_params
     q_params.merge! params.permit(:facilitate_taxon_id)
 
     @facilitates = Facilitate.default_where(q_params).page(params[:page])
@@ -41,7 +42,7 @@ class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
 
   private
   def set_facilitate_taxons
-    @facilitate_taxons = FacilitateTaxon.all
+    @facilitate_taxons = FacilitateTaxon.default_where(default_params)
   end
 
   def set_facilitate
@@ -49,13 +50,14 @@ class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
   end
 
   def facilitate_params
-    params.fetch(:facilitate, {}).permit(
+    p = params.fetch(:facilitate, {}).permit(
       :name,
       :description,
       :price,
       :logo,
       :facilitate_taxon_id
     )
+    p.merge! default_form_params
   end
 
 end

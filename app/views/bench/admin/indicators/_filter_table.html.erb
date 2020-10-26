@@ -1,29 +1,29 @@
 <table class="as-search">
   <tr>
-    <th><%= Indicator.human_attribute_name(:indicator_taxon_id) %></th>
+    <th><%= Indicator.human_attribute_name(:facilitate_taxon_id) %></th>
     <td class="field is-grouped is-grouped-multiline">
       <div class="control">
-        <%= link_to filter_params(except: [:indicator_taxon_id]), class: active_params(indicator_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
+        <%= link_to filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
           <div class="tags has-addons">
             <span class="tag"><%= t('.all') %></span>
           </div>
         <%end%>
       </div>
       
-      <% @indicator_taxons.each do |indicator_taxon| %>
+      <% @facilitate_taxons.each do |facilitate_taxon| %>
         <div class="control">
-        <%= link_to filter_params(indicator_taxon_id: indicator_taxon.id), class: active_params(indicator_taxon_id: indicator_taxon.id, active: 'is-info', item: 'is-light') do %>
+        <%= link_to filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_params(facilitate_taxon_id: facilitate_taxon.id, active: 'is-info', item: 'is-light') do %>
           <div class="tags has-addons">
-            <span class="tag"><%= indicator_taxon.name %></span>
+            <span class="tag"><%= facilitate_taxon.name %></span>
           
-            <span class="tag" style="background-color: <%= indicator_taxon.color %>;"></span>
+            <span class="tag" style="background-color: <%= facilitate_taxon.color %>"></span>
           </div>
         <%end%>
         </div>
       <% end %>
 
       <div class="control">
-        <%= link_to({ controller: 'indicator_taxons', action: 'new' }, { aria: { label: t('.new') }, remote: true, class: 'tag is-rounded is-light' }) do %>
+        <%= link_to({ controller: 'facilitate_taxons', action: 'new' }, { aria: { label: t('.new') }, remote: true, class: 'tag is-rounded is-light' }) do %>
           <i class="fas fa-plus"></i>
         <% end %>
       </div>

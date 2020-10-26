@@ -34,13 +34,15 @@ class Bench::Admin::FacilitateTaxonsController < Bench::Admin::BaseController
 
   private
   def set_facilitate_taxon
-    @facilitate_taxon = FacilitateTaxon.find(params[:id])
+    @facilitate_taxon = FacilitateTaxon.find params[:id]
   end
 
   def facilitate_taxon_params
-    params.fetch(:facilitate_taxon, {}).permit(
-      :name
+    p = params.fetch(:facilitate_taxon, {}).permit(
+      :name,
+      :color
     )
+    p.merge! default_form_params
   end
 
 end
