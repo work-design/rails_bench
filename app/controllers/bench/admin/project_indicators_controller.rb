@@ -6,6 +6,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
   def index
     q_params = {}
     q_params.merge!
+    q_params.merge! params.permit(:facilitate_taxon_id)
 
     @project_indicators = @project.project_indicators.default_where(q_params).page(params[:page])
   end
@@ -49,7 +50,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
 
   private
   def pre_form
-    @indicator_taxons = IndicatorTaxon.default_where(default_params)
+    @facilitate_taxons = FacilitateTaxon.default_where(default_params)
     @indicators = Indicator.all
   end
 
