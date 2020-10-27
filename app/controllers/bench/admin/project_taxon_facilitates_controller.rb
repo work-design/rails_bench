@@ -9,7 +9,6 @@ class Bench::Admin::ProjectTaxonFacilitatesController < Bench::Admin::BaseContro
 
   def new
     @facilitates = Facilitate.none
-    @providers = Organ.none
   end
 
   def create

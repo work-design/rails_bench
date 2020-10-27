@@ -4,15 +4,16 @@ class Bench::Admin::ProjectTaxonIndicatorsController < Bench::Admin::BaseControl
   before_action :prepare_form, only: [:new, :edit]
 
   def index
-    @project_taxon_indicators = ProjectTaxonIndicator.page(params[:page])
+    @project_taxon_indicators = @project_taxon.project_taxon_indicators.page(params[:page])
   end
 
   def new
-    @project_taxon_indicator = ProjectTaxonIndicator.new
+    @indicators = Indicator.none
+    @project_taxon_indicator = @project_taxon.project_taxon_indicators.build
   end
 
   def create
-    @project_taxon_indicator = ProjectTaxonIndicator.new(project_taxon_indicator_params)
+    @project_taxon_indicator = @project_taxon.project_taxon_indicators.build(project_taxon_indicator_params)
 
     unless @project_taxon_indicator.save
       render :new, locals: { model: @project_taxon_indicator }, status: :unprocessable_entity
@@ -21,7 +22,7 @@ class Bench::Admin::ProjectTaxonIndicatorsController < Bench::Admin::BaseControl
 
   def indicators
     q_params = {}
-    q_params.merge! facilitate_taxon_id: project_taxon_facilitate_params[:facilitate_taxon_id]
+    q_params.merge! facilitate_taxon_id: project_taxon_indicator_params[:facilitate_taxon_id]
 
     @indicators = Indicator.default_where(q_params)
   end
@@ -50,7 +51,7 @@ class Bench::Admin::ProjectTaxonIndicatorsController < Bench::Admin::BaseControl
   end
 
   def set_project_taxon_indicator
-    @project_taxon_indicator = ProjectTaxonIndicator.find(params[:id])
+    @project_taxon_indicator = @project_taxon.project_taxon_indicators.find(params[:id])
   end
 
   def prepare_form
