@@ -52,7 +52,10 @@ zh:
           parameter: 格式设置
         show:
           title: 详情
-      project_preferences:
+      project_taxon_indicators:
+        index:
+          title: 项目评价
+      project_taxon_facilitates:
         index:
           title: 项目招标
       project_facilitates:

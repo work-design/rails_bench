@@ -1,4 +1,5 @@
 class Bench::Admin::ProjectTaxonIndicatorsController < Bench::Admin::BaseController
+  before_action :set_project_taxon
   before_action :set_project_taxon_indicator, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -36,6 +37,10 @@ class Bench::Admin::ProjectTaxonIndicatorsController < Bench::Admin::BaseControl
   end
 
   private
+  def set_project_taxon
+    @project_taxon = ProjectTaxon.find params[:project_taxon_id]
+  end
+
   def set_project_taxon_indicator
     @project_taxon_indicator = ProjectTaxonIndicator.find(params[:id])
   end

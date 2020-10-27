@@ -18,9 +18,14 @@
         <i class="fas fa-eye"></i><span><%= t('bench.admin.project_taxons.show.title') %></span>
       <% end %>
     </li>
-    <li class="<%= active_helper(controllers: 'project_preferences', active: 'is-active') %>">
-      <%= link_to({ controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: project_taxon.id }) do %>
-        <i class="fas fa-paint-roller"></i><span><%= t('bench.admin.project_preferences.index.title') %></span>
+    <li class="<%= active_helper(controllers: 'project_taxon_indicators', active: 'is-active') %>">
+      <%= link_to({ controller: 'bench/admin/project_taxon_indicators', action: 'index', project_taxon_id: project_taxon.id }) do %>
+        <i class="fas fa-paint-roller"></i><span><%= t('bench.admin.project_taxon_indicators.index.title') %></span>
+      <% end %>
+    </li>
+    <li class="<%= active_helper(controllers: 'project_taxon_facilitates', active: 'is-active') %>">
+      <%= link_to({ controller: 'bench/admin/project_taxon_facilitates', action: 'index', project_taxon_id: project_taxon.id }) do %>
+        <i class="fas fa-paint-roller"></i><span><%= t('bench.admin.project_taxon_facilitates.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">

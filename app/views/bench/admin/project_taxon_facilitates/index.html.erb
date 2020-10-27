@@ -1,5 +1,5 @@
 <%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
 
-<%= render layout: 'index_table', locals: { cache_key: ProjectPreference.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @project_preferences, as: :project_preference %>
+<%= render layout: 'index_table', locals: { cache_key: ProjectTaxonFacilitate.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_taxon_facilitates, as: :project_taxon_facilitate %>
 <% end %>
