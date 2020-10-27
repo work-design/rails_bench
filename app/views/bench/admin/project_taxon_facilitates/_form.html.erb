@@ -1,0 +1,17 @@
+<%= render 'shared/error_messages', target: @project_taxon_facilitate %>
+<%=
+  f.collection_select(
+      :facilitate_taxon_id,
+      @facilitate_taxons,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: facilitates_admin_project_taxon_project_taxon_facilitates_path(@project_taxon) } }
+  )
+%>
+<%=
+  f.collection_select(
+      :facilitate_id,
+      @facilitates,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: providers_admin_project_taxon_project_taxon_facilitates_path(@project_taxon) } }
+  )
+%>

@@ -4,7 +4,7 @@ module RailsBench::ProjectWebhook
   included do
     attribute :origin_data, :json
     attribute :valuable_data, :json
-    
+
     belongs_to :project
   end
 
