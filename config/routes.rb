@@ -69,7 +69,7 @@ Rails.application.routes.draw do
       end
       resources :project_taxon_indicators do
         collection do
-          get :facilitates
+          get :indicators
         end
       end
     end

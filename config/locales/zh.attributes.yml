@@ -53,10 +53,12 @@ zh:
       project_taxon:
         projects_count: 项目数
         parameters: 字段
-      project_preference:
+      project_taxon_facilitate:
         facilitate_taxon_id: 服务分类
         facilitate_id: 标准化服务
-        provider_id: 供应商
+      project_taxon_indicator:
+        facilitate_taxon_id: 服务分类
+        indicator_id: 评价指标
       project_facilitate:
         facilitate_taxon_id: 服务分类
         facilitate_id: 标准化服务

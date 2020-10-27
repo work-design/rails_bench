@@ -26,11 +26,6 @@ class Bench::Admin::ProjectTaxonFacilitatesController < Bench::Admin::BaseContro
     @facilitates = Facilitate.default_where(q_params)
   end
 
-  def providers
-    @facilitate = Facilitate.find project_taxon_facilitate_params[:facilitate_id]
-    @providers = @facilitate.providers
-  end
-
   def show
   end
 
@@ -65,7 +60,7 @@ class Bench::Admin::ProjectTaxonFacilitatesController < Bench::Admin::BaseContro
   end
 
   def prepare_form
-    @facilitate_taxons = FacilitateTaxon.all
+    @facilitate_taxons = FacilitateTaxon.default_where(default_params)
   end
 
   def project_taxon_facilitate_params
