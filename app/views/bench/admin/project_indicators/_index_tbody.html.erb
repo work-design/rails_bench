@@ -8,7 +8,7 @@
   <td><%= project_indicator.comment %></td>
   <td>
     <%= link_to({ action: 'show', id: project_indicator.id }, { aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-eye"></i>
+      <i class="fas fa-info"></i>
     <% end %>
     <%= link_to({ action: 'edit', id: project_indicator.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
