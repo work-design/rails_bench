@@ -1,0 +1,12 @@
+<tr>
+  <td><%= project_preference.facilitate_taxon.name %></td>
+  <td><%= project_preference.facilitate.name %></td>
+  <td>
+    <%= link_to edit_admin_project_taxon_project_preference_path(@project_taxon, project_preference), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to admin_project_taxon_project_preference_path(@project_taxon, project_preference), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </td>
+</tr>

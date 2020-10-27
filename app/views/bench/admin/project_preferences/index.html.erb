@@ -1,36 +1,5 @@
 <%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
-<%= render 'filter_form' %>
 
-<table class="table is-hoverable is-fullwidth">
-  <thead>
-    <tr>
-      <th><%= ProjectPreference.human_attribute_name(:facilitate_taxon_id) %></th>
-      <th><%= ProjectPreference.human_attribute_name(:facilitate_id) %></th>
-      <th><%= ProjectPreference.human_attribute_name(:provider_id) %></th>
-      <th>
-        <%= link_to new_admin_project_taxon_project_preference_path(@project_taxon), remote: true, class: 'button is-link is-small' do %>
-          <i class="fas fa-plus"></i><%= t('.new') %>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @project_preferences.each do |project_preference| %>
-    <tr>
-      <td><%= project_preference.facilitate_taxon.name %></td>
-      <td><%= project_preference.facilitate.name %></td>
-      <td><%= project_preference.provider&.name %></td>
-      <td>
-        <%= link_to edit_admin_project_taxon_project_preference_path(@project_taxon, project_preference), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to admin_project_taxon_project_preference_path(@project_taxon, project_preference), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash-alt"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
-
-<%= paginate @project_preferences %>
+<%= render layout: 'index_table', locals: { cache_key: ProjectPreference.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_preferences, as: :project_preference %>
+<% end %>
