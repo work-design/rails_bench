@@ -1,0 +1,5 @@
+<%= render layout: 'index_table', locals: { cache_key: ProjectTaxonIndicator.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_taxon_indicators, as: :project_taxon_indicator %>
+<% end %>
+
+<%= paginate @project_taxon_indicators %>

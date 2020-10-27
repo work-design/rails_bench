@@ -62,10 +62,14 @@ Rails.application.routes.draw do
       member do
         get :parameter
       end
-      resources :project_preferences do
+      resources :project_taxon_facilitates do
         collection do
           get :facilitates
-          get :providers
+        end
+      end
+      resources :project_taxon_indicators do
+        collection do
+          get :facilitates
         end
       end
     end
