@@ -1,6 +1,7 @@
 <tr>
   <td><%= link_to project_taxon.name, { action: 'show', id: project_taxon.id }, text: true %></td>
   <td><%= simple_format project_taxon.parameters %></td>
+  <td><%= link_to project_taxon.projects_count, { controller: 'projects', project_taxon_id: project_taxon.id }, text: true %></td>
   <td>
     <%= link_to admin_project_taxon_project_preferences_path(project_taxon), aria: { label: t('bench.admin.project_preferences.index.title') }, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-paint-roller"></i>

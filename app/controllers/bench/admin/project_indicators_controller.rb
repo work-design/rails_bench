@@ -8,7 +8,7 @@ class Bench::Admin::ProjectIndicatorsController < Bench::Admin::BaseController
     q_params.merge!
     q_params.merge! params.permit(:facilitate_taxon_id)
 
-    @project_indicators = @project.project_indicators.default_where(q_params).page(params[:page])
+    @project_indicators = @project.project_indicators.init.default_where(q_params).page(params[:page])
   end
 
   def new
