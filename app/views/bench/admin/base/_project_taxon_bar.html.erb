@@ -18,14 +18,16 @@
     </li>
     <li class="<%= active_helper(controllers: 'project_preferences', active: 'is-active') %>">
       <%= link_to({ controller: 'bench/admin/project_preferences', action: 'index', project_taxon_id: project_taxon.id }) do %>
-        <%= t('bench.admin.project_preferences.index.title') %>
+        <i class="fas fa-paint-roller"></i><span><%= t('bench.admin.project_preferences.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
       <%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'ProjectTaxon', financial_id: project_taxon.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>">
-      <%= link_to t('bench.admin.task_templates.index.title'), { controller: 'bench/admin/task_templates', tasking_type: 'ProjectTaxon', tasking_id: project_taxon.id } %>
+      <%= link_to({ controller: 'bench/admin/task_templates', tasking_type: 'ProjectTaxon', tasking_id: project_taxon.id }) do %>
+        <i class="fas fa-tasks"></i><span><%= t('bench.admin.task_templates.index.title') %></span>
+      <% end %>
     </li>
   </ul>
 </div>
