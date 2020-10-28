@@ -1,52 +1,5 @@
-<%= render 'filter_form' %>
-<%= render 'filter_table' %>
-
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>
-        <p><%= Project.human_attribute_name(:project_taxon_id) %></p>
-        <p><%= Project.human_attribute_name(:project_stage_id) %></p>
-      </th>
-      <th><%= Project.human_attribute_name(:name) %></th>
-      <th><%= Project.human_attribute_name(:description) %></th>
-      <th>
-        <p class="has-text-danger"><%= Project.human_attribute_name(:budget_amount) %></p>
-        <p><%= Project.human_attribute_name(:expense_amount) %></p>
-      </th>
-      <th><%= Project.human_attribute_name(:state) %></th>
-      <th>
-        <%= link_to new_me_project_path(project_taxon_id: params[:project_taxon_id]), remote: true, class: 'button is-small is-link' do %>
-          <i class="fas fa-plus"></i><span><%= t('.new') %></span>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @projects.each do |project| %>
-    <tr>
-      <td>
-        <p><%= project.project_taxon&.name %></p>
-        <p><%= project.project_stage&.name %></p>
-      </td>
-      <td><%= link_to project.name, { controller: 'bench/me/tasks', action: 'project', project_id: project.id } %></td>
-      <td><%= project.description %></td>
-      <td>
-        <p class="has-text-danger"><%= project.budget_amount %></p>
-        <p><%= project.expense_amount %></p>
-      </td>
-      <td><%= project.state_i18n %></td>
-      <td>
-        <%= link_to edit_me_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-pencil-alt"></i>
-        <% end %>
-        <%= link_to me_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-          <i class="fas fa-trash"></i>
-        <% end %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<%= render layout: 'index_table', locals: { cache_key: Project.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @projects, as: :project %>
+<% end %>
 
 <%= paginate @projects %>

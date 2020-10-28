@@ -1,0 +1,20 @@
+<tr>
+  <td>
+    <p><%= project.project_taxon&.name %></p>
+  </td>
+  <td><%= link_to project.name, { controller: 'tasks', action: 'project', project_id: project.id } %></td>
+  <td><%= project.description %></td>
+  <td>
+    <p class="has-text-danger"><%= project.budget_amount %></p>
+    <p><%= project.expense_amount %></p>
+  </td>
+  <td><%= project.state_i18n %></td>
+  <td>
+    <%= link_to edit_me_project_path(project), remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to me_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
