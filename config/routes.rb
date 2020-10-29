@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope module: 'bench' do
+  scope module: 'bench', defaults: { business: 'bench' } do
     resources :projects do
       member do
         match :github, via: [:get, :post]
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :me, module: 'bench/me', as: :me do
+  scope :me, module: 'bench/me', as: :me, defaults: { namespace: 'me', business: 'bench' } do
     resources :tasks do
       collection do
         get 'template' => :new_template
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :admin, module: 'bench/admin', as: :admin do
+  scope :admin, module: 'bench/admin', as: :admin, defaults: { namespace: 'admin', business: 'bench' } do
     resources :project_taxons do
       member do
         get :parameter
