@@ -5,6 +5,9 @@
         <i></i><span><%= t('bench.admin.project_taxons.index.title') %></span>
       <% end %>
     </li>
-    <li class="is-active"><%= @project_taxon.name %></li>
+    <li>
+      <%= link_to @project_taxon.name, { controller: 'project_taxons', action: 'show', id: @project_taxon.id } %>
+    </li>
+    <li class="is-action"><%= t('.title') %></li>
   </ul>
 </div>

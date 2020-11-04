@@ -4,5 +4,9 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= ProjectTaxon.human_attribute_name(:projects_count) %></td>
-  <td><%= @project_taxon.projects_count %></td>
+  <td>
+    <%= link_to({ controller: 'projects', project_taxon_id: @project_taxon.id }, text: true, aria: { label: t('bench.admin.projects.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-list-ul"></i><span><%= @project_taxon.projects_count %></span>
+    <% end %>
+  </td>
 </tr>
