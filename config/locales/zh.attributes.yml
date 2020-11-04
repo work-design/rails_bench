@@ -35,6 +35,7 @@ zh:
         project_stage_id: 阶段
         project_taxon_id: 分类
         state: 状态
+        milepost_id: 里程碑
         fund_budget: 资金预算
         fund_expense: 资金支付
         expense_budget: 项目预算

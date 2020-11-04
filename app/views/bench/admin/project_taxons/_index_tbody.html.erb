@@ -7,16 +7,16 @@
     <% end %>
   </td>
   <td>
-    <%= link_to parameter_admin_project_taxon_path(project_taxon), aria: { label: t('.parameter') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'parameter', id: project_taxon.id }, aria: { label: t('.parameter') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-sitemap"></i>
     <% end %>
-    <%= link_to edit_admin_project_taxon_path(project_taxon), aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to admin_project_taxon_path(project_taxon), aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'show', id: project_taxon.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to admin_project_taxon_path(project_taxon), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' do %>
+    <%= link_to({ action: 'edit', id: project_taxon.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', id: project_taxon.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>
