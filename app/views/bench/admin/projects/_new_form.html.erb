@@ -1,4 +1,5 @@
 <%= form_with model: @project, url: { action: 'create' } do |f| %>
   <%= render partial: 'form', locals: { f: f } %>
+  <%= render partial: 'com/extra/extra_form', locals: { taxon: @project.project_taxon, f: f } %>
   <%= f.submit %>
 <% end %>

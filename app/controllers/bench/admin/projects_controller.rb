@@ -17,11 +17,11 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
   end
 
   def new
-    @project = current_member.projects.build(project_taxon_id: params[:project_taxon_id])
+    @project = Project.new(project_taxon_id: params[:project_taxon_id])
   end
 
   def create
-    @project = current_member.projects.build(project_params)
+    @project = Project.new(project_params)
 
     unless @project.save
       render :new, locals: { model: @project }, status: :unprocessable_entity
@@ -47,7 +47,7 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
     @project.assign_attributes project_params
 
     if @project.save
-      render 'update', locals: { return_to: me_project_path(@project) }
+      render 'update'
     else
       render :edit, locals: { model: @project }, status: :unprocessable_entity
     end
