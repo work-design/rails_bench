@@ -18,6 +18,9 @@
       <i class="fas fa-step-forward"></i><span><%= '下一步' %></span>
     <% end %>
   </td>
+  <% project.extra.each do |k, v| %>
+    <td><%= v %></td>
+  <% end %>
   <td>
     <%= link_to({ action: 'show', id: project.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
