@@ -1,7 +1,11 @@
 <tr>
   <td><%= link_to project_taxon.name, { action: 'show', id: project_taxon.id }, text: true %></td>
   <td><%= simple_format project_taxon.parameters %></td>
-  <td><%= link_to project_taxon.projects_count, { controller: 'projects', project_taxon_id: project_taxon.id }, text: true if project_taxon.projects_count %></td>
+  <td>
+    <%= link_to({ controller: 'projects', project_taxon_id: project_taxon.id }, text: true, aria: { label: t('bench.admin.projects.index.title') }, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-list-ul"></i><span><%= project_taxon.projects_count %></span>
+    <% end %>
+  </td>
   <td>
     <%= link_to parameter_admin_project_taxon_path(project_taxon), aria: { label: t('.parameter') }, remote: true, class: 'button is-small is-rounded is-light' do %>
       <i class="fas fa-sitemap"></i>

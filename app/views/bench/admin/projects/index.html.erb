@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { cache_key: Project.column_names.hash + 1 } do %>
+<%= render layout: 'index_table', locals: { cache_key: Project.column_names.hash } do %>
   <%= render partial: 'index_tbody', collection: @projects, as: :project %>
 <% end %>
 

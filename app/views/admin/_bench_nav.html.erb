@@ -2,7 +2,7 @@
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('bench.admin.project_taxons.index.title'), { controller: 'bench/admin/project_taxons' }, class: active_helper(controllers: ['project_taxons', 'project_taxon_indicators', 'project_taxon_facilitates', 'task_templates'], financial_type: 'ProjectTaxon', active: 'is-active') %>
     <%= link_to t('bench.admin.project_stages.index.title'), { controller: 'bench/admin/project_stages' }, class: active_helper(controllers: ['project_stages'], financial_type: 'ProjectStage', active: 'is-active') %>
-    <%= link_to t('bench.admin.projects.index.title'), { controller: 'bench/admin/projects', action: 'index' }, class: active_helper(controllers: ['projects', 'budgets', 'expenses', 'project_facilitates', 'project_indicators'], financial_type: 'Project', active: 'is-active') %>
+    <%# link_to t('bench.admin.projects.index.title'), { controller: 'bench/admin/projects', action: 'index' }, class: active_helper(controllers: ['projects', 'budgets', 'expenses', 'project_facilitates', 'project_indicators'], financial_type: 'Project', active: 'is-active') %>
     <%= link_to t('bench.admin.indicators.index.title'), { controller: 'bench/admin/indicators' }, class: active_helper(controllers: ['indicators'], active: 'is-active') %>
     <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') -%>
   <% end %>
