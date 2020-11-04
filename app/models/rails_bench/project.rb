@@ -21,7 +21,7 @@ module RailsBench::Project
 
     validates :name, presence: true
 
-    after_save :sync_facilitates_from_project_taxon, if: -> { saved_change_to_project_taxon_id? && !project_taxon_id.blank? }
+    #after_save :sync_facilitates_from_project_taxon, if: -> { saved_change_to_project_taxon_id? && !project_taxon_id.blank? }
 
     has_one_attached :logo
   end
@@ -51,8 +51,8 @@ module RailsBench::Project
 
   # project_preferences -> project_facilitates
   def sync_facilitates_from_project_taxon
-    project_taxon.project_preferences.each do |project_preference|
-      p = project_preference.slice(:facilitate_taxon_id, :facilitate_id, :provider_id)
+    project_taxon.project_taxon_preferences.each do |project_preference|
+      p = project_taxon_preference.slice(:facilitate_taxon_id, :facilitate_id, :provider_id)
       project_facilitates.find_or_create_by(p)
     end
   end
