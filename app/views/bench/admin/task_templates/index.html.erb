@@ -1,9 +1,7 @@
 <%= render partial: "#{params[:tasking_type].underscore}_bar", locals: { params[:tasking_type].underscore.to_sym => @tasking } %>
 
 <div class="box">
-  <% @task_templates.each do |task_template| %>
-    <%= render partial: 'index_item', locals: { task_template: task_template } %>
-  <% end %>
+  <%= render partial: 'index_item', collection: @task_templates, as: :task_template %>
   <div id="item_add">
     <%= link_to({ action: 'new', tasking_type: params[:tasking_type], tasking_id: params[:tasking_id] }, remote: true) do %>
       <i class="fas fa-plus"></i>

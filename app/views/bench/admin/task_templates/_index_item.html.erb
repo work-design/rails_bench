@@ -1,7 +1,10 @@
 <%= render partial: 'task_template', locals: { task_template: task_template } %>
 
 <div class="box is-shadowless py-0 pr-0">
-<% task_template.children.each do |child| %>
-  <%= render partial: 'task_template', locals: { task_template: child } %>
-<% end %>
+  <%= render partial: 'task_template', collection: task_template.children, as: :task_template %>
+  <div id="item_add">
+    <%= link_to({ action: 'new', tasking_type: params[:tasking_type], tasking_id: params[:tasking_id], parent_id: task_template.id }, remote: true) do %>
+      <i class="fas fa-plus"></i>
+    <% end if params[:tasking_type] %>
+  </div>
 </div>
