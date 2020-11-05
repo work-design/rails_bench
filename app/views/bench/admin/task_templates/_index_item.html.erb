@@ -1,6 +1,6 @@
 <%= render partial: 'task_template', locals: { task_template: task_template } %>
 
-<div class="box is-shadowless pr-0">
+<div class="box is-shadowless py-0 pr-0">
 <% task_template.children.each do |child| %>
   <%= render partial: 'task_template', locals: { task_template: child } %>
 <% end %>
