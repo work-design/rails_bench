@@ -52,7 +52,7 @@ class Bench::Me::TaskTimersController < Bench::Admin::BaseController
   end
 
   def self.local_prefixes
-    [controller_path, 'bench/admin/tasks', 'bench/admin/base']
+    [controller_path, 'bench/me/base', 'bench/admin/tasks', 'bench/admin/base']
   end
 
   private

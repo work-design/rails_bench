@@ -11,8 +11,8 @@
   <div class="column">
     <div class="tabs">
       <ul>
-        <li class="<%= active_helper(tasks: 'show', active: 'is-active') %>"><%= link_to '任务概览', { action: 'show', id: @task.id } %></li>
-        <li class="<%= active_helper(controllers: 'task_timers', active: 'is-active') %>"><%= link_to '执行日志', me_task_task_timers_path(@task) %></li>
+        <li class="<%= active_helper(tasks: 'show', active: 'is-active') %>"><%= link_to '任务概览', { controller: 'tasks', action: 'show', id: @task.id } %></li>
+        <li class="<%= active_helper(controllers: 'task_timers', active: 'is-active') %>"><%= link_to '任务日志', { controller: 'task_timers', task_id: @task.id } %></li>
       </ul>
     </div>
     <div id="task_detail">
