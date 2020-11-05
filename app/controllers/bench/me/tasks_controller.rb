@@ -5,9 +5,10 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     q_params = {
       focus: ['today', 'inbox'],
       state: ['todo', 'doing'],
+      member_id: current_member.id
     }
-    q_params.merge! member_id: current_member.id
     q_params.merge! params.permit(:focus, :state, :tasking_type, :tasking_id)
+
     @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
 
@@ -23,7 +24,7 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
 
   def show
     q_params = {
-      user_id: current_user.id
+      member_id: current_member.id
     }
     q_params.merge! params.permit(:state, :focus)
 
