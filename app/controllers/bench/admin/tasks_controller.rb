@@ -1,5 +1,4 @@
 class Bench::Admin::TasksController < Bench::Admin::BaseController
-
   before_action :set_task, only: [
     :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
   ]
@@ -9,9 +8,7 @@ class Bench::Admin::TasksController < Bench::Admin::BaseController
     q_params = {
       focus: ['today', 'inbox'],
       state: ['todo', 'doing'],
-      user_id: current_user.id
     }
-    q_params.merge! member_id: current_member.id
     q_params.merge! params.permit(:focus, :state, :tasking_type, :tasking_id)
     @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
