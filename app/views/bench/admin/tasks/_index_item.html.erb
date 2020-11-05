@@ -20,7 +20,7 @@
     <% if task.member %>
       <span class="tag"><%= task.job_title&.name %></span>
     <% end %>
-    <span style="visibility: hidden;" data-show-target="item">
+    <span data-show-target="item" style="visibility: hidden">
       <%= link_to me_task_path(task), aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', remote: true do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>

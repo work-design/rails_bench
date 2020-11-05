@@ -8,9 +8,7 @@
       <span class="has-text-success"><%= task_template.job_title&.name %></span>
       <span class="has-text-primary"><%= task_template.member&.name %></span>
     </div>
-  </div>
-  <div class="level-right">
-    <div class="level-item">
+    <div class="level-item" data-show-target="item" style="visibility: hidden">
       <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, remote: true, class: 'has-text-grey') do %>
         <i class="fas fa-pencil-alt fa-fw"></i>
       <% end %>
@@ -22,4 +20,5 @@
       <% end %>
     </div>
   </div>
+  <div class="level-right"></div>
 </div>
