@@ -4,7 +4,6 @@
   <p class="has-text-danger"><%= Project.human_attribute_name(:fund_budget) %>/<%= Project.human_attribute_name(:fund_amount) %></p>
   <p><%= Project.human_attribute_name(:expense_budget) %>/<%= Project.human_attribute_name(:expense_amount) %></p>
 </th>
-<th><%= Project.human_attribute_name(:creator_id) %></th>
 <th>
   <p><%= link_to Project.human_attribute_name(:milepost_id), { controller: 'mileposts', action: 'index' }, text: true %></p>
 </th>

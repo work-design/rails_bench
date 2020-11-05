@@ -6,11 +6,6 @@
     <p><%= link_to "#{project.budget_amount}/#{project.expense_amount}", { controller: 'bench/admin/expenses', action: 'index', project_id: project.id } %></p>
   </td>
   <td>
-    <% project.owners.each do |owner| %>
-      <p><%= owner.name %></p>
-    <% end %>
-  </td>
-  <td>
     <% project.project_mileposts.each do |project_milepost| %>
       <p><%= project_milepost.milepost_name %>: <%= project_milepost.recorded_on %></p>
     <% end %>
