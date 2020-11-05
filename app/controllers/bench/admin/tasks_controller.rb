@@ -30,7 +30,7 @@ class Bench::Admin::TasksController < Bench::Admin::BaseController
   end
 
   def create
-    @task = current_member.tasks.build task_params
+    @task = Task.new task_params
 
     if @task.save
       render 'create'
@@ -40,9 +40,7 @@ class Bench::Admin::TasksController < Bench::Admin::BaseController
   end
 
   def show
-    q_params = {
-      user_id: current_user.id
-    }
+    q_params = {}
     q_params.merge! params.permit(:state, :focus)
 
     @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
