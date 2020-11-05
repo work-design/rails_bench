@@ -1,4 +1,4 @@
-<%= form_with model: @task_template, url: admin_task_template_path(@task_template) do |f| %>
+<%= form_with model: @task_template, url: { action: 'update' } do |f| %>
   <%=
     f.collection_select(
         :job_title_id,
