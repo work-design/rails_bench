@@ -2,10 +2,8 @@
 
 <div class="columns">
   <div class="column">
-    <div class="box">
-      <% @tasks.each do |task| %>
-        <%= render partial: 'item', locals: { task: task } %>
-      <% end %>
+    <div class="box" data-controller="sortable" data-src="/me/tasks/">
+      <%= render partial: 'item', collection: @tasks, as: :task %>
     </div>
   </div>
   <div class="column">

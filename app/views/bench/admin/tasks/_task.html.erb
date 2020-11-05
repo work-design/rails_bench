@@ -13,7 +13,7 @@
       <% if task.task_timer %>
         <i class="fas fa-hourglass-start has-text-success"></i>
       <% end %>
-      <span style="visibility: hidden" data-show-target="item">
+      <span data-show-target="item" style="visibility: hidden">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
       <%= link_to({ action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, remote: true, style: 'visibility: hidden') do %>
