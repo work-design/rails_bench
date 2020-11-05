@@ -1,13 +1,7 @@
 <div class="breadcrumb has-succeeds-separator">
   <ul>
-    <li>
-      <%= link_to({ controller: 'project_taxons', action: 'index' }) do %>
-        <i></i><span><%= t('bench.admin.project_taxons.index.title') %></span>
-      <% end %>
-    </li>
-    <li>
-      <%= link_to @project_taxon.name, { controller: 'project_taxons', action: 'show', id: @project_taxon.id } %>
-    </li>
-    <li class="is-action"><%= t('.title') %></li>
+    <li><%= link_to(t('bench.admin.project_taxons.index.title'), { controller: 'project_taxons', action: 'index' }) %></li>
+    <li><%= link_to @project_taxon.name, { controller: 'project_taxons', action: 'show', id: @project_taxon.id } %></li>
+    <li class="is-active"><%= t('.title') %></li>
   </ul>
 </div>

@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 57a1c10f9e177292b7f064e50da71ecab8d06cdc
+  revision: 67c7d860ff7d3983053a0fbf6160bd67200526d0
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: fba82a61e9f801ae33ef68114a911dfc86b4aa8c
+  revision: 893678368d1b16f0a9ec27744aa6ef685c5a97bf
   specs:
     rails_org (0.1)
       rails_auth
