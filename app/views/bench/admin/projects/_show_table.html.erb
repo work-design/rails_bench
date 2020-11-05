@@ -1,10 +1,6 @@
 <tr>
-  <td class="has-text-right"><%= Project.human_attribute_name(:creator_id) %></td>
-  <td>
-    <% @project.owners.each do |owner| %>
-      <p><%= owner.name %></p>
-    <% end %>
-  </td>
+  <td class="has-text-right"><%= Project.human_attribute_name(:name) %></td>
+  <td><%= @project.name %></td>
 </tr>
 <% @project.extra.each do |k, v| %>
 <tr>

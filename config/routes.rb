@@ -99,6 +99,7 @@ Rails.application.routes.draw do
     end
     resources :tasks do
       collection do
+        get 'template' => :new_template
         get 'project/:project_id' => :project
       end
     end
