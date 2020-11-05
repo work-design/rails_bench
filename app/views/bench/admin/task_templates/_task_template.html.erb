@@ -5,17 +5,17 @@
       <span><%= task_template.title %></span>
     </div>
     <div class="level-item">
+      <%= link_to({ action: 'edit_member', id: task_template.id }, aria: { label: '负责人' }, remote: true, class: 'has-text-grey') do %>
+        <i class="fas fa-user-tie fa-fw"></i>
+      <% end %>
       <span class="has-text-success"><%= task_template.job_title&.name %></span>
       <span class="has-text-primary"><%= task_template.member&.name %></span>
     </div>
     <div class="level-item" data-show-target="item" style="visibility: hidden">
-      <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, remote: true, class: 'has-text-grey') do %>
+      <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit') }, remote: true, class: 'has-text-grey') do %>
         <i class="fas fa-pencil-alt fa-fw"></i>
       <% end %>
-      <%= link_to({ action: 'edit_member', id: task_template.id }, remote: true, class: 'has-text-grey') do %>
-        <i class="fas fa-user-tie fa-fw"></i>
-      <% end %>
-      <%= link_to({ action: 'destroy', id: task_template.id }, method: :delete, data: { confirm: t('.confirm') }, class: 'has-text-danger') do %>
+      <%= link_to({ action: 'destroy', id: task_template.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'has-text-danger') do %>
         <i class="fas fa-trash fa-fw"></i>
       <% end %>
     </div>
