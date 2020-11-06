@@ -64,4 +64,5 @@ class Bench::Admin::IndicatorsController < Bench::Admin::BaseController
     )
     p.merge! default_form_params
   end
+
 end

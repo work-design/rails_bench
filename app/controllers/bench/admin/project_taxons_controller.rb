@@ -3,7 +3,7 @@ class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
 
   def index
     q_params = {}
-    #q_params.merge! default_params
+    q_params.merge! default_params
 
     @project_taxons = ProjectTaxon.default_where(q_params).order(id: :asc).page(params[:page])
   end
@@ -55,7 +55,7 @@ class Bench::Admin::ProjectTaxonsController < Bench::Admin::BaseController
     _params = result['parameters']&.values&.map { |i|  {i['column'] => i['value'] } }
     _params = Array(_params).to_combine_h
     result['parameters'] = _params
-    result
+    result.merge! default_form_params
   end
 
 end

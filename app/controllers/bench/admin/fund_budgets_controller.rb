@@ -71,4 +71,5 @@ class Bench::Admin::FundBudgetsController < Bench::Admin::BaseController
       :note
     )
   end
+
 end
