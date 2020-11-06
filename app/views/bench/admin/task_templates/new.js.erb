@@ -1,5 +1,5 @@
 <% if params[:parent_id] %>
-document.getElementById('task_template_<%= params[:parent_id] %>').insertAdjacentHTML('afterend', '<%= j(render 'new') %>')
+document.getElementById('item_add_<%= params[:parent_id] %>').innerHTML = '<%= j(render 'new') %>'
 <% else %>
 document.getElementById('item_add').innerHTML = '<%= j(render 'new') %>'
 <% end %>
