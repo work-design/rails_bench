@@ -1,5 +1,5 @@
 class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
-  before_action :set_project_taxon, only: [:index]
+  before_action :set_project_taxon
   before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
   before_action :prepare_form, only: [:new, :edit]
 
