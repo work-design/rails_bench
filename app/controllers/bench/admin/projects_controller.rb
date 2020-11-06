@@ -75,7 +75,6 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
     p = params.fetch(:project, {}).permit(
       :name,
       :project_taxon_id,
-      :project_stage_id,
       :budget,
       :description,
       :github_repo,

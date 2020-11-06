@@ -74,7 +74,7 @@ module RailsBench::Task
   end
 
   def self_and_siblings
-    super.where(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
+    super.where(project_id: self.project_id)
   end
 
   def sync_from_member
@@ -87,7 +87,7 @@ module RailsBench::Task
   end
 
   def sync_tasking
-    self.descendants.update_all(tasking_type: self.tasking_type, tasking_id: self.tasking_id)
+    self.descendants.update_all(project_Id: self.project_id)
   end
 
   def sync_estimated_time

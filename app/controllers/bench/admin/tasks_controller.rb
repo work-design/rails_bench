@@ -1,6 +1,7 @@
 class Bench::Admin::TasksController < Bench::Admin::BaseController
   before_action :set_task, only: [
-    :show, :edit, :update, :edit_focus, :edit_assign, :reorder, :edit_done, :update_done, :rework, :destroy
+    :show, :edit, :update, :edit_focus, :edit_assign, :reorder,
+    :edit_done, :update_done, :rework, :destroy
   ]
   before_action :prepare_form, only: [:show]
 
@@ -119,15 +120,13 @@ class Bench::Admin::TasksController < Bench::Admin::BaseController
   def raw_task_params
     params.permit(
       :parent_id,
-      :tasking_type,
-      :tasking_id
+      :project_id
     )
   end
 
   def task_params
     p = params.fetch(:task, {}).permit(
-      :tasking_type,
-      :tasking_id,
+      :project_id,
       :title,
       :focus,
       :content,

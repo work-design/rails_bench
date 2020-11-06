@@ -2,6 +2,7 @@ module RailsBench::ProjectTaxon
   extend ActiveSupport::Concern
 
   included do
+    attribute :record_name, :string
     attribute :name, :string
     attribute :projects_count, :integer, default: 0
 
