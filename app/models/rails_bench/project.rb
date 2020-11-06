@@ -10,7 +10,7 @@ module RailsBench::Project
     belongs_to :project_taxon, counter_cache: true, optional: true
     belongs_to :taxon, class_name: 'ProjectTaxon', foreign_key: :project_taxon_id
     has_many :project_webhooks, dependent: :delete_all
-    has_many :tasks, as: :tasking
+    has_many :tasks, dependent: :delete_all
     has_many :project_indicators, dependent: :destroy
     has_many :project_facilitates, dependent: :destroy
     has_many :project_mileposts, dependent: :delete_all

@@ -16,7 +16,7 @@ module RailsBench::Task
     belongs_to :user, optional: true
     belongs_to :member, optional: true
     belongs_to :job_title, optional: true
-    belongs_to :tasking, polymorphic: true, optional: true
+    belongs_to :project, optional: true
     belongs_to :organ, optional: true
     belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }

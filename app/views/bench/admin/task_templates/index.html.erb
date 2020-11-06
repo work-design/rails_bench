@@ -1,4 +1,4 @@
-<%= render partial: "#{params[:tasking_type].underscore}_bar", locals: { params[:tasking_type].underscore.to_sym => @tasking } %>
+<%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
 
 <div class="box">
   <%= render partial: 'index_item', collection: @task_templates, as: :task_template %>

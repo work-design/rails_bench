@@ -13,9 +13,7 @@
       <% end if defined? LngLat %>
     </li>
     <li class="<%= active_helper(projects: ['show', 'edit'], active: 'is-active') %>">
-      <%= link_to t('bench.admin.projects.show.title'), { controller: 'bench/admin/projects', action: 'show', id: project.id } %></li>
-    <li class="<%= active_helper(task_templates: 'project', active: 'is-active') %>">
-      <%= link_to t('bench.admin.task_templates.project.title'), { controller: 'bench/admin/task_templates', action: 'project', project_id: project.id } %>
+      <%= link_to t('bench.admin.projects.show.title'), { controller: 'bench/admin/projects', action: 'show', id: project.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
       <%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %>

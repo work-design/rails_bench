@@ -34,7 +34,7 @@
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>">
-      <%= link_to({ controller: 'bench/admin/task_templates', tasking_type: 'ProjectTaxon', tasking_id: project_taxon.id }) do %>
+      <%= link_to({ controller: 'bench/admin/task_templates', project_taxon_id: project_taxon.id }) do %>
         <i class="fas fa-tasks"></i><span><%= t('bench.admin.task_templates.index.title') %></span>
       <% end %>
     </li>

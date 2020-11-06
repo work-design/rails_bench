@@ -49,7 +49,6 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :task_templates
     resources :facilitates, only: [] do
       member do
         put :order
@@ -61,6 +60,18 @@ Rails.application.routes.draw do
     resources :project_taxons do
       member do
         get :parameter
+      end
+      resources :task_templates do
+        collection do
+          get :add
+          get :members
+          get 'project/:project_id' => :project
+        end
+        member do
+          get 'member' => :edit_member
+          patch 'member' => :update_member
+          patch :reorder
+        end
       end
       resources :project_taxon_facilitates do
         collection do
@@ -103,18 +114,6 @@ Rails.application.routes.draw do
         get 'project/:project_id' => :project
       end
     end
-    resources :task_templates do
-      collection do
-        get :add
-        get :members
-        get 'project/:project_id' => :project
-      end
-      member do
-        get 'member' => :edit_member
-        patch 'member' => :update_member
-        patch :reorder
-      end
-    end
     scope path: ':financial_type/:financial_id' do
       resources :fund_budgets
       resources :fund_expenses
@@ -128,11 +127,7 @@ Rails.application.routes.draw do
     resources :indicators
     resources :facilitate_taxons, except: [:index, :show]
     resources :facilitates do
-      resources :facilitate_providers do
-        member do
-          get :task_templates
-        end
-      end
+      resources :facilitate_providers
       resources :facilitate_indicators
     end
   end

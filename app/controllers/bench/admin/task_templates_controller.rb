@@ -1,19 +1,14 @@
 class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
-  before_action :set_tasking, only: [:index]
+  before_action :set_project_taxon, only: [:index]
   before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
   before_action :prepare_form, only: [:new, :edit]
 
   def index
     q_params = {}
     q_params.merge! default_params
-    q_params.merge! params.permit(:parent_id, :tasking_type, :tasking_id)
+    q_params.merge! params.permit(:parent_id)
 
-    @task_templates = TaskTemplate.roots.includes(:children).default_where(q_params)
-  end
-
-  def project
-    @project = Project.find params[:project_id]
-    @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
+    @task_templates = @project_taxon.task_templates.roots.includes(:children).default_where(q_params)
   end
 
   def members
@@ -25,11 +20,11 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def new
-    @task_template = TaskTemplate.new(raw_task_template_params)
+    @task_template = @project_taxon.task_templates.build(raw_task_template_params)
   end
 
   def create
-    @task_template = TaskTemplate.new(task_template_params)
+    @task_template = @project_taxon.task_templates.build(task_template_params)
 
     unless @task_template.save
       render :new, locals: { model: @task_template }, status: :unprocessable_entity
@@ -76,11 +71,8 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   private
-  def set_tasking
-    case params[:tasking_type]
-    when 'ProjectTaxon'
-      @tasking = ProjectTaxon.find params[:tasking_id]
-    end
+  def set_project_taxon
+    @project_taxon = ProjectTaxon.find params[:project_taxon_id]
   end
 
   def set_task_template
