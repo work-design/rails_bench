@@ -44,9 +44,9 @@ module RailsBench::Task
     before_validation :sync_from_member, if: -> { member_id_changed? }
     before_save :check_done, if: -> { done_at_changed? && done_at.present? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
-    after_save :sync_tasking, if: -> { saved_change_to_tasking_type? || saved_change_to_tasking_id? }
+    after_save :sync_project, if: -> { saved_change_to_project_id? }
 
-    acts_as_list scope: [:parent_id, :tasking_type, :tasking_id]
+    acts_as_list scope: [:parent_id, :project_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
   end
 
@@ -55,12 +55,11 @@ module RailsBench::Task
   end
 
   def task_templates
-    TaskTemplate.roots.where(tasking_type: tasking_type, tasking_id: tasking_id).or(TaskTemplate.roots.where(tasking_type: tasking.taxon.class_name, tasking_id: tasking.taxon.id))
+    project_taxon.task_templates.roots
   end
 
   def sync_from_parent
-    self.tasking_type = tasking_type.presence || parent.tasking_type
-    self.tasking_id ||= parent.tasking_id
+    self.project_id ||= parent.project_id
     self.member_id ||= parent.member_id
   end
 
@@ -86,8 +85,8 @@ module RailsBench::Task
     end
   end
 
-  def sync_tasking
-    self.descendants.update_all(project_Id: self.project_id)
+  def sync_project
+    self.descendants.update_all(project_id: self.project_id)
   end
 
   def sync_estimated_time
