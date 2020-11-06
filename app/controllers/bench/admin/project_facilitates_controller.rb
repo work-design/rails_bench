@@ -42,7 +42,7 @@ class Bench::Admin::ProjectFacilitatesController < Bench::Admin::BaseController
     @project_facilitate.destroy
   end
 
-  # slect options
+  # select options
   def facilitates
     q_params = {}
     q_params.merge! facilitate_taxon_id: project_facilitate_params[:facilitate_taxon_id]

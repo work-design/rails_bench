@@ -23,27 +23,10 @@ module RailsBench::Project
     has_one_attached :logo
   end
 
-  def get_github_repo
-    Rails.cache.fetch "projects/#{self.id}/github_repo" do
-      creator.user.github_repos(self.github_repo)
+  def init_tasks
+    project_taxon.task_templates.each do |task_template|
+      tasks.build(task_template_id: task_template.id)
     end
-  end
-
-  def github_hook_add
-    creator.user.github_client.create_hook(
-      get_github_repo[:full_name],
-      'web',
-      { url: github_hook_url, content_type: 'json'},
-      { events: ['push', 'pull_request'], active: true }
-    )
-  end
-
-  def duties
-    JobTitle.where(id: self.project_members.distinct(:job_title_id).pluck(:job_title_id))
-  end
-
-  def github_hook_url
-    'http://wechat.one.work/projects/' + self.id.to_s + '/github'
   end
 
   # project_preferences -> project_facilitates
