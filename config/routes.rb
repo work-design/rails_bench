@@ -88,6 +88,9 @@ Rails.application.routes.draw do
     resources :project_stages
     resources :project_states
     resources :projects do
+      member do
+        get :sync
+      end
       resources :budgets do
         collection do
           get :add_item
@@ -113,6 +116,11 @@ Rails.application.routes.draw do
       collection do
         get 'template' => :new_template
         get 'project/:project_id' => :project
+      end
+      resources :task_timers do
+        member do
+          patch :pause
+        end
       end
     end
     scope path: ':financial_type/:financial_id' do

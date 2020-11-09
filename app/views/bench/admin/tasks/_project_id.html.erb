@@ -1,9 +1,9 @@
-<% if @task.root? && @task.tasking_id.nil? %>
+<% if @task.root? && @task.project_id.nil? %>
 <tr id="task_edit_project_id">
   <td>所属项目: </td>
-  <td><%= @task.tasking&.name %></td>
+  <td><%= @task.project&.name %></td>
   <td>
-    <%= link_to edit_me_task_path(@task, item: 'project_id'), remote: true do %>
+    <%= link_to({ action: 'edit', id: @task.id, item: 'project_id' }, remote: true) do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
   </td>

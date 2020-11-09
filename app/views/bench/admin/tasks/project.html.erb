@@ -11,6 +11,9 @@
       <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }, remote: true) do %>
         <i class="fas fa-plus fa-fw"></i>
       <% end %>
+      <%= link_to({ controller: 'projects', action: 'sync', id: @project.id }, aria: { label: t('.new') }, remote: true) do %>
+        <i class="fas fa-sync fa-fw"></i>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,6 +1,6 @@
 class Bench::Admin::ProjectsController < Bench::Admin::BaseController
   before_action :set_project_taxon, only: [:index]
-  before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :destroy]
+  before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :sync, :destroy]
   before_action :prepare_form, only: [:index, :new, :edit]
 
   def index
@@ -51,6 +51,11 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
     else
       render :edit, locals: { model: @project }, status: :unprocessable_entity
     end
+  end
+
+  def sync
+    @project.init_tasks
+    @project.save
   end
 
   def destroy

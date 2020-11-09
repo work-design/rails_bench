@@ -66,10 +66,10 @@ module RailsBench::Task
 
   def sync_from_task_template
     self.title ||= task_template.title
-    self.organ_id ||= task_templates.organ_id
+    self.organ_id ||= task_template.organ_id
     self.department_id ||= task_template.department_id
     self.job_title_id ||= task_template.job_title_id
-    self.member_id = self.member_id || task_template.member_id || parent.member_id
+    self.member_id = self.member_id || task_template.member_id || parent&.member_id
     task_template.children.each do |template_child|
       self.children.build(task_template_id: template_child.id)
     end

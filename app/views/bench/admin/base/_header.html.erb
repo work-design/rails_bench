@@ -1,11 +1,9 @@
-<% if @task.tasking_type == 'Project' %>
-  <%= render partial: 'project_bar', locals: { project: @task.tasking } %>
-<% end %>
+<%= render partial: 'project_bar', locals: { project: @task.project } %>
 
 <div class="breadcrumb">
   <ul>
     <% @task.ancestors.each do |ancestor| %>
-      <li><%= link_to ancestor.title, me_task_path(ancestor.id) %></li>
+      <li><%= link_to ancestor.title, { controller: 'tasks', action: 'show', id: ancestor.id } %></li>
     <% end %>
     <li class="is-active"><%= @task.title %></li>
   </ul>
