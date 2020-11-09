@@ -4,7 +4,7 @@
 
 <div class="tabs">
   <ul>
-    <li class="<%= active_helper(facilitate_providers: ['task_templates'], active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.task_templates.title'), task_templates_admin_facilitate_provider_path(@facilitate_provider) %></li>
-    <li class="<%= active_helper(facilitate_providers: 'show', active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.show.title'), admin_facilitate_provider_path(@facilitate_provider) %></li>
+    <li class="<%= active_helper(facilitate_providers: ['task_templates'], active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.task_templates.title'), { action: 'task_templates', id: @facilitate_provider } %></li>
+    <li class="<%= active_helper(facilitate_providers: 'show', active: 'is-active') %>"><%= link_to t('bench.admin.facilitate_providers.show.title'), { action: 'show', id: @facilitate_provider } %></li>
   </ul>
 </div>
