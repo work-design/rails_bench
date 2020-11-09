@@ -1,0 +1,16 @@
+<%= render partial: 'project_bar', locals: { project: @project } %>
+
+<%= render 'filter_table' %>
+
+<div data-controller="sortable" data-src="/me/tasks/">
+  <% @tasks.each do |task| %>
+    <%= render partial: 'task', locals: { task: task } %>
+  <% end %>
+  <div id="item_add">
+    <% if 'done' != params[:state] %>
+      <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }, remote: true) do %>
+        <i class="fas fa-plus fa-fw"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
