@@ -85,18 +85,15 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
 
   def raw_task_template_params
     params.permit(
-      :parent_id,
-      :tasking_type,
-      :tasking_id
+      :parent_id
     )
   end
 
   def task_template_params
     p = params.fetch(:task_template, {}).permit(
       :title,
-      :tasking_type,
-      :tasking_id,
       :parent_id,
+      :organ_id,
       :job_title_id,
       :member_id,
       :color

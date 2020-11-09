@@ -1,7 +1,5 @@
 <%= form_with theme: nil, model: @task_template, url: { action: 'create' }, data: { controller: 'input' }, class: 'field is-horizontal' do |f| %>
   <div class="field-body">
-    <%= f.hidden_field :tasking_type %>
-    <%= f.hidden_field :tasking_id %>
     <%= f.hidden_field :parent_id %>
     <div class="field">
       <%= f.text_field :title, required: 'required', class: 'input' %>
