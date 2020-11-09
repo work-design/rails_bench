@@ -12,11 +12,13 @@
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
     </div>
+    <div class="level-item">
+      <% if task.project %>
+        <span class="tag is-link"><%= task.project.name %></span>
+      <% end %>
+    </div>
   </div>
   <div class="level-right">
-    <% if task.project %>
-      <span class="tag"><%= task.project.name %></span>
-    <% end %>
     <% if task.member %>
       <span class="tag"><%= task.job_title&.name %></span>
     <% end %>
