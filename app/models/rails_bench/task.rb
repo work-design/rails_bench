@@ -14,10 +14,11 @@ module RailsBench::Task
     attribute :start_at, :datetime
 
     belongs_to :user, optional: true
-    belongs_to :member, optional: true
-    belongs_to :job_title, optional: true
-    belongs_to :project, optional: true
     belongs_to :organ, optional: true
+    belongs_to :department, optional: true
+    belongs_to :job_title, optional: true
+    belongs_to :member, optional: true
+    belongs_to :project, optional: true
     belongs_to :task_template, optional: true
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
@@ -65,6 +66,8 @@ module RailsBench::Task
 
   def sync_from_task_template
     self.title ||= task_template.title
+    self.organ_id ||= task_templates.organ_id
+    self.department_id ||= task_template.department_id
     self.job_title_id ||= task_template.job_title_id
     self.member_id = self.member_id || task_template.member_id || parent.member_id
     task_template.children.each do |template_child|

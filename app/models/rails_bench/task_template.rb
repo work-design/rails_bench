@@ -9,6 +9,7 @@ module RailsBench::TaskTemplate
 
     belongs_to :project_taxon, optional: true
     belongs_to :organ, optional: true
+    belongs_to :department, optional: true
     belongs_to :job_title, optional: true
     belongs_to :member, optional: true
 

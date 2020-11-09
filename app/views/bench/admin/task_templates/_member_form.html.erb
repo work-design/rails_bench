@@ -1,17 +1,33 @@
 <%= form_with model: @task_template, url: { action: 'update' } do |f| %>
   <%=
     f.collection_select(
-        :job_title_id,
-        @job_titles,
-        :id, :name, { include_blank: true },
-        { data: { controller: 'typer', url: members_admin_project_taxon_task_templates_path(@project_taxon) } }
+      :organ_id,
+      @organs,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: departments_admin_project_taxon_task_templates_path(@project_taxon) } }
     )
   %>
   <%=
     f.collection_select(
-        :member_id,
-        @members,
-        :id, :name, include_blank: true
+      :department_id,
+      @departments,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: job_titles_admin_project_taxon_task_templates_path(@project_taxon) } }
+    )
+  %>
+  <%=
+    f.collection_select(
+      :job_title_id,
+      @job_titles,
+      :id, :name, { include_blank: true },
+      { data: { controller: 'typer', url: members_admin_project_taxon_task_templates_path(@project_taxon) } }
+    )
+  %>
+  <%=
+    f.collection_select(
+      :member_id,
+      @members,
+      :id, :name, include_blank: true
     )
   %>
   <%= f.color_field :color %>

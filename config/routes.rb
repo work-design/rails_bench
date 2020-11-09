@@ -64,8 +64,9 @@ Rails.application.routes.draw do
       resources :task_templates do
         collection do
           get :add
+          get :departments
+          get :job_titles
           get :members
-          get 'project/:project_id' => :project
         end
         member do
           get 'member' => :edit_member

@@ -11,11 +11,22 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     @task_templates = @project_taxon.task_templates.roots.includes(:children).default_where(q_params)
   end
 
-  def members
+  def departments
+    @departments = Department.where(organ_id: task_template_params[:organ_id])
+  end
+
+  def job_titles
     q_params = {
       'member_departments.job_title_id': task_template_params[:job_title_id]
     }
     q_params.merge! default_params
+    @members = JobTitle.default_where(q_params)
+  end
+
+  def members
+    q_params = {
+      'member_departments.job_title_id': task_template_params[:job_title_id]
+    }
     @members = Member.default_where(q_params)
   end
 
@@ -38,6 +49,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def edit_member
+    @organs = Organ.all
     @job_titles = JobTitle.default_where(default_params)
     @members = Member.none
   end
@@ -94,6 +106,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
       :title,
       :parent_id,
       :organ_id,
+      :department_id,
       :job_title_id,
       :member_id,
       :color
