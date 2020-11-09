@@ -7,9 +7,9 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
       state: ['todo', 'doing'],
       member_id: current_member.id
     }
-    q_params.merge! params.permit(:focus, :state, :tasking_type, :tasking_id)
+    q_params.merge! params.permit(:focus, :state, :project_id)
 
-    @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
+    @tasks = Task.includes(:task_timers).default_where(q_params).page(params[:page])
   end
 
   def project
@@ -19,7 +19,7 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     q_params.merge! params.permit(:state)
 
     @project = Project.find params[:project_id]
-    @tasks = @project.tasks.roots.default_where(q_params)
+    @tasks = @project.tasks.default_where(q_params)
   end
 
   def create

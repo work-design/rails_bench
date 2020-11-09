@@ -43,11 +43,12 @@ module RailsBench::Task
     scope :default, -> { where(state: ['todo', 'doing']) }
 
     before_validation :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
-    before_validation :sync_from_task_template, if: -> { task_template_id_changed? && task_template }
     before_validation :sync_from_member, if: -> { member_id_changed? }
+    before_validation :sync_infos_from_template, if: -> { task_template_id_changed? && task_template }
     before_save :check_done, if: -> { done_at_changed? && done_at.present? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_project, if: -> { saved_change_to_project_id? }
+    #after_save_commit :sync_children_from_template, if: -> { saved_change_to_task_template_id? && task_template }
 
     acts_as_list scope: [:parent_id, :project_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
@@ -70,12 +71,18 @@ module RailsBench::Task
     self.member_id ||= parent.member_id
   end
 
-  def sync_from_task_template
-    self.title ||= task_template.title
-    self.organ_id ||= task_template.organ_id
-    self.department_id ||= task_template.department_id
-    self.job_title_id ||= task_template.job_title_id
+  def sync_infos_from_template
+    self.title = task_template.title
+    self.organ_id = task_template.organ_id
+    self.department_id = task_template.department_id
+    self.job_title_id = task_template.job_title_id
     self.member_id = self.member_id || task_template.member_id || parent&.member_id
+    task_template.children.each do |template_child|
+      self.children.build(task_template_id: template_child.id)
+    end
+  end
+
+  def sync_children_from_template
     task_template.children.each do |template_child|
       self.children.build(task_template_id: template_child.id)
     end
