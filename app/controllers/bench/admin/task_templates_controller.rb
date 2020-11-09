@@ -49,8 +49,11 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def edit_member
+    @task_template.organ = current_organ
+
     @organs = Organ.all
-    @job_titles = JobTitle.default_where(default_params)
+    @departments = Department.default_where(default_params)
+    @job_titles = JobTitle.none
     @members = Member.none
   end
 
