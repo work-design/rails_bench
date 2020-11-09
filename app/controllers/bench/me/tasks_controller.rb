@@ -12,6 +12,16 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     @tasks = Task.includes(:task_timers).roots.default_where(q_params).page(params[:page])
   end
 
+  def project
+    q_params = {
+      member_id: current_member.id
+    }
+    q_params.merge! params.permit(:state)
+
+    @project = Project.find params[:project_id]
+    @tasks = @project.tasks.roots.default_where(q_params)
+  end
+
   def create
     @task = current_member.tasks.build task_params
 
@@ -30,5 +40,6 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
 
     @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
   end
+
 
 end
