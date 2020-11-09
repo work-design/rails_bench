@@ -12,15 +12,13 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def departments
-    @departments = Department.where(organ_id: task_template_params[:organ_id])
+    # todo remove roots
+    @departments = Department.roots.where(organ_id: task_template_params[:organ_id])
   end
 
   def job_titles
-    q_params = {
-      'member_departments.job_title_id': task_template_params[:job_title_id]
-    }
-    q_params.merge! default_params
-    @members = JobTitle.default_where(q_params)
+    # todo remove xx
+    @job_titles = JobTitle.default_where(department_root_id: task_template_params[:department_id])
   end
 
   def members
@@ -105,7 +103,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
   end
 
   def task_template_params
-    p = params.fetch(:task_template, {}).permit(
+    params.fetch(:task_template, {}).permit(
       :title,
       :parent_id,
       :organ_id,
@@ -114,7 +112,6 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
       :member_id,
       :color
     )
-    p.merge! default_form_params
   end
 
 end
