@@ -12,6 +12,7 @@ module RailsBench::Task
     attribute :done_at, :datetime
     attribute :children_count, :integer, default: 0
     attribute :start_at, :datetime
+    attribute :serial_number, :string, comment: 'Task Template test repeat'
 
     belongs_to :user, optional: true
     belongs_to :organ, optional: true
@@ -20,6 +21,7 @@ module RailsBench::Task
     belongs_to :member, optional: true
     belongs_to :project, optional: true
     belongs_to :task_template, optional: true
+
     has_one :task_timer, -> { where(finish_at: nil) }
     has_many :task_timers
 
@@ -57,6 +59,10 @@ module RailsBench::Task
 
   def task_templates
     project_taxon.task_templates.roots
+  end
+
+  def template_parent
+    self.class.find_by(task_template_id: self.task_template.parent_id, serial_number: self.serial_number)
   end
 
   def sync_from_parent

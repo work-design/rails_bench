@@ -24,8 +24,9 @@ module RailsBench::Project
   end
 
   def init_tasks
+    serial_number = UidHelper.usec_uuid('T')
     project_taxon.task_templates.each do |task_template|
-      tasks.build(task_template_id: task_template.id)
+      tasks.build(task_template_id: task_template.id, serial_number: serial_number)
     end
   end
 

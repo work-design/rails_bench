@@ -1,5 +1,4 @@
-class Bench::Me::TaskTimersController < Bench::Admin::BaseController
-  include BenchController::Me
+class Bench::Admin::TaskTimersController < Bench::Admin::BaseController
   before_action :set_task
   before_action :set_task_timer, only: [:show, :edit, :update, :pause, :destroy]
 
@@ -52,7 +51,7 @@ class Bench::Me::TaskTimersController < Bench::Admin::BaseController
   end
 
   def self.local_prefixes
-    [controller_path, 'bench/me/base', 'bench/admin/tasks', 'bench/admin/base']
+    [controller_path, 'bench/admin/tasks']
   end
 
   private
