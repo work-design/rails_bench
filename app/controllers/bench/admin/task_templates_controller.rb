@@ -8,7 +8,7 @@ class Bench::Admin::TaskTemplatesController < Bench::Admin::BaseController
     q_params.merge! default_params
     q_params.merge! params.permit(:parent_id)
 
-    @task_templates = @project_taxon.task_templates.roots.includes(:children).default_where(q_params)
+    @task_templates = @project_taxon.task_templates.roots.includes(:children).order(position: :asc).default_where(q_params)
   end
 
   def departments
