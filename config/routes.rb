@@ -134,7 +134,7 @@ Rails.application.routes.draw do
       end
     end
     resources :indicators
-    resources :facilitate_taxons, except: [:index, :show]
+    resources :facilitate_taxons
     resources :facilitates do
       resources :facilitate_providers
       resources :facilitate_indicators

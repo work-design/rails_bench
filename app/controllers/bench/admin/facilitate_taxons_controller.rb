@@ -1,6 +1,13 @@
 class Bench::Admin::FacilitateTaxonsController < Bench::Admin::BaseController
   before_action :set_facilitate_taxon, only: [:edit, :update, :destroy]
 
+  def index
+    q_params = {}
+    q_params.merge! default_params
+
+    @facilitate_taxons = FacilitateTaxon.default_where(q_params).page(params[:page])
+  end
+
   def new
     @facilitate_taxon = FacilitateTaxon.new
   end
