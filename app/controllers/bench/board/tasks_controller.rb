@@ -1,4 +1,4 @@
-class Bench::Board::TasksController < Bench::Board::BaseController
+class Bench::Board::TasksController < Bench::Me::TasksController
   before_action :set_task, only: [
     :show,
     :edit,
@@ -138,4 +138,9 @@ class Bench::Board::TasksController < Bench::Board::BaseController
       :estimated_time
     )
   end
+
+  def self.local_prefixes
+    [controller_path, 'bench/board/base']
+  end
+
 end
