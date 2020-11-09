@@ -7,21 +7,21 @@
       <% if task.task_timer %>
         <i class="green hourglass start icon"></i>
       <% end %>
-      <%= link_to task.title, me_task_path(task) %>
+      <%= link_to task.title, { action: 'show', id: task.id } %>
       <span style="visibility: hidden" data-show-target="item">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
     </div>
   </div>
   <div class="level-right">
-    <% if task.tasking %>
-      <span class="tag"><%= task.tasking.name %></span>
+    <% if task.project %>
+      <span class="tag"><%= task.project.name %></span>
     <% end %>
     <% if task.member %>
       <span class="tag"><%= task.job_title&.name %></span>
     <% end %>
     <span data-show-target="item" style="visibility: hidden">
-      <%= link_to me_task_path(task), aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', remote: true do %>
+      <%= link_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', remote: true) do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>
