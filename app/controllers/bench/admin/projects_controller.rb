@@ -1,6 +1,6 @@
 class Bench::Admin::ProjectsController < Bench::Admin::BaseController
-  before_action :set_project_taxon, only: [:index]
   before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :sync, :destroy]
+  before_action :set_project_taxon, only: [:index, :show]
   before_action :prepare_form, only: [:index, :new, :edit]
 
   def index
@@ -63,12 +63,16 @@ class Bench::Admin::ProjectsController < Bench::Admin::BaseController
   end
 
   private
-  def set_project_taxon
-    @project_taxon = ProjectTaxon.find params[:project_taxon_id]
-  end
-
   def set_project
     @project = Project.find(params[:id])
+  end
+
+  def set_project_taxon
+    if params[:project_taxon_id]
+      @project_taxon = ProjectTaxon.find params[:project_taxon_id]
+    elsif @project
+      @project_taxon = @project.project_taxon
+    end
   end
 
   def prepare_form
