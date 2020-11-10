@@ -44,7 +44,7 @@ module RailsBench::Task
 
     before_validation :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
     before_validation :sync_from_member, if: -> { member_id_changed? }
-    before_validation :sync_infos_from_template, if: -> { task_template_id_changed? && task_template }
+    before_save :sync_infos_from_template, if: -> { task_template_id_changed? && task_template }
     before_save :check_done, if: -> { done_at_changed? && done_at.present? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_project, if: -> { saved_change_to_project_id? }
