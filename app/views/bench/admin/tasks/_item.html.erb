@@ -1,6 +1,6 @@
 <%= render partial: 'task', locals: { task: task } %>
 <% if task.id == @task.id %>
-  <div class="box is-shadowless py-0 pr-0" data-controller="sortable" data-src="/me/tasks/">
+  <div class="box is-shadowless py-0 pr-0 mb-0" data-controller="sortable" data-src="/me/tasks/">
     <%= render partial: 'task', collection: task.children, as: :task %>
     <div id="item_add"></div>
   </div>
