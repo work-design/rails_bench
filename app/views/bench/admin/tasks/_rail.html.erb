@@ -18,6 +18,6 @@
   <i class="fas fa-play fa-fw has-text-primary"></i>
 <% end if task.today? %>
 
-<%= link_to({ action: 'new', parent_id: @task.id }, remote: true) do %>
+<%= link_to({ action: 'new', parent_id: task.id }, remote: true) do %>
   <i class="fas fa-plus"></i>
 <% end %>
