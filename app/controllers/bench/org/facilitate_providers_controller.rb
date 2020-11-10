@@ -1,11 +1,11 @@
-class Provider::Admin::FacilitateProvidersController < Bench::Admin::BaseController
+class Bench::Org::FacilitateProvidersController < Bench::Admin::BaseController
   before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 
   def index
     q_params = {}
     q_params.merge! default_params
 
-    @facilitate_providers = FacilitateProvider.default_where(q_params)
+    @facilitate_providers = FacilitateProvider.default_where(q_params).page(params[:page])
   end
 
   def new

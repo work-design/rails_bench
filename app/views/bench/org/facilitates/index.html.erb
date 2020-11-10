@@ -1,0 +1,10 @@
+<%= render layout: 'index_table', locals: { cache_key: Facilitate.column_names.hash } do %>
+  <% FacilitateTaxon.where('facilitates_count > 0').each do |taxon| %>
+    <tr>
+      <td rowspan="<%= taxon.facilitates_count + 1 %>"><%= taxon.name %></td>
+    </tr>
+    <%= render partial: 'facilitate', collection: taxon.facilitates, as: :facilitate %>
+  <% end %>
+<% end %>
+
+<%= paginate @facilitates %>
