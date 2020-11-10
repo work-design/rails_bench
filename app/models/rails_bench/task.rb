@@ -48,7 +48,6 @@ module RailsBench::Task
     before_save :check_done, if: -> { done_at_changed? && done_at.present? }
     after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
     after_save :sync_project, if: -> { saved_change_to_project_id? }
-    #after_save_commit :sync_children_from_template, if: -> { saved_change_to_task_template_id? && task_template }
 
     acts_as_list scope: [:parent_id, :project_id]
     acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
@@ -77,12 +76,6 @@ module RailsBench::Task
     self.department_id = task_template.department_id
     self.job_title_id = task_template.job_title_id
     self.member_id = self.member_id || task_template.member_id || parent&.member_id
-    task_template.children.each do |template_child|
-      self.children.build(task_template_id: template_child.id)
-    end
-  end
-
-  def sync_children_from_template
     task_template.children.each do |template_child|
       self.children.build(task_template_id: template_child.id)
     end
