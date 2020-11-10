@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div class="level-item">
-    <%= form_with theme: nil, model: [:me, @task], html: { class: 'form is-horizontal' } do |f| %>
+    <%= form_with theme: nil, model: @task, url: { action: 'update' }, html: { class: 'form is-horizontal' } do |f| %>
       <div class="field-body">
         <div class="field">
           <%= f.text_field :title, class: 'input' %>

@@ -1,8 +1,7 @@
 <div class="level is-underline">
-  <%= form_with model: @task, url: me_tasks_path, wrap: { all: false } do |f| %>
+  <%= form_with model: @task, url: { action: 'update' }, wrap: { all: false } do |f| %>
     <%= f.hidden_field :parent_id %>
-    <%= f.hidden_field :tasking_type %>
-    <%= f.hidden_field :tasking_id %>
+    <%= f.hidden_field :project_id %>
     <div class="field-body">
       <%= f.collection_select :task_template_id, @task.task_templates, :id, :title, label: false, include_blank: true, wrap: { select: 'field is-narrow > control > select is-fullwidth' } %>
       <%= f.submit nil, wrap: { submit: nil }, origin: { offset: false } %>
