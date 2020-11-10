@@ -13,9 +13,7 @@
       </span>
     </div>
     <div class="level-item">
-      <% if task.project %>
-        <span class="tag is-link"><%= task.project.name %></span>
-      <% end %>
+      <time class="has-text-grey"><%= task.created_at.to_s(:rfc822) %></time>
     </div>
   </div>
   <div class="level-right">

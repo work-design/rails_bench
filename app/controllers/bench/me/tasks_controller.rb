@@ -9,7 +9,7 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     }
     q_params.merge! params.permit(:focus, :state, :project_id)
 
-    @tasks = Task.includes(:task_timers).default_where(q_params).page(params[:page])
+    @tasks = Task.includes(:project, :task_timers).default_where(q_params).page(params[:page])
   end
 
   def project
