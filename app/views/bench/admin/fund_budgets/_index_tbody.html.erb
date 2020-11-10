@@ -1,0 +1,14 @@
+<tr>
+  <td><%= fund_budget.fund.name %></td>
+  <td><%# fund_budget.budget_amount %></td>
+  <td><%= link_to fund_budget.amount, { controller: 'bench/admin/expenses', action: 'index', project_id: params[:financial_id], fund_id: fund_budget.fund_id } %></td>
+  <td><%= fund_budget.note %></td>
+  <td>
+    <%= link_to({ action: 'edit', financial_type: params[:financial_type], financial_id: params[:financial_id], id: fund_budget.id }, aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-pencil-alt"></i>
+    <% end %>
+    <%= link_to({ action: 'destroy', financial_type: params[:financial_type], financial_id: params[:financial_id], id: fund_budget.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+      <i class="fas fa-trash"></i>
+    <% end %>
+  </td>
+</tr>
