@@ -68,6 +68,8 @@ zh:
       tasks:
         project:
           title: 待办
+        rail:
+          done: 完成/移交
       task_templates:
         index:
           title: 工作流

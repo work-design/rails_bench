@@ -82,7 +82,7 @@ module RailsBench::Task
   end
 
   def self_and_siblings
-    super.where(project_id: self.project_id)
+    super.unscoped.where(parent_id: self.parent_id, project_id: self.project_id)
   end
 
   def sync_from_member
