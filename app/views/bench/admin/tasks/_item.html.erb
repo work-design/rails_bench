@@ -2,14 +2,6 @@
 <% if task.id == @task.id %>
   <div class="box is-shadowless py-0 pr-0" data-controller="sortable" data-src="/me/tasks/">
     <%= render partial: 'task', collection: task.children, as: :task %>
-    <div id="item_add" class="level is-underline">
-      <div class="level-left pl-1">
-        <div class="level-item pl-1">
-          <%= link_to({ action: 'new', parent_id: @task.id }, remote: true) do %>
-            <i class="fas fa-plus"></i>
-          <% end %>
-        </div>
-      </div>
-    </div>
+    <div id="item_add"></div>
   </div>
 <% end %>

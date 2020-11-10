@@ -17,3 +17,7 @@
 <%= link_to me_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}", remote: true do %>
   <i class="fas fa-play fa-fw has-text-primary"></i>
 <% end if task.today? %>
+
+<%= link_to({ action: 'new', parent_id: @task.id }, remote: true) do %>
+  <i class="fas fa-plus"></i>
+<% end %>
