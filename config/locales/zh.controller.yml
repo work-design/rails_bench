@@ -107,8 +107,8 @@ zh:
       task_timers:
         index:
           title: 工作日志
-    panel:
+    org:
       title: 工作管理
       facilitate_providers:
         index:
-          title: 供应商管理
+          title: 投标
