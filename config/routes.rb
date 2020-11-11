@@ -18,11 +18,11 @@ Rails.application.routes.draw do
     resources :tasks do
       collection do
         get 'template' => :new_template
-        get 'project/:project_id' => :project
       end
       member do
         patch :close
         patch :reorder
+        get :project
         get 'done' => :edit_done
         patch 'done' => :update_done
         patch :rework

@@ -3,9 +3,7 @@
 <%= render 'filter_table' %>
 
 <div data-controller="sortable" data-src="/me/tasks/">
-  <% @tasks.each do |task| %>
-    <%= render partial: 'task', locals: { task: task } %>
-  <% end %>
+  <%= render partial: 'task', collection: @tasks, as: :task %>
   <div id="item_add">
     <% if 'done' != params[:state] %>
       <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }, remote: true) do %>

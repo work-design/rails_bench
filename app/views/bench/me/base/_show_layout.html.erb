@@ -1,0 +1,34 @@
+<div class="breadcrumb">
+  <ul>
+    <% @task.ancestors.each do |ancestor| %>
+      <li><%= link_to ancestor.title, { controller: 'tasks', action: 'show', id: ancestor.id } %></li>
+    <% end %>
+    <li class="is-active"><%= @task.title %></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <div class="column">
+    <div class="box" data-controller="sortable" data-src="/me/tasks/">
+      <%= render partial: 'item', collection: @tasks, as: :task %>
+    </div>
+  </div>
+  <div class="column">
+    <div class="tabs">
+      <ul>
+        <li class="<%= active_helper(tasks: 'show', active: 'is-active') %>">
+          <%= link_to '任务概览', { controller: 'tasks', action: 'show', id: @task.id } %>
+        </li>
+        <li class="<%= active_helper(controllers: 'task_timers', active: 'is-active') %>">
+          <%= link_to '任务日志', { controller: 'task_timers', task_id: @task.id } %>
+        </li>
+        <li class="<%= active_helper(tasks: 'project', active: 'is-active') %>">
+          <%= link_to t('bench.me.projects.show.title'), { controller: 'tasks', action: 'project', id: @task.id } %>
+        </li>
+      </ul>
+    </div>
+    <div id="task_detail">
+      <%= yield %>
+    </div>
+  </div>
+</div>

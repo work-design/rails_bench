@@ -1,17 +1,7 @@
-<%= render partial: 'project_bar', locals: { project: @project } %>
-
-<%= render 'filter_table' %>
-
-<div data-controller="sortable" data-src="/me/tasks/">
-  <% @tasks.group_by(&:project).each do |project, tasks| %>
-    <%= render partial: 'project', locals: { project: project } %>
-    <%= render partial: 'task', collection: tasks, as: :task %>
-  <% end %>
-  <div id="item_add">
-    <% if 'done' != params[:state] %>
-      <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }, remote: true) do %>
-        <i class="fas fa-plus fa-fw"></i>
-      <% end %>
-    <% end %>
-  </div>
-</div>
+<%= render layout: 'show_layout' do %>
+  <table class="table is-fullwidth">
+    <tbody>
+      <%= render 'project_table' %>
+    </tbody>
+  </table>
+<% end %>

@@ -1,4 +1,5 @@
 class Bench::Me::TasksController < Bench::Admin::TasksController
+  before_action :set_task, only: [:project, :show]
   include BenchController::Me
 
   def index
@@ -10,16 +11,6 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     q_params.merge! params.permit(:focus, :state, :project_id)
 
     @tasks = Task.includes(:project, :task_timers).default_where(q_params).page(params[:page])
-  end
-
-  def project
-    q_params = {
-      member_id: current_member.id
-    }
-    q_params.merge! params.permit(:state)
-
-    @project = Project.find params[:project_id]
-    @tasks = @project.tasks.default_where(q_params)
   end
 
   def create
@@ -41,5 +32,13 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
   end
 
+  def project
+    q_params = {
+      member_id: current_member.id
+    }
+    q_params.merge! params.permit(:state)
+
+    @tasks = @task.self_and_siblings.default_where(q_params).page(params[:page])
+  end
 
 end
