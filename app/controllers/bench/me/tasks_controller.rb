@@ -41,4 +41,9 @@ class Bench::Me::TasksController < Bench::Admin::TasksController
     @tasks = @task.self_and_siblings.default_where(q_params).page(params[:page])
   end
 
+  private
+  def set_task
+    @task = Task.find params[:task_id]
+  end
+
 end
