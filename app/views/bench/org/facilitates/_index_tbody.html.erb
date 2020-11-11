@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <%= image_tag facilitate.logo, size: 'image is-32' if facilitate.logo.attached? %>
+    <%= facilitate.name %>
+  </td>
+  <td><%= facilitate.facilitate_taxon.name %></td>
+  <td><%= facilitate.description %></td>
+  <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
+  <td></td>
+  <td>
+    <%= link_to({ controller: 'facilitate_providers', action: 'index', facilitate_id: facilitate.id }, { class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-search"></i><span><%= t('bench.org.facilitate_providers.index.title') %></span>
+    <% end %>
+    <%= link_to({ action: 'show', id: facilitate.id }, { aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' }) do %>
+      <i class="fas fa-info"></i>
+    <% end %>
+  </td>
+</tr>

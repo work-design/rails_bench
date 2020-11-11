@@ -141,10 +141,9 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :provider, module: 'provider/admin', as: :provider do
-    resources :facilitates do
-      resources :facilitate_providers
-    end
+  scope :org, module: 'bench/org', as: :org do
+    resources :facilitates
+    resources :facilitate_providers
   end
 
 end

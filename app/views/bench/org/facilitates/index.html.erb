@@ -1,0 +1,5 @@
+<%= render layout: 'index_table', locals: { cache_key: Facilitate.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @facilitates, as: :facilitate %>
+<% end %>
+
+<%= paginate @facilitates %>
