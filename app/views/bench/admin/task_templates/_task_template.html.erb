@@ -18,6 +18,9 @@
       <%= link_to({ action: 'destroy', id: task_template.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'has-text-danger') do %>
         <i class="fas fa-trash fa-fw"></i>
       <% end %>
+      <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id], parent_id: task_template.id }, remote: true) do %>
+        <i class="fas fa-plus"></i>
+      <% end %>
     </div>
   </div>
   <div class="level-right"></div>

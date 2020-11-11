@@ -3,8 +3,6 @@
 <div class="box is-shadowless py-0 pr-0">
   <%= render partial: 'task_template', collection: task_template.children, as: :task_template %>
   <div id="item_add_<%= task_template.id %>">
-    <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id], parent_id: task_template.id }, remote: true) do %>
-      <i class="fas fa-plus"></i>
-    <% end %>
+  
   </div>
 </div>
