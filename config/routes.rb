@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   end
 
   scope :me, module: 'bench/me', as: :me, defaults: { namespace: 'me', business: 'bench' } do
+    resources :tasks, param: :task_id do
+      member do
+        get :project
+      end
+    end
     resources :tasks do
       collection do
         get 'template' => :new_template

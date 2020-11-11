@@ -6,7 +6,7 @@
       <% else %>
         <i class="fas fa-bars fa-fw has-text-grey is-drawable"></i>
       <% end %>
-      <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id, id: task.id } %>
+      <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id } %>
     </div>
     <% if task.member %>
       <span class="tag"><%= task.member&.name %></span>
