@@ -1,8 +1,6 @@
 <%= render partial: 'task_template', locals: { task_template: task_template } %>
 
-<div class="box is-shadowless py-0 pr-0">
+<div class="box is-shadowless py-0 pr-0 mb-0">
   <%= render partial: 'task_template', collection: task_template.children, as: :task_template %>
-  <div id="item_add_<%= task_template.id %>">
-  
-  </div>
+  <div id="item_add_<%= task_template.id %>"></div>
 </div>
