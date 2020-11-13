@@ -147,8 +147,9 @@ Rails.application.routes.draw do
   end
 
   scope :org, module: 'bench/org', as: :org do
-    resources :facilitates
-    resources :facilitate_providers
+    resources :facilitates do
+      resources :facilitate_providers
+    end
   end
 
 end
