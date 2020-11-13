@@ -7,7 +7,7 @@ class Bench::Admin::FacilitatesController < Bench::Admin::BaseController
     q_params.merge! default_params
     q_params.merge! params.permit(:facilitate_taxon_id)
 
-    @facilitates = Facilitate.default_where(q_params).page(params[:page])
+    @facilitates = Facilitate.includes(:facilitate_taxon).default_where(q_params).page(params[:page])
   end
 
   def show

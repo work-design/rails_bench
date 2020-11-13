@@ -1,9 +1,9 @@
 <%= render layout: 'index_table', locals: { cache_key: Facilitate.column_names.hash } do %>
-  <% FacilitateTaxon.where('facilitates_count > 0').each do |taxon| %>
+  <% @facilitates.group_by(&:facilitate_taxon).each do |taxon, facilitates| %>
     <tr>
       <td rowspan="<%= taxon.facilitates_count + 1 %>"><%= taxon.name %></td>
     </tr>
-    <%= render partial: 'facilitate', collection: taxon.facilitates, as: :facilitate %>
+    <%= render partial: 'facilitate', collection: facilitates, as: :facilitate %>
   <% end %>
 <% end %>
 

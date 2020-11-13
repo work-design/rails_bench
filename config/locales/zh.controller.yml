@@ -14,6 +14,9 @@ zh:
       expenses:
         index:
           title: 项目支出
+      facilitate_taxons:
+        index:
+          title: 标准化分类
       facilitate_indicators:
         index:
           title: 评价指标
