@@ -13,7 +13,7 @@ module RailsBench::FacilitateProvider
   end
 
   def sync_price
-    
+
   end
 
 end
