@@ -7,7 +7,7 @@
 </div>
 
 <div class="menu">
-  <div class="item"><%= link_to '在线购买', { controller: 'trade/board/trade_items', action: 'create', good_type: @facilitate.class.name, good_id: @facilitate.id }, method: :post, class: 'button is-primary' %></div>
+  <div class="item"><%= link_to '在线购买', { controller: 'trade/my/carts', action: 'add', good_type: @facilitate.class.name, good_id: @facilitate.id }, method: :post, class: 'button is-primary' %></div>
   <% if current_organ && !@facilitate.facilitate_providers.exists?(provider_id: current_organ.id) %>
   <div class="item">
     <%= link_to '申请为供应商', { controller: 'bench/org/facilitate_providers', action: 'new', facilitate_id: @facilitate.id }, class: 'button is-link is-small' %>
