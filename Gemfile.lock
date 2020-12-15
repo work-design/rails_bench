@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 70e678fe10bda26aedc156017e24734b6c959bfe
+  revision: dcbea20852059fa07287b4ffb45804c6cd40a76b
   specs:
     rails_com (1.2.9)
       acme-client
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: a6df4756c17b2797abd5eaf982e3b47947211987
+  revision: f0a207b7bf96bbd3f44f6a8a8667b69d12415318
   specs:
     rails_org (0.1)
       rails_auth
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 264d40b0671d31d7525b78dcfda593f9b1626606
+  revision: 931fa57d75533cecda6b4bbfa07132bce63a9864
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -142,7 +142,7 @@ GEM
       activesupport (>= 4.2.0)
     http-2-next (0.3.0)
     http-form_data (2.3.0)
-    httpx (0.10.0)
+    httpx (0.10.2)
       http-2-next (>= 0.1.2)
       timers
     i18n (1.8.5)
@@ -183,7 +183,7 @@ GEM
       method_source (~> 1.0)
     pry-rails (0.3.9)
       pry (>= 0.10.4)
-    puma (5.1.0)
+    puma (5.1.1)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -227,7 +227,7 @@ GEM
     rake (13.0.1)
     rdoc (6.2.1)
     ruby2_keywords (0.0.2)
-    sdoc (2.0.2)
+    sdoc (2.0.3)
       rdoc (>= 5.0)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
