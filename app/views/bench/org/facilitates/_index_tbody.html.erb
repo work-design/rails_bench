@@ -8,7 +8,7 @@
   <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td><%= facilitate.price %></td>
   <td>
-    <%= link_to({ controller: 'facilitate_providers', action: 'new', facilitate_id: facilitate.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ controller: 'facilitate_providers', action: 'new', facilitate_id: facilitate.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-search"></i><span><%= t('bench.org.facilitate_providers.index.title') %></span>
     <% end %>
     <%= link_to({ action: 'show', id: facilitate.id }, { aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' }) do %>

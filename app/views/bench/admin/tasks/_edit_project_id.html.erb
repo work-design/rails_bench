@@ -1,7 +1,7 @@
 <tr id="task_edit_project_id">
   <td>
     所属项目：
-    <%= form_tag project_id_me_task_url(@task), method: :patch, remote: true, id: 'edit_project_id' %>
+    <%= form_tag project_id_me_task_url(@task), method: :patch, id: 'edit_project_id' %>
     <%= hidden_field_tag :item, 'project_id', form: 'edit_project_id' %>
   </td>
   <td>

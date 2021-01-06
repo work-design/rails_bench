@@ -4,13 +4,13 @@
   <td><%= facilitate_provider.note %></td>
   <td>
     <div data-controller="input">
-      <%= check_box_tag '[facilitate_provider]selected', nil, facilitate_provider.selected, data: { method: :patch, remote: true, url: admin_facilitate_facilitate_provider_path(@facilitate, facilitate_provider), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
+      <%= check_box_tag '[facilitate_provider]selected', nil, facilitate_provider.selected, data: { method: :patch, url: admin_facilitate_facilitate_provider_path(@facilitate, facilitate_provider), action: 'input#submit' }, id: nil, class: 'switch is-rounded' %>
       <label></label>
     </div>
   </td>
   <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
   <td>
-    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { remote: true, aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
     <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>

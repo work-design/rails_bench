@@ -10,7 +10,7 @@
   </td>
   <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
   <td>
-    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { remote: true, aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
     <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>

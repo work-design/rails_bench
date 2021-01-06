@@ -20,7 +20,7 @@
       <span data-show-target="item" style="visibility: hidden">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
-      <%= link_to({ controller: 'tasks', action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, remote: true, style: 'visibility: hidden') do %>
+      <%= link_to({ controller: 'tasks', action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>

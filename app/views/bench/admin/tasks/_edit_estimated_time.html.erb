@@ -1,7 +1,7 @@
 <div class="level-left">
   <div class="level-item">
     <span>预估时间：</span>
-    <%= form_tag me_task_path(@task), method: :patch, remote: true, id: 'edit_estimated_time' %>
+    <%= form_tag me_task_path(@task), method: :patch, id: 'edit_estimated_time' %>
     <%= hidden_field_tag :item, 'estimated_time', form: 'edit_estimated_time' %>
   </div>
   <div class="level-item"><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></div>

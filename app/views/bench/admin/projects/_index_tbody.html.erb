@@ -9,7 +9,7 @@
     <% project.project_mileposts.each do |project_milepost| %>
       <p><%= project_milepost.milepost_name %>: <%= project_milepost.recorded_on %></p>
     <% end %>
-    <%= link_to({ controller: 'project_mileposts', action: 'new', project_id: project.id }, { remote: true, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ controller: 'project_mileposts', action: 'new', project_id: project.id }, { class: 'button is-small is-rounded' }) do %>
       <i class="fas fa-step-forward"></i><span><%= '下一步' %></span>
     <% end %>
   </td>
@@ -17,13 +17,13 @@
     <td><%= v %></td>
   <% end %>
   <td>
-    <%= link_to({ action: 'show', id: project.id }, aria: { label: t('.show') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'show', id: project.id }, aria: { label: t('.show') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-info"></i>
     <% end %>
-    <%= link_to({ action: 'edit', id: project.id }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'edit', id: project.id }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: project.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light') do %>
+    <%= link_to({ action: 'destroy', id: project.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
       <i class="fas fa-trash"></i>
     <% end %>
   </td>

@@ -1,19 +1,19 @@
 <tr data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <td>
     <span><%= milepost.name %></span>
-    <%= link_to({ action: 'move_higher', id: milepost.id }, method: :patch, remote: true, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
+    <%= link_to({ action: 'move_higher', id: milepost.id }, method: :patch, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
       <i class="fas fa-arrow-up"></i>
     <% end %>
-    <%= link_to({ action: 'move_lower', id: milepost.id }, method: :patch, remote: true, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
+    <%= link_to({ action: 'move_lower', id: milepost.id }, method: :patch, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
       <i class="fas fa-arrow-down"></i>
     <% end %>
   </td>
   <td><%= milepost.project_mileposts_count %></td>
   <td>
-    <%= link_to({ action: 'edit', id: milepost.id }, { aria: { label: t('.edit') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+    <%= link_to({ action: 'edit', id: milepost.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-pencil-alt"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: milepost.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, remote: true, class: 'button is-small is-rounded is-light' }) do %>
+    <%= link_to({ action: 'destroy', id: milepost.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' }) do %>
       <i class="fas fa-trash-alt"></i>
     <% end %>
   </td>
