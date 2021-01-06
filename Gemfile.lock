@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: ce966758f09f01916c01b22bb7c7ed221d2a8fd8
+  revision: 1e72c95dd3d13dbfa70661d63bdf644169c8d03f
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: dcbea20852059fa07287b4ffb45804c6cd40a76b
+  revision: 46c19b3da2378918c46cf732cce13c46f2017d08
   specs:
     rails_com (1.2.9)
       acme-client
@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 55c482ca5dd819957252ab3b3cfa7ad9d8fe811b
+  revision: 1b5d60898442cbaa985b02bc5e91b1b2ea66890d
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: f0a207b7bf96bbd3f44f6a8a8667b69d12415318
+  revision: 4b8ab9ffb45bf4fb4844445c25c853b41721fd4b
   specs:
     rails_org (0.1)
       rails_auth
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 931fa57d75533cecda6b4bbfa07132bce63a9864
+  revision: 97f6055503c98f10c9d6e257ef12c6fc2db86692
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -116,7 +116,7 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    acts_as_list (1.0.2)
+    acts_as_list (1.0.3)
       activerecord (>= 4.2)
     awesome_print (1.8.0)
     bcrypt (3.1.16)
@@ -135,7 +135,7 @@ GEM
     factory_bot_rails (6.1.0)
       factory_bot (~> 6.1.0)
       railties (>= 5.0.0)
-    faraday (1.1.0)
+    faraday (1.2.0)
       multipart-post (>= 1.2, < 3)
       ruby2_keywords
     globalid (0.4.2)

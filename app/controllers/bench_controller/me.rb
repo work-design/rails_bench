@@ -7,7 +7,7 @@ module BenchController::Me
 
   class_methods do
     def local_prefixes
-      [controller_path, 'bench/me/base']
+      [controller_path, 'bench/me/base', 'me']
     end
   end
 
