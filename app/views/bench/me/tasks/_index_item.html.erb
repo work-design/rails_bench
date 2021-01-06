@@ -20,7 +20,7 @@
       <time class="has-text-grey"><%= task.created_at.to_s(:rfc822) %></time>
     </div>
     <span data-show-target="item" style="visibility: hidden">
-      <%= link_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', remote: true) do %>
+      <%= link_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete') do %>
         <i class="fas fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </span>

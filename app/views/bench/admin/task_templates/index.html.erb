@@ -3,7 +3,7 @@
 <div class="box">
   <%= render partial: 'index_item', collection: @task_templates, as: :task_template %>
   <div id="item_add">
-    <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id] }, remote: true) do %>
+    <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id] }) do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </div>

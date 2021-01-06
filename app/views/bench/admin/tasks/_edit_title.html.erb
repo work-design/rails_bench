@@ -1,11 +1,11 @@
 <div class="level-left">
   <div class="level-item" id="play_task_<%= @task.id %>">
     <% if @task.task_timer %>
-      <%= link_to pause_me_task_task_timer_path(@task, @task.task_timer), method: 'patch', remote: true do %>
+      <%= link_to pause_me_task_task_timer_path(@task, @task.task_timer), method: 'patch' do %>
         <i class="fas fa-pause"></i>
       <% end %>
     <% else %>
-      <%= link_to me_task_task_timers_path(@task), method: 'post', remote: true do %>
+      <%= link_to me_task_task_timers_path(@task), method: 'post' do %>
         <i class="fas fa-play"></i>
       <% end %>
     <% end %>

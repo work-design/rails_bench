@@ -6,7 +6,7 @@
       <%= render partial: 'index_item', locals: { task_template: task_template } %>
     <% end %>
     <div id="item_add">
-      <%= link_to new_me_task_template_path(tasking_type: 'FacilitateProvider', tasking_id: @facilitate_provider.id), remote: true do %>
+      <%= link_to new_me_task_template_path(tasking_type: 'FacilitateProvider', tasking_id: @facilitate_provider.id) do %>
         <i class="fas fa-plus"></i>
       <% end %>
     </div>

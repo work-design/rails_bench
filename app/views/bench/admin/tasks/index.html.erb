@@ -4,7 +4,7 @@
   <%= render partial: 'index_item', collection: @tasks, as: :task %>
   <div id="item_add">
     <% if 'done' != params[:state] %>
-      <%= link_to({ action: 'new' }, remote: true) do %>
+      <%= link_to({ action: 'new' }) do %>
         <i class="fas fa-plus"></i>
       <% end %>
     <% end %>

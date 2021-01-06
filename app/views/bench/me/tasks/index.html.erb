@@ -7,7 +7,7 @@
   <% end %>
   <div id="item_add">
     <% if 'done' != params[:state] %>
-      <%= link_to new_me_task_path, remote: true do %>
+      <%= link_to new_me_task_path do %>
         <i class="fas fa-plus"></i>
       <% end %>
     <% end %>
