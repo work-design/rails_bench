@@ -1,18 +1,18 @@
 <div class="ui fluid vertical tabular menu">
   <%= link_to filter_params(focus: 'inbox'), class: active_helper(focus: 'inbox') do %>
     <i class="fas fa-paperclip"></i>
-    <span><%= Task.enum_i18n(:focus, 'inbox') %></span>
+    <span><%= Bench::Task.enum_i18n(:focus, 'inbox') %></span>
   <% end %>
   <% if params[:focus] %>
     <%= link_to filter_params(focus: 'today'), class: active_helper(focus: 'today') do %>
-      <span><i class="red sun icon"></i><%= Task.enum_i18n(:focus, 'today') %></span>
+      <span><i class="red sun icon"></i><%= Bench::Task.enum_i18n(:focus, 'today') %></span>
     <% end %>
   <% else %>
     <%= link_to filter_params(focus: 'today'), class: 'active item' do %>
-      <span><i class="red sun icon"></i><%= Task.enum_i18n(:focus, 'today') %></span>
+      <span><i class="red sun icon"></i><%= Bench::Task.enum_i18n(:focus, 'today') %></span>
     <% end %>
   <% end %>
   <%= link_to filter_params(focus: 'scheduled'), class: active_helper(focus: 'scheduled') do %>
-    <span><i class="olive calendar icon"></i><%= Task.enum_i18n(:focus, 'scheduled') %></span>
+    <span><i class="olive calendar icon"></i><%= Bench::Task.enum_i18n(:focus, 'scheduled') %></span>
   <% end %>
 </div>

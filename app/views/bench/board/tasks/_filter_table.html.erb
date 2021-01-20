@@ -2,7 +2,7 @@
   <tr>
     <td>
       <%= link_to '默认', filter_params(except: :state), class: active_helper(state: '', active: 'button is-info', item: 'button is-light') %>
-      <% Task.options_i18n(:state).each do |text, state| %>
+      <% Bench::Task.options_i18n(:state).each do |text, state| %>
         <%= link_to text, filter_params(state: state), class: active_helper(state: state, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>

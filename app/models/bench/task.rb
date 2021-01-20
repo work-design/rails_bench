@@ -3,6 +3,6 @@ module Bench
     include Model::Task
     include Com::Ext::Taxon
     include RailsDetail::ContentModel if defined? RailsDetail
-    include Event::Model::Planned if defined? RailsEvent
+    include Eventual::Model::Planned if defined? RailsEvent
   end
 end
