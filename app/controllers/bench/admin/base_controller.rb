@@ -1,3 +1,4 @@
-class Bench::Admin::BaseController < AdminController
-
-end unless defined? Bench::Admin::BaseController
+module Bench
+  class Admin::BaseController < AdminController
+  end
+end

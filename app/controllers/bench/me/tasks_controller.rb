@@ -1,49 +1,51 @@
-class Bench::Me::TasksController < Bench::Admin::TasksController
-  before_action :set_task, only: [:project, :show]
-  include BenchController::Me
+module Bench
+  class Me::TasksController < Admin::TasksController
+    before_action :set_task, only: [:project, :show]
+    include BenchController::Me
 
-  def index
-    q_params = {
-      focus: ['today', 'inbox'],
-      state: ['todo', 'doing'],
-      member_id: current_member.id
-    }
-    q_params.merge! params.permit(:focus, :state, :project_id)
+    def index
+      q_params = {
+        focus: ['today', 'inbox'],
+        state: ['todo', 'doing'],
+        member_id: current_member.id
+      }
+      q_params.merge! params.permit(:focus, :state, :project_id)
 
-    @tasks = Task.includes(:project, :task_timers).default_where(q_params).page(params[:page])
-  end
-
-  def create
-    @task = current_member.tasks.build task_params
-
-    if @task.save
-      render 'create'
-    else
-      render :new, locals: { model: @task }, status: :unprocessable_entity
+      @tasks = Task.includes(:project, :task_timers).default_where(q_params).page(params[:page])
     end
+
+    def create
+      @task = current_member.tasks.build task_params
+
+      if @task.save
+        render 'create'
+      else
+        render :new, locals: { model: @task }, status: :unprocessable_entity
+      end
+    end
+
+    def show
+      q_params = {
+        member_id: current_member.id
+      }
+      q_params.merge! params.permit(:state, :focus)
+
+      @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
+    end
+
+    def project
+      q_params = {
+        member_id: current_member.id
+      }
+      q_params.merge! params.permit(:state)
+
+      @tasks = @task.self_and_siblings.default_where(q_params).page(params[:page])
+    end
+
+    private
+    def set_task
+      @task = Task.find params[:task_id]
+    end
+
   end
-
-  def show
-    q_params = {
-      member_id: current_member.id
-    }
-    q_params.merge! params.permit(:state, :focus)
-
-    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
-  end
-
-  def project
-    q_params = {
-      member_id: current_member.id
-    }
-    q_params.merge! params.permit(:state)
-
-    @tasks = @task.self_and_siblings.default_where(q_params).page(params[:page])
-  end
-
-  private
-  def set_task
-    @task = Task.find params[:task_id]
-  end
-
 end

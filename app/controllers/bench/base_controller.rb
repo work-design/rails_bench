@@ -1,3 +1,4 @@
-class Bench::BaseController < BaseController
-
-end unless defined? Bench::BaseController
+module Bench
+  class BaseController < BaseController
+  end
+end
