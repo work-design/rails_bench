@@ -1,2 +1,4 @@
-module RailsBench::Schedule
+module Bench
+  module Model::Schedule
+  end
 end

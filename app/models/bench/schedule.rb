@@ -1,5 +1,5 @@
 module Bench
   class Schedule < ApplicationRecord
-    include RailsBench::Schedule
+    include Model::Schedule
   end
 end

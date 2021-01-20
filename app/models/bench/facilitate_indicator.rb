@@ -1,5 +1,5 @@
 module Bench
   class FacilitateIndicator < ApplicationRecord
-    include RailsBench::FacilitateIndicator
+    include Model::FacilitateIndicator
   end
 end

@@ -1,11 +1,13 @@
-module RailsBench::ProjectWebhook
-  extend ActiveSupport::Concern
+module Bench
+  module Model::ProjectWebhook
+    extend ActiveSupport::Concern
 
-  included do
-    attribute :origin_data, :json
-    attribute :valuable_data, :json
+    included do
+      attribute :origin_data, :json
+      attribute :valuable_data, :json
 
-    belongs_to :project
+      belongs_to :project
+    end
+
   end
-
 end

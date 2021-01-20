@@ -1,5 +1,5 @@
 module Bench
   class ProjectTaxonIndicator < ApplicationRecord
-    include RailsBench::ProjectTaxonIndicator
+    include Model::ProjectTaxonIndicator
   end
 end

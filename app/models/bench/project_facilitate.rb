@@ -1,5 +1,5 @@
 module Bench
   class ProjectFacilitate < ApplicationRecord
-    include RailsBench::ProjectFacilitate
+    include Model::ProjectFacilitate
   end
 end

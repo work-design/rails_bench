@@ -1,5 +1,5 @@
 module Bench
   class TaskTimer < ApplicationRecord
-    include RailsBench::TaskTimer
+    include Model::TaskTimer
   end
 end

@@ -1,5 +1,5 @@
 module Bench
   class ProjectMilepost < ApplicationRecord
-    include RailsBench::ProjectMilepost
+    include Model::ProjectMilepost
   end
 end

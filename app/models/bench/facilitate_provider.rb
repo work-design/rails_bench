@@ -1,5 +1,5 @@
 module Bench
   class FacilitateProvider < ApplicationRecord
-    include RailsBench::FacilitateProvider
+    include Model::FacilitateProvider
   end
 end

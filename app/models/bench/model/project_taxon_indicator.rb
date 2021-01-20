@@ -1,10 +1,12 @@
-module RailsBench::ProjectTaxonIndicator
-  extend ActiveSupport::Concern
+module Bench
+  module Model::ProjectTaxonIndicator
+    extend ActiveSupport::Concern
 
-  included do
-    belongs_to :project_taxon
-    belongs_to :facilitate_taxon
-    belongs_to :indicator
+    included do
+      belongs_to :project_taxon
+      belongs_to :facilitate_taxon
+      belongs_to :indicator
+    end
+
   end
-
 end

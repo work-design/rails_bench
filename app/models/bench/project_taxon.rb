@@ -1,7 +1,7 @@
 module Bench
   class ProjectTaxon < ApplicationRecord
-    include RailsBench::ProjectTaxon
-    include RailsComExt::Parameter
+    include Model::ProjectTaxon
+    include Com::Ext::Parameter
     include RailsFinanceExt::Financial if defined? RailsFinanceExt
   end
 end

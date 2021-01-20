@@ -1,5 +1,5 @@
 module Bench
   class ProjectWebhook < ApplicationRecord
-    include RailsBench::ProjectWebhook
+    include Model::ProjectWebhook
   end
 end

@@ -1,5 +1,5 @@
 module Bench
   class ProjectIndicator < ApplicationRecord
-    include RailsBench::ProjectIndicator
+    include Model::ProjectIndicator
   end
 end

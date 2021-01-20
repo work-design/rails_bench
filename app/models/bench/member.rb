@@ -1,5 +1,5 @@
 module Bench
   class Member < ApplicationRecord
-    include RailsBench::Member
+    include Model::Member
   end
 end

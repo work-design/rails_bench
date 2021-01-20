@@ -1,5 +1,5 @@
 module Bench
   class Indicator < ApplicationRecord
-    include RailsBench::Indicator
+    include Model::Indicator
   end
 end

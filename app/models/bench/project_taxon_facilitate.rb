@@ -1,5 +1,5 @@
 module Bench
   class ProjectTaxonFacilitate < ApplicationRecord
-    include RailsBench::ProjectTaxonFacilitate
+    include Model::ProjectTaxonFacilitate
   end
 end

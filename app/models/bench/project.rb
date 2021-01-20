@@ -1,7 +1,7 @@
 module Bench
   class Project < ApplicationRecord
-    include RailsBench::Project
-    include RailsComExt::Extra
+    include Model::Project
+    include Com::Ext::Extra
     include RailsFinanceExt::Financial if defined? RailsFinance
   end
 end
