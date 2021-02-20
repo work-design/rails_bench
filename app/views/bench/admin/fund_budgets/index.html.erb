@@ -1,13 +1,13 @@
 <%= render partial: "#{params[:financial_type].underscore}_bar", locals: { :"#{params[:financial_type].underscore}" => @financial } %>
 
-<%= render layout: 'index_table', locals: { cache_key: FundBudget.column_names.hash } do %>
+<%= render layout: 'index_table', locals: { cache_key: Finance::FundBudget.column_names.hash } do %>
   
   <section class="columns">
     <div class="column">
-      <%= Project.human_attribute_name(:fund_budget) %>： <%= @financial.fund_budget %>
+      <%= Bench::Project.human_attribute_name(:fund_budget) %>： <%= @financial.fund_budget %>
     </div>
     <div class="column">
-      <%= Project.human_attribute_name(:fund_expense) %>： <%= @financial.fund_expense %>
+      <%= Bench::Project.human_attribute_name(:fund_expense) %>： <%= @financial.fund_expense %>
     </div>
   </section>
   
