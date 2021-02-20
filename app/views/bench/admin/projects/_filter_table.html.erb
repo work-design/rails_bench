@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= link_to Project.human_attribute_name(:milepost_id), { controller: 'mileposts', action: 'index' }, text: true %></th>
+    <th><%= link_to Bench::Project.human_attribute_name(:milepost_id), { controller: 'mileposts', action: 'index' }, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: ['project_mileposts.milepost_id', :project_stage_id]), class: active_params('project_mileposts.milepost_id': nil, active: 'button is-info', item: 'button is-light') %>
       <% @mileposts.each do |milepost| %>
@@ -10,7 +10,7 @@
   </tr>
   <% if params['project_mileposts.milepost_id'] %>
   <tr>
-    <th><%= link_to Project.human_attribute_name(:project_stage_id), admin_project_stages_path, text: true %></th>
+    <th><%= link_to Bench::Project.human_attribute_name(:project_stage_id), admin_project_stages_path, text: true %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:project_stage_id]), class: active_params(project_stage_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @project_stages.each do |project_stage| %>

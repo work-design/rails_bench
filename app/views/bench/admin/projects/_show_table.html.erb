@@ -1,5 +1,5 @@
 <tr>
-  <td class="has-text-right"><%= Project.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Bench::Project.human_attribute_name(:name) %></td>
   <td><%= @project.name %></td>
 </tr>
 <% @project.extra.each do |k, v| %>
