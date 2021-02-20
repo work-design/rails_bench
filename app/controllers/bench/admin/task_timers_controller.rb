@@ -1,70 +1,72 @@
-class Bench::Admin::TaskTimersController < Bench::Admin::BaseController
-  before_action :set_task
-  before_action :set_task_timer, only: [:show, :edit, :update, :pause, :destroy]
+module Bench
+  class Admin::TaskTimersController < Admin::BaseController
+    before_action :set_task
+    before_action :set_task_timer, only: [:show, :edit, :update, :pause, :destroy]
 
-  def index
-    q_params = {
-      state: ['todo', 'doing']
-    }
-    q_params.merge! params.permit(:state)
+    def index
+      q_params = {
+        state: ['todo', 'doing']
+      }
+      q_params.merge! params.permit(:state)
 
-    @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
-    @task_timers = @task.task_timers.order(id: :desc)
-  end
-
-  def show
-  end
-
-  def new
-    @task_timer = @task.task_timers.build
-  end
-
-  def edit
-  end
-
-  def create
-    @task_timer = @task.task_timers.build(task_timer_params)
-
-    unless @task_timer.save
-      render :new
+      @tasks = @task.self_and_siblings.includes(:task_timer, :task_timers).default_where(q_params).page(params[:page])
+      @task_timers = @task.task_timers.order(id: :desc)
     end
-  end
 
-  def pause
-    if @task_timer.pause
-      render 'pause'
-    else
-      render :edit
+    def show
     end
-  end
 
-  def update
-    @task_timer.assign_attributes(task_timer_params)
-
-    unless @task_timer.save
-      render :edit
+    def new
+      @task_timer = @task.task_timers.build
     end
-  end
 
-  def destroy
-    @task_timer.destroy
-  end
+    def edit
+    end
 
-  def self.local_prefixes
-    [controller_path, 'bench/admin/tasks']
-  end
+    def create
+      @task_timer = @task.task_timers.build(task_timer_params)
 
-  private
-  def set_task
-    @task = Task.find params[:task_id]
-  end
+      unless @task_timer.save
+        render :new
+      end
+    end
 
-  def set_task_timer
-    @task_timer = TaskTimer.find(params[:id])
-  end
+    def pause
+      if @task_timer.pause
+        render 'pause'
+      else
+        render :edit
+      end
+    end
 
-  def task_timer_params
-    params.fetch(:task_timer, {})
-  end
+    def update
+      @task_timer.assign_attributes(task_timer_params)
 
+      unless @task_timer.save
+        render :edit
+      end
+    end
+
+    def destroy
+      @task_timer.destroy
+    end
+
+    def self.local_prefixes
+      [controller_path, 'bench/admin/tasks']
+    end
+
+    private
+    def set_task
+      @task = Task.find params[:task_id]
+    end
+
+    def set_task_timer
+      @task_timer = TaskTimer.find(params[:id])
+    end
+
+    def task_timer_params
+      params.fetch(:task_timer, {})
+    end
+
+  end
 end
