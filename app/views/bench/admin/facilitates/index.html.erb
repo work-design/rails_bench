@@ -1,4 +1,4 @@
-<%= render layout: 'index_table', locals: { cache_key: Facilitate.column_names.hash } do %>
+<%= render layout: 'index_table', locals: { cache_key: Bench::Facilitate.column_names.hash } do %>
   <% @facilitates.group_by(&:facilitate_taxon).each do |taxon, facilitates| %>
     <tr>
       <td rowspan="<%= taxon.facilitates_count + 1 %>"><%= taxon.name %></td>

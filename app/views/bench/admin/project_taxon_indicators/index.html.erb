@@ -1,5 +1,5 @@
 <%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
 
-<%= render layout: 'index_table', locals: { cache_key: ProjectTaxonIndicator.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @project_taxon_indicators, as: :project_taxon_indicator %>
+<%= render layout: 'index_table', locals: { cache_key: Bench::ProjectTaxonIndicator.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_taxon_indicators, as: :model %>
 <% end %>
