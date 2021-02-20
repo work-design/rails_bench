@@ -1,5 +1,5 @@
 <tr>
-  <td class="has-text-right"><%= Indicator.human_attribute_name(:facilitate_taxon_id) %></td>
+  <td class="has-text-right"><%= Bench::Indicator.human_attribute_name(:facilitate_taxon_id) %></td>
   <td>
     <div class="tags has-addons">
       <span class="tag"><%= @indicator.facilitate_taxon.name %></span>
@@ -8,23 +8,23 @@
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Indicator.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Bench::Indicator.human_attribute_name(:name) %></td>
   <td><%= @indicator.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Indicator.human_attribute_name(:description) %></td>
+  <td class="has-text-right"><%= Bench::Indicator.human_attribute_name(:description) %></td>
   <td><%= @indicator.description %></td>
 </tr>
 <tr>
   <td class="has-text-right">
-    <%= Indicator.human_attribute_name(:reference_min) %>
+    <%= Bench::Indicator.human_attribute_name(:reference_min) %>
   </td>
   <td>
     <%= @indicator.reference_min %>
   </td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Indicator.human_attribute_name(:unit) %></td>
+  <td class="has-text-right"><%= Bench::Indicator.human_attribute_name(:unit) %></td>
   <td><%= @indicator.unit %></td>
 </tr>
 

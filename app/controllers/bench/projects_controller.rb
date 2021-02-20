@@ -4,7 +4,7 @@ module Bench
     skip_before_action :verify_authenticity_token, only: [:github]
 
     def index
-      @projects = Project.all.page(params[:page])
+      @projects = Project.page(params[:page])
     end
 
     def show

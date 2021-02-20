@@ -1,26 +1,13 @@
-<tr>
-  <td>
-    <div class="tags has-addons">
-      <span class="tag"><%= indicator.facilitate_taxon.name %></span>
-      <span class="tag" style="background-color: <%= indicator.facilitate_taxon.color %>"></span>
-    </div>
-  </td>
-  <td><%= indicator.name %></td>
-  <td><%= indicator.description %></td>
-  <td>
-    <p><%= indicator.reference_min %></p>
-    <p><%= indicator.reference_max %></p>
-  </td>
-  <td><%= indicator.unit %></td>
-  <td>
-    <%= link_to({ action: 'show', id: indicator.id }, { aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to({ action: 'edit', id: indicator.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to({ action: 'destroy', id: indicator.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' }) do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td>
+  <div class="tags has-addons">
+    <span class="tag"><%= model.facilitate_taxon.name %></span>
+    <span class="tag" style="background-color: <%= model.facilitate_taxon.color %>"></span>
+  </div>
+</td>
+<td><%= model.name %></td>
+<td><%= model.description %></td>
+<td>
+  <p><%= model.reference_min %></p>
+  <p><%= model.reference_max %></p>
+</td>
+<td><%= model.unit %></td>

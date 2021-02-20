@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= link_to Indicator.human_attribute_name(:facilitate_taxon_id), { controller: 'facilitate_taxons' } %></th>
+    <th><%= link_to Bench::Indicator.human_attribute_name(:facilitate_taxon_id), { controller: 'facilitate_taxons' } %></th>
     <td class="field is-grouped is-grouped-multiline">
       <div class="control">
         <%= link_to filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
