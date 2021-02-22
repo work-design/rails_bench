@@ -2,7 +2,7 @@
 
 <div data-controller="sortable" data-src="/me/tasks/">
   <% @tasks.group_by(&:project).each do |project, tasks| %>
-    <%= render partial: 'project', locals: { project: project } %>
+    <%= render partial: 'project', locals: { project: project } if project %>
     <%= render partial: 'index_item', collection: tasks, as: :task %>
   <% end %>
   <turbo-frame id="item_add">

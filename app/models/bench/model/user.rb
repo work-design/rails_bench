@@ -6,7 +6,7 @@ module Bench
       attribute :pomodoro, :integer, default: 25
 
       has_one :github_user
-      has_many :tasks, dependent: :destroy
+      has_many :tasks, class_name: 'Bench::Task', dependent: :destroy
     end
 
     def github_client
