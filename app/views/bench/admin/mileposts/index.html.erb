@@ -1,5 +1,5 @@
-<%= render layout: 'index_table', locals: { cache_key: Milepost.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @mileposts, as: :milepost %>
+<%= render layout: 'index_table', locals: { cache_key: Bench::Milepost.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @mileposts, as: :model %>
 <% end %>
 
 <%= paginate @mileposts %>
