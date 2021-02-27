@@ -1,4 +1,9 @@
-<span class="menu-label"><%= t('bench.me.title') %></span>
+<div class="menu-label">
+  <span><%= t('bench.me.title') %></span>
+  <%= link_to({ controller: 'bench/admin/project_taxons' }, target: '_blank', aria: { label: '管理' }) do %>
+    <i class="fas fa-cog"></i>
+  <% end %>
+</div>
 <div class="menu-list">
   <%= link_to t('bench.me.tasks.index.title'), me_tasks_path, class: active_helper(controllers: ['tasks', 'projects', 'bench/me/expenses', 'task_timers'], active: 'is-active') %>
 </div>
