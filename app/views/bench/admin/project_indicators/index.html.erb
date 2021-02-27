@@ -1,7 +1,7 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-<%= render layout: 'index_table', locals: { cache_key: ProjectIndicator.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @project_indicators, as: :project_indicator %>
+<%= render layout: 'index_table', locals: { cache_key: Bench::ProjectIndicator.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @project_indicators, as: :model %>
 <% end %>
 
 <%= paginate @project_indicators %>

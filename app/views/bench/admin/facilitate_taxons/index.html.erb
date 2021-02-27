@@ -1,5 +1,5 @@
-<%= render layout: 'index_table', locals: { cache_key: FacilitateTaxon.column_names.hash } do %>
-  <%= render partial: 'index_tbody', collection: @facilitate_taxons, as: :facilitate_taxon %>
+<%= render layout: 'index_table', locals: { cache_key: Bench::FacilitateTaxon.column_names.hash } do %>
+  <%= render partial: 'index_tbody', collection: @facilitate_taxons, as: :model %>
 <% end %>
 
 <%= paginate @facilitate_taxons %>

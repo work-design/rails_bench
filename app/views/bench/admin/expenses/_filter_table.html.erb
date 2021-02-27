@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= Expense.human_attribute_name(:financial_taxon_id) %></th>
+    <th><%= Finance::Expense.human_attribute_name(:financial_taxon_id) %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:financial_taxon_id]), class: active_params(financial_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @financial_taxons.each do |financial_taxon| %>

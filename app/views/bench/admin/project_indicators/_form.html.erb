@@ -1,4 +1,4 @@
-<%= render 'shared/error_messages', target: @project_indicator %>
+<%= render 'shared/error_messages', target: f.object %>
 <%= f.collection_select :indicator_id, @indicators, :id, :name, include_blank: true %>
 <%= f.number_field :value %>
 <%= f.date_field :recorded_on %>

@@ -54,7 +54,7 @@ module Bench
     end
 
     def prepare_form
-      @financial_taxons = FinancialTaxon.default_where(default_params)
+      @financial_taxons = Finance::FinancialTaxon.default_where(default_params)
     end
 
     def expense_params

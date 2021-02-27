@@ -9,11 +9,11 @@
   </thead>
   <tbody>
     <tr>
-      <td class="has-text-right"><%= ProjectFacilitate.human_attribute_name(:facilitate_id) %></td>
+      <td class="has-text-right"><%= Bench::ProjectFacilitate.human_attribute_name(:facilitate_id) %></td>
       <td><%= @project_facilitate.facilitate.name %></td>
     </tr>
     <tr>
-      <td class="has-text-right"><%= ProjectFacilitate.human_attribute_name(:provider_id) %></td>
+      <td class="has-text-right"><%= Bench::ProjectFacilitate.human_attribute_name(:provider_id) %></td>
       <td><%= @project_facilitate.provider&.name %></td>
     </tr>
   </tbody>

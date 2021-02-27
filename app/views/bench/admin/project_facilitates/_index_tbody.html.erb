@@ -1,15 +1,2 @@
-<tr>
-  <td><%= project_facilitate.facilitate.name %></td>
-  <td><%= project_facilitate.provider&.name %></td>
-  <td>
-    <%= link_to admin_project_project_facilitate_path(@project,project_facilitate), aria: { label: t('.show') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-info"></i>
-    <% end %>
-    <%= link_to edit_admin_project_project_facilitate_path(@project,project_facilitate), aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-pencil-alt"></i>
-    <% end %>
-    <%= link_to admin_project_project_facilitate_path(@project,project_facilitate), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fas fa-trash-alt"></i>
-    <% end %>
-  </td>
-</tr>
+<td><%= model.facilitate.name %></td>
+<td><%= model.provider&.name %></td>
