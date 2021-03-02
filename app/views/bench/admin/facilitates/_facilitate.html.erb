@@ -4,7 +4,7 @@
     <%= facilitate.name %>
   </td>
   <td><%= facilitate.description %></td>
-  <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
+  <td><time data-controller="time"><%= facilitate.created_at.to_s(:rfc822) %></time></td>
   <td><%# facilitate.price %></td>
   <td></td>
   <td>
