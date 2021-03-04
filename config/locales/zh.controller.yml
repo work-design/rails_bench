@@ -6,6 +6,9 @@ zh:
         today: 今天
   bench:
     title: 工作台
+    facilitates:
+      index:
+        title: 标准化服务
     admin:
       title: 工作管理
       budgets:

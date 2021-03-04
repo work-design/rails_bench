@@ -1,20 +1,11 @@
 <% content_for :title, @facilitate.name %>
 <% content_for :meta_description, @facilitate.description %>
 
-<div>
-  <div class="breadcrumb">
-    <ul>
-      <li><%= link_to '服务列表', facilitates_path %></li>
-      <li><%= link_to @facilitate.facilitate_taxon.name, facilitates_path(facilitate_taxon_id: @facilitate.facilitate_taxon_id) %></li>
-      <li class="is-active"><%= @facilitate.name %></li>
-    </ul>
-  </div>
+<%= render 'breadcrumb' %>
 
-  <h1 class="has-text-centered">
-    <%= @facilitate.name %>
-  </h1>
-</div>
-
+<h1 class="has-text-centered">
+  <%= @facilitate.name %>
+</h1>
 
 <div class="columns">
   <div class="column">
