@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :me, module: 'bench/me', as: :me, defaults: { namespace: 'me', business: 'bench' } do
+  scope :me, module: 'bench/me', as: :me, defaults: { business: 'bench', namespace: 'me' } do
     resources :tasks, param: :task_id do
       member do
         get :project
@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :admin, module: 'bench/admin', as: :admin, defaults: { namespace: 'admin', business: 'bench' } do
+  scope :admin, module: 'bench/admin', as: :admin, defaults: { business: 'bench', namespace: 'admin' } do
     resources :project_taxons do
       member do
         get :parameter
