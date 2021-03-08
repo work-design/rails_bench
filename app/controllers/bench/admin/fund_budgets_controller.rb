@@ -47,7 +47,7 @@ module Bench
 
     private
     def prepare_form
-      @funds = Fund.where.not(id: @financial.fund_budgets.pluck(:fund_id))
+      @funds = Finance::Fund.where.not(id: @financial.fund_budgets.pluck(:fund_id))
     end
 
     def set_financial
