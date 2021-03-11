@@ -7,6 +7,8 @@ module Bench
       attribute :position, :integer
       attribute :color, :string
       attribute :parent_id, :integer
+      attribute :repeat_type, :string, default: 'once'
+      attribute :repeat_days, :integer, array: true
 
       belongs_to :project_taxon, optional: true
       belongs_to :organ, optional: true

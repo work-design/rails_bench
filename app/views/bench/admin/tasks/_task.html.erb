@@ -1,7 +1,7 @@
 <div class="<%= task.done? ? 'level is-underline has-background-white-ter' : 'level is-underline' %>" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
-      <% if @task.id == task.id %>
+      <% if @task&.id == task.id %>
         <i class="fas fa-check-square fa-fw has-text-success is-drawable"></i>
       <% else %>
         <i class="fas fa-bars fa-fw has-text-grey is-drawable"></i>

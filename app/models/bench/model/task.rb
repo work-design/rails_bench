@@ -6,14 +6,14 @@ module Bench
       attribute :title, :string
       attribute :position, :integer
       attribute :note, :string
-      attribute :repeat_type, :string, default: 'once'
-      attribute :repeat_days, :integer, array: true
       attribute :estimated_time, :integer
       attribute :actual_time, :integer
       attribute :done_at, :datetime
       attribute :children_count, :integer, default: 0
       attribute :start_at, :datetime
       attribute :serial_number, :string, comment: 'Task Template test repeat'
+      attribute :cost_fund, :decimal
+      attribute :cost_stock, :integer
 
       belongs_to :user, optional: true
       belongs_to :organ, optional: true

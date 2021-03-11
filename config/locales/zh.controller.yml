@@ -73,7 +73,7 @@ zh:
           title: 评价指标
       tasks:
         project:
-          title: 待办
+          title: 任务（待办）
         rail:
           done: 完成/移交
       task_templates:
@@ -91,7 +91,7 @@ zh:
           title: 我的项目
           new: 申报项目
         tasks:
-          title: 待办
+          title: 任务（待办）
           task_template: 从模板添加
         show:
           title: 项目信息
@@ -104,9 +104,9 @@ zh:
         index:
           title: 我的待办
         show:
-          title: 待办
+          title: 任务（待办）
         project:
-          title: 待办
+          title: 任务（待办）
       task_templates:
         index:
           title: 工作流

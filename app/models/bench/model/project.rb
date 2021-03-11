@@ -8,8 +8,7 @@ module Bench
       attribute :state, :string
 
       belongs_to :organ, optional: true
-      belongs_to :project_taxon, counter_cache: true, optional: true
-      belongs_to :taxon, class_name: 'ProjectTaxon', foreign_key: :project_taxon_id
+      belongs_to :taxon, counter_cache: true, optional: true
       has_many :project_webhooks, dependent: :delete_all
       has_many :tasks, dependent: :delete_all
       has_many :project_indicators, dependent: :destroy

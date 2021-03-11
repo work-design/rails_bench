@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   end
 
   scope :admin, module: 'bench/admin', as: :admin, defaults: { business: 'bench', namespace: 'admin' } do
-    resources :project_taxons do
+    resources :taxons do
       member do
         get :parameter
       end
@@ -79,12 +79,12 @@ Rails.application.routes.draw do
           patch :reorder
         end
       end
-      resources :project_taxon_facilitates do
+      resources :taxon_facilitates do
         collection do
           get :facilitates
         end
       end
-      resources :project_taxon_indicators do
+      resources :taxon_indicators do
         collection do
           get :indicators
         end
@@ -96,18 +96,8 @@ Rails.application.routes.draw do
       member do
         get :sync
       end
-      resources :budgets do
-        collection do
-          get :add_item
-          get :remove_item
-        end
-      end
-      resources :expenses do
-        collection do
-          get :add_item
-          get :remove_item
-        end
-      end
+      resources :budgets
+      resources :expenses
       resources :project_facilitates do
         collection do
           get :facilitates
