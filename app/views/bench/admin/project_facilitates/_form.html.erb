@@ -1,25 +1,5 @@
-<%= render 'shared/error_messages', target: @project_facilitate %>
-<%=
-  f.collection_select(
-      :facilitate_taxon_id,
-      @facilitate_taxons,
-      :id, :name, { include_blank: true },
-      { data: { controller: 'typer', url: facilitates_admin_project_project_facilitates_path(@project) } }
-  )
-%>
-<%=
-  f.collection_select(
-      :facilitate_id,
-      @facilitates,
-      :id, :name, { include_blank: true },
-      { data: { controller: 'typer', url: providers_admin_project_project_facilitates_path(@project) } }
-  )
-%>
-<%=
-  f.collection_select(
-      :provider_id,
-      @providers,
-      :id, :name
-  )
-%>
+<%= render 'shared/error_messages', target: f.object %>
+<%= f.collection_select(:facilitate_taxon_id, @facilitate_taxons, :id, :name, { include_blank: true }, { data: { controller: 'typer', url: facilitates_admin_project_project_facilitates_path(@project) } })%>
+<%= f.collection_select(:facilitate_id, @facilitates, :id, :name, { include_blank: true }, { data: { controller: 'typer', url: providers_admin_project_project_facilitates_path(@project) } })%>
+<%= f.collection_select(:provider_id, @providers, :id, :name) %>
 <%= f.submit %>
