@@ -1,4 +1,5 @@
 <%= form_with model: @task, url: { action: 'update' } do |f| %>
-  <%= f.collection_select(:member_id, @members, :id, :name, include_blank: true) %>
+  <%= f.number_field :cost_stock, step: 1 %>
+  <%= f.number_field :cost_fund, step: 0.01 %>
   <%= f.submit %>
 <% end %>

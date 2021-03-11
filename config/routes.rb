@@ -112,6 +112,9 @@ Rails.application.routes.draw do
         get 'template' => :new_template
         get 'project/:project_id' => :project
       end
+      member do
+        get :reward
+      end
       resources :task_timers do
         member do
           patch :pause

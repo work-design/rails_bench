@@ -1,4 +1,4 @@
-<%= form_with model: @task, url: me_task_path(@task), method: 'patch', can: { wrap_id: true } do |f| %>
+<%= form_with model: @task, url: { action: 'update' }, method: 'patch', can: { wrap_id: true } do |f| %>
   <div class="field is-horizontal">
     <label class="field-label is-normal"></label>
     <div class="field-body">

@@ -53,7 +53,7 @@ zh:
       project_stages:
         index:
           title: 项目阶段
-      project_taxons:
+      taxons:
         index:
           title: 项目分类
           parameter: 格式设置
@@ -62,7 +62,7 @@ zh:
       taxon_indicators:
         index:
           title: 项目评价
-      project_taxon_facilitates:
+      taxon_facilitates:
         index:
           title: 项目招标
       project_facilitates:
