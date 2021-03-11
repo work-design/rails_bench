@@ -8,7 +8,7 @@
       <%= link_to t('bench.admin.tasks.project.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %>
     </li>
     <li class="<%= active_helper(maps: ['show', 'edit', 'new'], active: 'is-active') %>">
-      <%= link_to({ controller: '/admin/maps', action: 'show', target_id: project.id, target_type: 'Project'}) do %>
+      <%= link_to({ controller: '/admin/maps', action: 'show', target_id: project.id, target_type: 'Bench::Project'}) do %>
         Map
       <% end if defined? LngLat %>
     </li>
@@ -16,7 +16,7 @@
       <%= link_to t('bench.admin.projects.show.title'), { controller: 'bench/admin/projects', action: 'show', id: project.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
-      <%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Project', financial_id: project.id } %>
+      <%= link_to t('bench.admin.fund_budgets.index.title'), { controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Bench::Project', financial_id: project.id } %>
     </li>
     <li class="<%= active_helper(controllers: 'budgets', active: 'is-active') %>">
       <%= link_to t('bench.admin.budgets.index.title'), { controller: 'bench/admin/budgets', action: 'index', project_id: project.id } %>

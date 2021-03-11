@@ -1,8 +1,8 @@
 require 'test_helper'
-class Bench::Admin::ProjectTaxonIndicatorsControllerTest < ActionDispatch::IntegrationTest
+class Bench::Admin::TaxonIndicatorsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @bench_admin_taxon_indicator = create bench_admin_taxon_indicators
+    @bench_admin_taxon_indicator = create :taxon_indicators
   end
 
   test 'index ok' do
@@ -17,30 +17,30 @@ class Bench::Admin::ProjectTaxonIndicatorsControllerTest < ActionDispatch::Integ
 
   test 'create ok' do
     assert_difference('ProjectTaxonIndicator.count') do
-      post admin_project_taxon_indicators_url, params: { #{singular_table_name}: { #{attributes_string} } }
+      post admin_project_taxon_indicators_url, params: { }
     end
 
     assert_response :success
   end
 
   test 'show ok' do
-    get admin_project_taxon_indicator_url(@bench_admin_project_taxon_indicator)
+    get admin_project_taxon_indicator_url(@taxon_indicator)
     assert_response :success
   end
 
   test 'edit ok' do
-    get edit_admin_project_taxon_indicator_url(@bench_admin_project_taxon_indicator)
+    get edit_admin_project_taxon_indicator_url(@taxon_indicator)
     assert_response :success
   end
 
   test 'update ok' do
-    patch admin_project_taxon_indicator_url(@bench_admin_project_taxon_indicator), params: { #{singular_table_name}: { #{attributes_string} } }
+    patch admin_project_taxon_indicator_url(@taxon_indicator), params: { }
     assert_response :success
   end
 
   test 'destroy ok' do
     assert_difference('ProjectTaxonIndicator.count', -1) do
-      delete admin_project_taxon_indicator_url(@bench_admin_project_taxon_indicator)
+      delete admin_project_taxon_indicator_url(@taxon_indicator)
     end
 
     assert_response :success

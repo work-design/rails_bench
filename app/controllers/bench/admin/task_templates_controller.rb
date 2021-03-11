@@ -1,6 +1,6 @@
 module Bench
   class Admin::TaskTemplatesController < Admin::BaseController
-    before_action :set_project_taxon
+    before_action :set_taxon
     before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
     before_action :prepare_form, only: [:new, :edit]
 
@@ -9,7 +9,7 @@ module Bench
       q_params.merge! default_params
       q_params.merge! params.permit(:parent_id)
 
-      @task_templates = @project_taxon.task_templates.roots.includes(:children).order(position: :asc).default_where(q_params)
+      @task_templates = @taxon.task_templates.roots.includes(:children).order(position: :asc).default_where(q_params)
     end
 
     def departments
@@ -30,11 +30,11 @@ module Bench
     end
 
     def new
-      @task_template = @project_taxon.task_templates.build(raw_task_template_params)
+      @task_template = @taxon.task_templates.build(raw_task_template_params)
     end
 
     def create
-      @task_template = @project_taxon.task_templates.build(task_template_params)
+      @task_template = @taxon.task_templates.build(task_template_params)
 
       unless @task_template.save
         render :new, locals: { model: @task_template }, status: :unprocessable_entity
@@ -85,8 +85,8 @@ module Bench
     end
 
     private
-    def set_project_taxon
-      @project_taxon = ProjectTaxon.find params[:project_taxon_id]
+    def set_taxon
+      @taxon = Taxon.find params[:taxon_id]
     end
 
     def set_task_template
