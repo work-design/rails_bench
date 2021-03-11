@@ -8,9 +8,19 @@
       <% end %>
       <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id } %>
     </div>
-    <% if task.member %>
-      <span class="tag"><%= task.member&.name %></span>
-    <% end %>
+    <div class="level-item">
+      <% if task.member %>
+        <span class="tag"><%= task.member&.name %></span>
+      <% end %>
+      <div class="tags has-addons mb-0">
+        <i class="tag fas fa-stamp"></i>
+        <span class="tag"><%= task.cost_stock %></span>
+      </div>
+      <div class="tags has-addons mb-0">
+        <i class="tag fas fa-hand-holding-usd"></i>
+        <span class="tag"><%= task.cost_fund %></span>
+      </div>
+    </div>
   </div>
   <div class="level-right">
     <div class="level-item">
