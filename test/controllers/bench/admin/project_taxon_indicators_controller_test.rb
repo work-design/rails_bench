@@ -2,7 +2,7 @@ require 'test_helper'
 class Bench::Admin::ProjectTaxonIndicatorsControllerTest < ActionDispatch::IntegrationTest
 
   setup do
-    @bench_admin_project_taxon_indicator = create bench_admin_project_taxon_indicators
+    @bench_admin_taxon_indicator = create bench_admin_taxon_indicators
   end
 
   test 'index ok' do

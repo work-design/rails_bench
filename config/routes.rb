@@ -61,7 +61,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :admin, module: 'bench/admin', as: :admin, defaults: { business: 'bench', namespace: 'admin' } do
+  scope 'bench/admin', module: 'bench/admin', defaults: { business: 'bench', namespace: 'admin' } do
     resources :taxons do
       member do
         get :parameter

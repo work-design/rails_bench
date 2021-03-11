@@ -59,7 +59,7 @@ zh:
           parameter: 格式设置
         show:
           title: 详情
-      project_taxon_indicators:
+      taxon_indicators:
         index:
           title: 项目评价
       project_taxon_facilitates:

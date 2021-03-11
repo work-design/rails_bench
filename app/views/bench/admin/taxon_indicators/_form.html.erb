@@ -1,10 +1,10 @@
-<%= render 'shared/error_messages', target: @project_taxon_indicator %>
+<%= render 'shared/error_messages', target: @taxon_indicator %>
 <%=
   f.collection_select(
       :facilitate_taxon_id,
       @facilitate_taxons,
       :id, :name, { include_blank: true },
-      { data: { controller: 'typer', url: indicators_admin_project_taxon_project_taxon_indicators_path(@project_taxon) } }
+      { data: { controller: 'typer', url: indicators_admin_project_taxon_taxon_indicators_path(@project_taxon) } }
   )
 %>
 <%=

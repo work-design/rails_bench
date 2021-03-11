@@ -57,7 +57,7 @@ zh:
       bench/project_taxon_facilitate:
         facilitate_taxon_id: 服务分类
         facilitate_id: 标准化服务
-      bench/project_taxon_indicator:
+      bench/taxon_indicator:
         facilitate_taxon_id: 服务分类
         indicator_id: 评价指标
       bench/project_facilitate:
