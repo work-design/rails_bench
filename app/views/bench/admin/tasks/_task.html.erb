@@ -12,13 +12,19 @@
       <% if task.member %>
         <span class="tag"><%= task.member&.name %></span>
       <% end %>
-      <div class="tags has-addons mb-0">
-        <i class="tag fas fa-stamp"></i>
-        <span class="tag"><%= task.cost_stock %></span>
+      <div class="tags has-addons">
+        <span class="tag is-link"><%= task.cost_stock %></span>
+        <%= link_to({ action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }) do %>
+          <i class="tag fas fa-trophy"></i>
+        <% end %>
       </div>
-      <div class="tags has-addons mb-0">
-        <i class="tag fas fa-hand-holding-usd"></i>
-        <span class="tag"><%= task.cost_fund %></span>
+    </div>
+    <div class="level-item">
+      <div class="tags has-addons">
+        <span class="tag is-info"><%= task.cost_fund %></span>
+        <%= link_to({ action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }) do %>
+          <i class="tag fas fa-hand-holding-usd"></i>
+        <% end %>
       </div>
     </div>
   </div>

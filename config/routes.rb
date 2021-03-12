@@ -110,7 +110,8 @@ Rails.application.routes.draw do
         get 'project/:project_id' => :project
       end
       member do
-        get :reward
+        get :stock
+        get :fund
       end
       resources :task_timers do
         member do
