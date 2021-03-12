@@ -1,20 +1,20 @@
 module Bench
   class Admin::TaxonIndicatorsController < Admin::BaseController
-    before_action :set_project_taxon
+    before_action :set_taxon
     before_action :set_taxon_indicator, only: [:show, :edit, :update, :destroy]
     before_action :prepare_form, only: [:new, :edit]
 
     def index
-      @taxon_indicators = @project_taxon.taxon_indicators.page(params[:page])
+      @taxon_indicators = @taxon.taxon_indicators.page(params[:page])
     end
 
     def new
       @indicators = Indicator.none
-      @taxon_indicator = @project_taxon.taxon_indicators.build
+      @taxon_indicator = @taxon.taxon_indicators.build
     end
 
     def create
-      @taxon_indicator = @project_taxon.taxon_indicators.build(taxon_indicator_params)
+      @taxon_indicator = @taxon.taxon_indicators.build(taxon_indicator_params)
 
       unless @taxon_indicator.save
         render :new, locals: { model: @taxon_indicator }, status: :unprocessable_entity
@@ -47,12 +47,12 @@ module Bench
     end
 
     private
-    def set_project_taxon
-      @project_taxon = ProjectTaxon.find params[:project_taxon_id]
+    def set_taxon
+      @taxon = Taxon.find params[:taxon_id]
     end
 
     def set_taxon_indicator
-      @taxon_indicator = @project_taxon.taxon_indicators.find(params[:id])
+      @taxon_indicator = @taxon.taxon_indicators.find(params[:id])
     end
 
     def prepare_form

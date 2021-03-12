@@ -1,11 +1,11 @@
 module Bench
   class Admin::TaxonFacilitatesController < Admin::BaseController
-    before_action :set_project_taxon
+    before_action :set_taxon
     before_action :set_taxon_indicators, only: [:show, :edit, :update, :destroy, :new, :facilitates]
     before_action :prepare_form, only: [:new, :edit]
 
     def index
-      @taxon_indicatorss = @project_taxon.taxon_indicatorss.page(params[:page])
+      @taxon_indicatorss = @taxon.taxon_indicatorss.page(params[:page])
     end
 
     def new
@@ -13,7 +13,7 @@ module Bench
     end
 
     def create
-      @taxon_indicators = @project_taxon.taxon_indicatorss.build(taxon_indicators_params)
+      @taxon_indicators = @taxon.taxon_indicatorss.build(taxon_indicators_params)
 
       unless @taxon_indicators.save
         render :new, locals: { model: @taxon_indicators }, status: :unprocessable_entity
@@ -47,15 +47,15 @@ module Bench
     end
 
     private
-    def set_project_taxon
-      @project_taxon = ProjectTaxon.find params[:project_taxon_id]
+    def set_taxon
+      @taxon = Taxon.find params[:taxon_id]
     end
 
     def set_taxon_indicators
       if params[:id]
-        @taxon_indicators = @project_taxon.taxon_indicatorss.find(params[:id])
+        @taxon_indicators = @taxon.taxon_indicatorss.find(params[:id])
       else
-        @taxon_indicators = @project_taxon.taxon_indicatorss.build
+        @taxon_indicators = @taxon.taxon_indicatorss.build
       end
     end
 
