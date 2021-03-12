@@ -1,11 +1,11 @@
 module Bench
   class Admin::TaxonFacilitatesController < Admin::BaseController
     before_action :set_taxon
-    before_action :set_taxon_indicators, only: [:show, :edit, :update, :destroy, :new, :facilitates]
+    before_action :set_taxon_facilitate, only: [:show, :edit, :update, :destroy, :new, :facilitates]
     before_action :prepare_form, only: [:new, :edit]
 
     def index
-      @taxon_indicatorss = @taxon.taxon_indicatorss.page(params[:page])
+      @taxon_facilitates = @taxon.taxon_facilitates.page(params[:page])
     end
 
     def new
@@ -13,16 +13,16 @@ module Bench
     end
 
     def create
-      @taxon_indicators = @taxon.taxon_indicatorss.build(taxon_indicators_params)
+      @taxon_facilitate = @taxon.taxon_facilitates.build(taxon_facilitate_params)
 
-      unless @taxon_indicators.save
-        render :new, locals: { model: @taxon_indicators }, status: :unprocessable_entity
+      unless @taxon_facilitate.save
+        render :new, locals: { model: @taxon_facilitate }, status: :unprocessable_entity
       end
     end
 
     def facilitates
       q_params = {}
-      q_params.merge! facilitate_taxon_id: taxon_indicators_params[:facilitate_taxon_id]
+      q_params.merge! facilitate_taxon_id: taxon_facilitate_params[:facilitate_taxon_id]
       @facilitates = Facilitate.default_where(q_params)
     end
 
@@ -30,20 +30,20 @@ module Bench
     end
 
     def edit
-      @facilitates = Facilitate.default_where(facilitate_taxon_id: @taxon_indicators.facilitate_taxon_id)
-      @providers = @taxon_indicators.facilitate.providers
+      @facilitates = Facilitate.default_where(facilitate_taxon_id: @taxon_facilitate.facilitate_taxon_id)
+      @providers = @taxon_facilitate.facilitate.providers
     end
 
     def update
-      @taxon_indicators.assign_attributes(taxon_indicators_params)
+      @taxon_facilitate.assign_attributes(taxon_facilitate_params)
 
-      unless @taxon_indicators.save
-        render :edit, locals: { model: @taxon_indicators }, status: :unprocessable_entity
+      unless @taxon_facilitate.save
+        render :edit, locals: { model: @taxon_facilitate }, status: :unprocessable_entity
       end
     end
 
     def destroy
-      @taxon_indicators.destroy
+      @taxon_facilitate.destroy
     end
 
     private
@@ -51,11 +51,11 @@ module Bench
       @taxon = Taxon.find params[:taxon_id]
     end
 
-    def set_taxon_indicators
+    def set_taxon_facilitate
       if params[:id]
-        @taxon_indicators = @taxon.taxon_indicatorss.find(params[:id])
+        @taxon_facilitate = @taxon.taxon_facilitates.find(params[:id])
       else
-        @taxon_indicators = @taxon.taxon_indicatorss.build
+        @taxon_facilitate = @taxon.taxon_facilitates.build
       end
     end
 
@@ -63,8 +63,8 @@ module Bench
       @facilitate_taxons = FacilitateTaxon.default_where(default_params)
     end
 
-    def taxon_indicators_params
-      params.fetch(:taxon_indicators, {}).permit(
+    def taxon_facilitate_params
+      params.fetch(:taxon_facilitate, {}).permit(
         :facilitate_taxon_id,
         :facilitate_id
       )

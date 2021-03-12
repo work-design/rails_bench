@@ -1,9 +1,9 @@
-<%= render partial: 'project_taxon_bar', locals: { project_taxon: @project_taxon } %>
+<%= render partial: 'project_taxon_bar', locals: { taxon: @taxon } %>
 
 <div class="box">
   <%= render partial: 'index_item', collection: @task_templates, as: :task_template %>
   <div id="item_add">
-    <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id] }) do %>
+    <%= link_to({ action: 'new', taxon_id: params[:taxon_id] }) do %>
       <i class="fas fa-plus"></i>
     <% end %>
   </div>
