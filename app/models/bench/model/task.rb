@@ -25,6 +25,7 @@ module Bench
 
       has_one :task_timer, -> { where(finish_at: nil) }
       has_many :task_timers
+      has_many :budgets, dependent: :destroy
 
       has_one_attached :proof
 
@@ -49,6 +50,8 @@ module Bench
       before_save :check_done, if: -> { done_at_changed? && done_at.present? }
       after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
       after_save :sync_project, if: -> { saved_change_to_project_id? }
+      after_save :sync_stock_budget, if: -> { saved_change_to_cost_stock? }
+      after_save :sync_fund_budget, if: -> { saved_change_to_cost_fund? }
 
       acts_as_list scope: [:parent_id, :project_id]
       acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
@@ -101,6 +104,22 @@ module Bench
 
     def sync_estimated_time
       parent.update estimated_time: parent.children.sum(:estimated_time) if parent
+    end
+
+    def sync_stock_budget
+      b = budgets.find_or_initialize_by(type: 'Finance::StockBudget')
+      b.amount = cost_stock
+      b.fianancial = project
+      b.save
+      b
+    end
+
+    def sync_fund_budget
+      b = budgets.find_or_initialize_by(type: 'Finance::FundBudget')
+      b.amount = cost_fund
+      b.fianancial = project
+      b.save
+      b
     end
 
     def set_next
