@@ -1,6 +1,5 @@
 <tr>
   <td><%= fund_budget.fund.name %></td>
-  <td><%# fund_budget.budget_amount %></td>
   <td><%= link_to fund_budget.amount, { controller: 'bench/admin/expenses', action: 'index', project_id: params[:financial_id], fund_id: fund_budget.fund_id } %></td>
   <td><%= fund_budget.note %></td>
   <td>

@@ -1,6 +1,6 @@
 module Bench
   class Admin::TaxonsController < Admin::BaseController
-    before_action :set_taxon, only: [:show, :edit, :parameter, :update, :destroy]
+    before_action :set_taxon, only: [:show, :budgets, :expenses, :edit, :parameter, :update, :destroy]
 
     def index
       q_params = {}
@@ -22,6 +22,13 @@ module Bench
     end
 
     def show
+    end
+
+    def budgets
+      @budgets = @taxon.budgets.page(params[:page])
+    end
+
+    def expenses
     end
 
     def edit

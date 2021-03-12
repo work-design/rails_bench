@@ -1,5 +1,14 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
+<section class="columns">
+  <div class="column">
+    <%= Bench::Project.human_attribute_name(:fund_budget) %>： <%= @financial.fund_budget %>
+  </div>
+  <div class="column">
+    <%= Bench::Project.human_attribute_name(:fund_expense) %>： <%= @financial.fund_expense %>
+  </div>
+</section>
+
 <%= render layout: 'index_table', locals: { cache_key: Finance::Budget.column_names.hash } do %>
   <%= render partial: 'index_tbody', collection: @budgets, as: :budget %>
 <% end %>

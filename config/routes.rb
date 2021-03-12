@@ -47,12 +47,7 @@ Rails.application.routes.draw do
         get :repos
         get :github_hook
       end
-      resources :expenses do
-        collection do
-          get :add_item
-          get :remove_item
-        end
-      end
+      resources :expenses
     end
     resources :facilitates, only: [] do
       member do
@@ -64,6 +59,8 @@ Rails.application.routes.draw do
   scope 'bench/admin', module: 'bench/admin', defaults: { business: 'bench', namespace: 'admin' } do
     resources :taxons do
       member do
+        get :budgets
+        get :expenses
         get :parameter
       end
       resources :task_templates do
