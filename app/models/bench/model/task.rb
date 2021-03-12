@@ -25,7 +25,7 @@ module Bench
 
       has_one :task_timer, -> { where(finish_at: nil) }
       has_many :task_timers
-      has_many :budgets, dependent: :destroy
+      has_many :budgets, class_name: 'Finance::Budget', dependent: :destroy
 
       has_one_attached :proof
 
@@ -109,7 +109,8 @@ module Bench
     def sync_stock_budget
       b = budgets.find_or_initialize_by(type: 'Finance::StockBudget')
       b.amount = cost_stock
-      b.fianancial = project
+      b.financial = project
+      b.subject = title
       b.save
       b
     end
@@ -117,7 +118,8 @@ module Bench
     def sync_fund_budget
       b = budgets.find_or_initialize_by(type: 'Finance::FundBudget')
       b.amount = cost_fund
-      b.fianancial = project
+      b.financial = project
+      b.subject = title
       b.save
       b
     end
