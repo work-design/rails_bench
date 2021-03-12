@@ -1,3 +1,13 @@
 <turbo-frame id="moal">
-  <%= render partial: 'modal_form', locals: { action: 'focus' } %>
+  <%= render layout: 'modal' do %>
+    <%= form_with model: @task, url: { action: 'update' }, can: { wrap_id: true } do |f| %>
+      <div class="field is-horizontal">
+        <label class="field-label is-normal"></label>
+        <div class="field-body">
+          <%= link_to Bench::Task.enum_i18n(:focus, 'today'), focus_me_task_path(@task, focus: 'today'), method: :patch, class: 'button is-link' %>
+        </div>
+      </div>
+      <%= render partial: 'event/time/form', locals: { f: f } %>
+    <% end %>
+  <% end %>
 </turbo-frame>
