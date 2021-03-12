@@ -20,7 +20,7 @@
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
-      <%= link_to({ controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Bench::Taxon', financial_id: taxon.id }) do %>
+      <%= link_to({ controller: 'bench/admin/fund_budgets', action: 'index', financial_type: 'Taxon', financial_id: taxon.id }) do %>
         <i class="fas fa-hand-holding-usd"></i><span><%= t('bench.admin.fund_budgets.index.title') %></span>
       <% end %>
     </li>

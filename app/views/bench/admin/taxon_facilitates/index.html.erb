@@ -1,4 +1,4 @@
-<%= render partial: 'project_taxon_bar', locals: { taxon: @taxon } %>
+<%= render partial: 'taxon_bar', locals: { taxon: @taxon } %>
 
 <%= render layout: 'index_table', locals: { cache_key: Bench::TaxonFacilitate.column_names.hash } do %>
   <%= render partial: 'index_tbody', collection: @taxon_facilitates, as: :model %>

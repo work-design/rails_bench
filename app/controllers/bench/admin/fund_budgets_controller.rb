@@ -56,8 +56,8 @@ module Bench
         @financial = Project.find params[:financial_id]
       when 'ProjectStage'
         @financial = ProjectStage.find params[:financial_id]
-      when 'ProjectTaxon'
-        @financial = ProjectTaxon.find params[:financial_id]
+      when 'Taxon'
+        @financial = Taxon.find params[:financial_id]
       end
     end
 
