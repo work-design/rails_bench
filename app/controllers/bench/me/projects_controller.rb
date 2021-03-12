@@ -1,7 +1,7 @@
 module Bench
   class Me::ProjectsController < Admin::ProjectsController
     include BenchController::Me
-    skip_before_action :set_project_taxon
+    skip_before_action :set_taxon
     before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :destroy]
     before_action :prepare_form, only: [:index, :new, :edit]
 
@@ -63,7 +63,7 @@ module Bench
     end
 
     def prepare_form
-      @project_taxons = ProjectTaxon.default_where(default_params)
+      @project_taxons = Taxon.default_where(default_params)
       @project_stages = ProjectStage.default_where(default_params)
     end
 
