@@ -106,6 +106,8 @@ zh:
           title: 任务（待办）
         project:
           title: 任务（待办）
+        stock:
+          title: 股权支出
       task_templates:
         index:
           title: 工作流
