@@ -1,9 +1,7 @@
 <turbo-frame id="modal">
-  <%= render layout: 'modal' do %>
-    <%= form_with model: @task, url: { action: 'update_done' } do |f| %>
-      <%= f.text_area :note %>
-      <%= f.file_field :proof %>
-      <%= f.submit %>
-    <% end %>
+  <%= form_with model: @task, url: { action: 'update_done' } do |f| %>
+    <%= f.text_area :note %>
+    <%= f.file_field :proof %>
+    <%= f.submit %>
   <% end %>
 </turbo-frame>
