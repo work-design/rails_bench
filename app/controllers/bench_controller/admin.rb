@@ -10,4 +10,4 @@ module BenchController::Admin
     end
   end
 
-end unless defined? BenchController::Admin
+end
