@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/qinmingyuan/default_form.git
-  revision: e8208662f2b700778e16e73931f024370aa54e08
+  revision: d0fbf0383bf8f9ec7941f79ad2dabd95a478e53b
   specs:
     default_form (1.5.1)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 9cf100b67bdb82234030e64e723cc299f3052120
+  revision: da60c3e4c9bce9a1380b3ef1c664887d6ee706f7
   specs:
     rails_com (1.2.9)
       acme-client
@@ -21,7 +21,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: a394c6b0d3f478f8d68d6bb74ab403d9b3d30362
+  revision: ef7047dce081d446fca6c19cf81ffc4539d5cf0c
   specs:
     rails_finance (0.1.0)
       rails_audit
@@ -29,7 +29,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_org.git
-  revision: cad25ef4a24c577832a3a3892772ed7a07d8b069
+  revision: 5da126335a6c95e27f9b94941f721425e02f5f81
   specs:
     rails_org (0.1)
       rails_auth
@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 51f3affa8e408e3d59c3fb7ed5018c5fda918d44
+  revision: 9495bdc77c3003bd6f552581c81faf86d909904f
   specs:
     rails_profile (0.1.0)
       rails_com (~> 1.2)
@@ -121,7 +121,7 @@ GEM
     awesome_print (1.9.2)
     bcrypt (3.1.16)
     builder (3.2.4)
-    closure_tree (7.2.0)
+    closure_tree (7.3.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     coderay (1.1.3)
@@ -150,9 +150,9 @@ GEM
     faraday-net_http_persistent (1.1.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
-    http-2-next (0.4.2)
+    http-2-next (0.4.3)
     http-form_data (2.3.0)
-    httpx (0.14.0)
+    httpx (0.15.3)
       http-2-next (>= 0.4.1)
       timers
     i18n (1.8.10)
