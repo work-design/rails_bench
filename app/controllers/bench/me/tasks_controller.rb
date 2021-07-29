@@ -1,6 +1,6 @@
 module Bench
   class Me::TasksController < Admin::TasksController
-    before_action :set_task, only: [:project, :show]
+    before_action :set_task, only: [:project, :show, :destroy]
     include BenchController::Me
 
     def index
