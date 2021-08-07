@@ -14,6 +14,7 @@ module Bench
       belongs_to :department, optional: true
       belongs_to :job_title, optional: true
       belongs_to :member, optional: true
+      belongs_to :taxon, optional: true
 
       acts_as_list scope: [:organ_id, :project_taxon, :parent_id]
     end
