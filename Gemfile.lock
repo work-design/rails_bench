@@ -36,16 +36,6 @@ GIT
       rails_com (~> 1.2)
 
 GIT
-  remote: https://github.com/work-design/rails_org.git
-  revision: f93ca3b219dbfdb83a48f25ba1f5328cd20adc1d
-  specs:
-    rails_org (0.1)
-      rails_auth
-      rails_com (~> 1.2)
-      rails_notice
-      rails_profile
-
-GIT
   remote: https://github.com/work-design/rails_profile.git
   revision: 20a9938c32e05442af54fe1886f2d266bf321678
   specs:
@@ -57,8 +47,6 @@ PATH
   specs:
     rails_bench (0.1.0)
       rails_com (~> 1.2)
-      rails_finance
-      rails_org
 
 GEM
   remote: https://rubygems.org/
@@ -127,7 +115,6 @@ GEM
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
     awesome_print (1.9.2)
-    bcrypt (3.1.16)
     builder (3.2.4)
     closure_tree (7.3.0)
       activerecord (>= 4.2.10)
@@ -135,8 +122,6 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    default_form (1.3.0)
-      rails (>= 4.2)
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.10.0)
@@ -228,13 +213,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.3.0)
       loofah (~> 2.3)
-    rails_auth (1.0.4)
-      bcrypt
-      default_form
-      rails (>= 5.0)
-      rails_com
-    rails_notice (0.1.0)
-      rails (>= 5.0.1)
     railties (6.1.4)
       actionpack (= 6.1.4)
       activesupport (= 6.1.4)
@@ -279,7 +257,6 @@ DEPENDENCIES
   rails_bench!
   rails_com!
   rails_finance!
-  rails_org!
   rails_profile!
   sdoc
   viter!

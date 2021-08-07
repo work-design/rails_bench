@@ -19,6 +19,4 @@ Gem::Specification.new do |s|
   ]
 
   s.add_dependency 'rails_com', '~> 1.2'
-  s.add_dependency 'rails_org'
-  s.add_dependency 'rails_finance'
 end
