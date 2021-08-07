@@ -7,6 +7,7 @@ gem 'puma'
 gem 'pg'
 
 gem 'viter', github: 'qinmingyuan/viter'
+gem 'default_form', github: 'qinmingyuan/default_form'
 
 gem 'rails_com', github: 'work-design/rails_com'
 gem 'rails_profile', github: 'work-design/rails_profile'

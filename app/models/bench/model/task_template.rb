@@ -6,7 +6,6 @@ module Bench
       attribute :title, :string
       attribute :position, :integer
       attribute :color, :string
-      attribute :parent_id, :integer
       attribute :repeat_type, :string, default: 'once'
       attribute :repeat_days, :integer, array: true
 

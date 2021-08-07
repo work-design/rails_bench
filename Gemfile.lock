@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/qinmingyuan/default_form.git
+  revision: 476ba7231079b1071415ad4e953b55ce16ae1d0d
+  specs:
+    default_form (1.5.1)
+      rails_com (~> 1.2)
+
+GIT
   remote: https://github.com/qinmingyuan/viter.git
   revision: f007952bb7cf5f1c30d56d0bbb9b1c37bc73317e
   specs:
@@ -50,7 +57,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 9f2cf2704ed08a7cfde4a36273ce758ef5de9af9
+  revision: 7e1f7a0d73004f5e24b15a613f09b434c987157f
   specs:
     rails_notice (1.0.2)
       rails_auth
@@ -144,8 +151,6 @@ GEM
     coderay (1.1.3)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    default_form (1.3.0)
-      rails (>= 4.2)
     default_where (2.2.0)
       activerecord (>= 4.0.0)
     erubi (1.10.0)
@@ -302,6 +307,7 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
+  default_form!
   jbuilder
   pg
   pry-rails
