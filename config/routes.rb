@@ -1,4 +1,26 @@
 Rails.application.routes.draw do
+  concern :tasked do
+    collection do
+      get 'template' => :new_template
+    end
+    member do
+      patch :close
+      patch :reorder
+      get :project
+      get 'done' => :edit_done
+      patch 'done' => :update_done
+      patch :rework
+      get 'focus' => :edit_focus
+      get 'assign' => :edit_assign
+    end
+    resources :task_timers do
+      member do
+        patch :pause
+      end
+    end
+    resources :pictures
+    resources :links
+  end
 
   namespace 'bench', defaults: { business: 'bench' } do
     resources :projects do
@@ -20,26 +42,7 @@ Rails.application.routes.draw do
         end
       end
       resources :tasks do
-        collection do
-          get 'template' => :new_template
-        end
-        member do
-          patch :close
-          patch :reorder
-          get :project
-          get 'done' => :edit_done
-          patch 'done' => :update_done
-          patch :rework
-          get 'focus' => :edit_focus
-          get 'assign' => :edit_assign
-        end
-        resources :task_timers do
-          member do
-            patch :pause
-          end
-        end
-        resources :pictures
-        resources :links
+        concerns :tasked
       end
       resources :projects do
         member do
@@ -112,11 +115,7 @@ Rails.application.routes.draw do
           get :stock
           get :fund
         end
-        resources :task_timers do
-          member do
-            patch :pause
-          end
-        end
+        concerns :tasked
       end
       scope path: ':financial_type/:financial_id' do
         resources :fund_budgets

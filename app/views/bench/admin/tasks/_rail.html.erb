@@ -1,20 +1,20 @@
-<%= link_to edit_me_task_path(task, item: 'title'), aria: { label: t('.edit') } do %>
+<%= link_to({ action: 'edit', id: task.id, item: 'title' }, aria: { label: t('.edit') }) do %>
   <i class="fas fa-pencil-alt fa-fw has-text-info"></i>
 <% end %>
 
-<%= link_to pause_me_task_task_timer_path(task, task.task_timer), method: 'patch', id: "pause_task_#{task.id}" do %>
+<%= link_to({ controller: 'task_timers', action: 'pause', task_id: task.id, id: task.task_timer.id }, method: 'patch', id: "pause_task_#{task.id}") do %>
   <i class="fas fa-pause fa-fw has-text-grey"></i>
 <% end if task.task_timer %>
 
-<%= link_to done_me_task_path(task), aria: { label: t('.done') }, id: "play_task_#{task.id}" do %>
+<%= link_to({ action: 'edit_done', id: task.id }, aria: { label: t('.done') }, id: "play_task_#{task.id}") do %>
   <i class="far fa-square fa-fw has-text-link"></i>
 <% end unless task.done? %>
 
-<%= link_to focus_me_task_path(task), aria: { label: t('.today') }, id: "play_task_#{task.id}" do %>
+<%= link_to({ action: 'edit_focus', id: task.id }, aria: { label: t('.today') }, id: "play_task_#{task.id}") do %>
   <i class="fas fa-star fa-fw has-text-link"></i>
 <% end if task.inbox? %>
 
-<%= link_to me_task_task_timers_path(task), method: 'post', id: "play_task_#{task.id}" do %>
+<%= link_to({ controller: 'task_timers', task_id: task.id }, method: 'post', id: "play_task_#{task.id}") do %>
   <i class="fas fa-play fa-fw has-text-primary"></i>
 <% end if task.today? %>
 
