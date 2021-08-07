@@ -15,6 +15,7 @@ gem 'rails_finance', github: 'work-design/rails_finance'
 gem 'rails_audit', github: 'work-design/rails_audit'
 gem 'rails_data', github: 'work-design/rails_data'
 gem 'rails_notice', github: 'work-design/rails_notice'
+gem 'rails_ui', github: 'work-design/rails_ui'
 gem 'jbuilder'
 
 gem 'pry-rails'

@@ -70,6 +70,13 @@ GIT
     rails_profile (0.1.0)
       rails_com (~> 1.2)
 
+GIT
+  remote: https://github.com/work-design/rails_ui.git
+  revision: 5d3fd79f49b4cce75fe0602993b1ad174742280e
+  specs:
+    rails_ui (0.1.0)
+      rails
+
 PATH
   remote: .
   specs:
@@ -320,6 +327,7 @@ DEPENDENCIES
   rails_finance!
   rails_notice!
   rails_profile!
+  rails_ui!
   sdoc
   viter!
 
