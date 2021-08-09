@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/qinmingyuan/viter.git
-  revision: f007952bb7cf5f1c30d56d0bbb9b1c37bc73317e
+  revision: 69e5b6e5585471aa973aa1fd807e38544295b886
   specs:
     viter (0.1.0)
       rails
@@ -72,7 +72,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_ui.git
-  revision: 5d3fd79f49b4cce75fe0602993b1ad174742280e
+  revision: 25895937fdf63f3ef8a9078fa6e2270f0e0af27b
   specs:
     rails_ui (0.1.0)
       rails
