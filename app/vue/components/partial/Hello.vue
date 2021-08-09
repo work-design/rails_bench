@@ -1,5 +1,4 @@
 <script src="./hello.js"></script>
-<style src="./hello.scss" scoped></style>
 <template>
   <h1>{{ msg }}</h1>
   <p>
