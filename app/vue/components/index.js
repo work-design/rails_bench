@@ -1,4 +1,4 @@
-import Hello from '../components/Hello.vue'
+import Hello from './partial/Hello.vue'
 
 export default {
   components: {
