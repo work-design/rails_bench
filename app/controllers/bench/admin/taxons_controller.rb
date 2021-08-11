@@ -21,9 +21,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def budgets
       @budgets = @taxon.budgets.page(params[:page])
     end

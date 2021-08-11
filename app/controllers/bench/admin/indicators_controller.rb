@@ -1,6 +1,7 @@
 module Bench
   class Admin::IndicatorsController < Admin::BaseController
     before_action :pre_form, except: [:destroy]
+    before_action :set_new_indicator, only: [:new, :create]
     before_action :set_indicator, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -11,43 +12,13 @@ module Bench
       @indicators = Indicator.default_where(q_params).page(params[:page])
     end
 
-    def new
-      @indicator = Indicator.new
-    end
-
-    def create
-      @indicator = Indicator.new(indicator_params)
-
-      if @indicator.save
-        render 'create'
-      else
-        render action: 'new', locals: { model: @indicator }, status: :unprocessable_entity
-      end
-    end
-
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @indicator.assign_attributes(indicator_params)
-
-      if @indicator.save
-        render 'update'
-      else
-        render action: 'edit', locals: { model: @indicator }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @indicator.destroy
-    end
-
     private
     def set_indicator
       @indicator = Indicator.find params[:id]
+    end
+
+    def set_new_indicator
+      @indicator = Indicator.new(indicator_params)
     end
 
     def pre_form

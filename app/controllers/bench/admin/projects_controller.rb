@@ -29,9 +29,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def repos
       @repos = @project.creator&.github_repos
       render json: { results: @repos }
@@ -39,9 +36,6 @@ module Bench
 
     def github_hook
       @project.github_hook_add
-    end
-
-    def edit
     end
 
     def update
@@ -59,13 +53,13 @@ module Bench
       @project.save
     end
 
-    def destroy
-      @project.destroy
-    end
-
     private
     def set_project
-      @project = Project.find(params[:id])
+      @project = @taxon.projects.find(params[:id])
+    end
+
+    def xx
+      @project = @taxon.Projects.build(project_params)
     end
 
     def set_taxon
