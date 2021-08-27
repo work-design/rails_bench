@@ -9,7 +9,7 @@
         <%= image_tag facilitate.logo, class: 'image is-48x48' if facilitate.logo_attachment %>
       </div>
       <div class="media-content">
-        <%= link_to facilitate.name, facilitate_path(facilitate) %>
+        <%= link_to facilitate.name, { action: 'show', id: facilitate.id } %>
         <p><%= facilitate.description %></p>
       </div>
       <div class="media-right">

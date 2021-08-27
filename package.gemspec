@@ -1,9 +1,6 @@
-$:.push File.expand_path('lib', __dir__)
-require 'rails_bench/version'
-
 Gem::Specification.new do |s|
   s.name = 'rails_bench'
-  s.version = RailsBench::VERSION
+  s.version = '0.1.0'
   s.authors = ['qinmingyuan']
   s.email = ['mingyuan0715@foxmail.com']
   s.homepage = 'https://github.com/work-design/rails_bench'
