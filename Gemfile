@@ -18,4 +18,7 @@ gem 'rails_design', github: 'work-design/rails_design'
 gem 'jbuilder'
 
 gem 'amazing_print'
-gem 'sdoc'
+group :development, :test do
+  gem 'debug'
+  gem 'sdoc'
+end
