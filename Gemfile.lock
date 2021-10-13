@@ -1,20 +1,13 @@
 GIT
-  remote: https://github.com/qinmingyuan/viter.git
-  revision: 82d46c2eed89cc27b89811e3ded0cb6797f3b807
-  specs:
-    viter (0.1)
-      rails
-
-GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: b28360f3df12b621c7d62214b881f7e4b19e4ea2
+  revision: a4c37ed3f83a7505d04c45b407b15afc4b09c92b
   specs:
-    rails_audit (1.0.3)
+    rails_audit (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 2377ede7104b675247bf7b26bc279591d54d0a21
+  revision: 3af7acecca30116eb8f5cc8bd31ad4cc167ef83e
   specs:
     rails_com (1.2.9)
       acme-client
@@ -31,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 228108a0b403a2ed7fc29efd16014b65209c009f
+  revision: 10728509350b2a50e2d6bf7766c5fbf90507b4d2
   specs:
     rails_data (1.0.2)
       prawn
@@ -43,21 +36,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 383e4a7423663c8233b14d1eeaec2507569310ca
+  revision: 7498ce9e8436d982113e60db21f996cfa2f3669a
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: c51aad1277fff57c53409a2c4c6c4e90461463d5
+  revision: f339c960ec81768c1cc80190f0713f9766150082
   specs:
     rails_extend (1.0.0)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 7fbe842506aa2682869474f4eaa39b8dff0784e5
+  revision: c55adb213d5836ac81b45662d1f559404b38765a
   specs:
     rails_finance (0.0.1)
       prawn
@@ -65,17 +58,24 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 5aca04e1830b0c9020f2c1ce1f415aaefa70d484
+  revision: 3e7c21919577e4fa477738e0faa6b922b4c9ffdd
   specs:
     rails_notice (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: c1998d0423381dc407c3d8c83bccc3ab522dea68
+  revision: 753020dc8c321c259081b092f5be6986913e2d94
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
+
+GIT
+  remote: https://github.com/work-design/rails_vite.git
+  revision: 231c4cf7eb14fc610ffd8d36b686df8e5d2351cd
+  specs:
+    rails_vite (0.0.1)
+      rails
 
 PATH
   remote: .
@@ -149,15 +149,15 @@ GEM
       zeitwerk (~> 2.3)
     acts_as_list (1.0.4)
       activerecord (>= 4.2)
-    amazing_print (1.3.0)
+    amazing_print (1.4.0)
     builder (3.2.4)
     closure_tree (7.3.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
     crass (1.0.6)
-    debug (1.0.0)
-      irb
+    debug (1.2.4)
+      irb (>= 1.3.6)
       reline (>= 0.2.7)
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
@@ -185,9 +185,8 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.17.0)
+    httpx (0.18.0)
       http-2-next (>= 0.4.1)
-      timers
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     io-console (0.5.9)
@@ -212,14 +211,14 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
-    marcel (1.0.1)
+    marcel (1.0.2)
     method_source (1.0.0)
-    mini_mime (1.1.1)
+    mini_mime (1.1.2)
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     multipart-post (2.1.1)
     nio4r (2.5.8)
-    nokogiri (1.12.4)
+    nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     pdf-core (0.9.0)
@@ -229,7 +228,7 @@ GEM
       ttfunk (~> 1.7)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
-    puma (5.4.0)
+    puma (5.5.2)
       nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
@@ -277,7 +276,7 @@ GEM
     rubyzip (2.3.2)
     sdoc (2.2.0)
       rdoc (>= 5.0)
-    spreadsheet (1.2.9)
+    spreadsheet (1.3.0)
       ruby-ole
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -287,9 +286,8 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     thor (1.1.0)
-    timers (4.3.3)
     ttfunk (1.7.0)
-    turbo-rails (0.7.14)
+    turbo-rails (0.8.1)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
@@ -311,7 +309,6 @@ PLATFORMS
 DEPENDENCIES
   amazing_print
   debug
-  jbuilder
   pg
   puma
   rails
@@ -324,8 +321,8 @@ DEPENDENCIES
   rails_finance!
   rails_notice!
   rails_profile!
+  rails_vite!
   sdoc
-  viter!
 
 BUNDLED WITH
    2.2.22
