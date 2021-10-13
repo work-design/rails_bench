@@ -2,9 +2,9 @@
   <div class="level-left">
     <div class="level-item">
       <% if @task&.id == task.id %>
-        <i class="fas fa-check-square fa-fw has-text-success is-drawable"></i>
+        <i class="fa-light fa-check-square fa-fw has-text-success is-drawable"></i>
       <% else %>
-        <i class="fas fa-bars fa-fw has-text-grey is-drawable"></i>
+        <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
       <% end %>
       <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id } %>
     </div>
@@ -15,7 +15,7 @@
       <div class="tags has-addons">
         <span class="tag is-link"><%= task.cost_stock %></span>
         <%= link_to({ action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }) do %>
-          <i class="tag fas fa-trophy"></i>
+          <i class="tag fa-light fa-trophy"></i>
         <% end %>
       </div>
     </div>
@@ -23,7 +23,7 @@
       <div class="tags has-addons">
         <span class="tag is-info"><%= task.cost_fund %></span>
         <%= link_to({ action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }) do %>
-          <i class="tag fas fa-hand-holding-usd"></i>
+          <i class="tag fa-light fa-hand-holding-usd"></i>
         <% end %>
       </div>
     </div>
@@ -31,13 +31,13 @@
   <div class="level-right">
     <div class="level-item">
       <% if task.task_timer %>
-        <i class="fas fa-hourglass-start has-text-success"></i>
+        <i class="fa-light fa-hourglass-start has-text-success"></i>
       <% end %>
       <span data-show-target="item" style="visibility: hidden">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
       <%= link_to({ controller: 'tasks', action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
-        <i class="fas fa-trash fa-fw has-text-danger"></i>
+        <i class="fa-light fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>
   </div>

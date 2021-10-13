@@ -7,10 +7,10 @@
   <turbo-frame id="item_add">
     <% if 'done' != params[:state] %>
       <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }) do %>
-        <i class="fas fa-plus fa-fw"></i>
+        <i class="fa-light fa-plus fa-fw"></i>
       <% end %>
       <%= link_to({ controller: 'projects', action: 'sync', id: @project.id }, aria: { label: t('.new') }) do %>
-        <i class="fas fa-sync fa-fw"></i>
+        <i class="fa-light fa-sync fa-fw"></i>
       <% end %>
     <% end %>
   </turbo-frame>

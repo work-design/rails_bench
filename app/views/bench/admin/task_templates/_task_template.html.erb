@@ -1,25 +1,25 @@
 <div class="level is-underline mb-1" data-id="<%= task_template.id %>" id="task_template_<%= task_template.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
-      <i class="fas fa-bars"></i>
+      <i class="fa-light fa-bars"></i>
       <span><%= task_template.title %></span>
     </div>
     <div class="level-item">
       <%= link_to({ action: 'edit_member', id: task_template.id }, aria: { label: '负责人' }, class: 'has-text-grey') do %>
-        <i class="fas fa-user-tie fa-fw"></i>
+        <i class="fa-light fa-user-tie fa-fw"></i>
       <% end %>
       <span class="has-text-success"><%= task_template.job_title&.name %></span>
       <span class="has-text-primary"><%= task_template.member&.name %></span>
     </div>
     <div class="level-item" data-show-target="item" style="visibility: hidden">
       <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit') }, class: 'has-text-grey') do %>
-        <i class="fas fa-pencil-alt fa-fw"></i>
+        <i class="fa-light fa-pencil fa-fw"></i>
       <% end %>
       <%= link_to({ action: 'destroy', id: task_template.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'has-text-danger') do %>
-        <i class="fas fa-trash fa-fw"></i>
+        <i class="fa-light fa-trash fa-fw"></i>
       <% end %>
       <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id], parent_id: task_template.id }) do %>
-        <i class="fas fa-plus"></i>
+        <i class="fa-light fa-plus"></i>
       <% end %>
     </div>
   </div>

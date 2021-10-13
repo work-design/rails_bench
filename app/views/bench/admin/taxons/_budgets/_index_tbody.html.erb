@@ -4,10 +4,10 @@
   <td><%= fund_budget.note %></td>
   <td>
     <%= link_to({ action: 'edit', financial_type: params[:financial_type], financial_id: params[:financial_id], id: fund_budget.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-pencil-alt"></i>
+      <i class="fa-light fa-pencil"></i>
     <% end %>
     <%= link_to({ action: 'destroy', financial_type: params[:financial_type], financial_id: params[:financial_id], id: fund_budget.id }, method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fas fa-trash"></i>
+      <i class="fa-light fa-trash"></i>
     <% end %>
   </td>
 </tr>
