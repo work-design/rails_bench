@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 3af7acecca30116eb8f5cc8bd31ad4cc167ef83e
+  revision: 1e2f7f62cb8223f0e9ceb679f1c9093d73c0501f
   specs:
     rails_com (1.2.9)
       acme-client
@@ -36,7 +36,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 7498ce9e8436d982113e60db21f996cfa2f3669a
+  revision: 65eb236b8d21433f2308c38fcc61240d8bde2bc1
   specs:
     rails_design (0.0.1)
       rails
@@ -50,7 +50,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: c55adb213d5836ac81b45662d1f559404b38765a
+  revision: 2bb28ee1e4a01f1f24d2df0b987c2fde6b85e8cd
   specs:
     rails_finance (0.0.1)
       prawn
@@ -58,14 +58,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 3e7c21919577e4fa477738e0faa6b922b4c9ffdd
+  revision: c6b7efc6b3a9092c53c658c1cfcebf935894566a
   specs:
     rails_notice (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 753020dc8c321c259081b092f5be6986913e2d94
+  revision: 3aa4d579f262147d26788506871bf779555caffd
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
@@ -287,7 +287,7 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.1.0)
     ttfunk (1.7.0)
-    turbo-rails (0.8.1)
+    turbo-rails (7.1.0)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)

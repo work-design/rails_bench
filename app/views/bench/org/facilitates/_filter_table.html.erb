@@ -1,6 +1,6 @@
 <table class="as-search">
   <tr>
-    <th><%= Facilitate.human_attribute_name(:facilitate_taxon_id) %></th>
+    <th><%= Bench::Facilitate.human_attribute_name(:facilitate_taxon_id) %></th>
     <td>
       <%= link_to t('.all'), filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
     </td>
