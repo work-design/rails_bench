@@ -1,5 +1,5 @@
 module Bench
-  class Admin::BudgetsController < Finance::Admin::BudgetsController
+  class Admin::BudgetsController < Admin::BaseController
     include BenchController::Admin
     before_action :set_project
     before_action :set_expense, only: [:show, :edit, :update, :destroy]

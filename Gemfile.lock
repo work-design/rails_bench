@@ -1,15 +1,15 @@
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: a4c37ed3f83a7505d04c45b407b15afc4b09c92b
+  revision: 1f64970d210e4e345a980c066e797dd37911d5fe
   specs:
     rails_audit (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 1e2f7f62cb8223f0e9ceb679f1c9093d73c0501f
+  revision: ac6bb200ec36c796aa79725a23bbb5d04ea2ed61
   specs:
-    rails_com (1.2.9)
+    rails_com (1.3.0)
       acme-client
       acts_as_list (>= 1.0)
       closure_tree (>= 7.3)
@@ -18,13 +18,17 @@ GIT
       httpx (~> 0.16)
       jbuilder
       kaminari
+      net-http
+      net-imap
+      net-pop
+      net-smtp
       rails (>= 6.1)
       rails_extend
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 10728509350b2a50e2d6bf7766c5fbf90507b4d2
+  revision: 136b2635c3570a624124c98a5b28ac035a3993d9
   specs:
     rails_data (1.0.2)
       prawn
@@ -36,21 +40,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: f387f07b6078c40336fcefb6fcd1c3fe979db9b9
+  revision: 96922802fb9f21d43908bdd348d2bf9f3d0f7c7b
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: f339c960ec81768c1cc80190f0713f9766150082
+  revision: 0cff0413fd60ff3ce94a6815aa5ec7746efafd63
   specs:
-    rails_extend (1.0.0)
+    rails_extend (1.0.1)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 2bb28ee1e4a01f1f24d2df0b987c2fde6b85e8cd
+  revision: 7bc289d1bbfc99e7495274f6a0542a40e4758b4a
   specs:
     rails_finance (0.0.1)
       prawn
@@ -58,14 +62,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: c6b7efc6b3a9092c53c658c1cfcebf935894566a
+  revision: b858142f1119da559468d89a197e17636712190e
   specs:
     rails_notice (1.0.3)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 3aa4d579f262147d26788506871bf779555caffd
+  revision: acb8c73ae7f682272a724d307bb62cd1f858f6f5
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
@@ -151,7 +155,7 @@ GEM
       activerecord (>= 4.2)
     amazing_print (1.4.0)
     builder (3.2.4)
-    closure_tree (7.3.0)
+    closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
     concurrent-ruby (1.1.9)
@@ -161,6 +165,7 @@ GEM
       reline (>= 0.2.7)
     default_where (2.3.0)
       activerecord (>= 4.0, <= 7.0)
+    digest (3.0.0)
     erubi (1.10.0)
     faraday (1.8.0)
       faraday-em_http (~> 1.0)
@@ -190,6 +195,7 @@ GEM
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     io-console (0.5.9)
+    io-wait (0.2.0)
     irb (1.3.7)
       reline (>= 0.2.7)
     jbuilder (2.11.2)
@@ -217,6 +223,24 @@ GEM
     mini_portile2 (2.6.1)
     minitest (5.14.4)
     multipart-post (2.1.1)
+    net-http (0.2.0)
+      net-protocol
+      uri
+    net-imap (0.2.2)
+      digest
+      net-protocol
+      strscan
+    net-pop (0.1.1)
+      digest
+      net-protocol
+      timeout
+    net-protocol (0.1.2)
+      io-wait
+      timeout
+    net-smtp (0.3.0)
+      digest
+      net-protocol
+      timeout
     nio4r (2.5.8)
     nokogiri (1.12.5)
       mini_portile2 (~> 2.6.1)
@@ -285,12 +309,15 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    strscan (3.0.1)
     thor (1.1.0)
+    timeout (0.2.0)
     ttfunk (1.7.0)
-    turbo-rails (7.1.0)
+    turbo-rails (7.1.1)
       rails (>= 6.0.0)
     tzinfo (2.0.4)
       concurrent-ruby (~> 1.0)
+    uri (0.11.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)

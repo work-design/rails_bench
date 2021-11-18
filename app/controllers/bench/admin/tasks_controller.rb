@@ -32,16 +32,6 @@ module Bench
       @task = Task.new raw_task_params
     end
 
-    def create
-      @task = Task.new task_params
-
-      if @task.save
-        render 'create'
-      else
-        render :new, locals: { model: @task }, status: :unprocessable_entity
-      end
-    end
-
     def show
       q_params = {}
       q_params.merge! params.permit(:state, :focus)
@@ -62,9 +52,6 @@ module Bench
           next_one.insert_at @task.position
         end
       end
-    end
-
-    def edit
     end
 
     def stock
@@ -111,10 +98,6 @@ module Bench
 
     def rework
       @task.set_rework
-    end
-
-    def destroy
-      @task.destroy
     end
 
     private
