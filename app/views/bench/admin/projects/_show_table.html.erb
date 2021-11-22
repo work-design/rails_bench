@@ -4,7 +4,7 @@
 </tr>
 <tr>
   <td class="has-text-right"><%= Bench::Project.human_attribute_name(:created_at) %></td>
-  <td><time data-controller="time"><%= @project.created_at.to_s(:rfc822) %></time></td>
+  <td><time data-controller="time"><%= @project.created_at.to_s(:iso8601) %></time></td>
 </tr>
 <% @project.extra.each do |k, v| %>
 <tr>

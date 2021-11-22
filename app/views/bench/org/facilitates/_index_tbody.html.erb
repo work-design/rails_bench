@@ -5,7 +5,7 @@
     <span class="tag"><%= link_to facilitate.facilitate_taxon.name, { action: 'index', facilitate_taxon_id: facilitate.facilitate_taxon_id } %></span>
   </td>
   <td><%= facilitate.description %></td>
-  <td><time><%= facilitate.created_at.to_s(:rfc822) %></time></td>
+  <td><time><%= facilitate.created_at.to_s(:iso8601) %></time></td>
   <td><%= facilitate.price %></td>
   <td>
     <%= link_to({ controller: 'facilitate_providers', action: 'new', facilitate_id: facilitate.id }, class: 'button is-small is-rounded is-light') do %>

@@ -4,17 +4,17 @@
     <% @task_timers.each do |task_timer| %>
       <li>
     <span>
-      <time><%= task_timer.created_at.to_s(:rfc822) %></time> ..
+      <time><%= task_timer.created_at.to_s(:iso8601) %></time> ..
       <% if task_timer.finish_at.to_date == task_timer.created_at.to_date %>
-        <time data-format="HH:mm"><%= task_timer.finish_at.to_s(:rfc822) %></time>
+        <time data-format="HH:mm"><%= task_timer.finish_at.to_s(:iso8601) %></time>
       <% else %>
-        <time><%= task_timer.finish_at.to_s(:rfc822) %></time>
+        <time><%= task_timer.finish_at.to_s(:iso8601) %></time>
       <% end %>
       执行了
       <%= distance_of_time_in_words(task_timer.created_at, task_timer.finish_at, locale: I18n.locale) %></span>
       </li>
     <% end %>
-    <li><time><%= @task.created_at.to_s(:rfc822) %></time> 创建了任务</li>
+    <li><time><%= @task.created_at.to_s(:iso8601) %></time> 创建了任务</li>
   </ul>
   
 <% end %>
