@@ -17,9 +17,6 @@ module Bench
       @facilitates = Facilitate.default_where(q_params).page(params[:page])
     end
 
-    def show
-    end
-
     def order
     end
 

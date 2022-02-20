@@ -25,23 +25,12 @@ module Bench
       end
     end
 
-    def show
-    end
-
-    def edit
-      super
-    end
-
     def update
       @budget.assign_attributes(expense_params)
 
       unless @budget.save
         render :edit, locals: { model: @budget }, status: :unprocessable_entity
       end
-    end
-
-    def destroy
-      @budget.destroy
     end
 
     private
