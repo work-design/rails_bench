@@ -17,7 +17,7 @@
     <div class="level-item">
       <span class="tag mr-2"><%= task.focus_i18n %></span>
       <span class="tag mr-2"><%= task.state_i18n %></span>
-      <time data-controller="time" class="has-text-grey"><%= task.created_at.to_formatted_s(:iso8601) %></time>
+      <time data-controller="time" class="has-text-grey"><%= task.created_at.to_fs(:iso8601) %></time>
     </div>
     <span data-show-target="item" style="visibility: hidden">
       <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete') do %>
