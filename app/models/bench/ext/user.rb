@@ -1,5 +1,5 @@
 module Bench
-  module Model::User
+  module Ext::User
     extend ActiveSupport::Concern
 
     included do

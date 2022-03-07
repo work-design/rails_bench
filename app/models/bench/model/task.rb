@@ -45,7 +45,7 @@ module Bench
       scope :default, -> { where(state: ['todo', 'doing']) }
 
       before_save :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
-      before_save :sync_from_member, if: -> { member_id_changed? }
+      before_save :sync_from_member, if: -> { member? && member_id_changed? }
       before_save :sync_infos_from_template, if: -> { task_template_id_changed? && task_template }
       before_save :check_done, if: -> { done_at_changed? && done_at.present? }
       after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }
@@ -90,12 +90,8 @@ module Bench
     end
 
     def sync_from_member
-      if member
-        self.user_id = member.user_id
-        self.organ_id = member.organ_id
-      else
-        self.user_id = nil
-      end
+      self.user ||= member.user
+      self.organ_id = member.organ_id
     end
 
     def sync_project
