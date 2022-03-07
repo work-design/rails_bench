@@ -15,11 +15,12 @@ module Bench
       attribute :cost_fund, :decimal
       attribute :cost_stock, :integer
 
-      belongs_to :user, optional: true
-      belongs_to :organ, optional: true
-      belongs_to :department, optional: true
-      belongs_to :job_title, optional: true
-      belongs_to :member, optional: true
+      belongs_to :user, class_name: 'Auth::User'
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+      belongs_to :department, class_name: 'Org::Department', optional: true
+      belongs_to :job_title, class_name: 'Org::JobTitle', optional: true
+      belongs_to :member, class_name: 'Org::Member', optional: true
+
       belongs_to :project, optional: true
       belongs_to :task_template, optional: true
 
@@ -44,8 +45,8 @@ module Bench
       default_scope { order(position: :asc) }
       scope :default, -> { where(state: ['todo', 'doing']) }
 
+      before_validation :sync_from_member, if: -> { member.present? && member_id_changed? }
       before_save :sync_from_parent, if: -> { (parent_id_changed? || new_record?) && parent }
-      before_save :sync_from_member, if: -> { member? && member_id_changed? }
       before_save :sync_infos_from_template, if: -> { task_template_id_changed? && task_template }
       before_save :check_done, if: -> { done_at_changed? && done_at.present? }
       after_save :sync_estimated_time, if: -> { saved_change_to_estimated_time? }

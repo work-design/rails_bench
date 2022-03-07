@@ -8,7 +8,7 @@
         <i class="green hourglass start icon"></i>
       <% end %>
       <%= link_to task.title, { action: 'show', id: task.id } %>
-      <span style="visibility: hidden" data-show-target="item">
+      <span data-show-target="item" class="is-several pl-4" style="visibility: hidden">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
     </div>
