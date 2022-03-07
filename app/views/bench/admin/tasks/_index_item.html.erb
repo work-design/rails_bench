@@ -23,8 +23,8 @@
       <span class="tag"><%= task.job_title&.name %></span>
     <% end %>
     <span data-show-target="item" style="visibility: hidden">
-      <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete') do %>
-        <i class="fa-light fa-trash fa-fw has-text-danger"></i>
+      <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', class: 'has-text-danger') do %>
+        <i class="fa-light fa-trash fa-fw"></i>
       <% end %>
     </span>
   </div>
