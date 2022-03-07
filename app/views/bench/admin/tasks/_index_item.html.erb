@@ -1,4 +1,4 @@
-<div class="level is-underline" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+<turbo-frame class="level is-underline" id="task_<%= task.id %>" data-id="<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
       <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
@@ -28,4 +28,4 @@
       <% end %>
     </span>
   </div>
-</div>
+</turbo-frame>

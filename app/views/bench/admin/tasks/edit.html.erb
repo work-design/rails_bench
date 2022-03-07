@@ -1,11 +1,9 @@
 <% if params[:item] == 'title' %>
-  <turbo-frame id="item_add">
-    <%= render 'new' %>
+  <turbo-frame id="task_<%= @task.id %>">
+    <%= render "edit_#{params[:item]}" %>
   </turbo-frame>
-  document.getElementById('task_<%= @task.id %>').innerHTML = '<%= j(render "edit_#{params[:item]}") %>'
 <% else %>
-  <turbo-frame id="item_add">
-    <%= render 'new' %>
+  <turbo-frame id="task_edit_<%= params[:item] %>">
+    <%= render "edit_#{params[:item]}" %>
   </turbo-frame>
-  document.getElementById('task_edit_<%= params[:item] %>').innerHTML = '<%= j(render "edit_#{params[:item]}") %>'
 <% end %>
