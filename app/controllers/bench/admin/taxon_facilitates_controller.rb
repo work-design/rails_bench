@@ -26,24 +26,9 @@ module Bench
       @facilitates = Facilitate.default_where(q_params)
     end
 
-    def show
-    end
-
     def edit
       @facilitates = Facilitate.default_where(facilitate_taxon_id: @taxon_facilitate.facilitate_taxon_id)
       @providers = @taxon_facilitate.facilitate.providers
-    end
-
-    def update
-      @taxon_facilitate.assign_attributes(taxon_facilitate_params)
-
-      unless @taxon_facilitate.save
-        render :edit, locals: { model: @taxon_facilitate }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @taxon_facilitate.destroy
     end
 
     private

@@ -28,25 +28,8 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def edit
       @project_indicator.recorded_on ||= Date.current
-    end
-
-    def update
-      @project_indicator.assign_attributes(project_indicator_params)
-
-      if @project_indicator.save
-        render 'update'
-      else
-        render action: 'edit', locals: { model: @project_indicator }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @project_indicator.destroy
     end
 
     private

@@ -1,6 +1,6 @@
 module Bench
   class Me::TaskTimersController < Admin::TaskTimersController
-    include BenchController::Me
+    include Controller::Me
 
   end
 end

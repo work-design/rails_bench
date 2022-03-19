@@ -68,14 +68,6 @@ module Bench
       @members = Member.default_where(q_params)
     end
 
-    def update
-      @task.assign_attributes(task_params)
-
-      unless @task.save
-        render :edit, locals: { model: @task }, status: :unprocessable_entity
-      end
-    end
-
     def remove
       render 'update'
     end

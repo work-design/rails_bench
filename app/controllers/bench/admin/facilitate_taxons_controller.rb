@@ -13,9 +13,6 @@ module Bench
       @facilitate_taxon = FacilitateTaxon.new
     end
 
-    def edit
-    end
-
     def create
       @facilitate_taxon = FacilitateTaxon.new(facilitate_taxon_params)
 
@@ -24,20 +21,6 @@ module Bench
       else
         render action: 'new', locals: { model: @facilitate_taxon }, status: :unprocessable_entity
       end
-    end
-
-    def update
-      @facilitate_taxon.assign_attributes(facilitate_taxon_params)
-
-      if @facilitate_taxon.save
-        render 'update'
-      else
-        render action: 'edit', locals: { model: @facilitate_taxon }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @facilitate_taxon.destroy
     end
 
     private

@@ -18,24 +18,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @project_stage.assign_attributes(project_stage_params)
-
-      unless @project_stage.save
-        render :edit, locals: { model: @project_stage }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @project_stage.destroy
-    end
-
     private
     def set_project_stage
       @project_stage = ProjectStage.find(params[:id])

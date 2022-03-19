@@ -1,6 +1,6 @@
 module Bench
   class Me::FacilitatesController < Admin::BaseController
-    include BenchController::Me
+    include Controller::Me
     before_action :set_facilitate, only: [:show, :order]
     before_action :set_facilitate_taxons, only: [:index]
 

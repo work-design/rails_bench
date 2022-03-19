@@ -1,7 +1,7 @@
 module Bench
   class Me::TasksController < Admin::TasksController
     before_action :set_task, only: [:project, :show, :edit, :update, :destroy]
-    include BenchController::Me
+    include Controller::Me
 
     def index
       q_params = {

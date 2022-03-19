@@ -20,24 +20,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @facilitate_indicator.assign_attributes(facilitate_indicator_params)
-
-      unless @facilitate_indicator.save
-        render :edit, locals: { model: @facilitate_indicator }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @facilitate_indicator.destroy
-    end
-
     private
     def set_facilitate
       @facilitate = Facilitate.find params[:facilitate_id]

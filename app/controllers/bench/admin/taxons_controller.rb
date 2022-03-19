@@ -28,22 +28,7 @@ module Bench
     def expenses
     end
 
-    def edit
-    end
-
     def parameter
-    end
-
-    def update
-      @taxon.assign_attributes(taxon_params)
-
-      unless @taxon.save
-        render :edit, locals: { model: @taxon }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @taxon.destroy
     end
 
     private

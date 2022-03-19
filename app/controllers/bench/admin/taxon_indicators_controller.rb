@@ -28,24 +28,6 @@ module Bench
       @indicators = Indicator.default_where(q_params)
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @taxon_indicator.assign_attributes(taxon_indicator_params)
-
-      unless @taxon_indicator.save
-        render :edit, locals: { model: @taxon_indicator }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @taxon_indicator.destroy
-    end
-
     private
     def set_taxon
       @taxon = Taxon.find params[:taxon_id]

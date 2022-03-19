@@ -13,14 +13,8 @@ module Bench
       @task_timers = @task.task_timers.order(id: :desc)
     end
 
-    def show
-    end
-
     def new
       @task_timer = @task.task_timers.build
-    end
-
-    def edit
     end
 
     def create
@@ -39,22 +33,6 @@ module Bench
       end
     end
 
-    def update
-      @task_timer.assign_attributes(task_timer_params)
-
-      unless @task_timer.save
-        render :edit
-      end
-    end
-
-    def destroy
-      @task_timer.destroy
-    end
-
-    def self.local_prefixes
-      [controller_path, 'bench/admin/tasks']
-    end
-
     private
     def set_task
       @task = Task.find params[:task_id]
@@ -66,6 +44,10 @@ module Bench
 
     def task_timer_params
       params.fetch(:task_timer, {})
+    end
+
+    def self.local_prefixes
+      [controller_path, 'bench/admin/tasks']
     end
 
   end

@@ -1,6 +1,6 @@
 module Bench
   class Me::TaskTemplatesController < Admin::TaskTemplatesController
-    include BenchController::Me
+    include Controller::Me
     before_action :set_task_template, only: [:show, :members, :edit, :update, :destroy]
 
     def index

@@ -41,12 +41,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
     def edit_member
       @task_template.organ = current_organ
 
@@ -54,14 +48,6 @@ module Bench
       @departments = Department.default_where(default_params)
       @job_titles = JobTitle.none
       @members = Member.none
-    end
-
-    def update
-      @task_template.assign_attributes(task_template_params)
-
-      unless @task_template.save
-        render :edit, locals: { model: @task_template }, status: :unprocessable_entity
-      end
     end
 
     def reorder
@@ -78,10 +64,6 @@ module Bench
       end
 
       render json: @task.as_json
-    end
-
-    def destroy
-      @task_template.destroy
     end
 
     private

@@ -1,6 +1,6 @@
 module Bench
   class Me::ExpensesController < Admin::ExpensesController
-    include BenchController::Me
+    include Controller::Me
     before_action :set_project
     before_action :set_expense, only: [:show, :edit, :update, :destroy]
     before_action :prepare_form

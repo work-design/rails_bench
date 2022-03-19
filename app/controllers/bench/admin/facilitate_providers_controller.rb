@@ -21,26 +21,8 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def task_templates
       @task_templates = @facilitate_provider.task_templates
-    end
-
-    def edit
-    end
-
-    def update
-      @facilitate_provider.assign_attributes(facilitate_provider_params)
-
-      unless @facilitate_provider.save
-        render :edit, locals: { model: @facilitate_provider }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @facilitate_provider.destroy
     end
 
     private

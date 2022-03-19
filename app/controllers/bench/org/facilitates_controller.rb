@@ -10,36 +10,6 @@ module Bench
       @facilitates = Facilitate.default_where(q_params).page(params[:page])
     end
 
-    def show
-    end
-
-    def new
-      @facilitate = Facilitate.new
-    end
-
-    def edit
-    end
-
-    def create
-      @facilitate = Facilitate.new(facilitate_params)
-
-      unless @facilitate.save
-        render :new, locals: { model: @facilitate }, status: :unprocessable_entity
-      end
-    end
-
-    def update
-      @facilitate.assign_attributes facilitate_params
-
-      unless @facilitate.save
-        render :edit, locals: { model: @facilitate }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @facilitate.destroy
-    end
-
     private
     def set_facilitate
       @facilitate = Facilitate.find(params[:id])

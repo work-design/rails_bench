@@ -26,24 +26,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @project_facilitate.assign_attributes(project_facilitate_params)
-
-      unless @project_facilitate.save
-        render :edit, locals: { model: @project_facilitate }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @project_facilitate.destroy
-    end
-
     # select options
     def facilitates
       q_params = {}

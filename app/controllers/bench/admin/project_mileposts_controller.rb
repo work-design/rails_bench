@@ -19,21 +19,6 @@ module Bench
       end
     end
 
-    def edit
-    end
-
-    def update
-      @project_milepost.assign_attributes(project_milepost_params)
-
-      unless @project_milepost.save
-        render :edit, locals: { model: @project_milepost }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @project_milepost.destroy
-    end
-
     private
     def set_project
       @project = Project.find params[:project_id]
