@@ -38,24 +38,6 @@ module Bench
       @expense.expense_members.build
     end
 
-    def show
-    end
-
-    def edit
-    end
-
-    def update
-      @expense.assign_attributes(expense_params)
-
-      unless @expense.save
-        render :edit, locals: { model: @expense }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @expense.destroy
-    end
-
     private
     def set_project
       @project = Project.find params[:project_id]

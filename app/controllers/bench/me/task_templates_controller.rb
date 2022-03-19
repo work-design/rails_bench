@@ -22,9 +22,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def members
       if @task_template.piping_type == 'FacilitateProvider'
         @workers = @task_template.piping.provider.workers.where(duty_id: params[:duty_id])
@@ -38,21 +35,6 @@ module Bench
       end
 
       @task_template_member = task_templateMember.new
-    end
-
-    def edit
-    end
-
-    def update
-      @task_template.assign_attributes(task_template_params)
-
-      unless @task_template.save
-        render :edit, locals: { model: @task_template }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @task_template.destroy
     end
 
     private

@@ -24,9 +24,6 @@ module Bench
       end
     end
 
-    def show
-    end
-
     def task_templates
       @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
     end
@@ -38,23 +35,6 @@ module Bench
 
     def github_hook
       @project.github_hook_add
-    end
-
-    def edit
-    end
-
-    def update
-      @project.assign_attributes project_params
-
-      if @project.save
-        render 'update', locals: { return_to: me_project_path(@project) }
-      else
-        render :edit, locals: { model: @project }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @project.destroy
     end
 
     private
