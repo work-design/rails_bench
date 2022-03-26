@@ -11,7 +11,7 @@ module Bench
       attribute :qr_prefix, :string
       attribute :published, :boolean, default: true
 
-      belongs_to :taxon, autosave: true, counter_cache: true
+      belongs_to :facilitate_taxon, counter_cache: true
 
       has_one :facilitate_provider, -> { where(selected: true) }
       has_one :provider, through: :facilitate_provider
