@@ -1,5 +1,5 @@
 module Bench
-  class Admin::FacilitateIndicatorsController < Admin::BaseController
+  class Panel::FacilitateIndicatorsController < Panel::BaseController
     before_action :set_facilitate
     before_action :set_facilitate_indicator, only: [:show, :edit, :update, :destroy]
     before_action :prepare_form

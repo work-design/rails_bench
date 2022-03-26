@@ -1,6 +1,6 @@
 module Bench
-  class Admin::IndicatorsController < Admin::BaseController
-    before_action :pre_form, except: [:destroy]
+  class Panel::IndicatorsController < Panel::BaseController
+    before_action :set_facilitate_taxons, except: [:destroy]
     before_action :set_new_indicator, only: [:new, :create]
     before_action :set_indicator, only: [:show, :edit, :update, :destroy]
 
@@ -21,8 +21,8 @@ module Bench
       @indicator = Indicator.new(indicator_params)
     end
 
-    def pre_form
-      @facilitate_taxons = FacilitateTaxon.default_where(default_params)
+    def set_facilitate_taxons
+      @facilitate_taxons = FacilitateTaxon.all
     end
 
     def indicator_params

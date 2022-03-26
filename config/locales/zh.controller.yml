@@ -17,19 +17,6 @@ zh:
       expenses:
         index:
           title: 项目支出
-      facilitate_taxons:
-        index:
-          title: 标准化分类
-      facilitate_indicators:
-        index:
-          title: 评价指标
-      facilitate_providers:
-        index:
-          title: 中标管理
-        task_templates:
-          title: 流程
-        show:
-          title: 服务详情
       mileposts:
         index:
           title: 项目状态
@@ -41,21 +28,9 @@ zh:
       fund_expenses:
         index:
           title: 资金使用
-      facilitates:
-        index:
-          title: 标准化服务
-      indicators:
-        index:
-          title: 评价指标
       project_stages:
         index:
           title: 项目阶段
-      taxon_indicators:
-        index:
-          title: 项目评价
-      taxon_facilitates:
-        index:
-          title: 项目招标
       project_facilitates:
         index:
           title: 项目组成
@@ -121,3 +96,28 @@ zh:
           title: 详情
         budgets:
           title: 预算
+      facilitate_taxons:
+        index:
+          title: 标准化分类
+      facilitate_indicators:
+        index:
+          title: 评价指标
+      facilitate_providers:
+        index:
+          title: 中标管理
+        task_templates:
+          title: 流程
+        show:
+          title: 服务详情
+      facilitates:
+        index:
+          title: 标准化服务
+      indicators:
+        index:
+          title: 评价指标
+      taxon_indicators:
+        index:
+          title: 项目评价
+      taxon_facilitates:
+        index:
+          title: 项目招标

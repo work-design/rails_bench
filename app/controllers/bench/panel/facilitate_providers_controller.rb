@@ -1,5 +1,5 @@
 module Bench
-  class Org::FacilitateProvidersController < Org::BaseController
+  class Panel::FacilitateProvidersController < Panel::BaseController
     before_action :set_facilitate
     before_action :set_facilitate_provider, only: [:show, :task_templates, :edit, :update, :destroy]
 

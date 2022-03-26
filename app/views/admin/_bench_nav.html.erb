@@ -1,8 +1,6 @@
 <div class="<%= active_helper(modules: 'bench/admin', active: 'ex-accordion is-active', item: 'ex-accordion') %>" data-controller="menu">
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('bench.admin.taxons.index.title'), { controller: 'bench/admin/taxons' }, class: active_helper(controllers: ['taxons', 'taxon_indicators', 'taxon_facilitates', 'task_templates'], financial_type: 'Bench::Taxon', active: 'is-active') %>
-    <%= link_to t('bench.admin.indicators.index.title'), { controller: 'bench/admin/indicators' }, class: active_helper(controllers: ['indicators'], active: 'is-active') %>
-    <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-share-alt"></i>
