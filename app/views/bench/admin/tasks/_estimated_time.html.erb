@@ -5,7 +5,7 @@
   </div>
   <div class="level-right">
   <% if @task.leaf? %>
-    <%= link_to edit_me_task_path(@task, item: 'estimated_time') do %>
+    <%= link_to({ action: 'edit', id: @task.id }, item: 'estimated_time') do %>
       <i class="fa-light fa-pencil"></i>
     <% end %>
   <% end %>

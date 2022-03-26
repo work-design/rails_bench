@@ -12,14 +12,14 @@
     <% end %>
     </div>
     <div class="level-item">
-      <%= link_to assign_me_task_path(@task), aria: { label: '指派' } do %>
+      <%= link_to({ action: 'edit_assign', id: @task.id }, aria: { label: '指派' }) do %>
         <i class="fa-light fa-hand-point-right"></i>
       <% end %>
     </div>
   </div>
   <div class="level-right">
     <div class="buttons are-small">
-      <%= link_to '返工', rework_me_task_path(@task), class: 'button is-danger' %>
+      <%= link_to '返工', { action: 'rework', id: @task.id }, class: 'button is-danger' %>
     </div>
   </div>
 </div>

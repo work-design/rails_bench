@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       patch :rework
       get 'focus' => :edit_focus
       get 'assign' => :edit_assign
+      get :stock
+      get :fund
     end
     resources :task_timers do
       member do
@@ -108,12 +110,7 @@ Rails.application.routes.draw do
       end
       resources :tasks do
         collection do
-          get 'template' => :new_template
           get 'project/:project_id' => :project
-        end
-        member do
-          get :stock
-          get :fund
         end
         concerns :tasked
       end
