@@ -21,14 +21,6 @@ module Bench
       @project = Project.new(taxon_id: params[:taxon_id])
     end
 
-    def create
-      @project = Project.new(project_params)
-
-      unless @project.save
-        render :new, locals: { model: @project }, status: :unprocessable_entity
-      end
-    end
-
     def repos
       @repos = @project.creator&.github_repos
       render json: { results: @repos }
@@ -38,16 +30,6 @@ module Bench
       @project.github_hook_add
     end
 
-    def update
-      @project.assign_attributes project_params
-
-      if @project.save
-        render 'update'
-      else
-        render :edit, locals: { model: @project }, status: :unprocessable_entity
-      end
-    end
-
     def sync
       @project.init_tasks
       @project.save
@@ -55,11 +37,11 @@ module Bench
 
     private
     def set_project
-      @project = @taxon.projects.find(params[:id])
+      @project = Project.find(params[:id])
     end
 
     def xx
-      @project = @taxon.Projects.build(project_params)
+      @project = @taxon.projects.build(project_params)
     end
 
     def set_taxon

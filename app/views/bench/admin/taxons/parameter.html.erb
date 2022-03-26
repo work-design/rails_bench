@@ -1,3 +1,3 @@
-<turbo-frame id="modal">
-  <%= render partial: 'modal_form', locals: { action: 'parameter' } %>
-</turbo-frame>
+<%= turbo_frame_tagged 'modal' do %>
+  <%= render partial: 'parameter_form' %>
+<% end %>
