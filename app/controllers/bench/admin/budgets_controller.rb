@@ -25,14 +25,6 @@ module Bench
       end
     end
 
-    def update
-      @budget.assign_attributes(expense_params)
-
-      unless @budget.save
-        render :edit, locals: { model: @budget }, status: :unprocessable_entity
-      end
-    end
-
     private
     def set_project
       @project = Project.find params[:project_id]

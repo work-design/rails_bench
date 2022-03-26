@@ -1,16 +1,2 @@
-<%= render 'error_messages', target: f.object %>
-<%=
-  f.collection_select(
-      :facilitate_taxon_id,
-      @facilitate_taxons,
-      :id, :name, { include_blank: true },
-      { data: { controller: 'typer', url: indicators_admin_project_taxon_taxon_indicators_path(@project_taxon) } }
-  )
-%>
-<%=
-  f.collection_select(
-      :indicator_id,
-      @indicators,
-      :id, :name, { include_blank: true }
-  )
-%>
+<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name, { include_blank: true }, { data: { controller: 'typer', url: url_for(controller: 'taxon_indicators', action: 'indicators', taxon_id: @taxon.id) } } %>
+<%= f.collection_select :indicator_id, @indicators, :id, :name, { include_blank: true } %>
