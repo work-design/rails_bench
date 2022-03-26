@@ -14,7 +14,7 @@
       <% end %>
       <div class="tags has-addons">
         <span class="tag is-link"><%= task.cost_stock %></span>
-        <%= link_to({ action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }) do %>
+        <%= link_to({ controller: 'tasks', action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }) do %>
           <i class="tag fa-light fa-trophy"></i>
         <% end %>
       </div>
@@ -22,7 +22,7 @@
     <div class="level-item">
       <div class="tags has-addons">
         <span class="tag is-info"><%= task.cost_fund %></span>
-        <%= link_to({ action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }) do %>
+        <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }) do %>
           <i class="tag fa-light fa-hand-holding-usd"></i>
         <% end %>
       </div>
