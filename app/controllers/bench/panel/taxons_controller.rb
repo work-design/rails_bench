@@ -1,10 +1,10 @@
 module Bench
-  class Admin::TaxonsController < Admin::BaseController
+  class Panel::TaxonsController < Panel::BaseController
     before_action :set_taxon, only: [:show, :budgets, :expenses, :edit, :parameter, :update, :destroy]
 
     def index
       q_params = {}
-      q_params.merge! default_params
+      q_params.merge! params.permit(:name)
 
       @taxons = Taxon.default_where(q_params).order(id: :asc).page(params[:page])
     end
@@ -45,7 +45,6 @@ module Bench
       _params = result['parameters']&.values&.map { |i|  {i['column'] => i['value'] } }
       _params = Array(_params).to_combine_h
       result['parameters'] = _params
-      result.merge! default_form_params
     end
 
   end

@@ -61,36 +61,6 @@ Rails.application.routes.draw do
     end
 
     namespace 'admin', defaults: { namespace: 'admin' } do
-      resources :taxons do
-        member do
-          get :budgets
-          get :expenses
-          get :parameter
-        end
-        resources :task_templates do
-          collection do
-            get :add
-            get :departments
-            get :job_titles
-            get :members
-          end
-          member do
-            get 'member' => :edit_member
-            patch 'member' => :update_member
-            patch :reorder
-          end
-        end
-        resources :taxon_facilitates do
-          collection do
-            get :facilitates
-          end
-        end
-        resources :taxon_indicators do
-          collection do
-            get :indicators
-          end
-        end
-      end
       resources :project_stages
       resources :project_states
       resources :projects do
@@ -129,6 +99,40 @@ Rails.application.routes.draw do
       resources :facilitates do
         resources :facilitate_providers
         resources :facilitate_indicators
+      end
+    end
+
+    namespace :panel, defaults: { namespace: 'panel' } do
+      resources :taxons do
+        member do
+          get :budgets
+          get :expenses
+          get :parameter
+        end
+        resources :task_templates do
+          collection do
+            get :add
+            get :departments
+            get :job_titles
+            get :members
+          end
+          member do
+            get 'member' => :edit_member
+            patch 'member' => :update_member
+            patch :reorder
+          end
+        end
+        resources :taxon_facilitates do
+          collection do
+            get :facilitates
+          end
+        end
+        resources :taxon_indicators do
+          collection do
+            get :indicators
+          end
+        end
+        resources :projects
       end
     end
 

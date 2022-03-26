@@ -1,5 +1,5 @@
 module Bench
-  class Admin::TaxonFacilitatesController < Admin::BaseController
+  class Panel::TaxonFacilitatesController < Panel::BaseController
     before_action :set_taxon
     before_action :set_taxon_facilitate, only: [:show, :edit, :update, :destroy, :new, :facilitates]
     before_action :prepare_form, only: [:new, :edit]

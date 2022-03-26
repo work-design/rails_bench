@@ -7,8 +7,6 @@ module Bench
       attribute :name, :string
       attribute :projects_count, :integer, default: 0
 
-      belongs_to :organ, class_name: 'Org::Organ', optional: true
-
       has_many :task_templates, -> { roots }
       has_many :job_titles, through: :task_templates
       has_many :members, through: :task_templates

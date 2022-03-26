@@ -1,0 +1,10 @@
+<th><%= Bench::Project.human_attribute_name(:name) %></th>
+<th><%= Bench::Project.human_attribute_name(:description) %></th>
+<th>
+  <p class="has-text-danger"><%= Bench::Project.human_attribute_name(:fund_budget) %>/<%= Bench::Project.human_attribute_name(:fund_amount) %></p>
+  <p><%= Bench::Project.human_attribute_name(:expense_budget) %>/<%= Bench::Project.human_attribute_name(:expense_amount) %></p>
+</th>
+<th><%= Bench::Project.human_attribute_name(:milepost_id) %></p></th>
+<% @taxon.parameters.each do |parameter, _| %>
+  <th><%= parameter %></th>
+<% end %>

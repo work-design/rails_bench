@@ -1,5 +1,5 @@
 module Bench
-  class Admin::TaxonIndicatorsController < Admin::BaseController
+  class Panel::TaxonIndicatorsController < Panel::BaseController
     before_action :set_taxon
     before_action :set_taxon_indicator, only: [:show, :edit, :update, :destroy]
     before_action :prepare_form, only: [:new, :edit]

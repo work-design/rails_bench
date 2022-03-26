@@ -50,14 +50,6 @@ zh:
       project_stages:
         index:
           title: 项目阶段
-      taxons:
-        index:
-          title: 项目分类
-          parameter: 格式设置
-        show:
-          title: 详情
-        budgets:
-          title: 预算
       taxon_indicators:
         index:
           title: 项目评价
@@ -119,3 +111,13 @@ zh:
       facilitate_providers:
         index:
           title: 投标
+    panel:
+      title: 工作管理
+      taxons:
+        index:
+          title: 项目分类
+          parameter: 格式设置
+        show:
+          title: 详情
+        budgets:
+          title: 预算
