@@ -8,7 +8,7 @@ module Bench
       attribute :export_price, :decimal
 
       belongs_to :facilitate
-      belongs_to :provider, class_name: 'Organ'
+      belongs_to :provider, class_name: 'Org::Organ'
 
       has_many :task_templates, as: :tasking, dependent: :nullify
     end

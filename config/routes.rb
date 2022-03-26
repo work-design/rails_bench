@@ -94,12 +94,6 @@ Rails.application.routes.draw do
           patch :move_higher
         end
       end
-      resources :indicators
-      resources :facilitate_taxons
-      resources :facilitates do
-        resources :facilitate_providers
-        resources :facilitate_indicators
-      end
     end
 
     namespace :panel, defaults: { namespace: 'panel' } do
@@ -133,6 +127,12 @@ Rails.application.routes.draw do
           end
         end
         resources :projects
+      end
+      resources :indicators
+      resources :facilitate_taxons
+      resources :facilitates do
+        resources :facilitate_providers
+        resources :facilitate_indicators
       end
     end
 
