@@ -1,0 +1,4 @@
+<% f = form_object(@taxon_facilitate, scope: :taxon_facilitate, wrap: { select: nil }, all: { normal: nil }, label: false) %>
+<%= turbo_stream.replace 'taxon_facilitate_facilitate_id' do %>
+ <%= f.collection_select :facilitate_id, @facilitates, :id, :name %>
+<% end %>

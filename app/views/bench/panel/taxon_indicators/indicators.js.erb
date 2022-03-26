@@ -1,5 +1,0 @@
-<% f = form_object(@taxon_indicator, scope: :taxon_indicator, wrap: { all: nil, select: nil }, on: { label: false }) %>
-
-document.getElementById('taxon_indicator_indicator_id').parentNode.innerHTML = '<%=
-j(f.collection_select :indicator_id, @indicators, :id, :name, include_blank: true)
-%>'

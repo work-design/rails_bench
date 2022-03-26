@@ -1,0 +1,5 @@
+<% f = form_object(@taxon_indicator, scope: :taxon_indicator, wrap: { select: nil }, all: { normal: nil }, label: false) %>
+
+<%= turbo_stream.replace 'taxon_indicator_indicator_id' do %>
+  <%= f.collection_select :indicator_id, @indicators, :id, :name %>
+<% end %>

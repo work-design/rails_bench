@@ -2,7 +2,7 @@ module Bench
   class Panel::TaxonIndicatorsController < Panel::BaseController
     before_action :set_taxon
     before_action :set_taxon_indicator, only: [:show, :edit, :update, :destroy]
-    before_action :prepare_form, only: [:new, :edit]
+    before_action :set_facilitate_taxons, only: [:new, :edit]
 
     def index
       @taxon_indicators = @taxon.taxon_indicators.page(params[:page])
@@ -21,6 +21,10 @@ module Bench
       end
     end
 
+    def edit
+      @indicators = @taxon_indicator.facilitate_taxon.indicators
+    end
+
     def indicators
       q_params = {}
       q_params.merge! facilitate_taxon_id: taxon_indicator_params[:facilitate_taxon_id]
@@ -37,7 +41,7 @@ module Bench
       @taxon_indicator = @taxon.taxon_indicators.find(params[:id])
     end
 
-    def prepare_form
+    def set_facilitate_taxons
       @facilitate_taxons = FacilitateTaxon.default_where(default_params)
     end
 
