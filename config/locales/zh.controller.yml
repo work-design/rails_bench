@@ -75,9 +75,6 @@ zh:
           title: 任务（待办）
         stock:
           title: 股权支出
-      task_templates:
-        index:
-          title: 工作流
       task_timers:
         index:
           title: 工作日志
@@ -121,3 +118,6 @@ zh:
       taxon_facilitates:
         index:
           title: 项目招标
+      task_templates:
+        index:
+          title: 工作流

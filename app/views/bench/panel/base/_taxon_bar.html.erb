@@ -11,22 +11,22 @@
     </li>
     <li class="<%= active_helper(controllers: 'taxon_indicators', active: 'is-active') %>">
       <%= link_to({ controller: 'taxon_indicators', action: 'index', taxon_id: taxon.id }) do %>
-        <i class="fa-light fa-grin"></i><span><%= t('bench.admin.taxon_indicators.index.title') %></span>
+        <i class="fa-light fa-grin"></i><span><%= t('bench.panel.taxon_indicators.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'taxon_facilitates', active: 'is-active') %>">
       <%= link_to({ controller: 'taxon_facilitates', action: 'index', taxon_id: taxon.id }) do %>
-        <i class="fa-light fa-paint-roller"></i><span><%= t('bench.admin.taxon_facilitates.index.title') %></span>
+        <i class="fa-light fa-paint-roller"></i><span><%= t('bench.panel.taxon_facilitates.index.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'fund_budgets', active: 'is-active') %>">
       <%= link_to({ controller: 'taxons', action: 'budgets', id: taxon.id }) do %>
-        <i class="fa-light fa-hand-holding-usd"></i><span><%= t('bench.admin.taxons.budgets.title') %></span>
+        <i class="fa-light fa-hand-holding-usd"></i><span><%= t('bench.panel.taxons.budgets.title') %></span>
       <% end %>
     </li>
     <li class="<%= active_helper(controllers: 'task_templates', active: 'is-active') %>">
       <%= link_to({ controller: 'task_templates', taxon_id: taxon.id }) do %>
-        <i class="fa-light fa-tasks"></i><span><%= t('bench.admin.task_templates.index.title') %></span>
+        <i class="fa-light fa-tasks"></i><span><%= t('bench.panel.task_templates.index.title') %></span>
       <% end %>
     </li>
   </ul>

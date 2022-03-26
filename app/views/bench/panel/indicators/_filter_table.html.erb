@@ -9,19 +9,16 @@
           </div>
         <%end%>
       </div>
-
       <% @facilitate_taxons.each do |facilitate_taxon| %>
-        <div class="control">
+      <div class="control">
         <%= link_to filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_params(facilitate_taxon_id: facilitate_taxon.id, active: 'is-info', item: 'is-light') do %>
           <div class="tags has-addons">
             <span class="tag"><%= facilitate_taxon.name %></span>
-
             <span class="tag" style="background-color: <%= facilitate_taxon.color %>"></span>
           </div>
         <%end%>
-        </div>
+      </div>
       <% end %>
-
       <div class="control">
         <%= link_to({ controller: 'facilitate_taxons', action: 'new' }, data: { turbo_frame: 'modal' }, aria: { label: t('.new') }, class: 'tag is-rounded is-light') do %>
           <i class="fa-light fa-plus"></i>

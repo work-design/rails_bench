@@ -1,3 +1,2 @@
-<%= render 'error_messages', target: f.object %>
 <%= f.collection_select :indicator_id, @indicators, :id, :name, prompt: @indicators.blank? ? '无' : false %>
 <%= f.text_area :note %>

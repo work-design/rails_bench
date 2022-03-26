@@ -6,7 +6,6 @@ module Bench
 
     def index
       q_params = {}
-      q_params.merge! default_params
       q_params.merge! params.permit(:facilitate_taxon_id, 'name-like')
 
       @indicators = Indicator.default_where(q_params).page(params[:page])
@@ -26,15 +25,16 @@ module Bench
     end
 
     def indicator_params
-      p = params.fetch(:indicator, {}).permit(
+      params.fetch(:indicator, {}).permit(
         :name,
         :description,
         :facilitate_taxon_id,
         :indicator_value,
         :unit,
+        :reference_min,
+        :reference_max,
         :indicator_source
       )
-      p.merge! default_form_params
     end
 
   end

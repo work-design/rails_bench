@@ -5,7 +5,6 @@ module Bench
 
     def index
       q_params = {}
-      q_params.merge! default_params
       q_params.merge! params.permit(:facilitate_taxon_id)
 
       @facilitates = Facilitate.includes(:facilitate_taxon).default_where(q_params).page(params[:page])
@@ -13,7 +12,7 @@ module Bench
 
     private
     def set_facilitate_taxons
-      @facilitate_taxons = FacilitateTaxon.default_where(default_params)
+      @facilitate_taxons = FacilitateTaxon.all
     end
 
     def set_facilitate
@@ -21,14 +20,13 @@ module Bench
     end
 
     def facilitate_params
-      p = params.fetch(:facilitate, {}).permit(
+      params.fetch(:facilitate, {}).permit(
         :name,
         :description,
         :price,
         :logo,
         :facilitate_taxon_id
       )
-      p.merge! default_form_params
     end
 
   end

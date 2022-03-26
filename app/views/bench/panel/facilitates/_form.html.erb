@@ -1,4 +1,3 @@
-<%= render 'error_messages', target: f.object %>
 <%= f.select :facilitate_taxon_id, options_from_collection_for_select(@facilitate_taxons, :id, :name, @facilitate.facilitate_taxon_id), include_blank: true %>
 <%= f.text_field :name %>
 <%= f.text_area :description %>
