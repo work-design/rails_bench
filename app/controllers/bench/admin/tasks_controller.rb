@@ -1,10 +1,11 @@
 module Bench
   class Admin::TasksController < Admin::BaseController
     before_action :set_task, only: [
-      :show, :edit, :stock, :fund, :estimated, :child, :update, :edit_focus, :edit_assign, :reorder,
+      :show, :edit, :stock, :fund, :estimated, :child, :update, :member, :edit_focus, :edit_assign, :reorder,
       :edit_done, :update_done, :rework, :destroy
     ]
-    before_action :prepare_form, only: [:show]
+    before_action :set_task_templates, only: [:show]
+    before_action :set_members, only: [:member, :edit_assign]
 
     def index
       q_params = {
@@ -74,12 +75,10 @@ module Bench
       @child = @task.children.build
     end
 
+    def member
+    end
+
     def edit_assign
-      q_params = {
-        'member_departments.job_title_id': @task.job_title_id
-      }
-      q_params.merge! default_params
-      @members = Member.default_where(q_params)
     end
 
     def remove
@@ -87,7 +86,6 @@ module Bench
     end
 
     def edit_focus
-      @task
     end
 
     def edit_done
@@ -111,8 +109,16 @@ module Bench
       @task = Task.find(params[:id])
     end
 
-    def prepare_form
+    def set_task_templates
       @task_templates = TaskTemplate.where(tasking_type: @task)
+    end
+
+    def set_members
+      q_params = {
+        'member_departments.job_title_id': @task.job_title_id
+      }
+      q_params.merge! default_params
+      @members = ::Org::Member.default_where(q_params)
     end
 
     def raw_task_params

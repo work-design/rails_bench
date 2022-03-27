@@ -9,11 +9,6 @@
       <% end %>
       <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id } %>
     </div>
-    <div class="level-item">
-      <% if task.member %>
-        <span class="tag"><%= task.member&.name %></span>
-      <% end %>
-    </div>
     <div class="level-item" data-show-target="item" style="visibility: hidden">
       <%= button_to({ controller: 'tasks', action: 'child', id: task.id }, method: :patch, aria: { label: '子任务' }) do %>
         <i class="fa-solid fa-diagram-nested fa-fw"></i>
@@ -32,6 +27,9 @@
     </div>
     <div class="level-item">
       <%= render partial: 'state_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <%= render partial: 'member_item', locals: { task: task } %>
     </div>
     <div class="level-item">
       <%= render partial: 'estimated_item', locals: { task: task } %>
