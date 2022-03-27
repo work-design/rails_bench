@@ -6,13 +6,7 @@
   <i class="fa-light fa-pause fa-fw has-text-grey"></i>
 <% end if task.task_timer %>
 
-<%= link_to({ controller: 'tasks', action: 'edit_done', id: task.id }, aria: { label: t('.done') }, id: "play_task_#{task.id}") do %>
-  <i class="far fa-square fa-fw has-text-link"></i>
-<% end unless task.done? %>
 
-<%= link_to({ controller: 'tasks', action: 'edit_focus', id: task.id }, aria: { label: t('.today') }, data: { turbo_frame: 'modal' }, id: "play_task_#{task.id}") do %>
-  <i class="fa-light fa-star fa-fw has-text-link"></i>
-<% end if task.inbox? %>
 
 <%= link_to({ controller: 'task_timers', task_id: task.id }, method: 'post', id: "play_task_#{task.id}") do %>
   <i class="fa-light fa-play fa-fw has-text-primary"></i>

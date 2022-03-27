@@ -13,41 +13,26 @@
         <span class="tag"><%= task.member&.name %></span>
       <% end %>
     </div>
-    <div class="level-item">
-    <% if task.cost_stock.present? %>
-      <div class="tags has-addons">
-        <%= link_to({ controller: 'tasks', action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }, class: 'tag') do %>
-          <i class="fa-solid fa-trophy has-text-link"></i>
-        <% end %>
-        <span class="tag is-light is-link"><%= task.cost_stock %></span>
-      </div>
-    <% end %>
-    </div>
-    <div class="level-item">
-    <% if task.cost_fund.blank? %>
-      <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: '酬金' }, style: 'visibility: hidden') do %>
-        <i class="fa-solid fa-hand-holding-usd has-text-info"></i>
-      <% end %>
-    <% else %>
-      <div class="tags has-addons">
-        <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }, class: 'tag') do %>
-          <i class="fa-solid fa-hand-holding-usd has-text-info"></i>
-        <% end %>
-        <span class="tag is-light is-info"><%= task.cost_fund %></span>
-      </div>
-    <% end %>
-    </div>
   </div>
   <div class="level-right">
     <div class="level-item">
-      <% if task.task_timer %>
-        <i class="fa-light fa-hourglass-start has-text-success"></i>
-      <% end %>
-      <span data-show-target="item" style="visibility: hidden">
-        <%= render partial: 'rail', locals: { task: task } %>
-      </span>
+      <%= render partial: 'fund_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <%= render partial: 'stock_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <%= render partial: 'focus_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <%= render partial: 'state_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <time data-controller="time" class="has-text-grey"><%= task.created_at.to_fs(:iso8601) %></time>
+    </div>
+    <div class="level-item">
       <%= link_to({ controller: 'tasks', action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
-        <i class="fa-light fa-trash fa-fw has-text-danger"></i>
+        <i class="fa-solid fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>
   </div>

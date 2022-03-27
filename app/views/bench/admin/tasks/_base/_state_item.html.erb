@@ -1,0 +1,3 @@
+<%= link_to({ controller: 'tasks', action: 'edit_done', id: task.id }, aria: { label: t('.done') }, id: "play_task_#{task.id}") do %>
+  <i class="far fa-square fa-fw has-text-link"></i>
+<% end unless task.done? %>
