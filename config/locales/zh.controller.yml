@@ -43,6 +43,8 @@ zh:
         base:
           state_item:
             done: 完成/移交
+          focus_item:
+            today: 今天
       task_templates:
         index:
           title: 工作流
