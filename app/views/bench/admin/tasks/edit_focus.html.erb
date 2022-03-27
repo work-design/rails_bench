@@ -1,4 +1,4 @@
-<turbo-frame id="modal">
+<%= turbo_frame_tagged 'modal' do %>
   <%= form_with model: @task, url: { action: 'update' }, can: { wrap_id: true } do |f| %>
     <div class="field is-horizontal">
       <label class="field-label is-normal"></label>
@@ -8,4 +8,4 @@
     </div>
     <%# render partial: 'eventual/time/form', locals: { f: f } %>
   <% end %>
-</turbo-frame>
+<% end %>

@@ -2,7 +2,6 @@
   <div class="level-item">
     <span>预估时间：</span>
     <%= form_with url: { action: 'update', id: @task.id }, method: :patch, id: 'edit_estimated_time' %>
-    <%= hidden_field_tag :item, 'estimated_time', form: 'edit_estimated_time' %>
   </div>
   <div class="level-item"><%= number_field_tag 'task[estimated_time]', @task.estimated_time, min: 0, form: 'edit_estimated_time' %></div>
 </div>

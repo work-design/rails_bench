@@ -70,3 +70,5 @@ zh:
         job_title_id: 职位
         member_id: 责任人
         color: 颜色
+      bench/task:
+        estimated_time: 预估时间

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       patch :rework
       get 'focus' => :edit_focus
       get 'assign' => :edit_assign
+      get :estimated
       get :stock
       get :fund
     end
