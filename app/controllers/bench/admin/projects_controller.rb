@@ -1,7 +1,6 @@
 module Bench
   class Admin::ProjectsController < Admin::BaseController
     before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :sync, :destroy]
-    before_action :set_taxon, only: [:index, :show]
     before_action :prepare_form, only: [:index, :new, :edit]
 
     def index
@@ -45,11 +44,7 @@ module Bench
     end
 
     def set_taxon
-      if params[:taxon_id]
-        @taxon = Taxon.find params[:taxon_id]
-      elsif @project
-        @taxon = @project.taxon
-      end
+      @taxon = @project.taxon
     end
 
     def prepare_form

@@ -12,4 +12,6 @@
     <i class="fa-light fa-step-forward"></i><span><%= '下一步' %></span>
   <% end %>
 </td>
-<td><%= simple_format(model.extra) %></td>
+<% model.extra.each do |k, v| %>
+  <td><%= v %></td>
+<% end %>
