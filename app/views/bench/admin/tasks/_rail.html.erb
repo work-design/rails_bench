@@ -1,4 +1,4 @@
-<%= link_to({ controller: 'tasks', action: 'edit', id: task.id, item: 'title' }, aria: { label: t('.edit') }) do %>
+<%= link_to({ controller: 'tasks', action: 'edit', id: task.id, item: 'title' }, aria: { label: t('.edit') }, data: { controller: 'common', action: 'common#link' }) do %>
   <i class="fa-light fa-pencil fa-fw has-text-info"></i>
 <% end %>
 
