@@ -6,6 +6,6 @@
         <%= link_to Bench::Task.enum_i18n(:focus, 'today'), { action: 'edit_focus', id: @task.id, focus: 'today' }, class: 'button is-link' %>
       </div>
     </div>
-    <%= render partial: 'eventual/time/form', locals: { f: f } %>
+    <%# render partial: 'eventual/time/form', locals: { f: f } %>
   <% end %>
 </turbo-frame>
