@@ -72,3 +72,4 @@ zh:
         color: 颜色
       bench/task:
         estimated_time: 预估时间
+        deadline_on: 截止日期

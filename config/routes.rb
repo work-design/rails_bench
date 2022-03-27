@@ -17,6 +17,7 @@ Rails.application.routes.draw do
       get :stock
       get :fund
       get :member
+      get :deadline
     end
     resources :task_timers do
       member do

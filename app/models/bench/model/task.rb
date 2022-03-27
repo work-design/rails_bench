@@ -14,6 +14,7 @@ module Bench
       attribute :serial_number, :string, comment: 'Task Template test repeat'
       attribute :cost_fund, :decimal
       attribute :cost_stock, :integer
+      attribute :deadline_on, :date
 
       belongs_to :user, class_name: 'Auth::User'
       belongs_to :organ, class_name: 'Org::Organ', optional: true

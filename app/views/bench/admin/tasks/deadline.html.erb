@@ -1,0 +1,6 @@
+<%= turbo_frame_tagged 'modal' do %>
+  <%= form_with model: @task, url: { action: 'update' } do |f| %>
+    <%= f.date_field :deadline_on %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

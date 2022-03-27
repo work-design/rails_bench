@@ -1,7 +1,7 @@
 module Bench
   class Admin::TasksController < Admin::BaseController
     before_action :set_task, only: [
-      :show, :edit, :stock, :fund, :estimated, :child, :update, :member, :edit_focus, :edit_assign, :reorder,
+      :show, :edit, :stock, :fund, :estimated, :child, :update, :member, :deadline, :edit_focus, :edit_assign, :reorder,
       :edit_done, :update_done, :rework, :destroy
     ]
     before_action :set_task_templates, only: [:show]
@@ -142,6 +142,7 @@ module Bench
         :done_at,
         :cost_fund,
         :cost_stock,
+        :deadline_on,
         :proof
       )
       p.merge! default_form_params
