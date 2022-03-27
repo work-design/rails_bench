@@ -1,5 +1,0 @@
-<% f = form_object(@project_facilitate, scope: :project_facilitate, wrap: { all: nil, select: nil }, on: { label: false }) %>
-
-document.getElementById('project_facilitate_provider_id').parentNode.innerHTML = '<%= 
-  j(f.collection_select :provider_id, @providers, :id, :name, prompt: @providers.blank? ? '暂无供应商' : false) 
-%>'

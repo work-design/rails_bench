@@ -1,0 +1,5 @@
+<% f = form_object(@project_facilitate, scope: :project_facilitate, wrap: { select: nil }, all: { normal: nil }, label: false) %>
+
+<%= turbo_stream.replace 'project_facilitate_facilitate_id' do %>
+  <%= f.collection_select :facilitate_id, @facilitates, :id, :name, { prompt: @facilitates.blank? ? '暂无服务' : false }, { data: { controller: 'input', action: 'input#link', input_url_value: url_for(action: 'providers', project_id: @project.id) } } %>
+<% end %>
