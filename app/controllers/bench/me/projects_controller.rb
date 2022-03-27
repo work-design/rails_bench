@@ -1,7 +1,6 @@
 module Bench
   class Me::ProjectsController < Admin::ProjectsController
     include Controller::Me
-    skip_before_action :set_taxon
     before_action :set_project, only: [:show, :task_templates, :edit, :repos, :github_hook, :update, :destroy]
     before_action :prepare_form, only: [:index, :new, :edit]
 
