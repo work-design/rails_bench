@@ -1,3 +1,9 @@
-<%= link_to({ controller: 'tasks', action: 'edit_done', id: task.id }, aria: { label: t('.done') }, id: "play_task_#{task.id}") do %>
-  <i class="far fa-square fa-fw has-text-link"></i>
-<% end unless task.done? %>
+<div class="tags has-addons">
+<% if task.done? %>
+<% else %>
+  <%= link_to({ controller: 'tasks', action: 'edit_done', id: task.id }, aria: { label: t('.done') }, data: { turbo_frame: 'modal' }, id: "play_task_#{task.id}", class: 'tag') do %>
+    <i class="fa-regular fa-square fa-fw has-text-warning"></i>
+  <% end %>
+  <span class="tag is-light is-warning"><%= task.state_i18n %></span>
+<% end %>
+</div>
