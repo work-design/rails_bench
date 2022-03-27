@@ -28,6 +28,16 @@ module Bench
       @task = Task.new raw_task_params
     end
 
+    def create
+      @task = current_member.tasks.build task_params
+
+      if @task.save
+        render 'create'
+      else
+        render :new, locals: { model: @task }, status: :unprocessable_entity
+      end
+    end
+
     def new_template
       @task = Task.new raw_task_params
     end
