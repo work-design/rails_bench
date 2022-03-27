@@ -2,7 +2,6 @@ module Bench
   class Panel::TaskTemplatesController < Panel::BaseController
     before_action :set_taxon
     before_action :set_task_template, only: [:show, :edit, :edit_member, :update, :reorder, :destroy]
-    before_action :prepare_form, only: [:new, :edit]
 
     def index
       q_params = {}
@@ -14,19 +13,19 @@ module Bench
 
     def departments
       # todo remove roots
-      @departments = Department.roots.where(organ_id: task_template_params[:organ_id])
+      @departments = Org::Department.roots.where(organ_id: task_template_params[:organ_id])
     end
 
     def job_titles
       # todo remove xx
-      @job_titles = JobTitle.default_where(department_root_id: task_template_params[:department_id])
+      @job_titles = Org::JobTitle.default_where(department_root_id: task_template_params[:department_id])
     end
 
     def members
       q_params = {
         'member_departments.job_title_id': task_template_params[:job_title_id]
       }
-      @members = Member.default_where(q_params)
+      @members = Org::Member.default_where(q_params)
     end
 
     def new
@@ -73,10 +72,6 @@ module Bench
 
     def set_task_template
       @task_template = TaskTemplate.find(params[:id])
-    end
-
-    def prepare_form
-      @job_titles = JobTitle.default_where(default_params)
     end
 
     def raw_task_template_params
