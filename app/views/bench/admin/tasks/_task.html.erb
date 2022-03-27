@@ -12,20 +12,30 @@
       <% if task.member %>
         <span class="tag"><%= task.member&.name %></span>
       <% end %>
-      <div class="tags has-addons" data-show-target="item" style="visibility: hidden">
-        <%= link_to({ controller: 'tasks', action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }, class: 'tag is-link') do %>
-          <i class="fa-light fa-trophy"></i>
-        <% end %>
-        <span class="tag"><%= task.cost_stock %></span>
-      </div>
     </div>
     <div class="level-item">
-      <div class="tags has-addons" data-show-target="item" style="visibility: hidden">
-        <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }, class: 'tag is-info') do %>
-          <i class="fa-light fa-hand-holding-usd"></i>
+    <% if task.cost_stock.present? %>
+      <div class="tags has-addons">
+        <%= link_to({ controller: 'tasks', action: 'stock', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '股份' }, class: 'tag') do %>
+          <i class="fa-solid fa-trophy has-text-link"></i>
         <% end %>
-        <span class="tag"><%= task.cost_fund %></span>
+        <span class="tag is-light is-link"><%= task.cost_stock %></span>
       </div>
+    <% end %>
+    </div>
+    <div class="level-item">
+    <% if task.cost_fund.blank? %>
+      <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: '酬金' }, style: 'visibility: hidden') do %>
+        <i class="fa-solid fa-hand-holding-usd has-text-info"></i>
+      <% end %>
+    <% else %>
+      <div class="tags has-addons">
+        <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }, class: 'tag') do %>
+          <i class="fa-solid fa-hand-holding-usd has-text-info"></i>
+        <% end %>
+        <span class="tag is-light is-info"><%= task.cost_fund %></span>
+      </div>
+    <% end %>
     </div>
   </div>
   <div class="level-right">
