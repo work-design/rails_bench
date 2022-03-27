@@ -45,6 +45,7 @@ module Bench
       _params = result['parameters']&.values&.map { |i|  {i['column'] => i['value'] } }
       _params = Array(_params).to_combine_h
       result['parameters'] = _params
+      result
     end
 
   end
