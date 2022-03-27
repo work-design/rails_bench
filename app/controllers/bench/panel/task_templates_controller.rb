@@ -5,7 +5,6 @@ module Bench
 
     def index
       q_params = {}
-      q_params.merge! default_params
       q_params.merge! params.permit(:parent_id)
 
       @task_templates = @taxon.task_templates.roots.includes(:children).order(position: :asc).default_where(q_params)

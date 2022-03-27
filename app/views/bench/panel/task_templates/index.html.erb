@@ -2,11 +2,11 @@
 
 <div class="box">
   <%= render partial: 'index_item', collection: @task_templates, as: :task_template %>
-  <div id="item_add">
+  <turbo-frame id="item_add">
     <%= link_to({ action: 'new', taxon_id: params[:taxon_id] }) do %>
       <i class="fa-light fa-plus"></i>
     <% end %>
-  </div>
+  </turbo-frame>
 </div>
 
 <div id="app"></div>
