@@ -38,11 +38,6 @@ Rails.application.routes.draw do
     end
 
     namespace :me, defaults: { namespace: 'me' } do
-      resources :tasks, param: :task_id do
-        member do
-          get :project
-        end
-      end
       resources :tasks do
         concerns :tasked
       end

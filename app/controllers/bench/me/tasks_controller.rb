@@ -1,6 +1,6 @@
 module Bench
   class Me::TasksController < Admin::TasksController
-    before_action :set_task, only: [:project, :show, :edit, :update, :destroy]
+    before_action :set_task, only: [:project, :show, :edit, :update, :edit_focus, :update_focus, :destroy]
     include Controller::Me
 
     def index
@@ -44,7 +44,7 @@ module Bench
 
     private
     def set_task
-      @task = Task.find params[:task_id]
+      @task = Task.find params[:id]
     end
 
   end
