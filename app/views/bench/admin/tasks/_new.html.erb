@@ -1,4 +1,4 @@
-<%= form_with theme: nil, model: @task, url: { action: 'create' }, data: { controller: 'input' }, class: 'field is-horizontal pt-2' do |f| %>
+<%= form_with theme: nil, model: @task, url: { action: 'create' }, data: { controller: 'common' }, class: 'field is-horizontal pt-2' do |f| %>
   <div class="field-body">
     <%= f.hidden_field :parent_id %>
     <%= f.hidden_field :project_id %>
@@ -7,7 +7,7 @@
     </div>
     <div class="field is-narrow">
       <%= f.submit '保存', class: 'button is-primary' %>
-      <button class="button is-light" data-controller="common" data-action="common#cancel">取消</button>
+      <button class="button is-light" data-action="common#remove">取消</button>
     </div>
   </div>
 <% end %>
