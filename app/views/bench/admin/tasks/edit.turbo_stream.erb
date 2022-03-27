@@ -1,0 +1,3 @@
+<%= turbo_stream.update "task_#{@task.id}" do %>
+  <%= render "edit_#{params[:item]}" %>
+<% end %>

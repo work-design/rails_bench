@@ -1,9 +1,0 @@
-<% if params[:item] == 'title' %>
-  <turbo-frame id="task_<%= @task.id %>">
-    <%= render "edit_#{params[:item]}" %>
-  </turbo-frame>
-<% else %>
-  <turbo-frame id="task_edit_<%= params[:item] %>">
-    <%= render "edit_#{params[:item]}" %>
-  </turbo-frame>
-<% end %>
