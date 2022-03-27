@@ -45,3 +45,5 @@
     </div>
   </div>
 </div>
+
+<%= render partial: 'task', collection: task.children, as: :task if task.root? %>

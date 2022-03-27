@@ -21,7 +21,7 @@ module Bench
       q_params.merge! params.permit(:state)
 
       @project = Project.find params[:project_id]
-      @tasks = @project.tasks.roots.default_where(q_params)
+      @tasks = @project.tasks.roots.includes(:children).default_where(q_params)
     end
 
     def new
