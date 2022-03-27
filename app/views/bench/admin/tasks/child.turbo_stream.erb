@@ -1,0 +1,3 @@
+<%= turbo_stream.after "task_#{@task.id}" do %>
+  <%= render partial: 'new', locals: { task: @child } %>
+<% end %>

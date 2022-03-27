@@ -13,6 +13,11 @@
         <span class="tag"><%= task.member&.name %></span>
       <% end %>
     </div>
+    <div class="level-item" data-show-target="item" style="visibility: hidden">
+      <%= button_to({ controller: 'tasks', action: 'child', id: task.id }, method: :patch, aria: { label: '子任务' }) do %>
+        <i class="fa-solid fa-diagram-nested fa-fw"></i>
+      <% end %>
+    </div>
   </div>
   <div class="level-right">
     <div class="level-item">

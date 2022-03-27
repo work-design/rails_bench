@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       patch :close
       patch :reorder
+      patch :child
       get :project
       get 'done' => :edit_done
       patch 'done' => :update_done

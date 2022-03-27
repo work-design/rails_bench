@@ -1,7 +1,7 @@
 module Bench
   class Admin::TasksController < Admin::BaseController
     before_action :set_task, only: [
-      :show, :edit, :stock, :fund, :estimated, :update, :edit_focus, :edit_assign, :reorder,
+      :show, :edit, :stock, :fund, :estimated, :child, :update, :edit_focus, :edit_assign, :reorder,
       :edit_done, :update_done, :rework, :destroy
     ]
     before_action :prepare_form, only: [:show]
@@ -68,6 +68,10 @@ module Bench
     end
 
     def fund
+    end
+
+    def child
+      @child = @task.children.build
     end
 
     def edit_assign
