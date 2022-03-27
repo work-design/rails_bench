@@ -1,6 +1,6 @@
-<turbo-frame id="modal">
+<%= turbo_frame_tagged 'modal' do %>
   <%= form_with model: @task, url: { action: 'update' } do |f| %>
     <%= f.number_field :cost_fund, step: 0.01 %>
     <%= f.submit %>
   <% end %>
-</turbo-frame>
+<% end %>
