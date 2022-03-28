@@ -7,7 +7,12 @@
       <% else %>
         <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
       <% end %>
-      <%= link_to task.title, { controller: controller_path, action: action_name, task_id: task.id } %>
+      <%= link_to({ controller: controller_path, action: action_name, task_id: task.id }) do %>
+        <span><%= task.title %></span>
+        <% if task.children.size > 0 %>
+        <span class="tag is-light"><%= task.children.size %></span>
+        <% end %>
+      <% end %>
     </div>
     <div class="level-item" data-show-target="item" style="visibility: hidden">
       <%= link_to({ controller: 'tasks', action: 'edit', id: task.id }, data: { controller: 'common', action: 'common#link' }, aria: { label: t('.edit') }) do %>
