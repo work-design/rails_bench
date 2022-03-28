@@ -31,16 +31,16 @@
       <% end %>
       </div>
     <% end %>
-    <% blank_items.each do |item| %>
-      <div class="level-item">
-        <%= render partial: "#{item}_item", locals: { task: task } %>
-      </div>
-    <% end %>
     <div class="level-item">
       <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
         <i class="fa-solid fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>
+    <% blank_items.each do |item| %>
+      <div class="level-item">
+        <%= render partial: "#{item}_item", locals: { task: task } %>
+      </div>
+    <% end %>
     <div class="level-item">
       <time data-controller="time" class="has-text-grey"><%= task.created_at.to_fs(:iso8601) %></time>
     </div>
