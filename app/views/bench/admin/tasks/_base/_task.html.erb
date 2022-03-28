@@ -21,27 +21,21 @@
     </div>
   </div>
   <div class="level-right">
-    <div class="level-item">
-      <%= render partial: 'fund_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'stock_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'focus_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'state_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'member_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'estimated_item', locals: { task: task } %>
-    </div>
-    <div class="level-item">
-      <%= render partial: 'deadline_item', locals: { task: task } %>
-    </div>
+    <% blank_items = [] %>
+    <% ['cost_fund', 'cost_stock', 'focus', 'state', 'member', 'estimated_time', 'deadline_on'].each do |item| %>
+      <div class="level-item">
+      <% if task.public_send(item).blank? %>
+        <%= render partial: "#{item}_add", locals: { task: task } %>
+      <% else %>
+        <% blank_items << item %>
+      <% end %>
+      </div>
+    <% end %>
+    <% blank_items.each do |item| %>
+      <div class="level-item">
+        <%= render partial: "#{item}_item", locals: { task: task } %>
+      </div>
+    <% end %>
     <div class="level-item">
       <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
         <i class="fa-solid fa-trash fa-fw has-text-danger"></i>

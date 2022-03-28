@@ -1,0 +1,3 @@
+<%= link_to({ controller: 'tasks', action: 'estimated', id: task.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: '预估时间' }, style: 'visibility: hidden') do %>
+  <i class="fa-solid fa-tomato has-text-danger"></i>
+<% end %>

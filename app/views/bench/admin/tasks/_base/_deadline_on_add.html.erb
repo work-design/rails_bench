@@ -1,0 +1,3 @@
+<%= link_to({ controller: 'tasks', action: 'deadline', id: task.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: '截止日期' }, style: 'visibility: hidden') do %>
+  <i class="fa-solid fa-timeline-arrow has-text-danger"></i>
+<% end %>

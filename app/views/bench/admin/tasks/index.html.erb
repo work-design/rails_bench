@@ -1,6 +1,6 @@
 <%= render 'filter_table' %>
 
-<div data-controller="sortable" data-src="<%= url_for(action: 'index') %>">
+<div data-controller="sortable">
   <%= render partial: 'index_item', collection: @tasks, as: :task %>
   <turbo-frame id="item_add">
     <% if 'done' != params[:state] %>

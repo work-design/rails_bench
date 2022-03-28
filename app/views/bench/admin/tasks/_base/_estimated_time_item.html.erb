@@ -1,0 +1,6 @@
+<div class="tags has-addons">
+  <%= link_to({ controller: 'tasks', action: 'estimated', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '预估时间' }, class: 'tag') do %>
+    <i class="fa-solid fa-tomato has-text-danger"></i>
+  <% end %>
+  <span class="tag is-light is-danger"><%= task.estimated_time %></span>
+</div>
