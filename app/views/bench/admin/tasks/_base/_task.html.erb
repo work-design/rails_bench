@@ -22,7 +22,7 @@
   </div>
   <div class="level-right">
     <% blank_items = [] %>
-    <% ['cost_fund', 'cost_stock', 'focus', 'state', 'member', 'estimated_time', 'deadline_on'].each do |item| %>
+    <% ['estimated_time', 'cost_fund', 'cost_stock', 'deadline_on', 'member', 'focus', 'state'].each do |item| %>
       <% if task.public_send(item).blank? %>
       <div class="level-item">
         <%= render partial: "#{item}_add", locals: { task: task } %>
