@@ -11,7 +11,7 @@ module Bench
       }
       q_params.merge! params.permit(:focus, :state, :project_id)
 
-      @tasks = Task.includes(:project, :task_timers).default_where(q_params).page(params[:page])
+      @tasks = Task.includes(:project, :task_timers, :children).roots.default_where(q_params).page(params[:page])
     end
 
     def create
