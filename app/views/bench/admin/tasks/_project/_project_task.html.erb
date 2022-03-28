@@ -1,0 +1,8 @@
+<div class="box is-radiusless" data-id="<%= task.id %>" data-url="<%= url_for(controller: 'tasks', action: 'reorder', id: task.id) %>">
+  <%= render partial: 'task', locals: { task: task } %>
+  <% if task.root? %>
+  <div class="box is-radiusless">
+    <%= render partial: 'task', collection: task.children, as: :task %>
+  </div>
+  <% end %>
+</div>

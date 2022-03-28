@@ -2,8 +2,8 @@
 
 <%= render 'filter_table' %>
 
-<div data-controller="sortable" data-src="<%= url_for(action: 'index') %>">
-  <%= render partial: 'task', collection: @tasks, as: :task %>
+<div data-controller="sortable">
+  <%= render partial: 'project_task', collection: @tasks, as: :task %>
   <turbo-frame id="item_add">
     <% if 'done' != params[:state] %>
       <%= link_to({ action: 'new', project_id: @project.id }, aria: { label: t('.new') }) do %>

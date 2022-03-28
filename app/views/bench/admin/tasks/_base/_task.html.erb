@@ -1,4 +1,4 @@
-<div class="<%= task.done? ? 'level is-underline has-background-white-ter' : 'level is-underline' %>" id="task_<%= task.id %>" data-id="<%= task.id %>" data-url="<%= url_for(controller: 'tasks', action: 'reorder', id: task.id) %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
+<div class="<%= task.done? ? 'level is-underline has-background-white-ter' : 'level is-underline' %>" id="task_<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <span style="width: <%= task.depth * 1.43 %>em; display: inline-block"></span>
     <%= render partial: 'title_item', locals: { task: task } %>
@@ -29,5 +29,3 @@
     </div>
   </div>
 </div>
-
-<%= render partial: 'task', collection: task.children, as: :task if task.root? %>
