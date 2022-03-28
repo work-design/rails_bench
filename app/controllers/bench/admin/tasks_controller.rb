@@ -51,7 +51,6 @@ module Bench
     end
 
     def reorder
-      @task = Task.find params[:id]
       sort_array = params[:sort_array].select { |i| i.integer? }
 
       if params[:new_index] > params[:old_index]
