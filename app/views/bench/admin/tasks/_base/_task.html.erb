@@ -31,8 +31,8 @@
         <% blank_items << item %>
       <% end %>
     <% end %>
-    <div class="level-item">
-      <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
+    <div class="level-item" data-show-target="item" style="visibility: hidden">
+      <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, method: :delete, aria: { label: t('.destroy') }, form: { data: { turbo_confirm: t('.confirm') } }) do %>
         <i class="fa-solid fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>
