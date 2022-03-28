@@ -1,9 +1,4 @@
 <div class="level-item">
-  <% if @task&.id == task.id %>
-    <i class="fa-light fa-check-square fa-fw has-text-success is-drawable"></i>
-  <% else %>
-    <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
-  <% end %>
   <%= link_to({ controller: controller_path, action: action_name, task_id: task.id }) do %>
     <span><%= task.title %></span>
     <% if task.children.size > 0 %>
