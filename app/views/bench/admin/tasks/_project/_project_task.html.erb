@@ -1,6 +1,6 @@
 <div class="box is-radiusless" data-id="<%= task.id %>" data-url="<%= url_for(controller: 'tasks', action: 'reorder', id: task.id) %>">
   <%= render partial: 'task', locals: { task: task } %>
-  <% if task.root? %>
+  <% if task.root? && task.children.size > 0 %>
   <div class="box is-radiusless" data-controller="sort">
     <%= render partial: 'sortable_task', collection: task.children, as: :task %>
   </div>
