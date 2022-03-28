@@ -43,7 +43,7 @@
       <%= render partial: 'deadline_item', locals: { task: task } %>
     </div>
     <div class="level-item">
-      <%= link_to({ controller: 'tasks', action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
+      <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { 'show-target': 'item', confirm: t('.confirm') }, method: :delete, style: 'visibility: hidden') do %>
         <i class="fa-solid fa-trash fa-fw has-text-danger"></i>
       <% end %>
     </div>
