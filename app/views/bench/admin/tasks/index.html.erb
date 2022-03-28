@@ -1,7 +1,7 @@
 <%= render 'filter_table' %>
 
 <div data-controller="sortable">
-  <%= render partial: 'index_item', collection: @tasks, as: :task %>
+  <%= render partial: 'task', collection: @tasks, as: :task %>
   <turbo-frame id="item_add">
     <% if 'done' != params[:state] %>
       <%= link_to({ action: 'new' }) do %>
