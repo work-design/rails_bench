@@ -15,8 +15,12 @@
   </div>
   <div class="level-right">
     <div class="level-item">
-      <span class="tag mr-2"><%= task.focus_i18n %></span>
-      <span class="tag mr-2"><%= task.state_i18n %></span>
+      <%= render partial: 'focus_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
+      <%= render partial: 'state_item', locals: { task: task } %>
+    </div>
+    <div class="level-item">
       <time data-controller="time" class="has-text-grey"><%= task.created_at.to_fs(:iso8601) %></time>
     </div>
     <span data-show-target="item" style="visibility: hidden">
