@@ -21,7 +21,7 @@ module Bench
       @task_timer = @task.task_timers.build(task_timer_params)
 
       unless @task_timer.save
-        render :new
+        render :new, locals: { model: @task_timer }, status: :unprocessable_entity
       end
     end
 

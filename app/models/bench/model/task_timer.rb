@@ -18,9 +18,5 @@ module Bench
     def duration_format
     end
 
-    def finish_at
-      super || Time.current
-    end
-
   end
 end

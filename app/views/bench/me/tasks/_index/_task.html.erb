@@ -4,11 +4,9 @@
       <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
     </div>
     <div class="level-item">
-      <% if task.task_timer %>
-        <i class="green hourglass start icon"></i>
-      <% end %>
       <%= link_to task.title, { action: 'show', id: task.id } %>
     </div>
+    <%= render partial: 'task_timer', locals: { task: task } %>
   </div>
   <div class="level-right">
     <div class="level-item">

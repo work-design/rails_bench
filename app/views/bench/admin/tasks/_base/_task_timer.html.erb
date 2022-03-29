@@ -1,0 +1,9 @@
+<div class="level-item" data-show-target="item" style="visibility: hidden">
+  <%= button_to({ controller: 'task_timers', task_id: task.id }, method: 'post', aria: { label: '开始' }, id: "play_task_#{task.id}") do %>
+    <i class="fa-solid fa-play fa-fw has-text-primary"></i>
+  <% end if task.today? %>
+</div>
+
+<% if task.task_timer %>
+  <i class="fa-light fa-hourglass-start has-text-success"></i>
+<% end %>
