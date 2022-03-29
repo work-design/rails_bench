@@ -1,20 +1,21 @@
-<%= render layout: 'show_layout' do %>
-
-  <ul class="ui items">
-    <% @task_timers.each do |task_timer| %>
-      <li>
-    <span>
-      <time><%= task_timer.created_at.to_fs(:iso8601) %></time> ..
-      <% if task_timer.finish_at.to_date == task_timer.created_at.to_date %>
-        <time data-format="HH:mm"><%= task_timer.finish_at.to_fs(:iso8601) %></time>
-      <% else %>
-        <time><%= task_timer.finish_at.to_fs(:iso8601) %></time>
-      <% end %>
-      执行了
-      <%= distance_of_time_in_words(task_timer.created_at, task_timer.finish_at, locale: I18n.locale) %></span>
-      </li>
+<%= turbo_frame_tagged 'modal' do %>
+<ul>
+  <% @task_timers.each do |task_timer| %>
+  <li>
+    <time data-controller="time"><%= task_timer.created_at.to_fs(:iso8601) %></time>
+    <span>..</span>
+    <% if task_timer.finish_at.to_date == task_timer.created_at.to_date %>
+      <time data-controller="time" data-format="HH:mm"><%= task_timer.finish_at.to_fs(:iso8601) %></time>
+    <% else %>
+      <time data-controller="time"><%= task_timer.finish_at.to_fs(:iso8601) %></time>
     <% end %>
-    <li><time><%= @task.created_at.to_fs(:iso8601) %></time> 创建了任务</li>
-  </ul>
-
+    <span>执行了</span>
+    <span><%= distance_of_time_in_words(task_timer.created_at, task_timer.finish_at, locale: I18n.locale) %></span>
+  </li>
+  <% end %>
+  <li>
+    <time data-controller="time"><%= @task.created_at.to_fs(:iso8601) %></time>
+    <span>创建了任务</span>
+  </li>
+</ul>
 <% end %>

@@ -10,8 +10,13 @@
     </span>
   </div>
   <% else %>
-    <%= button_to({ controller: 'task_timers', action: 'create', task_id: task.id }, method: 'post', aria: { label: '开始计时' }) do %>
+  <div class="tags has-addons">
+    <%= button_to({ controller: 'task_timers', action: 'create', task_id: task.id }, method: 'post', aria: { label: '开始计时' }, class: 'tag') do %>
       <i class="fa-solid fa-fw fa-hourglass-start has-text-primary"></i>
     <% end if task.today? %>
+    <%= link_to({ controller: 'task_timers', task_id: task.id }, data: { turbo_frame: 'modal' }, class: 'tag is-light is-warning') do %>
+      <span><%= task.actual_time %></span>
+    <% end %>
+  </div>
   <% end %>
 </div>
