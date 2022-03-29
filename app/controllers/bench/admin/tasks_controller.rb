@@ -9,8 +9,8 @@ module Bench
 
     def index
       q_params = {
-        focus: ['today', 'inbox'],
-        state: ['todo', 'doing'],
+        focus: ['inbox', 'today'],
+        state: ['todo', 'doing']
       }
       q_params.merge! params.permit(:focus, :state, :tasking_type, :tasking_id)
 
@@ -18,8 +18,10 @@ module Bench
     end
 
     def project
-      q_params = {}
-      q_params.merge! params.permit(:state)
+      q_params = {
+        focus: ['inbox', 'today']
+      }
+      q_params.merge! params.permit(:state, :focus)
 
       @project = Project.find params[:project_id]
       @tasks = @project.tasks.roots.includes(:children).default_where(q_params)
