@@ -9,7 +9,15 @@
   </tr>
   <tr>
     <td>
-      <%= link_to t('.all'), filter_params(except: :worker_id), class: active_helper(worker_id: '', active: 'button is-info', item: 'button is-light') %>
+      <%= link_to '默认', filter_params(except: :focus), class: active_helper(focus: '', active: 'button is-info', item: 'button is-light') %>
+      <% Bench::Task.options_i18n(:focus).each do |text, focus| %>
+        <%= link_to text, filter_params(focus: focus), class: active_helper(focus: focus, active: 'button is-info', item: 'button is-light') %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to t('.all'), filter_params(except: :member_id), class: active_helper(worker_id: '', active: 'button is-info', item: 'button is-light') %>
       <%# link_to current_member.job_titles.first.name, filter_params(worker_id: current_member.id), class: active_helper(worker_id: current_member.id, active: 'button is-info', item: 'button is-light') %>
     </td>
   </tr>

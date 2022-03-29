@@ -1,11 +1,10 @@
 <%= turbo_frame_tagged 'modal' do %>
-  <%= form_with model: @task, url: { action: 'update' }, can: { wrap_id: true } do |f| %>
-    <div class="field is-horizontal">
-      <label class="field-label is-normal"></label>
-      <div class="field-body">
-        <%= link_to Bench::Task.enum_i18n(:focus, 'today'), { action: 'edit_focus', id: @task.id, focus: 'today' }, class: 'button is-link' %>
-      </div>
-    </div>
+  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'today' }, class: 'button is-info') do %>
+    <i class="fa-light fa-sun has-text-white"></i>
+    <span><%= Bench::Task.enum_i18n(:focus, 'today') %></span>
+  <% end %>
+
+  <%= form_with model: @task, url: { action: 'update' } do |f| %>
     <%# render partial: 'eventual/time/form', locals: { f: f } %>
   <% end %>
 <% end %>
