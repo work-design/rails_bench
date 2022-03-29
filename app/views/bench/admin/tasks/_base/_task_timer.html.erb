@@ -1,9 +1,14 @@
-<div class="level-item" data-show-target="item" style="visibility: hidden">
-  <%= button_to({ controller: 'task_timers', task_id: task.id }, method: 'post', aria: { label: '开始' }, id: "play_task_#{task.id}") do %>
-    <i class="fa-solid fa-play fa-fw has-text-primary"></i>
-  <% end if task.today? %>
+<div class="level-item" id="play_task_<%= task.id %>">
+  <% if task.task_timer %>
+  <div class="tags has-addons">
+    <%= button_to({ controller: 'task_timers', action: 'pause', task_id: task.id, id: task.task_timer }, method: 'patch', aria: { label: '计时' }, class: 'tag') do %>
+      <i class="fa-solid fa-fw fa-hourglass fa-flip has-text-success" style="--fa-flip-x: 1; --fa-flip-y: 0; --fa-animation-duration: 3s"></i>
+    <% end %>
+    <time class="tag is-light is-warning" data-controller="time"><%= task.task_timer.created_at.to_fs(:iso8601) %></time>
+  </div>
+  <% else %>
+    <%= button_to({ controller: 'task_timers', action: 'create', task_id: task.id }, method: 'post', aria: { label: '开始' }) do %>
+      <i class="fa-solid fa-fw fa-hourglass-start has-text-primary"></i>
+    <% end if task.today? %>
+  <% end %>
 </div>
-
-<% if task.task_timer %>
-  <i class="fa-light fa-hourglass-start has-text-success"></i>
-<% end %>
