@@ -1,13 +1,16 @@
 <div class="level-item" id="play_task_<%= task.id %>">
   <% if task.task_timer %>
   <div class="tags has-addons">
-    <%= button_to({ controller: 'task_timers', action: 'pause', task_id: task.id, id: task.task_timer }, method: 'patch', aria: { label: '计时' }, class: 'tag') do %>
-      <i class="fa-solid fa-fw fa-hourglass fa-flip has-text-success" style="--fa-flip-x: 1; --fa-flip-y: 0; --fa-animation-duration: 3s"></i>
+    <%= button_to({ controller: 'task_timers', action: 'pause', task_id: task.id, id: task.task_timer }, method: 'patch', aria: { label: '暂停计时' }, class: 'tag') do %>
+      <i class="fa-solid fa-fw fa-hourglass fa-flip has-text-success" style="--fa-flip-x: 1; --fa-flip-y: 0; --fa-animation-duration: 4s"></i>
     <% end %>
-    <time class="tag is-light is-warning" data-controller="time"><%= task.task_timer.created_at.to_fs(:iso8601) %></time>
+    <span class="tag is-light is-warning">
+      <span>已开始：</span>
+      <time data-controller="count-up" data-count-up-time-value="<%= task.task_timer.created_at.to_fs(:iso8601) %>"><%= exact_distance_time(task.task_timer.created_at, Time.current) %></time>
+    </span>
   </div>
   <% else %>
-    <%= button_to({ controller: 'task_timers', action: 'create', task_id: task.id }, method: 'post', aria: { label: '开始' }) do %>
+    <%= button_to({ controller: 'task_timers', action: 'create', task_id: task.id }, method: 'post', aria: { label: '开始计时' }) do %>
       <i class="fa-solid fa-fw fa-hourglass-start has-text-primary"></i>
     <% end if task.today? %>
   <% end %>
