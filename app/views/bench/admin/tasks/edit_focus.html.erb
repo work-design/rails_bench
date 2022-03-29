@@ -1,7 +1,11 @@
 <%= turbo_frame_tagged 'modal' do %>
   <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'today' }, class: 'button is-info') do %>
-    <i class="fa-light fa-sun has-text-white"></i>
+    <i class="fa-light fa-sun"></i>
     <span><%= Bench::Task.enum_i18n(:focus, 'today') %></span>
+  <% end %>
+  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'inbox' }, class: 'button is-info') do %>
+    <i class="fa-light fa-sun"></i>
+    <span><%= Bench::Task.enum_i18n(:focus, 'inbox') %></span>
   <% end %>
 
   <%= form_with model: @task, url: { action: 'update' } do |f| %>
