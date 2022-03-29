@@ -39,6 +39,7 @@ module Bench
       }, _default: 'todo'
       enum focus: {
         inbox: 'inbox',
+        draft: 'draft',
         today: 'today',
         scheduled: 'scheduled'
       }, _default: 'inbox'

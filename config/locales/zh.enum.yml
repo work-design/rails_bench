@@ -4,6 +4,7 @@ zh:
       bench/task:
         focus:
           inbox: 待办
+          draft: 草稿
           today: 今天
           scheduled: 日程
         state:
