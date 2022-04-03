@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: f527de04e70a9b9bb4db582ca30889f0d5d92c28
+  revision: 6f2628a84b1951f437805df2736ea00cc023ffe8
   specs:
     rails_com (1.3.0)
       acme-client
@@ -41,14 +41,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: d7ee7c97e14df3bbf3c119ed70cc863d69e1dd60
+  revision: 45dcc3d070e9a1df703370b2ad2841b3ef799e27
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 5acc5af075cece267ef64c571d1938d084555be1
+  revision: 6ce6ba9cd998f9efa2f905f4ab9b1e28c1a81a99
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
@@ -77,7 +77,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_vite.git
-  revision: d55b4c49933bbbd5a515b8df9211d2c4c5dac262
+  revision: d565f52c196db60c161cf1e71308d75c89b77f23
   specs:
     rails_vite (0.0.1)
       rails
@@ -165,9 +165,9 @@ GEM
     closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     crass (1.0.6)
-    debug (1.4.0)
+    debug (1.5.0)
       irb (>= 1.3.6)
       reline (>= 0.2.7)
     default_where (2.2.0)
@@ -201,12 +201,11 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.19.4)
+    httpx (0.19.5)
       http-2-next (>= 0.4.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     io-console (0.5.11)
-    io-wait (0.2.1)
     irb (1.4.1)
       reline (>= 0.3.0)
     jbuilder (2.11.5)
@@ -224,7 +223,7 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
-    loofah (2.14.0)
+    loofah (2.16.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -247,8 +246,7 @@ GEM
       digest
       net-protocol
       timeout
-    net-protocol (0.1.2)
-      io-wait
+    net-protocol (0.1.3)
       timeout
     net-smtp (0.3.1)
       digest
@@ -258,14 +256,16 @@ GEM
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.3-x86_64-linux)
+      racc (~> 1.4)
     pdf-core (0.9.0)
-    pg (1.3.3)
+    pg (1.3.5)
     prawn (2.4.0)
       pdf-core (~> 0.9.0)
       ttfunk (~> 1.7)
     prawn-table (0.2.2)
       prawn (>= 1.3.0, < 3.0.0)
-    puma (5.6.2)
+    puma (5.6.4)
       nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
@@ -301,7 +301,7 @@ GEM
     rdoc (6.3.3)
     reline (0.3.1)
       io-console (~> 0.5)
-    roo (2.8.3)
+    roo (2.9.0)
       nokogiri (~> 1)
       rubyzip (>= 1.3.0, < 3.0.0)
     roo-xls (1.2.0)
