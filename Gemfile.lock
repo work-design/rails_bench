@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 389c9bda6c22acfa9733e1c8e52ecb6f9fa2e963
+  revision: 3db61a46ed6afb8f3fca79935812c42d87e54b08
   specs:
     rails_audit (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 07648ba57fa50a0750bc4ed0090b5352f7e328fa
+  revision: c00f1e2482f3c1c7d9c7c7c8bfaca2ead8fa43d0
   specs:
     rails_com (1.3.0)
       acme-client
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 6a3e3b958564ab043b8a847fab9933a7fef97b74
+  revision: e543206e6bf9a0badf6afddc32cc6ee89dc2af51
   specs:
     rails_data (1.0.2)
       matrix
@@ -37,21 +37,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: d7f6a99ad578f360635e89c94c91c4f5b182dd81
+  revision: 89ae2c8893406ab782d1ad572b9048fe810b6878
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 8e9c9e54cb1fe5865476d2bacead23e7e18f012a
+  revision: 0fec9966b0874242138aa3ca233ca57f54017909
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: e9b22d77a1caf1d14689f06b87282aaffe868a44
+  revision: 973d0c166e66c41dab9875a8219e2858b4cc6b29
   specs:
     rails_finance (0.0.1)
       prawn
@@ -59,14 +59,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: ed1bec5426931f59e517569a95e1d006ad705ed1
+  revision: bebb759741d03730ebe3296a9701cd5ca5720ce3
   specs:
     rails_notice (1.0.3)
       rails_extend
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: af4ea8bb438067b89b9acde112f0df4207a20b37
+  revision: 7076113da35b4d40aa99231e74ec98a3d84d23d0
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
@@ -173,7 +173,7 @@ GEM
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.20.0)
+    httpx (0.20.3)
       http-2-next (>= 0.4.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -222,8 +222,6 @@ GEM
     nio4r (2.5.8)
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     pdf-core (0.9.0)
     pg (1.3.5)
@@ -302,7 +300,7 @@ GEM
     websocket-extensions (0.1.5)
     with_advisory_lock (4.6.0)
       activerecord (>= 4.2)
-    write_xlsx (1.09.2)
+    write_xlsx (1.09.3)
       rubyzip (>= 1.0.0)
       zip-zip
     zeitwerk (2.6.0)
