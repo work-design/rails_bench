@@ -3,18 +3,18 @@
   <td><%= facilitate_provider.note %></td>
   <td>
     <% if facilitate_provider.selected %>
-      <i class="fa-light fa-check has-text-success"></i>
+      <i class="fa-regular fa-check has-text-success"></i>
     <% else %>
-      <i class="fa-light fa-times has-text-danger"></i>
+      <i class="fa-regular fa-times has-text-danger"></i>
     <% end %>
   </td>
   <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
   <td>
     <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
-      <i class="fa-light fa-pencil"></i>
+      <i class="fa-regular fa-pencil"></i>
     <% end %>
     <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
-      <i class="fa-light fa-trash"></i>
+      <i class="fa-regular fa-trash"></i>
     <% end %>
   </td>
 </tr>

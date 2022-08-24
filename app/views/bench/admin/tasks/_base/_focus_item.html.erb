@@ -1,6 +1,6 @@
 <div class="tags has-addons">
   <%= link_to({ controller: 'tasks', action: 'edit_focus', id: task.id }, aria: { label: t('.today') }, data: { turbo_frame: 'modal' }, id: "play_task_#{task.id}", class: 'tag') do %>
-    <i class="fa-light fa-star fa-fw has-text-primary"></i>
+    <i class="fa-regular fa-star fa-fw has-text-primary"></i>
   <% end %>
   <span class="tag is-light is-primary"><%= task.focus_i18n %></span>
 </div>

@@ -9,7 +9,7 @@
     <p><%= project_milepost.milepost_name %>: <%= project_milepost.recorded_on %></p>
   <% end %>
   <%= link_to({ controller: 'project_mileposts', action: 'new', project_id: model.id }, { class: 'button is-small is-rounded' }) do %>
-    <i class="fa-light fa-step-forward"></i><span><%= '下一步' %></span>
+    <i class="fa-regular fa-step-forward"></i><span><%= '下一步' %></span>
   <% end %>
 </td>
 <td><%= simple_format(model.extra) %></td>

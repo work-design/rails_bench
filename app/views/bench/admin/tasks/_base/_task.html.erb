@@ -1,7 +1,7 @@
 <div class="<%= task.done? ? 'level is-underline has-background-white-ter' : 'level is-underline' %>" id="task_<%= task.id %>" data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <div class="level-left">
     <div class="level-item">
-      <i class="fa-light fa-bars fa-fw has-text-grey is-drawable"></i>
+      <i class="fa-regular fa-bars fa-fw has-text-grey is-drawable"></i>
     </div>
     <%= render partial: 'title_item', locals: { task: task } %>
   </div>

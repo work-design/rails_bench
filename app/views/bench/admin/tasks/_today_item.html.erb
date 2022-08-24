@@ -4,7 +4,7 @@
     <span style="visibility: hidden;">
       <%= render partial: 'rail', locals: { task: task } %>
     </span>
-    <i class="fa-light fa-bars"></i>
+    <i class="fa-regular fa-bars"></i>
   </div>
 
   <div class="content">
@@ -14,7 +14,7 @@
     <%= link_to task.title, me_task_path(task) %>
     <div class="right floated">
       <% if ['today'].include?(task.focus) %>
-        <i class="fa-light fa-sun"></i>
+        <i class="fa-regular fa-sun"></i>
       <% end %>
       <% if task.project %>
         <span class="ui small grey label"><%= task.project.name %></span>
@@ -24,7 +24,7 @@
       <% end %>
       <span style="visibility: hidden">
         <%= link_to({ action: 'show', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', class: 'grey text') do %>
-          <i class="fa-light fa-trash"></i>
+          <i class="fa-regular fa-trash"></i>
         <% end %>
       </span>
     </div>

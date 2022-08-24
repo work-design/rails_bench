@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 3db61a46ed6afb8f3fca79935812c42d87e54b08
+  revision: 62ee392f9761cb1f184f7b1b20d368804fa46d87
   specs:
     rails_audit (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: c00f1e2482f3c1c7d9c7c7c8bfaca2ead8fa43d0
+  revision: c894e414c1d6e9da5ebde1fab9aa0e1664b66bb9
   specs:
     rails_com (1.3.0)
       acme-client
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: e543206e6bf9a0badf6afddc32cc6ee89dc2af51
+  revision: d12c5dc759dbabe3f5f7d1b948f0e39861965b0e
   specs:
     rails_data (1.0.2)
       matrix
@@ -37,21 +37,21 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 89ae2c8893406ab782d1ad572b9048fe810b6878
+  revision: 595a38d8b3b2ec5d898422c4167da553fcbe4d4a
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_extend.git
-  revision: 0fec9966b0874242138aa3ca233ca57f54017909
+  revision: 3968d51ec1c68eaf846fd4e4238163a3d32f0c4f
   specs:
     rails_extend (1.0.1)
       rails (>= 5.0)
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 973d0c166e66c41dab9875a8219e2858b4cc6b29
+  revision: cb9b52b5a5fe11b7cdcbdaa1311acf753e911bef
   specs:
     rails_finance (0.0.1)
       prawn
@@ -59,14 +59,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: bebb759741d03730ebe3296a9701cd5ca5720ce3
+  revision: f04c08d9e2852973372f4bed16751213f2ec5e9f
   specs:
     rails_notice (1.0.3)
       rails_extend
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 7076113da35b4d40aa99231e74ec98a3d84d23d0
+  revision: 29c5a48ed395ee9d1329246dcfe3bcbfd1478e5a
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
@@ -164,16 +164,16 @@ GEM
       activerecord (>= 4.0.0)
     digest (3.1.0)
     erubi (1.10.0)
-    faraday (2.3.0)
-      faraday-net_http (~> 2.0)
+    faraday (2.5.2)
+      faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
-    faraday-net_http (2.0.3)
+    faraday-net_http (3.0.0)
     faraday-retry (1.0.3)
     globalid (1.0.0)
       activesupport (>= 5.0)
     http-2-next (0.5.0)
     http-form_data (2.3.0)
-    httpx (0.20.3)
+    httpx (0.21.0)
       http-2-next (>= 0.4.1)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
