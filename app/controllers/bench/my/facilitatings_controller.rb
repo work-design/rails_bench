@@ -1,9 +1,9 @@
 module Bench
-  class My::ServingsController < My::BaseController
+  class My::FacilitatingsController < My::BaseController
     before_action :set_item
 
     def index
-      @servings = @item.servings
+      @facilitatings = @item.facilitatings
     end
 
     private

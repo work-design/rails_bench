@@ -3,7 +3,7 @@ module Bench
     extend ActiveSupport::Concern
 
     included do
-      has_many :servings, class_name: 'Bench::Serving'
+      has_many :facilitatings, class_name: 'Bench::Facilitating'
     end
 
   end
