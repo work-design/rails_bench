@@ -1,4 +1,4 @@
-module Serve
+module Bench
   class Me::ServingsController < Me::BaseController
     before_action :set_serving, only: [:qrcode, :start, :finish]
 

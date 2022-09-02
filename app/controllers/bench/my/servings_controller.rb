@@ -1,4 +1,4 @@
-module Serve
+module Bench
   class My::ServingsController < My::BaseController
     before_action :set_item
 

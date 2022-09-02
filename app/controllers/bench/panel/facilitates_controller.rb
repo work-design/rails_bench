@@ -5,6 +5,7 @@ module Bench
 
     def index
       q_params = {}
+      q_params.merge! default_params
       q_params.merge! params.permit(:facilitate_taxon_id)
 
       @facilitates = Facilitate.includes(:facilitate_taxon).default_where(q_params).page(params[:page])

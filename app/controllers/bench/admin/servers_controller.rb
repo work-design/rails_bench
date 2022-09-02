@@ -1,4 +1,4 @@
-module Serve
+module Bench
   class Admin::ServersController < Admin::BaseController
     before_action :set_service
     before_action :set_new_server, only: [:new, :create]
