@@ -55,7 +55,7 @@ module Bench
     def wallet_price_params
       r = {}
 
-      params.fetch(:service, {}).fetch(:wallet_price, {}).each do |_, v|
+      params.fetch(:facilitate, {}).fetch(:wallet_price, {}).each do |_, v|
         r.merge! v[:code] => v[:price]
       end
 
@@ -65,7 +65,7 @@ module Bench
     def card_price_params
       r = {}
 
-      params.dig(:service, :card_price).each do |_, v|
+      params.dig(:facilitate, :card_price).each do |_, v|
         r.merge! v[:code] => v[:price]
       end
 
