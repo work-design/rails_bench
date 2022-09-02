@@ -159,4 +159,7 @@ Rails.application.routes.draw do
       end
     end
   end
+  resolve 'Bench::Facilitate' do |facilitate, options|
+    [:bench, facilitate, options]
+  end
 end
