@@ -34,7 +34,7 @@ module Bench
     end
 
     def set_cart
-      @cart = current_carts.find_or_create_by(good_type: 'Serve::Service', aim: 'use')
+      @cart = current_carts.find_or_create_by(good_type: 'Bench::Facilitate', aim: 'use')
     end
 
   end
