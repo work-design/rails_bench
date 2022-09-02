@@ -7,7 +7,8 @@ module Bench
       attribute :description, :string
       attribute :state, :string
 
-      belongs_to :organ, optional: true
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :taxon, counter_cache: true, optional: true
       has_many :project_webhooks, dependent: :delete_all
       has_many :tasks, dependent: :delete_all
@@ -17,7 +18,6 @@ module Bench
       has_many :mileposts, through: :project_mileposts
 
       validates :name, presence: true
-
       #after_save :sync_facilitates_from_project_taxon, if: -> { saved_change_to_project_taxon_id? && !project_taxon_id.blank? }
 
       has_one_attached :logo

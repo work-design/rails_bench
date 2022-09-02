@@ -1,4 +1,4 @@
-module Serve
+module Bench
   module Model::Serving
     extend ActiveSupport::Concern
 
