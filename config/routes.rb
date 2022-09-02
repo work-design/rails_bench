@@ -41,6 +41,11 @@ Rails.application.routes.draw do
           get :buy
         end
       end
+      resources :facilitatings do
+        member do
+          get :qrcode
+        end
+      end
 
       namespace :me, defaults: { namespace: 'me' } do
         resources :tasks do
@@ -53,14 +58,26 @@ Rails.application.routes.draw do
           end
           resources :expenses
         end
-        resources :facilitates, only: [] do
+        resources :facilitates, only: []
+        resources :facilitatings do
           member do
-            put :order
+            get :qrcode
+            patch :start
+            patch :finish
           end
         end
       end
 
       namespace 'admin', defaults: { namespace: 'admin' } do
+        resources :facilitates do
+          member do
+            get :wallet
+            patch :update_wallet
+            get :card
+            patch :update_card
+          end
+          resources :facilitate_indicators
+        end
         resources :project_stages
         resources :project_states
         resources :projects do
@@ -130,9 +147,8 @@ Rails.application.routes.draw do
         end
         resources :indicators
         resources :facilitate_taxons
-        resources :facilitates do
-          resources :facilitate_providers
-          resources :facilitate_indicators
+        resources :standards do
+          resources :standard_providers
         end
       end
 

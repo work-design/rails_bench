@@ -15,14 +15,6 @@ module Bench
       @project = current_member.projects.build(project_taxon_id: params[:project_taxon_id])
     end
 
-    def create
-      @project = current_member.projects.build(project_params)
-
-      unless @project.save
-        render :new, locals: { model: @project }, status: :unprocessable_entity
-      end
-    end
-
     def task_templates
       @task_templates = TaskTemplate.where(tasking_type: 'Project', tasking_id: @project.id).page(params[:page])
     end
@@ -39,6 +31,10 @@ module Bench
     private
     def set_project
       @project = Project.find(params[:id])
+    end
+
+    def set_new_project
+      @project = current_member.projects.build(project_params)
     end
 
     def prepare_form
