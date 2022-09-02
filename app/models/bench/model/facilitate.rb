@@ -11,6 +11,7 @@ module Bench
       attribute :qr_prefix, :string
       attribute :published, :boolean, default: true
 
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
       belongs_to :facilitate_taxon, counter_cache: true
 
       has_one :facilitate_provider, -> { where(selected: true) }
@@ -20,7 +21,19 @@ module Bench
       has_many :facilitate_indicators, dependent: :destroy
       has_many :indicators, through: :facilitate_indicators
 
+      has_many :servers, dependent: :destroy
+      has_many :members, through: :servers
+      has_many :servings
+
       has_one_attached :logo
+    end
+
+    def order_paid(item)
+      rest = item.number - item.servings.count
+      rest.times do
+        servings.build(item_id: item.id)
+      end
+      save
     end
 
   end
