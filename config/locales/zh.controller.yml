@@ -53,6 +53,9 @@ zh:
       facilitates:
         index:
           title: 标准化服务
+      facilitate_taxons:
+        index:
+          title: 服务分类
     me:
       title: 项目管理
       expenses:
@@ -99,9 +102,6 @@ zh:
           title: 详情
         budgets:
           title: 预算
-      facilitate_taxons:
-        index:
-          title: 标准化分类
       facilitate_indicators:
         index:
           title: 评价指标

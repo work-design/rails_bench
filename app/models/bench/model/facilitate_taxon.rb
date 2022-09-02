@@ -10,7 +10,10 @@ module Bench
       attribute :facilitates_count, :integer, default: 0
       attribute :indicators_count, :integer, default: 0
 
+      belongs_to :organ, class_name: 'Org::Organ', optional: true
+
       belongs_to :taxon, optional: true
+
       has_many :facilitates, dependent: :nullify
       has_many :indicators, dependent: :nullify
 

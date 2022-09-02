@@ -19,6 +19,7 @@ module Bench
         :name,
         :color
       )
+      p.merge! default_params
     end
 
   end

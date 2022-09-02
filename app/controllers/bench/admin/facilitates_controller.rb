@@ -34,7 +34,7 @@ module Bench
 
     private
     def set_facilitate_taxons
-      @facilitate_taxons = FacilitateTaxon.all
+      @facilitate_taxons = FacilitateTaxon.default_where(default_params)
     end
 
     def set_facilitate

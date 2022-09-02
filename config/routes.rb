@@ -70,6 +70,7 @@ Rails.application.routes.draw do
 
       namespace 'admin', defaults: { namespace: 'admin' } do
         root 'home#index'
+        resources :facilitate_taxons
         resources :facilitates do
           member do
             get :wallet
@@ -147,7 +148,6 @@ Rails.application.routes.draw do
           resources :projects
         end
         resources :indicators
-        resources :facilitate_taxons
         resources :standards do
           resources :standard_providers
         end
