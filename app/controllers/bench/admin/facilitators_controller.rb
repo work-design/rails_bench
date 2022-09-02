@@ -14,7 +14,7 @@ module Bench
     end
 
     def set_members
-      @members = Org::Member.default_where(default_params)
+      @members = ::Org::Member.default_where(default_params)
     end
 
     def facilitator_params

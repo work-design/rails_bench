@@ -11,6 +11,9 @@ zh:
         title: 标准化服务
     admin:
       title: 工作管理
+      home:
+        index:
+          title: 工作管理
       budgets:
         index:
           title: 项目预算
@@ -52,10 +55,17 @@ zh:
           title: 工作流
       facilitates:
         index:
-          title: 标准化服务
+          title: 服务项目
+        wallet:
+          title: 钱包支付
+        card:
+          title: 会员价
       facilitate_taxons:
         index:
           title: 服务分类
+      facilitators:
+        index:
+          title: 服务人员
     me:
       title: 项目管理
       expenses:
@@ -87,6 +97,10 @@ zh:
       task_timers:
         index:
           title: 工作日志
+    my:
+      facilitatings:
+        index:
+          title: 服务
     org:
       title: 工作管理
       facilitate_providers:

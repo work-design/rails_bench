@@ -68,6 +68,12 @@ Rails.application.routes.draw do
         end
       end
 
+      namespace :my, defaults: { namespace: 'my' } do
+        resources :items, only: [] do
+          resources :facilitatings
+        end
+      end
+
       namespace 'admin', defaults: { namespace: 'admin' } do
         root 'home#index'
         resources :facilitate_taxons
@@ -78,6 +84,7 @@ Rails.application.routes.draw do
             get :card
             patch :update_card
           end
+          resources :facilitators
           resources :facilitate_indicators
         end
         resources :project_stages

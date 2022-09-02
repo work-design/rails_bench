@@ -22,10 +22,9 @@ module Bench
       has_many :providers, through: :facilitate_providers
       has_many :facilitate_indicators, dependent: :destroy
       has_many :indicators, through: :facilitate_indicators
-
-      has_many :servers, dependent: :destroy
-      has_many :members, through: :servers
-      has_many :servings
+      has_many :facilitatings
+      has_many :facilitators, dependent: :destroy
+      has_many :members, through: :facilitators
 
       has_one_attached :logo
     end
