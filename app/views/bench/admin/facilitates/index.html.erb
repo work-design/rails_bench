@@ -3,7 +3,7 @@
   <tr>
     <td rowspan="<%= taxon.facilitates_count + 1 %>"><%= taxon.name %></td>
   </tr>
-  <%= render partial: 'facilitate', layout: 'index_tr', collection: facilitates, as: :model %>
+  <%= render partial: 'index_tbody', layout: 'index_tr', collection: facilitates, as: :model %>
 <% end %>
 <% end %>
 

@@ -1,16 +1,24 @@
 <tr>
-  <td class="has-text-right"><%= Serve::Service.human_attribute_name(:name) %></td>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:name) %></td>
   <td><%= @facilitate.name %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Serve::Service.human_attribute_name(:price) %></td>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:description) %></td>
+  <td><%= @facilitate.description %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:price) %></td>
   <td><%= @facilitate.price %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Serve::Service.human_attribute_name(:card_price) %></td>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:card_price) %></td>
   <td><%= @facilitate.card_price %></td>
 </tr>
 <tr>
-  <td class="has-text-right"><%= Serve::Service.human_attribute_name(:unit) %></td>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:unit) %></td>
   <td><%= @facilitate.unit %></td>
+</tr>
+<tr>
+  <td class="has-text-right"><%= Bench::Facilitate.human_attribute_name(:created_at) %></td>
+  <td><time data-controller="time"><%= @facilitate.created_at.to_fs(:iso8601) %></time></td>
 </tr>
