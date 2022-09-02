@@ -12,6 +12,8 @@ module Bench
       attribute :published, :boolean, default: true
 
       belongs_to :organ, class_name: 'Org::Organ', optional: true
+
+      belongs_to :standard, optional: true
       belongs_to :facilitate_taxon, counter_cache: true
 
       has_one :facilitate_provider, -> { where(selected: true) }

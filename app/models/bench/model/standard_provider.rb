@@ -1,5 +1,5 @@
 module Bench
-  module Model::FacilitateProvider
+  module Model::StandardProvider
     extend ActiveSupport::Concern
 
     included do
@@ -8,7 +8,6 @@ module Bench
       attribute :export_price, :decimal
 
       belongs_to :facilitate
-      belongs_to :provider, class_name: 'Org::Organ'
 
       has_many :task_templates, as: :tasking, dependent: :nullify
     end

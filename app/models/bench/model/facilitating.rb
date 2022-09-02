@@ -1,5 +1,5 @@
 module Bench
-  module Model::Serving
+  module Model::Facilitating
     extend ActiveSupport::Concern
 
     included do
@@ -8,7 +8,7 @@ module Bench
       attribute :estimate_finish_at, :datetime
 
       belongs_to :facilitate
-      belongs_to :server, optional: true
+      belongs_to :facilitator, optional: true
       belongs_to :member, class_name: 'Org::Member', optional: true
       belongs_to :wallet_payment, class_name: 'Trade::WalletPayment', optional: true
       belongs_to :item, class_name: 'Trade::Item'
@@ -20,7 +20,7 @@ module Bench
     end
 
     def enter_url
-      Rails.application.routes.url_for(controller: 'serve/servings', action: 'qrcode', id: self.id, host: item.organ.host)
+      Rails.application.routes.url_for(controller: 'serve/facilitatings', action: 'qrcode', id: self.id, host: item.organ.host)
     end
 
     def qrcode_enter_png
@@ -35,8 +35,8 @@ module Bench
       broadcast_action_to(
         self,
         action: :update,
-        target: "serving_#{id}",
-        partial: 'bench/my/servings/_index/serving_preview',
+        target: "facilitating_#{id}",
+        partial: 'bench/my/facilitatings/_index/facilitating_preview',
         locals: { model: self }
       )
     end
