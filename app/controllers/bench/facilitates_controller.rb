@@ -2,6 +2,7 @@ module Bench
   class FacilitatesController < BaseController
     before_action :set_facilitate, only: [:show]
     before_action :set_facilitate_taxons, only: [:index, :buy]
+    before_action :set_cart
 
     def index
       q_params = {}
@@ -32,8 +33,8 @@ module Bench
       @facilitate = Facilitate.find(params[:id])
     end
 
-    def facilitate_params
-      params.fetch(:facilitate, {})
+    def set_cart
+      @cart = current_carts.find_or_create_by(good_type: 'Serve::Service', aim: 'use')
     end
 
   end
