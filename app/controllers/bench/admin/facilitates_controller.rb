@@ -1,5 +1,5 @@
 module Bench
-  class Panel::FacilitatesController < Panel::BaseController
+  class Admin::FacilitatesController < Admin::BaseController
     before_action :set_facilitate_taxons, only: [:index, :new, :edit]
     before_action :set_facilitate, only: [
       :show, :edit, :update, :destroy, :actions,

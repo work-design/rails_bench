@@ -3,6 +3,9 @@ zh:
     attributes:
       bench/facilitate:
         facilitate_taxon_id: 分类
+        price: 价格
+      bench/facilitator:
+        member_id: 服务技师
       bench/facilitate_provider:
         selected: 中标
         provider_id: 供应商

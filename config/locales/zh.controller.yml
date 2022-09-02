@@ -50,6 +50,9 @@ zh:
           title: 工作流
         project:
           title: 工作流
+      facilitates:
+        index:
+          title: 标准化服务
     me:
       title: 项目管理
       expenses:
@@ -109,9 +112,6 @@ zh:
           title: 流程
         show:
           title: 服务详情
-      facilitates:
-        index:
-          title: 标准化服务
       indicators:
         index:
           title: 评价指标

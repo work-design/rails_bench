@@ -1,5 +1,5 @@
 module Bench
-  class Panel::FacilitateTaxonsController < Panel::BaseController
+  class Admin::FacilitateTaxonsController < Admin::BaseController
     before_action :set_facilitate_taxon, only: [:edit, :update, :destroy]
 
     def index

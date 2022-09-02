@@ -3,7 +3,6 @@
     <%= link_to t('bench.panel.taxons.index.title'), { controller: 'bench/panel/taxons' }, class: active_helper(controllers: ['taxons', 'facilitate_providers', 'task_templates'], active: 'is-active') %>
     <%= link_to t('bench.panel.facilitate_taxons.index.title'), { controller: 'bench/panel/facilitate_taxons' }, class: active_helper(controllers: ['facilitate_taxons'], active: 'is-active') %>
     <%= link_to t('bench.panel.indicators.index.title'), { controller: 'bench/panel/indicators' }, class: active_helper(controllers: ['indicators'], active: 'is-active') %>
-    <%= link_to t('bench.panel.facilitates.index.title'), { controller: 'bench/panel/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') -%>
   <% end %>
   <a class="menu-label" data-action="menu#toggle">
     <i class="fa-solid fa-share-alt"></i>
