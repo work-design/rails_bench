@@ -1,3 +1,6 @@
+<%= render 'filter_table' %>
+<%= render 'button' %>
+
 <%= render layout: 'index_table' do %>
 <% @facilitates.group_by(&:facilitate_taxon).each do |taxon, facilitates| %>
   <tr>

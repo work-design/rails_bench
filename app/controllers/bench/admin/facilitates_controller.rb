@@ -42,13 +42,14 @@ module Bench
     end
 
     def facilitate_params
-      params.fetch(:facilitate, {}).permit(
+      p = params.fetch(:facilitate, {}).permit(
         :name,
         :description,
         :price,
         :logo,
         :facilitate_taxon_id
       )
+      p.merge! default_params
     end
 
     def wallet_price_params

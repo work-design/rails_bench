@@ -2,5 +2,5 @@
 <%= f.number_field :price %>
 <%= f.text_field :unit %>
 <%= f.file_field :logo %>
-<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name, include_blank: true %>
+<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name %>
 <%= f.text_area :description %>
