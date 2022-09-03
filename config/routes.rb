@@ -40,6 +40,7 @@ Rails.application.routes.draw do
         collection do
           get :buy
         end
+        resources :facilitators
       end
       resources :facilitatings do
         member do
