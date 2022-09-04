@@ -3,10 +3,12 @@
   <td>
     <div data-show-target="item" style="visibility: hidden">
       <%= link_to({ controller: 'facilitate_indicators', action: 'index', facilitate_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-regular fa-smile-beam"></i><span><%= t('bench.panel.facilitate_indicators.index.title') %></span>
+        <i class="fa-regular fa-smile-beam"></i>
+        <span class="pl-1"><%= t('bench.panel.facilitate_indicators.index.title') %></span>
       <% end %>
       <%= link_to({ controller: 'facilitate_providers', action: 'index', facilitate_id: model.id }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-regular fa-search"></i><span><%= t('bench.panel.facilitate_providers.index.title') %></span>
+        <i class="fa-regular fa-search"></i>
+        <span class="pl-1"><%= t('bench.panel.facilitate_providers.index.title') %></span>
       <% end %>
       <%= link_to({ controller: 'facilitators', facilitate_id: model.id }, aria: { label: t('bench.admin.facilitators.index.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-regular fa-user-ninja"></i>
