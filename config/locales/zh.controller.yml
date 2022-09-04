@@ -97,6 +97,9 @@ zh:
       task_timers:
         index:
           title: 工作日志
+      facilitatings:
+        index:
+          title: 服务
     my:
       facilitatings:
         index:
