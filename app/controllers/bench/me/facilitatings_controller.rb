@@ -23,7 +23,7 @@ module Bench
 
     private
     def set_facilitating
-      @facilitating = Serving.find params[:id]
+      @facilitating = Facilitating.find params[:id]
     end
 
   end

@@ -6,6 +6,10 @@ zh:
         price: 价格
       bench/facilitator:
         member_id: 服务技师
+      bench/facilitating:
+        facilitate_id: 服务项目
+        item_id: 订单
+        member_id: 服务人员
       bench/facilitate_provider:
         selected: 中标
         provider_id: 供应商

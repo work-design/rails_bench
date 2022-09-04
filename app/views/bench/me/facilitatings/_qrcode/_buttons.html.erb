@@ -1,6 +1,6 @@
 <div>
   <div class="buttons are-large is-centered">
-    <% if @serving.start_at.blank? %>
+    <% if @facilitating.start_at.blank? %>
       <%= button_to({ action: 'start' }, method: :patch, class: 'button is-warning') do %>
         <span>开始服务</span>
       <% end %>

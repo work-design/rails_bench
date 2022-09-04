@@ -1,0 +1,30 @@
+<div class="weui-form-preview">
+  <div class="weui-form-preview__bd">
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:facilitate_id) %></label>
+      <span class="weui-form-preview__value"><%= @facilitating.facilitate.name %></span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:item_id) %></label>
+      <span class="weui-form-preview__value"><%= @facilitating.item.uuid %></span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:member_id) %></label>
+      <span class="weui-form-preview__value">
+        <span><%= @facilitating.member&.name %></span>
+      </span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:start_at) %></label>
+      <span class="weui-form-preview__value has-text-success">
+        <time data-controller="time"><%= @facilitating.start_at&.to_fs(:iso8601) %></time>
+      </span>
+    </div>
+    <div class="weui-form-preview__item">
+      <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:finish_at) %></label>
+      <span class="weui-form-preview__value has-text-danger">
+        <time data-controller="time"><%= @facilitating.finish_at&.to_fs(:iso8601) %></time>
+      </span>
+    </div>
+  </div>
+</div>
