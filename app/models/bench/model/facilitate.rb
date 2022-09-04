@@ -30,9 +30,9 @@ module Bench
     end
 
     def order_paid(item)
-      rest = item.number - item.servings.count
+      rest = item.number - item.facilitatings.count
       rest.times do
-        servings.build(item_id: item.id)
+        facilitatings.build(item_id: item.id)
       end
       save
     end

@@ -5,7 +5,7 @@ module Bench
 
     def qrcode
       if current_user.organ_ids.include?(@facilitating.facilitate.organ_id)
-        redirect_to({ controller: 'serve/me/facilitatings', action: 'qrcode', id: params[:id], host: @facilitating.facilitate.organ.host }, allow_other_host: true)
+        redirect_to({ controller: 'bench/me/facilitatings', action: 'qrcode', id: params[:id], host: @facilitating.facilitate.organ.host }, allow_other_host: true)
       end
     end
 
