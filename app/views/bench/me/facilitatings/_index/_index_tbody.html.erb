@@ -1,3 +1,8 @@
 <p>
   <span><%= model.facilitate.name %></span>
 </p>
+<p>
+  <time data-controller="time"><%= model.start_at&.to_fs(:iso8601) %></time>
+  <i class="fa-regular fa-right-long px-2"></i>
+  <time data-controller="time"><%= model.finish_at&.to_fs(:iso8601) %></time>
+</p>
