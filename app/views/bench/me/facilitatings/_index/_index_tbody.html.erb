@@ -2,7 +2,8 @@
   <span><%= model.facilitate.name %></span>
 </p>
 <p>
+  <span class="tag is-success"><%= model.duration %>分钟</span>
   <time data-controller="time"><%= model.start_at&.to_fs(:iso8601) %></time>
   <i class="fa-regular fa-right-long px-2"></i>
-  <time data-controller="time"><%= model.finish_at&.to_fs(:iso8601) %></time>
+  <time data-controller="time" data-format="HH:mm"><%= model.finish_at&.to_fs(:iso8601) %></time>
 </p>

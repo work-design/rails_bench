@@ -16,6 +16,13 @@ module Bench
       after_save_commit :send_notice, if: -> { (saved_changes.keys & ['member_id', 'start_at', 'finish_at']).present? }
     end
 
+    def duration
+      if start_at && finish_at
+        ActiveSupport::Duration.build((finish_at - start_at).round).in_all[:minutes]
+      else
+      end
+    end
+
     def sync_from
     end
 
