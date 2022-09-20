@@ -11,10 +11,10 @@
   <td><%= project.state_i18n %></td>
   <td>
     <%= link_to edit_me_project_path(project), class: 'button is-small is-rounded is-light' do %>
-      <i class="fa-regular fa-pencil"></i>
+      <i class="fa-solid fa-pencil"></i>
     <% end %>
     <%= link_to me_project_path(project), method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded is-light' do %>
-      <i class="fa-regular fa-trash"></i>
+      <i class="fa-solid fa-trash"></i>
     <% end %>
   </td>
 </tr>

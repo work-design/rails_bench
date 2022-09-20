@@ -24,7 +24,7 @@
     <% end %>
     <span data-show-target="item" style="visibility: hidden">
       <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, method: 'delete', class: 'has-text-danger') do %>
-        <i class="fa-regular fa-trash fa-fw"></i>
+        <i class="fa-solid fa-trash"></i>
       <% end %>
     </span>
   </div>
