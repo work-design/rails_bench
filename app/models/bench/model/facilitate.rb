@@ -29,7 +29,7 @@ module Bench
       has_one_attached :logo
     end
 
-    def order_paid(item)
+    def order_deliverable(item)
       rest = item.number - item.facilitatings.count
       rest.times do
         facilitatings.build(item_id: item.id)

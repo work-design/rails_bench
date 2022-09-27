@@ -7,7 +7,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: 4ec30571c00374df9189b0ce3529fbdca3631c3f
+  revision: 89ba263609ea9e2b02162dd31bb23592c16f0e13
   specs:
     rails_com (1.3.0)
       acme-client
@@ -24,7 +24,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 3b6527fbbc4e2e56929ebf2fc55f642b33442a24
+  revision: 7d7f1b9d14dd8ddd9d851a30a4d954bfbb178e5e
   specs:
     rails_data (1.0.2)
       matrix
@@ -37,7 +37,7 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: 80b2c8a8fb6f86302d6849e51e47eabec24fdccb
+  revision: ebcb1869f76781c00b4d5a4d716bcadd91b6d6ad
   specs:
     rails_design (0.0.1)
       rails
@@ -223,6 +223,8 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    nokogiri (1.13.8-x86_64-linux)
+      racc (~> 1.4)
     pdf-core (0.9.0)
     pg (1.4.3)
     prawn (2.4.0)
@@ -288,7 +290,7 @@ GEM
     thor (1.2.1)
     timeout (0.3.0)
     ttfunk (1.7.0)
-    turbo-rails (1.1.1)
+    turbo-rails (1.3.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
