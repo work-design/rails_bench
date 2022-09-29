@@ -15,7 +15,7 @@
       </td>
       <td>
         <%= link_to '编辑', edit_my_pipeline_path(pipeline), class: 'ui pink label' %>
-        <%= link_to '删除', my_pipeline_path(pipeline), method: :delete, data: { confirm: t('.confirm') }, class: 'ui red label' %>
+        <%= link_to '删除', my_pipeline_path(pipeline), method: :delete, data: { turbo_confirm: t('.confirm') }, class: 'ui red label' %>
       </td>
     </tr>
   <% end %>

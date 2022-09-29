@@ -13,7 +13,7 @@
     <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
       <i class="fa-solid fa-pencil"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
   </td>
