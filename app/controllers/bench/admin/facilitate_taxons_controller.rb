@@ -4,6 +4,7 @@ module Bench
 
     def index
       q_params = {}
+      q_params.merge! default_params
       q_params.merge! params.permit(:name)
 
       @facilitate_taxons = FacilitateTaxon.default_where(q_params).page(params[:page])
@@ -19,7 +20,7 @@ module Bench
         :name,
         :color
       )
-      p.merge! default_params
+      p.merge! default_form_params
     end
 
   end
