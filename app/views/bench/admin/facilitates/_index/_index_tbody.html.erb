@@ -7,30 +7,30 @@
 <td><%= model.price.to_money.format(html_wrap: true).html_safe %></td>
 <td>
   <div>
-    <% model.card_price.each do |key, value| %>
-      <div class="tags has-addons control mb-0">
-        <div class="tag is-success"><%= key %></div>
-        <div class="tag is-light"><%= value.to_money.format(html_wrap: true).html_safe %></div>
-      </div>
-    <% end %>
+  <% model.card_price.each do |key, value| %>
+    <div class="tags has-addons control mb-0">
+      <div class="tag is-success"><%= key %></div>
+      <div class="tag is-light"><%= value.to_money.format(html_wrap: true).html_safe %></div>
+    </div>
+  <% end %>
   </div>
   <%= link_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.card.title') }) do %>
-    <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
+    <i class="fa-solid fa-sm fa-pencil has-text-grey"></i>
   <% end %>
 </td>
 <td>
   <div>
-    <% model.wallet_price.each do |key, value| %>
-      <div class="tags has-addons control mb-0">
-        <div class="tag is-success"><%= key %></div>
-        <div class="tag is-light">
-          <span><%= value %></span>
-        </div>
+  <% model.wallet_price.each do |key, value| %>
+    <div class="tags has-addons control mb-0">
+      <div class="tag is-success"><%= key %></div>
+      <div class="tag is-light">
+        <span><%= value %></span>
       </div>
-    <% end %>
+    </div>
+  <% end %>
   </div>
   <%= link_to({ action: 'wallet', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.wallet.title') }) do %>
-    <i class="fa-solid fa-pencil fa-sm has-text-grey"></i>
+    <i class="fa-solid fa-sm fa-pencil has-text-grey"></i>
   <% end %>
 </td>
 <td><%= model.unit %></td>
