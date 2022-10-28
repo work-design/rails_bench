@@ -1,6 +1,6 @@
 module Bench
   class FacilitatingsController < BaseController
-    before_action :require_login
+    before_action :require_user
     before_action :set_facilitating, only: [:qrcode]
 
     def qrcode
