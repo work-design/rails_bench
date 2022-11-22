@@ -3,7 +3,7 @@
     <th><%= link_to Bench::Indicator.human_attribute_name(:facilitate_taxon_id), { controller: 'facilitate_taxons' } %></th>
     <td class="field is-grouped is-grouped-multiline">
       <div class="control">
-        <%= link_to filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
+        <%= link_to filter_params(except: [:facilitate_taxon_id]), class: active_helper(facilitate_taxon_id: nil, active: 'is-info', item: 'is-light') do%>
           <div class="tags has-addons">
             <span class="tag"><%= t('.all') %></span>
           </div>
@@ -11,7 +11,7 @@
       </div>
       <% @facilitate_taxons.each do |facilitate_taxon| %>
       <div class="control">
-        <%= link_to filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_params(facilitate_taxon_id: facilitate_taxon.id, active: 'is-info', item: 'is-light') do %>
+        <%= link_to filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_helper(facilitate_taxon_id: facilitate_taxon.id, active: 'is-info', item: 'is-light') do %>
           <div class="tags has-addons">
             <span class="tag"><%= facilitate_taxon.name %></span>
             <span class="tag" style="background-color: <%= facilitate_taxon.color %>"></span>

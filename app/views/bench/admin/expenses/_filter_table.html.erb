@@ -2,9 +2,9 @@
   <tr>
     <th><%= Finance::Expense.human_attribute_name(:financial_taxon_id) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:financial_taxon_id]), class: active_params(financial_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:financial_taxon_id]), class: active_helper(financial_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @financial_taxons.each do |financial_taxon| %>
-        <%= link_to financial_taxon.name, filter_params(financial_taxon_id: financial_taxon.id), class: active_params(financial_taxon_id: financial_taxon.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to financial_taxon.name, filter_params(financial_taxon_id: financial_taxon.id), class: active_helper(financial_taxon_id: financial_taxon.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>

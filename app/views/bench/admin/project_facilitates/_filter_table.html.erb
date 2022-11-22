@@ -2,9 +2,9 @@
   <tr>
     <th><%= Bench::ProjectFacilitate.human_attribute_name(:facilitate_taxon_id) %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:facilitate_taxon_id]), class: active_params(facilitate_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:facilitate_taxon_id]), class: active_helper(facilitate_taxon_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @facilitate_taxons.each do |facilitate_taxon| %>
-        <%= link_to facilitate_taxon.name, filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_params(facilitate_taxon_id: facilitate_taxon.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to facilitate_taxon.name, filter_params(facilitate_taxon_id: facilitate_taxon.id), class: active_helper(facilitate_taxon_id: facilitate_taxon.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>

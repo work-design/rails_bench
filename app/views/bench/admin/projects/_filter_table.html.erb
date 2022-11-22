@@ -2,9 +2,9 @@
   <tr>
     <th><%= link_to Bench::Project.human_attribute_name(:milepost_id), { controller: 'mileposts' }, text: true %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: ['project_mileposts.milepost_id', :project_stage_id]), class: active_params('project_mileposts.milepost_id': nil, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: ['project_mileposts.milepost_id', :project_stage_id]), class: active_helper('project_mileposts.milepost_id': nil, active: 'button is-info', item: 'button is-light') %>
       <% @mileposts.each do |milepost| %>
-        <%= link_to milepost.name, filter_params('project_mileposts.milepost_id': milepost.id), class: active_params('project_mileposts.milepost_id': milepost.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to milepost.name, filter_params('project_mileposts.milepost_id': milepost.id), class: active_helper('project_mileposts.milepost_id': milepost.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
@@ -12,9 +12,9 @@
   <tr>
     <th><%= link_to Bench::Project.human_attribute_name(:project_stage_id), { controller: 'project_stages' }, text: true %></th>
     <td>
-      <%= link_to t('.all'), filter_params(except: [:project_stage_id]), class: active_params(project_stage_id: nil, active: 'button is-info', item: 'button is-light') %>
+      <%= link_to t('.all'), filter_params(except: [:project_stage_id]), class: active_helper(project_stage_id: nil, active: 'button is-info', item: 'button is-light') %>
       <% @project_stages.each do |project_stage| %>
-        <%= link_to project_stage.name, filter_params(project_stage_id: project_stage.id), class: active_params(project_stage_id: project_stage.id, active: 'button is-info', item: 'button is-light') %>
+        <%= link_to project_stage.name, filter_params(project_stage_id: project_stage.id), class: active_helper(project_stage_id: project_stage.id, active: 'button is-info', item: 'button is-light') %>
       <% end %>
     </td>
   </tr>
