@@ -1,15 +1,15 @@
 <div data-controller="empty" class="weui-panel is-box is-borderless">
   <div class="weui-panel__hd">
-    <i class="fa-solid fa-fw fa-user-ninja"></i>
+    <i class="fa-solid fa-fw fa-user-ninja has-text-primary"></i>
     <span><%= t('bench.admin.title') %></span>
   </div>
   <div class="weui-panel__bd">
     <div class="columns is-4-mobile is-flex is-vcentered is-centered m-0 is-shadow" data-empty-target="content">
       <%= link_to({ controller: 'bench/admin/facilitates' }, class: 'column has-block-centered') do %>
-        <div class="has-text-grey-dark">
+        <div class="has-text-primary">
           <i class="fa-solid fa-user-ninja fa-fw fa-xl"></i>
         </div>
-        <div class="has-text-dark"><%= t('bench.admin.facilitates.index.title') %></div>
+        <div class="has-text-grey is-size-7 mt-1"><%= t('bench.admin.facilitates.index.title') %></div>
       <% end %>
     </div>
   </div>
