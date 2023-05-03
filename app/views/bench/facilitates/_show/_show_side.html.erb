@@ -1,0 +1,13 @@
+<div class="box">
+  <div class="ui vertical segment">
+  <a class="ui tag label">
+    价格：¥<%= @facilitate.price %>
+  </a>
+  </div>
+</div>
+
+<div class="box buttons">
+  <%= button_to({ controller: 'trade/my/items', action: 'create', good_type: @facilitate.class.name, good_id: @facilitate.id }, class: 'button is-primary is-fullwidth') do %>
+    <i></i><span>在线购买</span>
+  <% end %>
+</div>
