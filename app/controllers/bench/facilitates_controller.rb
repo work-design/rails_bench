@@ -35,7 +35,14 @@ module Bench
     end
 
     def set_cart
-      @cart = current_carts.find_or_create_by(good_type: 'Bench::Facilitate', aim: 'use')
+      options = {}
+      options.merge! default_params
+
+      if current_user
+        options.merge! user_id: current_user.id, member_id: nil
+        @cart = Trade::Cart.where(options).find_or_create_by(good_type: 'Bench::Facilitate', aim: 'use')
+        @cart.compute_amount! unless @cart.fresh
+      end
     end
 
   end
