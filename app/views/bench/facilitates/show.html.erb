@@ -1,7 +1,7 @@
 <% content_for :title, @facilitate.name %>
 <% content_for :meta_description, @facilitate.description %>
 
-<h1 class="has-text-centered">
+<h1 class="title has-text-centered">
   <%= @facilitate.name %>
 </h1>
 
@@ -11,12 +11,14 @@
       <ul>
         <li>
           <%= link_to({ action: 'show', id: @facilitate.id }) do %>
-            <i class="fa-regular fa-home"></i><span>服务信息</span>
+            <i class="fa-solid fa-home"></i>
+            <span class="pl-1">服务信息</span>
           <% end %>
         </li>
         <li>
           <%= link_to({ action: 'show', id: @facilitate.id }) do %>
-            <i class="fa-solid fa-circle-info"></i><span>服务商信息</span>
+            <i class="fa-solid fa-circle-info"></i>
+            <span class="pl-1">服务商信息</span>
           <% end %>
         </li>
       </ul>
