@@ -1,6 +1,7 @@
-<div class="is-several">
-  <span><%= model.name %></span>
+<div class="weui-media-box__title"><%= model.name %></div>
+<div class="has-block-space-between py-1">
+  <div class="has-inline-centered"><%= model.price.to_money.format.html_safe %></div>
+  <div class="is-flex">
+    <%= render partial: 'cart', locals: { model: model, cart: @cart } %>
+  </div>
 </div>
-<span class="has-text-danger">
-  <%= model.price.to_money.format.html_safe %>
-</span>

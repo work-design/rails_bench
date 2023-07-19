@@ -2,10 +2,7 @@
   <div class="weui-media-box__hd as-logo">
     <%= image_tag model.logo, class: 'weui-media-box__thumb' if model.logo.attached? %>
   </div>
-  <div class="weui-media-box__bd">
+  <div class="weui-media-box__bd as-body">
     <%= yield %>
-  </div>
-  <div class="weui-media-box__ft px-3">
-    <%= render partial: 'cart', locals: { model: model, cart: @cart } %>
   </div>
 </div>
