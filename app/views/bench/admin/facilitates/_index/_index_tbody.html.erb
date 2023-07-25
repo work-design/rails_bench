@@ -4,7 +4,7 @@
     <span><%= model.name %></span>
   </div>
 </td>
-<td><%= model.price.to_money.format.html_safe %></td>
+<td class="has-text-danger"><%= model.price.to_money.format.html_safe %></td>
 <td>
   <div>
   <% model.card_price.each do |key, value| %>
