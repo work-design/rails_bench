@@ -1,5 +1,6 @@
 <%= f.text_field :name %>
 <%= f.number_field :price %>
+<%= f.number_field :advance_price %>
 <%= f.text_field :unit %>
 <%= f.file_field :logo %>
 <%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name %>
