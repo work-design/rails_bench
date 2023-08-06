@@ -3,15 +3,9 @@
     <%= image_tag model.avatar, class: 'weui-media-box__thumb' if model.avatar.attached? %>
   </div>
   <div class="weui-media-box__bd as-body">
-    <%= link_to({ controller: 'facilitators', action: 'show', id: model.id }, class: 'weui-media-box__title') do %>
+    <%= link_to({ controller: 'facilitators', action: 'show', facilitate_id: @facilitate.id, id: model.id }, class: 'weui-media-box__title') do %>
       <span class="has-text-link-dark"><%= model.name %></span>
     <% end %>
-    <div class="has-block-space-between py-1">
-      <div class="has-inline-centered">
-      </div>
-      <div class="is-flex">
-
-      </div>
-    </div>
+    <div><%= model.description %></div>
   </div>
 </div>

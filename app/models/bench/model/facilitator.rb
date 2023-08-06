@@ -4,6 +4,7 @@ module Bench
 
     included do
       attribute :name, :string
+      attribute :description, :string
 
       belongs_to :facilitate
       belongs_to :member, class_name: 'Org::Member'
