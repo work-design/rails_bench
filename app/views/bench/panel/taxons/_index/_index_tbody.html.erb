@@ -2,6 +2,7 @@
 <td><%= simple_format model.parameters %></td>
 <td>
   <%= link_to({ controller: 'projects', taxon_id: model.id }, text: true, aria: { label: t('bench.admin.projects.index.title') }, class: 'button is-small is-rounded is-light') do %>
-    <i class="fa-regular fa-list-ul"></i><span><%= model.projects_count %></span>
+    <i class="fa-solid fa-list-ul"></i>
+    <span class="pl-1"><%= model.projects_count %></span>
   <% end %>
 </td>
