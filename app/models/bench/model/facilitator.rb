@@ -7,6 +7,8 @@ module Bench
 
       belongs_to :facilitate
       belongs_to :member, class_name: 'Org::Member'
+
+      has_one_attached :avatar
     end
 
   end

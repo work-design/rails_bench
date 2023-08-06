@@ -20,7 +20,8 @@ module Bench
     def facilitator_params
       params.fetch(:facilitator, {}).permit(
         :name,
-        :member_id
+        :member_id,
+        :avatar
       )
     end
 
