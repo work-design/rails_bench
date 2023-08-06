@@ -27,6 +27,7 @@ module Bench
       has_many :members, through: :facilitators
 
       has_one_attached :logo
+      has_many_attached :covers
     end
 
     def order_deliverable(item)

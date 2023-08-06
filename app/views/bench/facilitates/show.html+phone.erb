@@ -1,0 +1,14 @@
+<%= render 'top_bar' %>
+
+<div class="weui-panel is-box">
+  <%= render partial: 'covers', locals: { model: @facilitate } if @facilitate.covers.length > 0 %>
+</div>
+
+<div class="weui-panel is-box" style="z-index: 3">
+  <div class="weui-panel__hd">
+    <div><%= @facilitate.name %></div>
+  </div>
+  <div class="weui-panel__bd p-4">
+    <p><%= @facilitate.description %></p>
+  </div>
+</div>
