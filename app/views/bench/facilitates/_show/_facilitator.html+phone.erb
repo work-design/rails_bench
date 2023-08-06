@@ -6,6 +6,6 @@
     <%= link_to({ controller: 'facilitators', action: 'show', facilitate_id: @facilitate.id, id: model.id }, class: 'weui-media-box__title') do %>
       <span class="has-text-link-dark"><%= model.name %></span>
     <% end %>
-    <div><%= model.description %></div>
+    <div class="has-text-grey"><%= model.description %></div>
   </div>
 </div>

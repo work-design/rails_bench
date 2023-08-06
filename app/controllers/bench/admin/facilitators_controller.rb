@@ -21,7 +21,8 @@ module Bench
       params.fetch(:facilitator, {}).permit(
         :name,
         :member_id,
-        :avatar
+        :avatar,
+        :description
       )
     end
 
