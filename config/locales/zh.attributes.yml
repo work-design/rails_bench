@@ -5,7 +5,7 @@ zh:
         facilitate_taxon_id: 分类
         price: 价格
       bench/facilitator:
-        member_id: 服务技师
+        member_id: 服务人员
       bench/facilitating:
         facilitate_id: 服务项目
         item_id: 订单

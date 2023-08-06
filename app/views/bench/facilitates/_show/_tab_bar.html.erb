@@ -1,0 +1,30 @@
+<div class="has-block-space-around has-background-grey-lighter is-safe-bottom m-0 py-3" style="z-index: 500">
+  <div class="is-flex is-justify-content-center is-align-items-center">
+    <%= render partial: 'cart', locals: { model: @facilitate, cart: @cart, item_con: 'trade/my/items' } %>
+  </div>
+  <div
+    class="button is-small is-light is-radius"
+    data-controller="mask wx-share"
+    data-mask-id-value="mask"
+    data-wx-share-title-value="<%= @facilitate.name %>"
+    data-wx-share-desc-value="<%= @facilitate.description %>>"
+    data-wx-share-link-value="<%= url_for(controller: '/bench/facilitates', action: 'show', id: @facilitate.id, only_path: false) %>"
+    data-wx-share-image-value="<%= @facilitate.logo.url %>"
+    data-action="click->mask#show click->wx-share#ready"
+  >
+    <%= image_tag 'wx_moment.svg', class: 'image is-16x16' %>
+    <span class="pl-1">分享</span>
+  </div>
+  <%= link_to({ controller: 'trade/my/carts', action: 'show', id: @cart.id }, state: 'enter', class: 'button is-small is-primary is-radius') do %>
+    <span class="pr-1"><%= t('trade.my.carts.show.title') %></span>
+    <i class="fa-solid fa-angle-right"></i>
+  <% end if @cart %>
+</div>
+<div
+  data-controller="mask"
+  data-action="click->mask#close"
+  class="weui-mask weui-mask-share"
+  id="mask"
+  style="display: none"
+>
+</div>
