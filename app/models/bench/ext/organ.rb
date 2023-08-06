@@ -3,7 +3,6 @@ module Bench
     extend ActiveSupport::Concern
 
     included do
-      has_many :facilitate_providers, class_name: 'Bench::FacilitateProvider', foreign_key: :provider_id, dependent: :destroy
     end
 
   end
