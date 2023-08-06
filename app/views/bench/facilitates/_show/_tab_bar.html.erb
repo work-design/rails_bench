@@ -12,7 +12,7 @@
     <%= image_tag 'wx_moment.svg', class: 'image is-16x16' %>
     <span class="pl-1">分享</span>
   </div>
-  <%= link_to current_organ.service_url, rel: 'nofollow', class: 'button is-primary' do %>
+  <%= link_to current_organ.service_url, rel: 'nofollow', class: 'button is-small is-outline is-primary' do %>
     <i class="fa-solid fa-headset"></i>
     <span class="pl-1">联系客服</span>
   <% end if current_organ.service_url.present? %>
