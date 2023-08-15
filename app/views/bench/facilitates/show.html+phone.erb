@@ -6,19 +6,18 @@
 
 <div class="weui-panel is-box" style="z-index: 3">
   <div class="weui-panel__hd">
-    <div><%= @facilitate.name %></div>
-    <div>
-      <span class="has-text-danger"><%= @facilitate.price.to_money.format.html_safe %></span>
-      <span class="has-text-grey pl-2">预付</span>
-      <span class="has-text-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
-    </div>
+    <span class="has-text-danger"><%= @facilitate.price.to_money.format.html_safe %></span>
+    <span class="has-text-grey pl-2">预付</span>
+    <span class="has-text-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
   </div>
   <div class="weui-panel__bd p-4 has-text-grey"><%= simple_format @facilitate.description %></div>
 </div>
 
+<% if @facilitate.facilitators.present? %>
 <div class="weui-panel is-box">
   <div class="weui-panel__hd">服务人员</div>
   <div class="weui-panel__bd">
     <%= render partial: 'facilitator', collection: @facilitate.facilitators, as: :model %>
   </div>
 </div>
+<% end %>
