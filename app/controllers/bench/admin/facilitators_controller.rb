@@ -4,6 +4,10 @@ module Bench
     before_action :set_new_facilitator, only: [:new, :create]
     before_action :set_members, only: [:new, :create, :edit, :update]
 
+    def index
+      @facilitators = @facilitate.facilitators.page(params[:page])
+    end
+
     private
     def set_facilitate
       @facilitate = Facilitate.find params[:facilitate_id]
