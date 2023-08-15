@@ -13,9 +13,7 @@
       <span class="has-text-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
     </div>
   </div>
-  <div class="weui-panel__bd p-4">
-    <p class="has-text-grey"><%= @facilitate.description %></p>
-  </div>
+  <div class="weui-panel__bd p-4 has-text-grey"><%= simple_format @facilitate.description %></div>
 </div>
 
 <div class="weui-panel is-box">
