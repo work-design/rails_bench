@@ -19,7 +19,7 @@
       <time data-controller="time" class="has-text-grey"><%= task.created_at.to_fs(:iso8601) %></time>
     </div>
     <span data-show-target="item" style="visibility: hidden">
-      <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, method: 'delete', class: 'has-text-danger') do %>
+      <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, method: 'delete', class: 'has-text-danger') do %>
         <i class="fa-solid fa-fw fa-trash"></i>
       <% end %>
     </span>

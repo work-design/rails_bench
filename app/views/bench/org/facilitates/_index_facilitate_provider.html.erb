@@ -10,10 +10,10 @@
   </td>
   <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
   <td>
-    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit') }, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ action: 'edit', id: facilitate_provider.id }, { aria: { label: t('.edit.title') }, class: 'button is-small is-rounded' }) do %>
       <i class="fa-solid fa-pencil"></i>
     <% end %>
-    <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
+    <%= link_to({ action: 'destroy', id: facilitate_provider.id }, { method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, class: 'button is-small is-rounded' }) do %>
       <i class="fa-solid fa-trash"></i>
     <% end %>
   </td>
