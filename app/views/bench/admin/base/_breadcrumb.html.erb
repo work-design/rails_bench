@@ -1,12 +1,8 @@
-<div class="breadcrumb has-succeeds-separator">
-  <ul>
-    <li><%# link_to t('bench.admin.taxons.index.title'), { controller: 'taxons' } %></li>
-    <% if defined? @taxon %>
-      <li><%= link_to @taxon.name, { controller: 'projects', action: 'index', taxon_id: @taxon.id } %></li>
-    <% end %>
-    <% if defined? @project %>
-      <li><%= link_to @project.name, { controller: 'projects', action: 'show', id: @project.id } %></li>
-    <% end %>
-    <li class="is-active"><%= t('.title') %></li>
-  </ul>
-</div>
+<li><%# link_to t('bench.admin.taxons.index.title'), { controller: 'taxons' } %></li>
+<% if defined? @taxon %>
+  <li><%= link_to @taxon.name, { controller: 'projects', action: 'index', taxon_id: @taxon.id } %></li>
+<% end %>
+<% if defined? @project %>
+  <li><%= link_to @project.name, { controller: 'projects', action: 'show', id: @project.id } %></li>
+<% end %>
+<li class="is-active"><%= t('.title') %></li>
