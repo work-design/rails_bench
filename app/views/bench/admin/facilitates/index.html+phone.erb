@@ -1,9 +1,7 @@
-<%= render layout: 'index_table' do %>
+<%= render layout: 'index_list' do %>
 <% @facilitates.group_by(&:facilitate_taxon).each do |taxon, facilitates| %>
-  <tr>
-    <td rowspan="<%= taxon.facilitates_count + 1 %>"><%= taxon.name %></td>
-  </tr>
-  <%= render partial: 'index_tbody', layout: 'index_tr', collection: facilitates, as: :model %>
+  <div><%= taxon.name %></div>
+  <%= render partial: 'index_item', layout: 'index_item_actions', collection: facilitates, as: :model %>
 <% end %>
 <% end %>
 
