@@ -9,7 +9,7 @@
       <span class="has-text-danger-dark"><%= model.advance_price.to_money.format.html_safe %></span>
     <% end %>
   </div>
-  <div class="is-flex">
+  <div class="flex">
     <%= render partial: 'cart', locals: { model: model, cart: @cart } %>
   </div>
 </div>
