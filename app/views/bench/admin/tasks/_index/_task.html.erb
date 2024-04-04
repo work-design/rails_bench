@@ -8,7 +8,7 @@
         <i class="green hourglass start icon"></i>
       <% end %>
       <%= link_to task.title, { action: 'show', id: task.id } %>
-      <span data-show-target="item" class="is-several" style="visibility: hidden">
+      <span data-show-target="item" class="is-several visibility-hidden">
         <%= render partial: 'rail', locals: { task: task } %>
       </span>
     </div>
@@ -22,7 +22,7 @@
     <% if task.member %>
       <span class="tag"><%= task.job_title&.name %></span>
     <% end %>
-    <span data-show-target="item" style="visibility: hidden">
+    <span data-show-target="item" class="visibility-hidden">
       <%= button_to({ action: 'destroy', id: task.id }, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, method: 'delete', class: 'has-text-danger') do %>
         <i class="fa-solid fa-trash"></i>
       <% end %>

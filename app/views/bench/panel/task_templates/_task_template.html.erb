@@ -11,7 +11,7 @@
       <span class="has-text-success"><%= task_template.job_title&.name %></span>
       <span class="has-text-primary"><%= task_template.member&.name %></span>
     </div>
-    <div class="level-item" data-show-target="item" style="visibility: hidden">
+    <div data-show-target="item" class="level-item visibility-hidden">
       <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit.title') }, class: 'has-text-grey') do %>
         <i class="fa-solid fa-pencil"></i>
       <% end %>

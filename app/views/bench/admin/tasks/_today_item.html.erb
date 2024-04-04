@@ -22,7 +22,7 @@
       <% if task.member %>
         <span class="ui small label"><%= task.member.job_title.name %></span>
       <% end %>
-      <span style="visibility: hidden">
+      <span class="visibility-hidden">
         <%= link_to({ action: 'show', id: task.id }, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.confirm') }, method: 'delete', class: 'grey text') do %>
           <i class="fa-solid fa-trash"></i>
         <% end %>
