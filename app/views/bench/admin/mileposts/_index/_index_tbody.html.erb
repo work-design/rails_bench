@@ -1,10 +1,10 @@
 <tr data-controller="show" data-action="mouseenter->show#show mouseleave->show#hide">
   <td>
     <span><%= model.name %></span>
-    <%= button_to({ action: 'move_higher', id: model.id }, method: :patch, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
+    <%= button_to({ action: 'move_higher', id: model.id }, method: :patch, data: { 'show-target': 'item' }, class: 'visibility-hidden') do %>
       <i class="fa-solid fa-arrow-up"></i>
     <% end %>
-    <%= button_to({ action: 'move_lower', id: model.id }, method: :patch, data: { 'show-target': 'item' }, style: 'visibility: hidden') do %>
+    <%= button_to({ action: 'move_lower', id: model.id }, method: :patch, data: { 'show-target': 'item' }, class: 'visibility-hidden') do %>
       <i class="fa-solid fa-arrow-down"></i>
     <% end %>
   </td>
