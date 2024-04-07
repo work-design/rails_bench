@@ -1,14 +1,14 @@
-<tr>
-  <td><%= Bench::Project.human_attribute_name(:name) %></td>
-  <td><%= @project.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::Project.human_attribute_name(:created_at) %></td>
-  <td><time data-controller="time"><%= @project.created_at.to_fs(:iso8601) %></time></td>
-</tr>
+<div>
+  <dt><%= Bench::Project.human_attribute_name(:name) %></dt>
+  <dd><%= @project.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::Project.human_attribute_name(:created_at) %></dt>
+  <dd><time data-controller="time"><%= @project.created_at.to_fs(:iso8601) %></time></dd>
+</div>
 <% @project.extra.each do |k, v| %>
-<tr>
-  <td><%= k.to_s %></td>
-  <td><%= v %></td>
-</tr>
+<div>
+  <dt><%= k.to_s %></dt>
+  <dd><%= v %></dd>
+</div>
 <% end %>

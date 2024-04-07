@@ -1,12 +1,12 @@
-<tr>
-  <td><%= Bench::ProjectIndicator.human_attribute_name(:value) %></td>
-  <td><%= @project_indicator.value %></td>
-</tr>
-<tr>
-  <td><%= Bench::ProjectIndicator.human_attribute_name(:recorded_on) %></td>
-  <td><%= @project_indicator.recorded_on %></td>
-</tr>
-<tr>
-  <td><%= Bench::ProjectIndicator.human_attribute_name(:comment) %></td>
-  <td><%= @project_indicator.comment %></td>
-</tr>
+<div>
+  <dt><%= Bench::ProjectIndicator.human_attribute_name(:value) %></dt>
+  <dd><%= @project_indicator.value %></dd>
+</div>
+<div>
+  <dt><%= Bench::ProjectIndicator.human_attribute_name(:recorded_on) %></dt>
+  <dd><%= @project_indicator.recorded_on %></dd>
+</div>
+<div>
+  <dt><%= Bench::ProjectIndicator.human_attribute_name(:comment) %></dt>
+  <dd><%= @project_indicator.comment %></dd>
+</div>

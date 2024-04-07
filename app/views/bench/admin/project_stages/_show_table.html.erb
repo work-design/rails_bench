@@ -1,12 +1,12 @@
-<tr>
-  <td><%= Bench::ProjectStage.human_attribute_name(:name) %></td>
-  <td><%= @project_stage.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::ProjectStage.human_attribute_name(:begin_on) %></td>
-  <td><%= @project_stage.begin_on %></td>
-</tr>
-<tr>
-  <td><%= Bench::ProjectStage.human_attribute_name(:end_on) %></td>
-  <td><%= @project_stage.end_on %></td>
-</tr>
+<div>
+  <dt><%= Bench::ProjectStage.human_attribute_name(:name) %></dt>
+  <dd><%= @project_stage.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::ProjectStage.human_attribute_name(:begin_on) %></dt>
+  <dd><%= @project_stage.begin_on %></dd>
+</div>
+<div>
+  <dt><%= Bench::ProjectStage.human_attribute_name(:end_on) %></dt>
+  <dd><%= @project_stage.end_on %></dd>
+</div>

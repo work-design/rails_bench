@@ -1,8 +1,8 @@
-<tr>
-  <td><%= Bench::Milepost.human_attribute_name(:name) %></td>
-  <td><%= @milepost.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::Milepost.human_attribute_name(:project_mileposts_count) %></td>
-  <td><%= @milepost.project_mileposts_count %></td>
-</tr>
+<div>
+  <dt><%= Bench::Milepost.human_attribute_name(:name) %></dt>
+  <dd><%= @milepost.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::Milepost.human_attribute_name(:project_mileposts_count) %></dt>
+  <dd><%= @milepost.project_mileposts_count %></dd>
+</div>

@@ -1,8 +1,8 @@
-<tr>
-  <td><%= Bench::ProjectFacilitate.human_attribute_name(:facilitate_id) %></td>
-  <td><%= @project_facilitate.facilitate.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::ProjectFacilitate.human_attribute_name(:provider_id) %></td>
-  <td><%= @project_facilitate.provider&.name %></td>
-</tr>
+<div>
+  <dt><%= Bench::ProjectFacilitate.human_attribute_name(:facilitate_id) %></dt>
+  <dd><%= @project_facilitate.facilitate.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::ProjectFacilitate.human_attribute_name(:provider_id) %></dt>
+  <dd><%= @project_facilitate.provider&.name %></dd>
+</div>

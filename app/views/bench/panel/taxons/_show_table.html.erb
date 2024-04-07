@@ -1,12 +1,12 @@
-<tr>
-  <td><%= Bench::Taxon.human_attribute_name(:name) %></td>
-  <td><%= @taxon.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::Taxon.human_attribute_name(:projects_count) %></td>
-  <td>
+<div>
+  <dt><%= Bench::Taxon.human_attribute_name(:name) %></dt>
+  <dd><%= @taxon.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::Taxon.human_attribute_name(:projects_count) %></dt>
+  <dd>
     <%= link_to({ controller: 'projects', taxon_id: @taxon.id }, text: true, aria: { label: t('bench.admin.projects.index.title') }, class: 'button is-small is-rounded is-light') do %>
-      <i class="fa-regular fa-list-ul"></i><span><%= @taxon.projects_count %></span>
+      <i class="fa-solid fa-list-ul"></i><span><%= @taxon.projects_count %></span>
     <% end %>
-  </td>
-</tr>
+  </dd>
+</div>

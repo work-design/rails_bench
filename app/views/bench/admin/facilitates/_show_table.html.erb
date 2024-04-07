@@ -1,24 +1,24 @@
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:name) %></td>
-  <td><%= @facilitate.name %></td>
-</tr>
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:description) %></td>
-  <td><%= @facilitate.description %></td>
-</tr>
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:price) %></td>
-  <td><%= @facilitate.price %></td>
-</tr>
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:card_price) %></td>
-  <td><%= @facilitate.card_price %></td>
-</tr>
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:unit) %></td>
-  <td><%= @facilitate.unit %></td>
-</tr>
-<tr>
-  <td><%= Bench::Facilitate.human_attribute_name(:created_at) %></td>
-  <td><time data-controller="time"><%= @facilitate.created_at.to_fs(:iso8601) %></time></td>
-</tr>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:name) %></dt>
+  <dd><%= @facilitate.name %></dd>
+</div>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:description) %></dt>
+  <dd><%= @facilitate.description %></dd>
+</div>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:price) %></dt>
+  <dd><%= @facilitate.price %></dd>
+</div>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:card_price) %></dt>
+  <dd><%= @facilitate.card_price %></dd>
+</div>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:unit) %></dt>
+  <dd><%= @facilitate.unit %></dd>
+</div>
+<div>
+  <dt><%= Bench::Facilitate.human_attribute_name(:created_at) %></dt>
+  <dd><time data-controller="time"><%= @facilitate.created_at.to_fs(:iso8601) %></time></dd>
+</div>

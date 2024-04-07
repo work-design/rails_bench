@@ -1,32 +1,20 @@
-<table class="table is-fullwidth">
-  <thead>
-    <tr>
-      <th>
-        <%= link_to t('.edit.title'), { action: 'edit', project_id: @project.id, id: @expense.id }, class: 'button is-small is-link' %>
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= Finance::Expense.human_attribute_name(:subject) %></td>
-      <td><%= @expense.subject %></td>
-    </tr>
-    <tr>
-      <td><%= Finance::Expense.human_attribute_name(:amount) %></td>
-      <td><%= @expense.amount %></td>
-    </tr>
-    <tr>
-      <td><%= Finance::Expense.human_attribute_name(:note) %></td>
-      <td><%= @expense.note %></td>
-    </tr>
-    <tr>
-      <td><%= Finance::Expense.human_attribute_name(:financial_taxon_id) %></td>
-      <td><%= @expense.financial_taxon&.name %></td>
-    </tr>
-    <tr>
-      <td><%= Finance::Expense.human_attribute_name(:invoices_count) %></td>
-      <td><%= @expense.invoices_count %></td>
-    </tr>
-  </tbody>
-</table>
+<div>
+  <dt><%= Finance::Expense.human_attribute_name(:subject) %></dt>
+  <dd><%= @expense.subject %></dd>
+</div>
+<div>
+  <dt><%= Finance::Expense.human_attribute_name(:amount) %></dt>
+  <dd><%= @expense.amount %></dd>
+</div>
+<div>
+  <dt><%= Finance::Expense.human_attribute_name(:note) %></dt>
+  <dd><%= @expense.note %></dd>
+</div>
+<div>
+  <dt><%= Finance::Expense.human_attribute_name(:financial_taxon_id) %></dt>
+  <dd><%= @expense.financial_taxon&.name %></dd>
+</div>
+<div>
+  <dt><%= Finance::Expense.human_attribute_name(:invoices_count) %></dt>
+  <dd><%= @expense.invoices_count %></dd>
+</div>
