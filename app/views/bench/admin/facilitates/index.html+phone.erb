@@ -1,6 +1,8 @@
+<%= render 'top_bar' %>
+
 <%= render layout: 'index_list' do %>
 <% @facilitates.group_by(&:facilitate_taxon).each do |taxon, facilitates| %>
-  <div><%= taxon.name %></div>
+  <div class="box-body"><%= taxon.name %></div>
   <%= render partial: 'index_item', layout: 'index_item_actions', collection: facilitates, as: :model %>
 <% end %>
 <% end %>
