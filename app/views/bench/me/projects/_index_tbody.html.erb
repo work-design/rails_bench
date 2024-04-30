@@ -5,7 +5,7 @@
   <td><%= link_to project.name, { controller: 'tasks', action: 'project', project_id: project.id } %></td>
   <td><%= project.description %></td>
   <td>
-    <p class="has-text-danger"><%= project.budget_amount %></p>
+    <p class="color-danger"><%= project.budget_amount %></p>
     <p><%= project.expense_amount %></p>
   </td>
   <td><%= project.state_i18n %></td>

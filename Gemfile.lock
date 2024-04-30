@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 2b4c22f08b18241a83eed5daffc4e50fb693d557
+  revision: a0b99962b02140396f3a41e35ec92aace1ce8dcb
   specs:
     rails_audit (1.0.4)
       rails_com (~> 1.2)

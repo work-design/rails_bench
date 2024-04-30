@@ -6,11 +6,11 @@
 
 <div class="box mx-3" style="z-index: 3">
   <div class="weui-panel__hd">
-    <span class="has-text-danger"><%= @facilitate.price.to_money.format.html_safe %></span>
-    <span class="has-text-grey pl-2">预付</span>
-    <span class="has-text-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
+    <span class="color-danger"><%= @facilitate.price.to_money.format.html_safe %></span>
+    <span class="color-grey pl-2">预付</span>
+    <span class="color-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
   </div>
-  <div class="weui-panel__bd p-4 has-text-grey"><%= simple_format @facilitate.description %></div>
+  <div class="weui-panel__bd p-4 color-grey"><%= simple_format @facilitate.description %></div>
 </div>
 
 <% if @facilitate.facilitators.present? %>

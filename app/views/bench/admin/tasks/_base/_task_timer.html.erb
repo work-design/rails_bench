@@ -2,7 +2,7 @@
   <% if task.task_timer %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'task_timers', action: 'pause', task_id: task.id, id: task.task_timer }, method: 'patch', aria: { label: '暂停计时' }, class: 'tag') do %>
-      <i class="fa-solid fa-fw fa-hourglass fa-flip has-text-success" style="--fa-flip-x: 1; --fa-flip-y: 0; --fa-animation-duration: 4s"></i>
+      <i class="fa-solid fa-fw fa-hourglass fa-flip color-success" style="--fa-flip-x: 1; --fa-flip-y: 0; --fa-animation-duration: 4s"></i>
     <% end %>
     <span class="tag is-light is-warning">
       <span>已开始：</span>

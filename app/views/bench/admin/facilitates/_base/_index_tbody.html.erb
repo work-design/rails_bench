@@ -5,8 +5,8 @@
   </div>
 </td>
 <td>
-  <p class="has-text-danger"><%= model.price.to_money.format.html_safe %></p>
-  <p class="has-text-danger-dark"><%= model.advance_price.to_money.format.html_safe %></p>
+  <p class="color-danger"><%= model.price.to_money.format.html_safe %></p>
+  <p class="color-danger-dark"><%= model.advance_price.to_money.format.html_safe %></p>
 </td>
 <td>
   <div>
@@ -18,7 +18,7 @@
   <% end %>
   </div>
   <%= link_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.card.title') }) do %>
-    <i class="fa-solid fa-sm fa-pencil has-text-grey"></i>
+    <i class="fa-solid fa-sm fa-pencil color-grey"></i>
   <% end %>
 </td>
 <td>
@@ -33,7 +33,7 @@
   <% end %>
   </div>
   <%= link_to({ action: 'wallet', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.wallet.title') }) do %>
-    <i class="fa-solid fa-sm fa-pencil has-text-grey"></i>
+    <i class="fa-solid fa-sm fa-pencil color-grey"></i>
   <% end %>
 </td>
 <td><%= model.unit %></td>

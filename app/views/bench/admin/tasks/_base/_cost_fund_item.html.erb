@@ -1,6 +1,6 @@
 <div class="tags has-addons">
   <%= link_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { turbo_frame: 'modal' }, aria: { label: '酬金' }, class: 'tag') do %>
-    <i class="fa-solid fa-hand-holding-usd has-text-info"></i>
+    <i class="fa-solid fa-hand-holding-usd color-info"></i>
   <% end %>
   <span class="tag is-light is-info"><%= task.cost_fund %></span>
 </div>
