@@ -12,7 +12,7 @@ module Bench
       belongs_to :project
       belongs_to :indicator
 
-      enum state: {
+      enum :state, {
         init: 'init',
         checked: 'checked'
       }, _default: 'init'

@@ -31,13 +31,13 @@ module Bench
 
       has_one_attached :proof
 
-      enum state: {
+      enum :state, {
         todo: 'todo',
         doing: 'doing',
         done: 'done',
         rework: 'rework'
       }, _default: 'todo'
-      enum focus: {
+      enum :focus, {
         inbox: 'inbox',
         draft: 'draft',
         today: 'today',
