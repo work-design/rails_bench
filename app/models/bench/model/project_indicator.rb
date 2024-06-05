@@ -15,7 +15,7 @@ module Bench
       enum :state, {
         init: 'init',
         checked: 'checked'
-      }, _default: 'init'
+      }, default: 'init'
     end
 
   end

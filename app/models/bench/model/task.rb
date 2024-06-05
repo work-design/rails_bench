@@ -36,13 +36,13 @@ module Bench
         doing: 'doing',
         done: 'done',
         rework: 'rework'
-      }, _default: 'todo'
+      }, default: 'todo'
       enum :focus, {
         inbox: 'inbox',
         draft: 'draft',
         today: 'today',
         scheduled: 'scheduled'
-      }, _default: 'inbox'
+      }, default: 'inbox'
 
       default_scope { order(position: :asc) }
       scope :default, -> { where(state: ['todo', 'doing']) }
