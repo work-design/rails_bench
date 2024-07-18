@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-image">
+    <%= image_tag facilitate.logo, class: 'image' if facilitate.logo_attachment %>
+  </div>
+  <div class="card-content">
+    <%= link_to facilitate.name, { action: 'show', id: facilitate.id } %>
+    <p><%= facilitate.description %></p>
+  </div>
+  <div class="card-footer">
+    <%# link_to '加入购物车', add_my_cart_path(good_id: facilitate.id, good_type: 'Facilitate'), class: 'button' %>
+  </div>
+</div>
