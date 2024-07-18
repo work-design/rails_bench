@@ -1,4 +1,4 @@
-<%= link_to({ action: 'new', taxon_id: params[:taxon_id] }, data: { turbo_frame: 'modal' }, class: 'button is-link mb-2') do %>
+<%= button_to({ action: 'new', taxon_id: params[:taxon_id] }, class: 'button is-link') do %>
   <i class="fa-solid fa-plus"></i>
   <span class="pl-1"><%= t('.new.title') %></span>
 <% end %>
