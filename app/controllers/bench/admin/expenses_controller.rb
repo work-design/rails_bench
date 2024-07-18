@@ -1,8 +1,7 @@
 module Bench
-  class Admin::ExpensesController < Admin::BaseController
+  class Admin::ExpensesController < Finance::Admin::ExpensesController
     include Controller::Admin
     before_action :set_project
-    before_action :set_expense, only: [:show, :edit, :update, :destroy]
     before_action :prepare_form
 
     def index
@@ -28,25 +27,6 @@ module Bench
 
     def add_item
       super
-    end
-
-    def show
-    end
-
-    def edit
-      super
-    end
-
-    def update
-      @expense.assign_attributes(expense_params)
-
-      unless @expense.save
-        render :edit, locals: { model: @expense }, status: :unprocessable_entity
-      end
-    end
-
-    def destroy
-      @expense.destroy
     end
 
     private
