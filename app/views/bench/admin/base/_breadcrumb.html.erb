@@ -1,4 +1,4 @@
-<li><%# link_to t('bench.admin.taxons.index.title'), { controller: 'taxons' } %></li>
+<%# link_to t('bench.admin.taxons.index.title'), { controller: 'taxons' } %>
 <% if defined? @taxon %>
   <li><%= link_to @taxon.name, { controller: 'projects', action: 'index', taxon_id: @taxon.id } %></li>
 <% end %>

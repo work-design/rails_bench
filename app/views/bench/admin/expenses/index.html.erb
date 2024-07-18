@@ -1,5 +1,7 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
+<%= render 'index_actions' %>
+
 <%= render layout: 'index_table' do %>
   <%= render partial: 'index_tbody', layout: 'index_tr', collection: @expenses, as: :expense %>
 <% end %>
