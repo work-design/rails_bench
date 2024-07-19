@@ -23,6 +23,16 @@ zh:
       mileposts:
         index:
           title: 项目状态
+      facilitate_indicators:
+        index:
+          title: 评价指标
+      facilitate_providers:
+        index:
+          title: 中标管理
+        task_templates:
+          title: 流程
+        show:
+          title: 服务详情
       projects:
         index:
           title: 项目库
@@ -119,16 +129,6 @@ zh:
           title: 详情
         budgets:
           title: 预算
-      facilitate_indicators:
-        index:
-          title: 评价指标
-      facilitate_providers:
-        index:
-          title: 中标管理
-        task_templates:
-          title: 流程
-        show:
-          title: 服务详情
       indicators:
         index:
           title: 评价指标
