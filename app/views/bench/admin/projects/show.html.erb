@@ -1,15 +1,12 @@
 <%= render partial: 'project_bar', locals: { project: @project } %>
 
-<table class="table is-fullwidth is-hoverable">
-  <thead>
-    <tr>
-      <th>
-        <%= link_to t('.edit.title'), { action: 'edit', id: @project.id }, class: 'button is-small is-link' %>
-      </th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <%= render 'show_table' %>
-  </tbody>
-</table>
+<dl class="as-show is-box">
+  <div>
+    <%= link_to t('.edit.title'), { action: 'edit' }, class: 'button is-small is-link' %>
+  </div>
+  <div>
+    <dt></dt>
+    <dd><%= model.id %></dd>
+  </div>
+  <%= render 'show_table' %>
+</dl>
