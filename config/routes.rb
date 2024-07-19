@@ -80,9 +80,9 @@ Rails.application.routes.draw do
         resources :facilitate_taxons
         resources :facilitates do
           member do
-            get :wallet
+            match :wallet, via: [:get, :post]
             patch :update_wallet
-            get :card
+            match :card, via: [:get, :post]
             patch :update_card
           end
           resources :facilitators

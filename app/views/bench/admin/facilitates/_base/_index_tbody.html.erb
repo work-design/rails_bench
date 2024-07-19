@@ -17,7 +17,7 @@
     </div>
   <% end %>
   </div>
-  <%= link_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.card.title') }) do %>
+  <%= button_to({ action: 'card', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.card.title') }) do %>
     <i class="fa-solid fa-sm fa-pencil color-grey"></i>
   <% end %>
 </td>
@@ -32,7 +32,7 @@
     </div>
   <% end %>
   </div>
-  <%= link_to({ action: 'wallet', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.wallet.title') }) do %>
+  <%= button_to({ action: 'wallet', id: model.id }, data: { turbo_frame: 'modal', show_target: 'item' }, aria: { label: t('bench.admin.facilitates.wallet.title') }) do %>
     <i class="fa-solid fa-sm fa-pencil color-grey"></i>
   <% end %>
 </td>
