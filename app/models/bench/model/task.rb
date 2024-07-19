@@ -93,7 +93,7 @@ module Bench
     end
 
     def sync_from_member
-      self.user ||= member.user
+      self.user ||= member.account&.user
       self.organ_id = member.organ_id
     end
 
