@@ -14,11 +14,11 @@ Rails.application.routes.draw do
         patch :rework
         get 'focus' => :edit_focus
         get 'assign' => :edit_assign
-        get :estimated
-        get :stock
-        get :fund
-        get :member
-        get :deadline
+        match :estimated, via: [:get, :post]
+        match :stock, via: [:get, :post]
+        match :fund, via: [:get, :post]
+        match :member, via: [:get, :post]
+        match :deadline, via: [:get, :post]
       end
       resources :task_timers do
         member do
