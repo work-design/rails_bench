@@ -1,2 +1,1 @@
-<%= f.collection_select :facilitate_taxon_id, @facilitate_taxons, :id, :name, { include_blank: true }, { data: { controller: 'input', action: 'input#link', input_url_value: url_for(controller: 'taxon_indicators', action: 'indicators', taxon_id: @taxon.id) } } %>
-<%= f.collection_select :indicator_id, @indicators, :id, :name, { include_blank: true } %>
+<%= f.collection_select :indicator_id, @indicators, :id, :name %>

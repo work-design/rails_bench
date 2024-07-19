@@ -44,10 +44,6 @@ module Bench
       end
     end
 
-    def prepare_form
-      @facilitate_taxons = FacilitateTaxon.default_where(default_params)
-    end
-
     def taxon_facilitate_params
       params.fetch(:taxon_facilitate, {}).permit(
         :facilitate_taxon_id,

@@ -1,24 +1,12 @@
 module Bench
   class Panel::TaxonIndicatorsController < Panel::BaseController
     before_action :set_taxon
-    before_action :set_taxon_indicator, only: [:show, :edit, :update, :destroy]
-    before_action :set_facilitate_taxons, only: [:new, :edit]
+    before_action :set_taxon_indicator, only: [:show, :edit, :update, :destroy, :actions]
+    before_action :set_new_taxon_indicator, only: [:new, :create]
+    before_action :set_indicators, only: [:new, :create, :edit, :update]
 
     def index
       @taxon_indicators = @taxon.taxon_indicators.page(params[:page])
-    end
-
-    def new
-      @indicators = Indicator.none
-      @taxon_indicator = @taxon.taxon_indicators.build
-    end
-
-    def create
-      @taxon_indicator = @taxon.taxon_indicators.build(taxon_indicator_params)
-
-      unless @taxon_indicator.save
-        render :new, locals: { model: @taxon_indicator }, status: :unprocessable_entity
-      end
     end
 
     def edit
@@ -41,13 +29,16 @@ module Bench
       @taxon_indicator = @taxon.taxon_indicators.find(params[:id])
     end
 
-    def set_facilitate_taxons
-      @facilitate_taxons = FacilitateTaxon.default_where(default_params)
+    def set_new_taxon_indicator
+      @taxon_indicator = @taxon.taxon_indicators.build(taxon_indicator_params)
+    end
+
+    def set_indicators
+      @indicators = Indicator.all
     end
 
     def taxon_indicator_params
       params.fetch(:taxon_indicator, {}).permit(
-        :facilitate_taxon_id,
         :indicator_id
       )
     end
