@@ -1,7 +1,8 @@
 module Bench
   class Panel::TaxonFacilitatesController < Panel::BaseController
     before_action :set_taxon
-    before_action :set_taxon_facilitate, only: [:show, :edit, :update, :destroy, :new, :facilitates]
+    before_action :set_taxon_facilitate, only: [:show, :edit, :update, :destroy, :facilitates]
+    before_action :set_new_taxon_facilitate, only: [:new, :create]
     before_action :prepare_form, only: [:new, :edit]
 
     def index
@@ -10,14 +11,6 @@ module Bench
 
     def new
       @facilitates = Facilitate.none
-    end
-
-    def create
-      @taxon_facilitate = @taxon.taxon_facilitates.build(taxon_facilitate_params)
-
-      unless @taxon_facilitate.save
-        render :new, locals: { model: @taxon_facilitate }, status: :unprocessable_entity
-      end
     end
 
     def facilitates
@@ -37,16 +30,15 @@ module Bench
     end
 
     def set_taxon_facilitate
-      if params[:id]
-        @taxon_facilitate = @taxon.taxon_facilitates.find(params[:id])
-      else
-        @taxon_facilitate = @taxon.taxon_facilitates.build
-      end
+      @taxon_facilitate = @taxon.taxon_facilitates.find(params[:id])
+    end
+
+    def set_new_taxon_facilitate
+      @taxon_facilitate = @taxon.taxon_facilitates.build(taxon_facilitate_params)
     end
 
     def taxon_facilitate_params
       params.fetch(:taxon_facilitate, {}).permit(
-        :facilitate_taxon_id,
         :facilitate_id
       )
     end

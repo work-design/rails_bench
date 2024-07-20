@@ -4,7 +4,6 @@ module Bench
 
     included do
       belongs_to :taxon
-      belongs_to :facilitate_taxon
       belongs_to :indicator
     end
 
