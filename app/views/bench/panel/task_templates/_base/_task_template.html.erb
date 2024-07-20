@@ -12,13 +12,13 @@
       <span class="has-text-primary"><%= task_template.member&.name %></span>
     </div>
     <div data-show-target="item" class="level-item visibility-hidden">
-      <%= link_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit.title') }, class: 'color-grey') do %>
+      <%= button_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit.title') }, class: 'color-grey') do %>
         <i class="fa-solid fa-pencil"></i>
       <% end %>
-      <%= link_to({ action: 'destroy', id: task_template.id }, method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.destroy.confirm') }, class: 'color-danger') do %>
+      <%= button_to({ action: 'destroy', id: task_template.id }, method: :delete, aria: { label: t('.destroy.title') }, data: { turbo_confirm: t('.destroy.confirm') }, class: 'color-danger') do %>
         <i class="fa-solid fa-trash"></i>
       <% end %>
-      <%= link_to({ action: 'new', project_taxon_id: params[:project_taxon_id], parent_id: task_template.id }) do %>
+      <%= button_to({ action: 'new', project_taxon_id: params[:project_taxon_id], parent_id: task_template.id }) do %>
         <i class="fa-solid fa-plus"></i>
       <% end %>
     </div>
