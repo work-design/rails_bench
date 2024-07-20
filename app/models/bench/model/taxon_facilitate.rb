@@ -3,6 +3,8 @@ module Bench
     extend ActiveSupport::Concern
 
     included do
+
+
       belongs_to :taxon
       belongs_to :facilitate
     end

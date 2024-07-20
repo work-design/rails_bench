@@ -3,7 +3,7 @@ module Bench
     before_action :set_taxon
     before_action :set_taxon_facilitate, only: [:show, :edit, :update, :destroy, :facilitates]
     before_action :set_new_taxon_facilitate, only: [:new, :create]
-    before_action :prepare_form, only: [:new, :edit]
+    # before_action :prepare_form, only: [:new, :create, :edit, :update]
 
     def index
       @taxon_facilitates = @taxon.taxon_facilitates.page(params[:page])
