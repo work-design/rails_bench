@@ -30,7 +30,7 @@ module Bench
     end
 
     def set_indicators
-      @indicators = Indicator.all
+      @indicators = Indicator.where.not(id: @taxon.taxon_indicators.pluck(:indicator_id))
     end
 
     def taxon_indicator_params
