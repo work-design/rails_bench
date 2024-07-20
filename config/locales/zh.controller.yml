@@ -127,7 +127,8 @@ zh:
       taxons:
         index:
           title: 项目分类
-          parameter: 格式设置
+        parameter:
+          title: 格式设置
         show:
           title: 详情
         budgets:
