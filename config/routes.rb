@@ -155,9 +155,9 @@ Rails.application.routes.draw do
               get :indicators
             end
           end
-          resources :indicators
           resources :projects
         end
+        resources :indicators
         resources :standards do
           resources :standard_providers
         end
