@@ -1,24 +1,13 @@
 module Bench
   class Panel::TaxonsController < Panel::BaseController
     before_action :set_taxon, only: [:show, :budgets, :expenses, :edit, :parameter, :update, :destroy]
+    before_action :set_new_taxon, only: [:new, :create]
 
     def index
       q_params = {}
       q_params.merge! params.permit(:name)
 
       @taxons = Taxon.default_where(q_params).order(id: :asc).page(params[:page])
-    end
-
-    def new
-      @taxon = Taxon.new
-    end
-
-    def create
-      @taxon = Taxon.new(taxon_params)
-
-      unless @taxon.save
-        render :new, locals: { model: @taxon }, status: :unprocessable_entity
-      end
     end
 
     def budgets
@@ -34,6 +23,10 @@ module Bench
     private
     def set_taxon
       @taxon = Taxon.find(params[:id])
+    end
+
+    def set_new_taxon
+      @taxon = Taxon.new(taxon_params)
     end
 
     def taxon_params
