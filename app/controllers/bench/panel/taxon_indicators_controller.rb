@@ -9,10 +9,6 @@ module Bench
       @taxon_indicators = @taxon.taxon_indicators.page(params[:page])
     end
 
-    def edit
-      @indicators = @taxon_indicator.facilitate_taxon.indicators
-    end
-
     def indicators
       q_params = {}
       q_params.merge! facilitate_taxon_id: taxon_indicator_params[:facilitate_taxon_id]

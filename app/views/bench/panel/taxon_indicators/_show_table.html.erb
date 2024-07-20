@@ -1,8 +1,4 @@
 <div>
-  <dt><%= Bench::TaxonIndicator.human_attribute_name(:facilitate_taxon_id) %></dt>
-  <dd><%= @taxon_indicator.facilitate_taxon_id %></dd>
-</div>
-<div>
   <dt><%= Bench::TaxonIndicator.human_attribute_name(:indicator_id) %></dt>
-  <dd><%= @taxon_indicator.indicator_id %></dd>
+  <dd><%= @taxon_indicator.indicator.name %></dd>
 </div>
