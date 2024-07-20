@@ -35,7 +35,8 @@ module Bench
 
     def taxon_indicator_params
       params.fetch(:taxon_indicator, {}).permit(
-        :indicator_id
+        :indicator_id,
+        :weight
       )
     end
 
