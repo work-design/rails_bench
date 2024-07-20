@@ -2,17 +2,20 @@
   <%= yield %>
   <td>
     <div data-show-target="item" class="visibility-hidden">
-      <%= link_to({ action: 'parameter', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.parameter') }, class: 'button is-small is-rounded is-light') do %>
-        <i class="fa-solid fa-sitemap"></i>
-      <% end %>
-      <%= link_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'show', id: model.id }, aria: { label: t('.show.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-circle-info color-info"></i>
       <% end %>
-      <%= link_to({ action: 'edit', id: model.id }, data: { turbo_frame: 'modal' }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
+      <%= button_to({ action: 'edit', id: model.id }, aria: { label: t('.edit.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-pencil color-link"></i>
       <% end %>
       <%= button_to({ action: 'destroy', id: model.id }, method: :delete, data: { turbo_confirm: t('.destroy.confirm') }, aria: { label: t('.destroy.title') }, class: 'button is-small is-rounded is-light') do %>
         <i class="fa-solid fa-trash color-danger"></i>
+      <% end %>
+    </div>
+    <div data-show-target="item" class="visibility-hidden">
+      <%= button_to({ action: 'parameter', id: model.id }, class: 'button is-small is-rounded is-light') do %>
+        <i class="fa-solid fa-sitemap"></i>
+        <span class="ml-1"><%= t('.parameter.title') %></span>
       <% end %>
     </div>
   </td>
