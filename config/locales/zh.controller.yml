@@ -120,7 +120,10 @@ zh:
         index:
           title: 投标
     panel:
-      title: 工作管理
+      title: 工作台
+      home:
+        index:
+          title: 工作台
       taxons:
         index:
           title: 项目分类
