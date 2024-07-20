@@ -130,7 +130,7 @@ Rails.application.routes.draw do
           member do
             get :budgets
             get :expenses
-            get :parameter
+            match :parameter, via: [:get, :post]
           end
           resources :task_templates do
             collection do
@@ -155,9 +155,9 @@ Rails.application.routes.draw do
               get :indicators
             end
           end
+          resources :indicators
           resources :projects
         end
-        resources :indicators
         resources :standards do
           resources :standard_providers
         end
