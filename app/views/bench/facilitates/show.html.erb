@@ -1,6 +1,4 @@
-<% content_for :title, @facilitate.name %>
-<% content_for :meta_description, @facilitate.description %>
-
+<div class="column">
 <h1 class="title has-text-centered">
   <%= @facilitate.name %>
 </h1>
@@ -31,4 +29,5 @@
   <div class="column is-narrow">
     <%= render partial: 'show_side', locals: { good: @facilitate } %>
   </div>
+</div>
 </div>
