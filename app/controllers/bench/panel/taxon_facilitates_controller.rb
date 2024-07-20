@@ -9,10 +9,6 @@ module Bench
       @taxon_facilitates = @taxon.taxon_facilitates.page(params[:page])
     end
 
-    def new
-      @facilitates = Facilitate.none
-    end
-
     def facilitates
       q_params = {}
       q_params.merge! facilitate_taxon_id: taxon_facilitate_params[:facilitate_taxon_id]
