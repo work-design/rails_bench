@@ -1,7 +1,3 @@
-<div class="breadcrumb has-succeeds-separator display-none-mobile">
-  <ul>
-    <li><%= link_to t('bench.facilitates.index.title'), { controller: 'facilitates' } %></li>
-    <li><%= link_to @facilitate.facilitate_taxon.name, { controller: 'facilitates', facilitate_taxon_id: @facilitate.facilitate_taxon_id } %></li>
-    <li class="is-active"><%= @facilitate.name %></li>
-  </ul>
-</div>
+<li><%= link_to t('bench.facilitates.index.title'), { controller: 'facilitates' } %></li>
+<li><%= link_to @facilitate.facilitate_taxon.name, { controller: 'facilitates', facilitate_taxon_id: @facilitate.facilitate_taxon_id } %></li>
+<li class="is-active"><%= @facilitate.name %></li>
