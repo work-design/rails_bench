@@ -2,13 +2,13 @@
 <% if task.deadline_on %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'deadline', id: task.id }, aria: { label: '截止日期' }, form: { class: 'tag' }) do %>
-      <i class="fa-solid fa-timeline-arrow color-danger"></i>
+      <%= svg_tag('timeline-arrow', class: 'icon color-danger') %>
     <% end %>
     <span class="tag is-light is-danger"><%= task.deadline_on %></span>
   </div>
 <% else %>
   <%= button_to({ controller: 'tasks', action: 'deadline', id: task.id }, data: { show_target: 'item' }, aria: { label: '截止日期' }, class: 'visibility-hidden') do %>
-    <i class="fa-solid fa-timeline-arrow color-danger"></i>
+    <%= svg_tag('timeline-arrow', class: 'icon color-danger') %>
   <% end %>
 <% end %>
 </div>
