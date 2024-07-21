@@ -12,7 +12,7 @@ zh:
         member_id: 服务人员
       bench/facilitate_provider:
         selected: 中标
-        provider_id: 供应商
+        provider_id: 服务商
         price: 参考价格
       bench/facilitate_indicator:
         indicator_id: 检测指标
@@ -68,7 +68,7 @@ zh:
       bench/project_facilitate:
         facilitate_taxon_id: 服务分类
         facilitate_id: 标准化服务
-        provider_id: 供应商
+        provider_id: 服务商
       bench/task_template:
         organ_id: 组织/机构
         department_id: 部门
