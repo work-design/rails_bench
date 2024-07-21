@@ -53,6 +53,8 @@ zh:
       tasks:
         project:
           title: 任务（待办）
+        fund:
+          title: 酬金
         base:
           state_item:
             done: 完成/移交
@@ -98,6 +100,8 @@ zh:
       tasks:
         index:
           title: 我的待办
+        fund:
+          title: 酬金
         show:
           title: 任务（待办）
         project:
