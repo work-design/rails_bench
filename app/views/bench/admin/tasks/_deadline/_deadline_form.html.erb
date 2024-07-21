@@ -1,0 +1,4 @@
+<%= form_with model: @task, url: { action: 'update' } do |f| %>
+  <%= f.date_field :deadline_on %>
+  <%= f.submit %>
+<% end %>
