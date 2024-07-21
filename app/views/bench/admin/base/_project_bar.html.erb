@@ -2,7 +2,7 @@
   <%= project.name %>
 </h2>
 
-<div class="tabs">
+<div class="tabs is-centered">
   <ul>
     <li class="<%= active_helper(tasks: ['project', 'show', 'content'], task_timers: 'index', active: 'is-active') %>">
       <%= link_to t('bench.admin.tasks.project.title'), { controller: 'bench/admin/tasks', action: 'project', project_id: project.id } %>
