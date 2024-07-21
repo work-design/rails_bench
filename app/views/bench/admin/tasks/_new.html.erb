@@ -1,9 +1,9 @@
-<%= form_with theme: nil, model: task, url: { action: 'create' }, data: { controller: 'common' }, class: 'field is-horizontal pt-2' do |f| %>
+<%= form_with theme: nil, model: task, url: { action: 'create' }, id: 'task_form', data: { controller: 'common' }, class: 'field is-horizontal pt-2' do |f| %>
   <div class="field-body">
     <%= f.hidden_field :parent_id %>
     <%= f.hidden_field :project_id %>
     <div class="field">
-      <%= f.text_field :title, placeholder: true, class: 'input' %>
+      <%= f.text_field :title, autofocus: true, autocomplete: 'off', placeholder: true, class: 'input' %>
     </div>
     <div class="field is-narrow">
       <%= f.submit '保存', class: 'button is-primary' %>
