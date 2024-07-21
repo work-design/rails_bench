@@ -1,3 +1,4 @@
+<div class="level-item">
 <% if task.deadline_on %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'deadline', id: task.id }, aria: { label: '截止日期' }, form: { class: 'tag' }) do %>
@@ -10,3 +11,4 @@
     <i class="fa-solid fa-timeline-arrow color-danger"></i>
   <% end %>
 <% end %>
+</div>

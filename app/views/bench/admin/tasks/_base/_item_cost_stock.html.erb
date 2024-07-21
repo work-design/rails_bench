@@ -1,3 +1,4 @@
+<div class="level-item">
 <% if task.cost_stock %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'stock', id: task.id }, aria: { label: '股份' }, form: { class: 'tag' }) do %>
@@ -10,3 +11,4 @@
     <i class="fa-solid fa-trophy color-link"></i>
   <% end %>
 <% end %>
+</div>

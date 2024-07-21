@@ -1,3 +1,4 @@
+<div class="level-item">
 <% if task.estimated_time %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'estimated', id: task.id }, aria: { label: '预估时间' }, form: { class: 'tag' }) do %>
@@ -10,3 +11,4 @@
     <i class="fa-solid fa-tomato color-danger"></i>
   <% end %>
 <% end %>
+</div>

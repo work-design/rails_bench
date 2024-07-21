@@ -1,3 +1,4 @@
+<div class="level-item">
 <% if task.member %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'member', id: task.id }, aria: { label: '人员' }, form: { class: 'tag' }) do %>
@@ -10,3 +11,4 @@
     <i class="fa-solid fa-user color-success"></i>
   <% end %>
 <% end %>
+</div>

@@ -1,0 +1,8 @@
+<div class="level-item">
+  <div class="tags has-addons">
+    <%= button_to({ controller: 'tasks', action: 'edit_focus', id: task.id }, id: "play_task_#{task.id}", aria: { label: t('.today') }, form: { class: 'tag' }) do %>
+      <i class="fa-regular fa-star fa-fw has-text-primary"></i>
+    <% end %>
+    <span class="tag is-light is-primary"><%= task.focus_i18n %></span>
+  </div>
+</div>

@@ -6,28 +6,20 @@
     <%= render partial: 'title_item', locals: { task: task } %>
   </div>
   <div class="level-right">
-    <% blank_items = [] %>
-    <% ['estimated_time', 'cost_fund', 'cost_stock', 'deadline_on', 'member', 'focus', 'state'].each do |item| %>
-      <% if task.public_send(item).blank? %>
-      <div class="level-item">
-        <%= render partial: "#{item}_add", locals: { task: task } %>
-      </div>
-      <% else %>
-        <% blank_items << item %>
-      <% end %>
-    <% end %>
-    <div class="level-item" data-show-target="item" class="visibility-hidden">
-      <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, method: :delete, aria: { label: t('.destroy.title') }, form: { data: { turbo_confirm: t('.destroy.confirm') } }) do %>
-        <i class="fa-solid fa-trash fa-fw color-danger"></i>
-      <% end %>
-    </div>
-    <% blank_items.each do |item| %>
-      <div class="level-item">
-        <%= render partial: "#{item}_item", locals: { task: task } %>
-      </div>
-    <% end %>
+    <%= render partial: "item_estimated_time", locals: { task: task } %>
+    <%= render partial: "item_cost_fund", locals: { task: task } %>
+    <%= render partial: "item_cost_stock", locals: { task: task } %>
+    <%= render partial: "item_deadline_on", locals: { task: task } %>
+    <%= render partial: "item_member", locals: { task: task } %>
+    <%= render partial: "item_focus", locals: { task: task } %>
+    <%= render partial: "item_state", locals: { task: task } %>
     <div class="level-item">
       <time data-controller="time" class="color-grey"><%= task.created_at.to_fs(:iso8601) %></time>
+    </div>
+    <div class="level-item" data-show-target="item" class="visibility-hidden">
+      <%= button_to({ controller: 'tasks', action: 'destroy', id: task.id }, method: :delete, aria: { label: t('.destroy.title') }, form: { data: { turbo_confirm: t('.destroy.confirm') } }) do %>
+        <i class="fa-solid fa-fw fa-trash color-danger"></i>
+      <% end %>
     </div>
   </div>
 </div>
