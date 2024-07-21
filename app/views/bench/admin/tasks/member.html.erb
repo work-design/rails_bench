@@ -1,6 +1,0 @@
-<%= turbo_frame_tagged 'modal' do %>
-  <%= form_with model: @task, url: { action: 'update' } do |f| %>
-    <%= f.collection_select :member_id, @members, :id, :name %>
-    <%= f.submit %>
-  <% end %>
-<% end %>

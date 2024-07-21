@@ -1,5 +1,5 @@
 <div class="tags has-addons">
-  <%= button_to({ controller: 'tasks', action: 'estimated', id: task.id }, aria: { label: '预估时间' }, class: 'tag') do %>
+  <%= button_to({ controller: 'tasks', action: 'estimated', id: task.id }, aria: { label: '预估时间' }, form: { class: 'tag' }) do %>
     <i class="fa-solid fa-tomato color-danger"></i>
   <% end %>
   <span class="tag is-light is-danger"><%= task.estimated_time %></span>

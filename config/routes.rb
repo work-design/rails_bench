@@ -12,8 +12,8 @@ Rails.application.routes.draw do
         get 'done' => :edit_done
         patch 'done' => :update_done
         patch :rework
-        get 'focus' => :edit_focus
-        get 'assign' => :edit_assign
+        post :edit_focus
+        post :edit_assign
         match :estimated, via: [:get, :post]
         match :stock, via: [:get, :post]
         match :fund, via: [:get, :post]

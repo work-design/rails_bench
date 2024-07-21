@@ -104,6 +104,8 @@ zh:
           title: 任务（待办）
         stock:
           title: 股权支出
+        edit_focus:
+          title: 啥时办
       task_timers:
         index:
           title: 工作日志

@@ -1,1 +1,2 @@
 <%= turbo_stream.replace "task_#{@task.id}", partial: 'task', locals: { task: @task } %>
+<%= turbo_stream.remove 'modal' %>
