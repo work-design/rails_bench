@@ -9,7 +9,7 @@ Rails.application.routes.draw do
         patch :reorder
         patch :child
         get :project
-        get 'done' => :edit_done
+        post :edit_done
         patch 'done' => :update_done
         patch :rework
         post :edit_focus

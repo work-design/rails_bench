@@ -1,7 +1,0 @@
-<%= turbo_frame_tagged 'modal' do %>
-  <%= form_with model: @task, url: { action: 'update' } do |f| %>
-    <%= f.text_area :note %>
-    <%= f.file_field :proof %>
-    <%= f.submit %>
-  <% end %>
-<% end %>
