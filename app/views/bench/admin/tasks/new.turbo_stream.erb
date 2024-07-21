@@ -1,1 +1,1 @@
-<%= turbo_stream.append 'items', partial: 'new', locals: { task: @task } %>
+<%= turbo_stream.before 'item_add', partial: 'new', locals: { task: @task } %>
