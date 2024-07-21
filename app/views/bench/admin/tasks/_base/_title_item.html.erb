@@ -7,7 +7,7 @@
   <% end %>
 </div>
 <div class="level-item" data-show-target="item" class="visibility-hidden">
-  <%= link_to({ controller: 'tasks', action: 'edit', id: task.id }, aria: { label: t('.edit.title') }, data: { controller: 'common', action: 'common#link' }) do %>
+  <%= button_to({ controller: 'tasks', action: 'edit', id: task.id }, aria: { label: t('.edit.title') }) do %>
     <i class="fa-solid fa-fw fa-pencil color-grey"></i>
   <% end %>
 </div>
