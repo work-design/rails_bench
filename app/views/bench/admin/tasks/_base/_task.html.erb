@@ -6,13 +6,12 @@
     <%= render partial: 'title_item', locals: { task: task } %>
   </div>
   <div class="level-right">
-    <%= render partial: "item_estimated_time", locals: { task: task } %>
-    <%= render partial: "item_cost_fund", locals: { task: task } %>
-    <%= render partial: "item_cost_stock", locals: { task: task } %>
-    <%= render partial: "item_deadline_on", locals: { task: task } %>
-    <%= render partial: "item_member", locals: { task: task } %>
-    <%= render partial: "item_focus", locals: { task: task } %>
-    <%= render partial: "item_state", locals: { task: task } %>
+    <% task.blank_items.each do |k, _| %>
+      <%= render partial: "item_#{k}", locals: { task: task } %>
+    <% end %>
+    <% task.present_items.each do |k, _| %>
+      <%= render partial: "item_#{k}", locals: { task: task } %>
+    <% end %>
     <div class="level-item">
       <time data-controller="time" class="color-grey"><%= task.created_at.to_fs(:iso8601) %></time>
     </div>

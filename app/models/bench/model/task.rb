@@ -146,6 +146,14 @@ module Bench
       end
     end
 
+    def present_items
+      attributes.slice('estimated_time', 'cost_fund', 'cost_stock', 'deadline_on', 'member_id', 'focus', 'state').compact_blank!
+    end
+
+    def blank_items
+      attributes.slice('estimated_time', 'cost_fund', 'cost_stock', 'deadline_on', 'member_id', 'focus', 'state').select { |_, v| v.blank? }
+    end
+
     class_methods do
 
       def reset_position
