@@ -1,13 +1,13 @@
 <div class="buttons are-small">
-  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'today' }, class: 'button is-info') do %>
+  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { 'task[focus]': 'today' }, class: 'button is-info') do %>
     <i class="fa-solid fa-sun"></i>
     <span class="ml-1"><%= Bench::Task.enum_i18n(:focus, 'today') %></span>
   <% end %>
-  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'inbox' }, class: 'button is-info') do %>
+  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { 'task[focus]': 'inbox' }, class: 'button is-info') do %>
     <i class="fa-solid fa-sun"></i>
     <span class="ml-1"><%= Bench::Task.enum_i18n(:focus, 'inbox') %></span>
   <% end %>
-  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { '[task]focus': 'draft' }, class: 'button is-info') do %>
+  <%= button_to({ controller: 'tasks', action: 'update', id: @task.id }, method: :patch, params: { 'task[focus]': 'draft' }, class: 'button is-info') do %>
     <i class="fa-solid fa-sun-haze"></i>
     <span class="ml-1"><%= Bench::Task.enum_i18n(:focus, 'draft') %></span>
   <% end %>
