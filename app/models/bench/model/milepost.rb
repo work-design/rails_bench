@@ -15,7 +15,7 @@ module Bench
 
       after_save_commit :sync_name_to_project_mileposts, if: ->{ saved_change_to_name? }
 
-      acts_as_list scope: [:organ_id]
+      positioned on: [:organ_id]
     end
 
     def sync_name_to_project_mileposts

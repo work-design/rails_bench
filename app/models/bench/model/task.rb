@@ -56,7 +56,7 @@ module Bench
       after_save :sync_stock_budget, if: -> { saved_change_to_cost_stock? }
       after_save :sync_fund_budget, if: -> { saved_change_to_cost_fund? }
 
-      acts_as_list scope: [:parent_id, :project_id]
+      positioned on: [:parent_id, :project_id]
       acts_as_notify :default, only: [:title, :start_at], methods: [:state_i18n]
     end
 

@@ -16,7 +16,7 @@ module Bench
       belongs_to :job_title, class_name: 'Org::JobTitle', optional: true
       belongs_to :member, class_name: 'Org::Member', optional: true
 
-      acts_as_list scope: [:organ_id, :taxon_id, :parent_id]
+      positioned on: [:organ_id, :taxon_id, :parent_id]
     end
 
   end

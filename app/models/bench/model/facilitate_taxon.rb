@@ -21,7 +21,7 @@ module Bench
 
       default_scope -> { order(position: :asc, id: :asc) }
 
-      acts_as_list
+      positioned
     end
 
   end
