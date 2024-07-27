@@ -16,13 +16,13 @@
     </div>
     <div class="weui-form-preview__item">
       <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:start_at) %></label>
-      <span class="weui-form-preview__value color-success">
+      <span class="weui-form-preview__value text-success">
         <time data-controller="time"><%= @facilitating.start_at&.to_fs(:iso8601) %></time>
       </span>
     </div>
     <div class="weui-form-preview__item">
       <label class="weui-form-preview__label"><%= Bench::Facilitating.human_attribute_name(:finish_at) %></label>
-      <span class="weui-form-preview__value color-danger">
+      <span class="weui-form-preview__value text-danger">
         <time data-controller="time"><%= @facilitating.finish_at&.to_fs(:iso8601) %></time>
       </span>
     </div>

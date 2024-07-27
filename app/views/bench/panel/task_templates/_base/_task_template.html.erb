@@ -8,8 +8,8 @@
       <%= link_to({ action: 'edit_member', id: task_template.id }, aria: { label: '负责人' }, class: 'color-grey') do %>
         <i class="fa-regular fa-user-tie fa-fw"></i>
       <% end %>
-      <span class="color-success"><%= task_template.job_title&.name %></span>
-      <span class="has-text-primary"><%= task_template.member&.name %></span>
+      <span class="text-success"><%= task_template.job_title&.name %></span>
+      <span class="text-primary"><%= task_template.member&.name %></span>
     </div>
     <div data-show-target="item" class="level-item visibility-hidden">
       <%= button_to({ action: 'edit', id: task_template.id, item: 'title' }, aria: { label: t('.edit.title') }, class: 'color-grey') do %>

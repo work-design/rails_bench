@@ -3,7 +3,7 @@
   <% if task.done? %>
   <% else %>
     <%= button_to({ controller: 'tasks', action: 'edit_done', id: task.id }, id: "play_task_#{task.id}", aria: { label: t('.done') }, form: { class: 'tag' }) do %>
-      <i class="fa-regular fa-square fa-fw has-text-warning"></i>
+      <i class="fa-regular fa-square fa-fw text-warning"></i>
     <% end %>
     <span class="tag is-light is-warning"><%= task.state_i18n %></span>
   <% end %>

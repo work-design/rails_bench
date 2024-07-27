@@ -8,11 +8,11 @@
 </div>
 <div data-show-target="item" class="level-item visibility-hidden">
   <%= button_to({ controller: 'tasks', action: 'edit', id: task.id }, aria: { label: t('.edit.title') }) do %>
-    <i class="fa-solid fa-fw fa-pencil color-grey"></i>
+    <i class="fa-solid fa-fw fa-pencil text-grey"></i>
   <% end %>
 </div>
 <div data-show-target="item" class="level-item visibility-hidden">
   <%= button_to({ controller: 'tasks', action: 'child', id: task.id }, method: :patch, aria: { label: '子任务' }) do %>
-    <i class="fa-solid fa-fw fa-diagram-next color-grey"></i>
+    <i class="fa-solid fa-fw fa-diagram-next text-grey"></i>
   <% end %>
 </div>

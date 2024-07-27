@@ -1,12 +1,12 @@
 <%= link_to({ action: 'show', id: model.id }, class: 'weui-media-box__title') do %>
-  <span class="color-link-dark"><%= model.name %></span>
+  <span class="text-link-dark"><%= model.name %></span>
 <% end %>
 <div class="has-block-space-between py-1">
   <div class="has-inline-centered">
-    <span class="color-danger"><%= model.price.to_money.format.html_safe %></span>
+    <span class="text-danger"><%= model.price.to_money.format.html_safe %></span>
     <% if model.advance_price.to_d > 0 %>
-      <span class="color-grey pl-2">预付</span>
-      <span class="color-danger-dark"><%= model.advance_price.to_money.format.html_safe %></span>
+      <span class="text-grey pl-2">预付</span>
+      <span class="text-danger-dark"><%= model.advance_price.to_money.format.html_safe %></span>
     <% end %>
   </div>
   <div class="flex">

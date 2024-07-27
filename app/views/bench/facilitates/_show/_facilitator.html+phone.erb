@@ -4,8 +4,8 @@
   </div>
   <div class="weui-media-box__bd as-body">
     <%= link_to({ controller: 'facilitators', action: 'show', facilitate_id: @facilitate.id, id: model.id }, class: 'weui-media-box__title') do %>
-      <span class="color-link-dark"><%= model.name %></span>
+      <span class="text-link-dark"><%= model.name %></span>
     <% end %>
-    <div class="color-grey"><%= model.description %></div>
+    <div class="text-grey"><%= model.description %></div>
   </div>
 </div>

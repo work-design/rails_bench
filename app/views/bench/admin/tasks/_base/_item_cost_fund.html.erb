@@ -2,13 +2,13 @@
 <% if task.cost_fund %>
   <div class="tags has-addons">
     <%= button_to({ controller: 'tasks', action: 'fund', id: task.id }, aria: { label: t('.tasks.fund.title') }, form: { class: 'tag' }) do %>
-      <i class="fa-solid fa-hand-holding-usd color-info"></i>
+      <i class="fa-solid fa-hand-holding-usd text-info"></i>
     <% end %>
     <span class="tag is-light is-info"><%= task.cost_fund %></span>
   </div>
 <% else %>
   <%= button_to({ controller: 'tasks', action: 'fund', id: task.id }, data: { show_target: 'item' }, aria: { label: t('.tasks.fund.title') }, class: 'visibility-hidden') do %>
-    <i class="fa-solid fa-hand-holding-usd color-info"></i>
+    <i class="fa-solid fa-hand-holding-usd text-info"></i>
   <% end %>
 <% end %>
 </div>

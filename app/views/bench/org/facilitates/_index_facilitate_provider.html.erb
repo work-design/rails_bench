@@ -3,9 +3,9 @@
   <td><%= facilitate_provider.note %></td>
   <td>
     <% if facilitate_provider.selected %>
-      <i class="fa-regular fa-check color-success"></i>
+      <i class="fa-regular fa-check text-success"></i>
     <% else %>
-      <i class="fa-regular fa-times color-danger"></i>
+      <i class="fa-regular fa-times text-danger"></i>
     <% end %>
   </td>
   <td><%= link_to '服务管理', { action: 'show', id: facilitate_provider.id } %></td>
