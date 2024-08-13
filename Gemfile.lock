@@ -1,13 +1,13 @@
 GIT
   remote: https://github.com/work-design/rails_audit.git
-  revision: 6331f2a90d2dad1b0dece5f39f86dcb067399d90
+  revision: 9fa50942d9e5b9306b4ce6633764c555897869cc
   specs:
     rails_audit (1.0.4)
       rails_com (~> 1.2)
 
 GIT
   remote: https://github.com/work-design/rails_com.git
-  revision: d4beb93fb735ec64322650dd48d25c713705447c
+  revision: 55cb9cb9a93d21ce67b89d6b15c4097c3032e754
   specs:
     rails_com (1.3.0)
       acme-client
@@ -23,11 +23,12 @@ GIT
       ostruct
       positioning
       rails (~> 7.0)
+      solid_queue
       turbo-rails
 
 GIT
   remote: https://github.com/work-design/rails_data.git
-  revision: 7f4343899502341ea10332015f68a61b7a982349
+  revision: ca80d62eabf6826388b4508e20489d94377c1f5c
   specs:
     rails_data (1.0.2)
       csv
@@ -41,14 +42,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_design.git
-  revision: ac09f6f45788c2f14725bbaee1eec4b757dba0b8
+  revision: 5915c7588878f3002f03dfd2f0136268b30e6765
   specs:
     rails_design (0.0.1)
       rails
 
 GIT
   remote: https://github.com/work-design/rails_finance.git
-  revision: 5abef4d321c6b491f3edf1a09bfac25c0cc0a1c5
+  revision: 3230c616f5920b305fd96dfd06b3b241b6afdd7d
   specs:
     rails_finance (0.0.1)
       prawn
@@ -56,14 +57,14 @@ GIT
 
 GIT
   remote: https://github.com/work-design/rails_notice.git
-  revision: 193cf9ead844a2b6c1fcad2bd5c5e1ea0679a822
+  revision: 8de901ff8bb67af3b5de11f291aac81be569b455
   specs:
     rails_notice (1.0.3)
       rails_com
 
 GIT
   remote: https://github.com/work-design/rails_profile.git
-  revision: 390b10223de97c54f6c2dea06d6168fe142c1d0d
+  revision: 26fca7c4a31b956726d2c0332132eb564681160d
   specs:
     rails_profile (0.0.1)
       rails_com (~> 1.2)
@@ -161,7 +162,7 @@ GEM
     closure_tree (7.4.0)
       activerecord (>= 4.2.10)
       with_advisory_lock (>= 4.0.0)
-    concurrent-ruby (1.2.3)
+    concurrent-ruby (1.3.4)
     connection_pool (2.4.1)
     crass (1.0.6)
     csv (3.3.0)
@@ -173,16 +174,21 @@ GEM
       activerecord (>= 4.0.0)
     drb (2.2.1)
     erubi (1.12.0)
-    faraday (2.10.0)
+    et-orbi (1.2.11)
+      tzinfo
+    faraday (2.10.1)
       faraday-net_http (>= 2.0, < 3.2)
       logger
     faraday-net_http (3.1.1)
       net-http
     faraday-retry (2.2.1)
       faraday (~> 2.0)
+    fugit (1.11.0)
+      et-orbi (~> 1, >= 1.2.11)
+      raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    http-2 (1.0.0)
+    http-2 (1.0.1)
     http-form_data (2.3.0)
     httpx (1.3.0)
       http-2 (>= 1.0.0)
@@ -249,7 +255,7 @@ GEM
     ostruct (0.6.0)
     pdf-core (0.10.0)
     pg (1.5.6)
-    positioning (0.2.3)
+    positioning (0.2.5)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
     prawn (2.5.0)
@@ -262,6 +268,7 @@ GEM
       stringio
     puma (6.4.2)
       nio4r (~> 2.0)
+    raabro (1.4.0)
     racc (1.7.3)
     rack (3.0.10)
     rack-session (2.0.0)
@@ -316,6 +323,12 @@ GEM
     rubyzip (2.3.2)
     sdoc (2.6.1)
       rdoc (>= 5.0)
+    solid_queue (0.4.1)
+      activejob (>= 7.1)
+      activerecord (>= 7.1)
+      concurrent-ruby (>= 1.3.1)
+      fugit (~> 1.11.0)
+      railties (>= 7.1)
     spreadsheet (1.3.1)
       bigdecimal
       ruby-ole
@@ -381,7 +394,7 @@ CHECKSUMS
   bigdecimal (3.1.7) sha256=e799b369a0005fc6d62eed7ef19139ac9bc319cc51470c637b9dcdf593600133
   builder (3.2.4) sha256=99caf08af60c8d7f3a6b004029c4c3c0bdaebced6c949165fe98f1db27fbbc10
   closure_tree (7.4.0) sha256=e39171bbe35de3c06898c3caf2d2949bba2d379aa78fc1a03c1c63f165c1d2b5
-  concurrent-ruby (1.2.3) sha256=82fdd3f8a0816e28d513e637bb2b90a45d7b982bdf4f3a0511722d2e495801e2
+  concurrent-ruby (1.3.4)
   connection_pool (2.4.1) sha256=0f40cf997091f1f04ff66da67eabd61a9fe0d4928b9a3645228532512fab62f4
   crass (1.0.6) sha256=dc516022a56e7b3b156099abc81b6d2b08ea1ed12676ac7a5657617f012bd45d
   csv (3.3.0) sha256=0bbd1defdc31134abefed027a639b3723c2753862150f4c3ee61cab71b20d67d
@@ -390,11 +403,13 @@ CHECKSUMS
   default_where (2.2.0) sha256=77f54769256ad5d961c44a6dd88d8d485a1c4487a549d2c178da9101f6fed0a0
   drb (2.2.1) sha256=e9d472bf785f558b96b25358bae115646da0dbfd45107ad858b0bc0d935cb340
   erubi (1.12.0) sha256=27bedb74dfb1e04ff60674975e182d8ca787f2224f2e8143268c7696f42e4723
-  faraday (2.10.0) sha256=1a3e6c02acc511fc334d799521f1013e449bde38aa2dceb3af71e8030519bda9
+  et-orbi (1.2.11)
+  faraday (2.10.1)
   faraday-net_http (3.1.1)
   faraday-retry (2.2.1) sha256=4146fed14549c0580bf14591fca419a40717de0dd24f267a8ec2d9a728677608
+  fugit (1.11.0)
   globalid (1.2.1) sha256=70bf76711871f843dbba72beb8613229a49429d1866828476f9c9d6ccc327ce9
-  http-2 (1.0.0) sha256=2fb16e6d878f5fb0e947d19b165b9ebe21a9f0b7e8ba35eb39758af5439eb166
+  http-2 (1.0.1)
   http-form_data (2.3.0) sha256=cc4eeb1361d9876821e31d7b1cf0b68f1cf874b201d27903480479d86448a5f3
   httpx (1.3.0) sha256=c7fc9eed0fbed825ee936d9efc26aca5fca4b97a6bfa3e448e6478f947b88bd7
   i18n (1.14.4) sha256=c7deedead0866ea9102975a4eab7968f53de50793a0c211a37808f75dd187551
@@ -428,11 +443,12 @@ CHECKSUMS
   ostruct (0.6.0) sha256=3b1736c99f4d985de36bde1155be5e22aaf6e564b30ff9bd481e2ef7c2d9ba85
   pdf-core (0.10.0) sha256=0a5d101e2063c01e3f941e1ee47cbb97f1adfc1395b58372f4f65f1300f3ce91
   pg (1.5.6) sha256=4bc3ad2438825eea68457373555e3fd4ea1a82027b8a6be98ef57c0d57292b1c
-  positioning (0.2.3) sha256=71bb40a5ad81c52cd10c0ce2fe8b61b128516273467688b59e93a254e9080c9a
+  positioning (0.2.5)
   prawn (2.5.0) sha256=f4e20e3b4f30bf5b9ae37dad15eb421831594553aa930b2391b0fa0a99c43cb6
   prawn-table (0.2.2) sha256=336d46e39e003f77bf973337a958af6a68300b941c85cb22288872dc2b36addb
   psych (5.1.2) sha256=337322f58fc2bf24827d2b9bd5ab595f6a72971867d151bb39980060ea40a368
   puma (6.4.2) sha256=3eb41999d00733280be3faeb00d610331b6965a537a8cd3d905f316c38575b44
+  raabro (1.4.0)
   racc (1.7.3) sha256=b785ab8a30ec43bce073c51dbbe791fd27000f68d1c996c95da98bf685316905
   rack (3.0.10) sha256=2fb98cf24147ad6a114a13cac8dd45531f451d2afd5cccabfb346b3aa58c7574
   rack-session (2.0.0) sha256=db04b2063e180369192a9046b4559af311990af38c6a93d4c600cee4eb6d4e81
@@ -458,6 +474,7 @@ CHECKSUMS
   ruby-ole (1.2.13.1) sha256=578d10dd2a797a2b35a1286c6fb2c9525f67c24791346fc8015d39f0ffa3cb72
   rubyzip (2.3.2) sha256=3f57e3935dc2255c414484fbf8d673b4909d8a6a57007ed754dde39342d2373f
   sdoc (2.6.1) sha256=d78305be6fe9f81cb93787c24f8c2d47e418c2f1de2e7ff75c032d465fe3c5f8
+  solid_queue (0.4.1)
   spreadsheet (1.3.1) sha256=abc8f3f652c3596ea7fdd72c58699d5f532553f95debb4976fed1605d87b9c9f
   stringio (3.1.0) sha256=c1f6263ae03a15025e51194ab19b06b15e06adcaaedb7f5f6c06ab60f5d67718
   thor (1.3.1) sha256=fa7e3471d4f6a27138e3d9c9b0d4daac9c3d7383927667ae83e9ab42ae7401ef
