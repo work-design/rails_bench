@@ -2,8 +2,8 @@
   <%= render partial: 'covers', locals: { model: @facilitate } if @facilitate.covers.length > 0 %>
 </div>
 
-<div class="box mx-3" style="z-index: 3">
-  <div class="weui-panel__hd">
+<div class="box is-padding-less mx-3" style="z-index: 3">
+  <div class="box-header">
     <span class="text-danger"><%= @facilitate.price.to_money.format.html_safe %></span>
     <span class="text-grey pl-2">预付</span>
     <span class="text-danger-dark"><%= @facilitate.advance_price.to_money.format.html_safe %></span>
@@ -13,7 +13,7 @@
 
 <% if @facilitate.facilitators.present? %>
 <div class="box mx-3">
-  <div class="weui-panel__hd">服务人员</div>
+  <div class="box-header">服务人员</div>
   <div class="weui-panel__bd">
     <%= render partial: 'facilitator', collection: @facilitate.facilitators, as: :model %>
   </div>

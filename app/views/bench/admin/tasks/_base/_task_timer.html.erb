@@ -6,7 +6,7 @@
     <% end %>
     <span class="tag is-light is-warning">
       <span>已开始：</span>
-      <time data-controller="count-up" data-count-up-time-value="<%= task.task_timer.created_at.to_fs(:iso8601) %>"><%= exact_distance_time(task.task_timer.created_at, Time.current) %></time>
+      <time data-controller="time-count" data-time-count-time-value="<%= task.task_timer.created_at.to_fs(:iso8601) %>"><%= exact_distance_time(task.task_timer.created_at, Time.current) %></time>
     </span>
   </div>
   <% else %>
