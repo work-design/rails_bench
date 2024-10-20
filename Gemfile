@@ -7,7 +7,6 @@ gem 'puma'
 gem 'pg'
 
 gem 'rails_com', github: 'work-design/rails_com'
-gem 'rails_profile', github: 'work-design/rails_profile'
 gem 'rails_finance', github: 'work-design/rails_finance'
 gem 'rails_audit', github: 'work-design/rails_audit'
 gem 'rails_data', github: 'work-design/rails_data'
