@@ -6,7 +6,7 @@
       <% if @task.member.avatar.attached? %>
         <%= image_tag @task.member.avatar, class: 'image is-32x32 is-rounded' %>
       <% else %>
-        <%= image_pack_tag 'avatar.png', class: 'image is-24x24 is-rounded' %>
+        <%= image_tag 'avatar.png', class: 'image is-24x24 is-rounded' %>
       <% end %>
       <span><%= @task.member.name %></span>
     <% end %>
