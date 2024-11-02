@@ -3,7 +3,6 @@ module Bench
     extend ActiveSupport::Concern
 
     included do
-      layout -> { turbo_frame_request? ? false : 'me' }
     end
 
   end

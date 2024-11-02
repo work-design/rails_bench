@@ -10,10 +10,10 @@
   </div>
   <div class="level-right">
     <div class="level-item">
-      <%= render partial: 'focus_item', locals: { task: task } %>
+      <%# render partial: 'focus_item', locals: { task: task } %>
     </div>
     <div class="level-item">
-      <%= render partial: 'state_item', locals: { task: task } %>
+      <%# render partial: 'state_item', locals: { task: task } %>
     </div>
     <div class="level-item">
       <time data-controller="time" class="text-grey"><%= task.created_at.to_fs(:iso8601) %></time>

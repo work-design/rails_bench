@@ -1,9 +1,13 @@
-<div class="menu-label">
-  <span><%= t('bench.me.title') %></span>
-  <%= link_to({ controller: 'bench/admin/home' }, aria: { label: '管理' }) do %>
-    <i class="fa-solid fa-cog"></i>
-  <% end %>
-</div>
-<div class="menu-list">
-  <%= link_to t('bench.me.tasks.index.title'), { controller: 'bench/me/tasks' }, class: active_helper(controllers: ['tasks', 'projects', 'bench/me/expenses', 'task_timers'], active: 'is-active') %>
+<div data-controller="menu" class="menu ex-accordion is-active">
+  <div class="menu-label">
+    <div>
+      <span><%= t('bench.me.title') %></span>
+    </div>
+    <%= link_to({ controller: 'bench/admin/home' }, aria: { label: '管理' }) do %>
+      <i class="fa-solid fa-cog"></i>
+    <% end %>
+  </div>
+  <div class="menu-list">
+    <%= link_to t('bench.me.tasks.index.title'), { controller: 'bench/me/tasks' }, class: active_helper(controllers: ['tasks', 'projects', 'bench/me/expenses', 'task_timers'], active: 'is-active') %>
+  </div>
 </div>
