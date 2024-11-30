@@ -4,7 +4,7 @@
     data-controller="mask wx-share"
     data-mask-id-value="mask"
     data-wx-share-title-value="<%= @facilitate.name %>"
-    data-wx-share-desc-value="<%= @facilitate.description %>>"
+    data-wx-share-desc-value="<%= @facilitate.description %>"
     data-wx-share-link-value="<%= url_for(controller: '/bench/facilitates', action: 'show', id: @facilitate.id, only_path: false) %>"
     data-wx-share-image-value="<%= @facilitate.logo.url %>"
     data-action="click->mask#show click->wx-share#ready"
