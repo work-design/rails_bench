@@ -1,12 +1,12 @@
 <div class="card">
   <div class="card-image">
-    <%= image_tag facilitate.logo, class: 'image' if facilitate.logo_attachment %>
+    <figure class="image is-1by1"><%= image_tag facilitate.logo if facilitate.logo.attached? %></figure>
   </div>
-  <div class="card-content">
+  <div class="card-content text-centered">
     <%= link_to facilitate.name, { action: 'show', id: facilitate.id } %>
     <p><%= facilitate.description %></p>
   </div>
-  <div class="card-footer">
-    <%# link_to '加入购物车', add_my_cart_path(good_id: facilitate.id, good_type: 'Facilitate'), class: 'button' %>
+  <div class="card-footer py-2">
+    <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: facilitate.id), cart: @cart, item_con: 'trade/my/items' } %>
   </div>
 </div>

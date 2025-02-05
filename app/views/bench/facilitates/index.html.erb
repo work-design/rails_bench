@@ -3,6 +3,9 @@
   <div class="cards is-4">
     <%= render partial: 'card', collection: @facilitates, as: :facilitate %>
   </div>
+  <%= paginate @facilitates %>
 </div>
 
-<%= paginate @facilitates %>
+<div class="column is-one-fifth">
+  <%= render partial: 'cart_nav', locals: { cart_con: 'trade/my/carts', cart: @cart } if @cart %>
+</div>
