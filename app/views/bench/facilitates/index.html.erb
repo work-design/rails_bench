@@ -1,7 +1,7 @@
 <div class="column">
   <%= render 'taxon' %>
   <div class="cards is-4">
-    <%= render partial: 'card', collection: @facilitates, as: :facilitate %>
+    <%= render partial: 'card', collection: @facilitates, as: :model %>
   </div>
   <%= paginate @facilitates %>
 </div>
