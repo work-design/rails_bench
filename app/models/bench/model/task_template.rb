@@ -7,7 +7,7 @@ module Bench
       attribute :position, :integer
       attribute :color, :string
       attribute :repeat_type, :string, default: 'once'
-      attribute :repeat_days, :integer, array: true
+      attribute :repeat_days, :json
 
       belongs_to :taxon, optional: true
 
