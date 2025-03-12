@@ -1,12 +1,9 @@
-<div data-controller="menu" class="<%= role_permit?(business: 'bench', namespace: 'me') ? 'menu ex-accordion is-active' : 'display-none'  %>">
-  <div class="menu-label">
+<div data-controller="menu" class="menu ex-accordion is-active">
+  <%= link_to({ controller: 'bench/admin/home' }, text: true, class: 'menu-label') do %>
     <div>
       <span><%= t('bench.me.title') %></span>
     </div>
-    <%= link_to({ controller: 'bench/admin/home' }, aria: { label: '管理' }) do %>
-      <i class="fa-solid fa-cog"></i>
-    <% end %>
-  </div>
+  <% end %>
   <div class="menu-list">
     <%= link_to t('bench.me.tasks.index.title'), { controller: 'bench/me/tasks' }, class: active_helper(controllers: ['tasks', 'projects', 'bench/me/expenses', 'task_timers'], active: 'is-active') %>
   </div>
