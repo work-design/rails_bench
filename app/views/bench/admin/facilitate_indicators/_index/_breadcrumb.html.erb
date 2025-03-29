@@ -1,6 +1,3 @@
 <li><%= link_to t('.facilitates.index.title'), { controller: 'facilitates' } %></li>
-<li>
-  <%= image_tag @facilitate.logo, class: 'image is-24x24' if @facilitate.logo.attached? %>
-  <span class="px-3"><%= @facilitate.name %></span>
-</li>
+<li><span class="px-3"><%= @facilitate.name %></span></li>
 <li class="is-active"><%= t('.title') %></li>
