@@ -8,6 +8,10 @@
     <p class="text-grey"><%= model.description %></p>
   </div>
   <div class="card-footer py-2">
+  <% if @cart %>
     <%= render partial: 'cart_item', locals: { item: @cart.init_cart_item(params, good_id: model.id), cart: @cart, item_con: 'trade/my/items' } %>
+  <% else %>
+    <button class="button">登录后下单</button>
+  <% end %>
   </div>
 </div>
