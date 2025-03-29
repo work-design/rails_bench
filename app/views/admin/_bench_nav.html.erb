@@ -6,7 +6,7 @@
     </div>
   <% end %>
   <div data-empty-target="content" class="menu-list">
-    <%= link_to t('bench.admin.projects.index.title'), { controller: 'bench/admin/projects' }, class: active_helper(controllers: ['projects', 'taxon_indicators', 'taxon_facilitates', 'task_templates'], financial_type: 'Bench::Taxon', active: 'is-active') %>
-    <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') %>
+    <%= link_to t('bench.admin.projects.index.title'), { controller: 'bench/admin/projects' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['projects', 'taxon_indicators', 'taxon_facilitates', 'task_templates'], financial_type: 'Bench::Taxon', active: 'is-active') %>
+    <%= link_to t('bench.admin.facilitates.index.title'), { controller: 'bench/admin/facilitates' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['facilitates', 'facilitate_providers', 'facilitate_indicators'], active: 'is-active') %>
   </div>
 </div>
