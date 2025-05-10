@@ -1,4 +1,4 @@
-<div class="<%= active_helper(modules: 'provider/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>" data-controller="menu">
+<div class="<%= active_helper(modules: 'provider/admin', active: 'menu ex-accordion is-active', item: 'menu ex-accordion') %>">
   <%= content_tag :div, class: 'menu-list' do %>
     <%= link_to t('bench.admin.facilitate_providers.index.title'), { controller: 'provider/admin/facilitates' }, class: active_helper(controllers: ['facilitate_providers'], active: 'is-active') -%>
   <% end %>
