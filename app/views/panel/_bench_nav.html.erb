@@ -1,11 +1,11 @@
-<div class="menu ex-accordion is-active">
-  <div class="menu-label">
+<div class="menu-list">
+  <div class="menu-item">
     <div>
       <i class="fa-solid fa-share-alt"></i>
       <span><%= t('bench.panel.title') %></span>
     </div>
   </div>
-  <div class="menu-list">
-    <%= link_to t('bench.panel.taxons.index.title'), { controller: 'bench/panel/taxons' }, class: active_helper(controllers: ['taxons', 'facilitate_providers', 'task_templates'], active: 'is-active') %>
+  <div class="menu-list pl-3">
+    <%= link_to t('bench.panel.taxons.index.title'), { controller: 'bench/panel/taxons' }, data: { turbo_frame: 'body', action: 'menu#enter' }, class: active_helper(controllers: ['taxons', 'facilitate_providers', 'task_templates'], item: 'menu-item', active: 'menu-item is-active') %>
   </div>
 </div>
